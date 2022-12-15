@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91a31582-4f12-4913-b1d4-5c39bbd3c67f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/ISPW.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ISPW.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="91a31582-4f12-4913-b1d4-5c39bbd3c67f" name="Changes" comment="Correzione">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code.java" beforeDir="false" afterPath="$PROJECT_DIR$/Code.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +43,12 @@
       <workItem from="1667326656840" duration="1232000" />
       <workItem from="1667332764988" duration="194000" />
       <workItem from="1667333003722" duration="37000" />
+      <workItem from="1667336610499" duration="142000" />
+      <workItem from="1667336776934" duration="21000" />
+      <workItem from="1667938644791" duration="68000" />
+      <workItem from="1669109363313" duration="649000" />
+      <workItem from="1669371320741" duration="94000" />
+      <workItem from="1671104595430" duration="570000" />
     </task>
     <servers />
   </component>
@@ -67,5 +68,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Correzione" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correzione" />
   </component>
 </project>
