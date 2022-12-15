@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91a31582-4f12-4913-b1d4-5c39bbd3c67f" name="Changes" comment="Correzione">
+    <list default="true" id="91a31582-4f12-4913-b1d4-5c39bbd3c67f" name="Changes" comment="Test">
+      <change afterPath="$PROJECT_DIR$/test/Code.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -10,6 +11,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -48,7 +54,7 @@
       <workItem from="1667938644791" duration="68000" />
       <workItem from="1669109363313" duration="649000" />
       <workItem from="1669371320741" duration="94000" />
-      <workItem from="1671104595430" duration="1392000" />
+      <workItem from="1671104595430" duration="1994000" />
     </task>
     <task id="LOCAL-00001" summary="Correzione">
       <created>1671105284716</created>
@@ -71,7 +77,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671105532049</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Test">
+      <created>1671106065746</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671106065746</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -91,6 +104,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Correzione" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correzione" />
+    <MESSAGE value="Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test" />
   </component>
 </project>
