@@ -1,0 +1,22 @@
+
+l	java:S116"WRename this field "CommentExtra" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½Óğ
+o	java:S116"URename this field "InsertDate" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ÜÎüÿÿÿÿ
+f	java:S116"QRename this field "NamePT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ƒË®ü
+j	java:S116"URename this field "NameScheda" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³µÍÀ
+u	java:S116 "[Rename this field "NameSurnameAge11" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ööò‘ûÿÿÿÿ
+k	java:S116#"VRename this field "NameWorkout" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ„ô¼
+j	java:S116&"PRename this field "Text1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õôòäûÿÿÿÿ
+j	java:S116)"PRename this field "Text2" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©·‚Äşÿÿÿÿ
+e	java:S116,"PRename this field "Text3" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒùĞ®
+e	java:S116/"PRename this field "Text4" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(À‡Ò±
+p	java:S1162"[Rename this field "WorkoutPlan2Pane" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯˜ö
+
+java:S1186‹"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(„µ¨Šùÿÿÿÿ
+˜
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ôüı¬
+
+java:S1186•"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ƒ»µğúÿÿÿÿ
+˜
+java:S1186£"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‹˜›ê
+ˆ
+java:S4144±"qUpdate this method so that its implementation is not identical to "clickedOnBuyWorkoutPlanHyperlink" on line 168.(Õ×ß
