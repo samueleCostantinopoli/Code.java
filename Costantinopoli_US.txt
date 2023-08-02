@@ -1,5 +1,0 @@
-User stories (Samuele):
-1.      As a user, I want to buy a workout plan, so that I can work out in the gym.
-2.      As a user, I want to save a workout, so that I can save my progress.
-3.      As a personal trainer user, I want to insert my features so that clients can reach me.
-
