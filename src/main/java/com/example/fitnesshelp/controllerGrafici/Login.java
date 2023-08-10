@@ -1,4 +1,4 @@
-package com.example.fitnesshelp;
+package com.example.fitnesshelp.controllerGrafici;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

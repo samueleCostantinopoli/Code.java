@@ -1,4 +1,4 @@
-package com.example.fitnesshelp;
+package com.example.fitnesshelp.controllerGrafici;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,20 +9,33 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HomePage {
+public class FindAGymNearMe {
+
+    @FXML
+    private AnchorPane Gym1Pane;
+
+    @FXML
+    private AnchorPane Gym2Pane;
+
+    @FXML
+    private AnchorPane GymPane;
 
     @FXML
     private Hyperlink accountHyperlink;
 
     @FXML
-    private Hyperlink buyWorkoutPlanHyperlink;
+    private Label addressGym1;
 
     @FXML
-    private Button createNewButton;
+    private Label addressGym2;
+
+    @FXML
+    private Hyperlink buyWorkoutPlanHyperlink;
 
     @FXML
     private Hyperlink findAGymNearMeHyperlink;
@@ -31,19 +44,28 @@ public class HomePage {
     private Hyperlink homeHyperlink;
 
     @FXML
-    private ImageView homeImage;
+    private ImageView homeImageView;
 
     @FXML
     private Hyperlink logoutHyperlink;
 
     @FXML
-    private ImageView logoutImage;
+    private ImageView logoutImageView;
+
+    @FXML
+    private ImageView mapsImageView;
 
     @FXML
     private Hyperlink myTrainingDiaryHyperlink;
 
     @FXML
     private Hyperlink myWorkoutPlanHyperlink;
+
+    @FXML
+    private Label nameGym1;
+
+    @FXML
+    private Label nameGym2;
 
     @FXML
     private Label nameSurname;
@@ -55,17 +77,19 @@ public class HomePage {
     private ImageView profileImage;
 
     @FXML
-    private Label simpleDescription;
-
-    @FXML
-    private Label simpleDescription2;
+    private Button showAllGymButton;
 
     @FXML
     private Label title;
 
     @FXML
-    private Label welocme;
+    private Button viewInfoGym1Button;
 
+    @FXML
+    private Button viewInfoGym2Button;
+
+    @FXML
+    private Label welocme;
     private Stage stage;
     private Scene scene;
     private FXMLLoader root;
@@ -79,7 +103,17 @@ public class HomePage {
     }
 
     @FXML
-    void clickedOnButtonCreateNew(ActionEvent event) {
+    void clickedOnButtonShowAllGym(ActionEvent event) {
+
+    }
+
+    @FXML
+    void clickedOnButtonViewInfoGym1(ActionEvent event) {
+
+    }
+
+    @FXML
+    void clickedOnButtonViewInfoGym2(ActionEvent event) {
 
     }
 
@@ -100,9 +134,8 @@ public class HomePage {
         stage.setScene(scene);
         stage.show();
     }
-
     @FXML
-    void clickedOnHomeHyperlink(ActionEvent event) throws IOException{
+    void clickedOnHomeHyperlink(ActionEvent event) throws IOException {
         root = new FXMLLoader(getClass().getResource("homePage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());

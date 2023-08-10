@@ -8,46 +8,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnesshelp.FindAGymNearMe">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.contrellgrafici.ControllerGraficoFindAGymNearMe">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="600.0">
          <children>
             <AnchorPane prefHeight="600.0" prefWidth="800.0">
                <children>
-                  <AnchorPane layoutY="100.0" prefHeight="501.0" prefWidth="150.0" style="-fx-background-color: #464646;">
-                     <children>
-                        <Hyperlink fx:id="myWorkoutPlanHyperlink" layoutX="17.0" layoutY="46.0" onAction="#clickedOnMyWorkoutPlanHyperlink" text="my workout plan" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Hyperlink>
-                        <Hyperlink fx:id="findAGymNearMeHyperlink" layoutX="11.0" layoutY="105.0" onAction="#clickedOnFindAGymNearMeHyperlink" text="find a gym near me" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Hyperlink>
-                        <Hyperlink fx:id="personalTrainerHyperlink" layoutX="21.0" layoutY="159.0" onAction="#clickedOnPersonalTrainerHyperlink" text="personal trainer" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Hyperlink>
-                        <Hyperlink fx:id="buyWorkoutPlanHyperlink" layoutX="17.0" layoutY="213.0" onAction="#clickedOnBuyWorkoutPlanHyperlink" text="buy workout plan" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Hyperlink>
-                        <Hyperlink fx:id="myTrainingDiaryHyperlink" layoutX="19.0" layoutY="269.0" onAction="#clickedOnMyTrainingDiaryHyperlink" text="my training diary" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Hyperlink>
-                        <Hyperlink fx:id="accountHyperlink" layoutX="47.0" layoutY="326.0" onAction="#clickedOnAccountHyperlink" text="account" textFill="WHITE">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Hyperlink>
-                     </children>
-                  </AnchorPane>
                   <Hyperlink fx:id="logoutHyperlink" layoutX="704.0" layoutY="106.0" onAction="#clickedOnLogoutHyperlink" text="logout">
                      <font>
                         <Font size="14.0" />
@@ -60,7 +26,7 @@
                   </Hyperlink>
                   <ImageView fx:id="logoutImageView" fitHeight="31.0" fitWidth="39.0" layoutX="755.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../logout.png" />
+                        <Image url="@../../../../../../../FitnessHelp/src/main/resources/logout.png" />
                      </image>
                   </ImageView>
                   <Hyperlink fx:id="findAGymNearMeHyperlink" layoutX="228.0" layoutY="106.0" onAction="#clickedOnFindAGymNearMeHyperlink" text="&gt; find a gym near me">
@@ -106,12 +72,12 @@
                   </AnchorPane>
                   <ImageView fx:id="mapsImageView" fitHeight="469.0" fitWidth="461.0" layoutX="331.0" layoutY="186.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../palestreMaps.PNG" />
+                        <Image url="@../../../../../../../FitnessHelp/src/main/resources/palestreMaps.PNG" />
                      </image>
                   </ImageView>
                   <ImageView fx:id="homeImageView" fitHeight="31.0" fitWidth="31.0" layoutX="159.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../home.png" />
+                        <Image url="@../../../../../../../FitnessHelp/src/main/resources/home.png" />
                      </image>
                   </ImageView>
                   <AnchorPane prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: #231717;">
@@ -123,7 +89,7 @@
                         </Label>
                         <ImageView fx:id="profileImage" fitHeight="59.0" fitWidth="59.0" layoutX="727.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../man.png" />
+                              <Image url="@../../../../../../../FitnessHelp/src/main/resources/man.png" />
                            </image>
                         </ImageView>
                         <Label fx:id="welocme" layoutX="646.0" layoutY="31.0" text="Welcome," textFill="WHITE">
@@ -136,6 +102,45 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutY="100.0" prefHeight="501.0" prefWidth="150.0" style="-fx-background-color: #464646;">
+                     <children>
+                        <Hyperlink fx:id="myWorkoutPlanHyperlink" layoutX="17.0" layoutY="46.0" onAction="#clickedOnMyWorkoutPlanHyperlink" text="my workout plan" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="findAGymNearMeHyperlink1" layoutX="10.0" layoutY="160.0" onAction="#clickedOnFindAGymNearMeHyperlink" text="find a gym near me" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="personalTrainerHyperlink1" layoutX="20.0" layoutY="214.0" onAction="#clickedOnPersonalTrainerHyperlink" text="personal trainer" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="buyWorkoutPlanHyperlink" layoutX="16.0" layoutY="268.0" onAction="#clickedOnBuyWorkoutPlanHyperlink" text="buy workout plan" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="myTrainingDiaryHyperlink" layoutX="18.0" layoutY="324.0" onAction="#clickedOnMyTrainingDiaryHyperlink" text="my training diary" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="accountHyperlink" layoutX="46.0" layoutY="381.0" onAction="#clickedOnAccountHyperlink" text="account" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Hyperlink>
+                        <Hyperlink fx:id="tdeeCalculatorHyperlink" layoutX="23.0" layoutY="104.0" onAction="#clickedOnTdeeCalculatorHyperlink" text="tdee calculator" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Hyperlink>
                      </children>
                   </AnchorPane>
                </children>

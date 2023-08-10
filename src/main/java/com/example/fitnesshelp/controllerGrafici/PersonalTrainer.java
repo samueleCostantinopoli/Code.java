@@ -1,4 +1,4 @@
-package com.example.fitnesshelp;
+package com.example.fitnesshelp.controllerGrafici;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,28 +14,40 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class FindAGymNearMe {
+public class PersonalTrainer {
 
     @FXML
-    private AnchorPane Gym1Pane;
+    private Label NameSurnameAge1;
 
     @FXML
-    private AnchorPane Gym2Pane;
-
-    @FXML
-    private AnchorPane GymPane;
+    private Label NameSurnameAge2;
 
     @FXML
     private Hyperlink accountHyperlink;
 
     @FXML
-    private Label addressGym1;
-
-    @FXML
-    private Label addressGym2;
-
-    @FXML
     private Hyperlink buyWorkoutPlanHyperlink;
+
+    @FXML
+    private Button contacts1Button;
+
+    @FXML
+    private Button contacts2Button;
+
+    @FXML
+    private AnchorPane dataPersonal1Pane;
+
+    @FXML
+    private AnchorPane dataPersonal2Pane;
+
+    @FXML
+    private Label description2Personal1;
+
+    @FXML
+    private Label descriptionPersonal1;
+
+    @FXML
+    private Label descriptionPersonal2;
 
     @FXML
     private Hyperlink findAGymNearMeHyperlink;
@@ -53,22 +65,31 @@ public class FindAGymNearMe {
     private ImageView logoutImageView;
 
     @FXML
-    private ImageView mapsImageView;
-
-    @FXML
     private Hyperlink myTrainingDiaryHyperlink;
 
     @FXML
     private Hyperlink myWorkoutPlanHyperlink;
 
     @FXML
-    private Label nameGym1;
-
-    @FXML
-    private Label nameGym2;
-
-    @FXML
     private Label nameSurname;
+
+    @FXML
+    private Button nextPersonalButton;
+
+    @FXML
+    private Button pageOnePersonalButton;
+
+    @FXML
+    private Button pageTreePersonalButton;
+
+    @FXML
+    private Button pageTwoPersonalButton;
+
+    @FXML
+    private AnchorPane personal1Pane;
+
+    @FXML
+    private AnchorPane personal2Pane1;
 
     @FXML
     private Hyperlink personalTrainerHyperlink;
@@ -77,16 +98,19 @@ public class FindAGymNearMe {
     private ImageView profileImage;
 
     @FXML
-    private Button showAllGymButton;
-
-    @FXML
     private Label title;
 
     @FXML
-    private Button viewInfoGym1Button;
+    private Button viewProfile1Button;
 
     @FXML
-    private Button viewInfoGym2Button;
+    private Button viewProfile2Button;
+
+    @FXML
+    private Button viewWorkoutPlans1Button;
+
+    @FXML
+    private Button viewWorkoutPlans2Button;
 
     @FXML
     private Label welocme;
@@ -103,17 +127,37 @@ public class FindAGymNearMe {
     }
 
     @FXML
-    void clickedOnButtonShowAllGym(ActionEvent event) {
+    void clickedOnButtonContacts(ActionEvent event) {
 
     }
 
     @FXML
-    void clickedOnButtonViewInfoGym1(ActionEvent event) {
+    void clickedOnButtonNextPersonal(ActionEvent event) {
 
     }
 
     @FXML
-    void clickedOnButtonViewInfoGym2(ActionEvent event) {
+    void clickedOnButtonPageOnePersonal(ActionEvent event) {
+
+    }
+
+    @FXML
+    void clickedOnButtonPageTreePersonal(ActionEvent event) {
+
+    }
+
+    @FXML
+    void clickedOnButtonPageTwoPersonal(ActionEvent event) {
+
+    }
+
+    @FXML
+    void clickedOnButtonViewProfile(ActionEvent event) {
+
+    }
+
+    @FXML
+    void clickedOnButtonViewWorkoutPlans(ActionEvent event) {
 
     }
 
@@ -134,6 +178,8 @@ public class FindAGymNearMe {
         stage.setScene(scene);
         stage.show();
     }
+
+
     @FXML
     void clickedOnHomeHyperlink(ActionEvent event) throws IOException {
         root = new FXMLLoader(getClass().getResource("homePage.fxml"));

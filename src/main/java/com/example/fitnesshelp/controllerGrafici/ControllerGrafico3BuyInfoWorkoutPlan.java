@@ -1,4 +1,4 @@
-package com.example.fitnesshelp;
+package com.example.fitnesshelp.controllerGrafici;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,13 +9,45 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Account {
+public class ControllerGrafico3BuyInfoWorkoutPlan {
+
     @FXML
-    private Label NameAndSurname;
+    private Label CommentExtra;
+
+    @FXML
+    private Label InsertDate;
+
+    @FXML
+    private Label NamePT;
+
+    @FXML
+    private Label NameScheda;
+
+    @FXML
+    private Label NameSurnameAge11;
+
+    @FXML
+    private Label NameWorkout;
+
+    @FXML
+    private Label Text1;
+
+    @FXML
+    private Label Text2;
+
+    @FXML
+    private Label Text3;
+
+    @FXML
+    private Label Text4;
+
+    @FXML
+    private AnchorPane WorkoutPlan2Pane;
 
     @FXML
     private Hyperlink accountHyperlink;
@@ -24,19 +56,10 @@ public class Account {
     private Hyperlink buyWorkoutPlanHyperlink;
 
     @FXML
-    private Button changeEmailButton;
+    private Hyperlink buyWorkoutPlanHyperlink1;
 
     @FXML
-    private ImageView changeNameImageView;
-
-    @FXML
-    private Button changePasswordButton;
-
-    @FXML
-    private ImageView changeProfilePictureImageView1;
-
-    @FXML
-    private Label email;
+    private AnchorPane dataWorkoutPlan1Pane;
 
     @FXML
     private Hyperlink findAGymNearMeHyperlink;
@@ -63,40 +86,73 @@ public class Account {
     private Label nameSurname;
 
     @FXML
-    private Label password;
+    private Button nextBuyWorkoutPlanButton;
+
+    @FXML
+    private Button pageOneBuyWorkoutPlanButton;
+
+    @FXML
+    private Button pageTreeBuyWorkoutPlanButton;
+
+    @FXML
+    private Button pageTwoBuyWorkoutPlanButton;
+
+    @FXML
+    private Hyperlink personalTrainerHyperlink;
 
     @FXML
     private Hyperlink personalTrainerHyperlink1;
 
     @FXML
+    private Button previewWorkoutPlan2Button;
+
+    @FXML
+    private Button priceWorkoutPlan2Button;
+
+    @FXML
     private ImageView profileImage;
-
-    @FXML
-    private ImageView showPassword;
-
-    @FXML
-    private Button switchAccountButton;
 
     @FXML
     private Label title;
 
     @FXML
-    private Button viewPurchaseButton;
-
-    @FXML
     private Label welocme;
 
-    @FXML
-    private Label zoomEmail;
-
-    @FXML
-    private ImageView zoomProfileImage1;
     private Stage stage;
     private Scene scene;
     private FXMLLoader root;
+
+    public void BuyInfoWorkoutPlan(Label commentExtra) {
+        CommentExtra = commentExtra;
+    }
+
     @FXML
-    void clickedOnAccountHyperlink(ActionEvent event) throws IOException{
+    void clickedOnAccountHyperlink(ActionEvent event) throws IOException {
         root = new FXMLLoader(getClass().getResource("account.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root.load());
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void clickedOnButtonPageOneBuyWorkoutPlan(ActionEvent event) {
+
+    }
+
+    @FXML
+    void clickedOnButtonPageTreeBuyWorkoutPlan(ActionEvent event) {
+
+    }
+
+    @FXML
+    void clickedOnButtonPageTwoBuyWorkoutPlan(ActionEvent event) {
+
+    }
+
+    @FXML
+    void clickedOnButtonPreviewWorkoutPlan(ActionEvent event) throws IOException {
+        root = new FXMLLoader(getClass().getResource("buyPreviewWorkoutPlan.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());
         stage.setScene(scene);
@@ -104,27 +160,21 @@ public class Account {
     }
 
     @FXML
-    void clickedOnButtonChangeEmail(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnButtonChangePassword(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnButtonSwitchAccount(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnButtonViewPurchase(ActionEvent event) {
+    void clickedOnButtonPriceWorkoutPlan(ActionEvent event) {
 
     }
 
     @FXML
     void clickedOnBuyWorkoutPlanHyperlink(ActionEvent event) throws IOException {
+        root = new FXMLLoader(getClass().getResource("buyWorkoutPlan.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root.load());
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void clickedOnBuyWorkoutPlanHyperlink1(ActionEvent event) throws IOException {
         root = new FXMLLoader(getClass().getResource("buyWorkoutPlan.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());
@@ -187,5 +237,3 @@ public class Account {
     }
 
 }
-
-
