@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MyWorkoutPlan {
+public class MyWorkoutPlan extends HomePage{
 
     @FXML
     private Hyperlink accountHyperlink;
@@ -93,11 +93,8 @@ public class MyWorkoutPlan {
 
     @FXML
     void clickedOnHomeHyperlink(ActionEvent event) throws IOException {
-        root = new FXMLLoader(getClass().getResource("homePage.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root.load());
-        stage.setScene(scene);
-        stage.show();
+        stageToSwitch = "HomePage";
+        switchStage(event);
     }
 
     @FXML

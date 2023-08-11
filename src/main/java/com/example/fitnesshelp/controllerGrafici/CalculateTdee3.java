@@ -7,7 +7,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 
-public class CalculateTdee3 {
+public class CalculateTdee3 extends HomePage{
 
     @FXML
     private Hyperlink accountHyperlink;

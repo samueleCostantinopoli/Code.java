@@ -82,7 +82,7 @@ public class HomePage {
     }
     @FXML
     void clickedOnBuyWorkoutPlanHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "buyWorkoutPlan";
+        stageToSwitch = "/com/example/fitnesshelp/buyWorkoutPlan";
         switchStage(event);
     }
     @FXML
@@ -117,12 +117,12 @@ public class HomePage {
     }
     @FXML
     void clickedOnTdeeCalculatorHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "calculateTdee1";
+        stageToSwitch = "/com/example/fitnesshelp/calculateTdee1";
         switchStage(event);
     }
 
     void switchStage(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(stageToSwitch + ".fxml"));
+        FXMLLoader root = new FXMLLoader(getClass().getResource(stageToSwitch + ".fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root.load());
         stage.setScene(scene);
