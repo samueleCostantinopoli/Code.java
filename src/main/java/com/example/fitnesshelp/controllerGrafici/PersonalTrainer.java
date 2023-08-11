@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class PersonalTrainer {
+public class PersonalTrainer extends HomePage{
 
     @FXML
     private Label NameSurnameAge1;

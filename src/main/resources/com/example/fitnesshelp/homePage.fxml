@@ -57,12 +57,12 @@
             </Hyperlink>
             <ImageView fx:id="homeImageView" fitHeight="31.0" fitWidth="31.0" layoutX="159.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../FitnessHelp/src/main/resources/home.png" />
+                  <Image url="@../../../../../../../ISPW/src/main/resources/home.png" />
                </image>
             </ImageView>
             <ImageView fx:id="logoutImageView" fitHeight="31.0" fitWidth="39.0" layoutX="755.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../FitnessHelp/src/main/resources/logout.png" />
+                  <Image url="@../../../../../../../ISPW/src/main/resources/logout.png" />
                </image>
             </ImageView>
             <Button fx:id="createNewButton" layoutX="702.0" layoutY="556.0" mnemonicParsing="false" onAction="#clickedOnButtonCreateNew" style="-fx-background-color: #231717;" text="Create New" textFill="WHITE">

@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Account {
+public class Account extends HomePage{
     @FXML
     private Label NameAndSurname;
 

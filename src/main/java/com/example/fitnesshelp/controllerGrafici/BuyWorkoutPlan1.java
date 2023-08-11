@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class BuyWorkoutPlan1 {
+public class BuyWorkoutPlan1 extends HomePage{
 
     @FXML
     private Label NameSurnameAge1;

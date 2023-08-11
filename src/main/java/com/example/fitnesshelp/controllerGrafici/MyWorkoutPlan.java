@@ -66,7 +66,7 @@ public class MyWorkoutPlan extends HomePage{
     private FXMLLoader root;
     @FXML
     void clickedOnAccountHyperlink(ActionEvent event) throws IOException{
-        root = new FXMLLoader(getClass().getResource("account.fxml"));
+        root = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/account.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());
         stage.setScene(scene);
@@ -75,7 +75,7 @@ public class MyWorkoutPlan extends HomePage{
 
     @FXML
     void clickedOnBuyWorkoutPlanHyperlink(ActionEvent event) throws IOException {
-        root = new FXMLLoader(getClass().getResource("buyWorkoutPlan.fxml"));
+        root = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyWorkoutPlan.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());
         stage.setScene(scene);
@@ -84,7 +84,7 @@ public class MyWorkoutPlan extends HomePage{
 
     @FXML
     void clickedOnFindAGymNearMeHyperlink(ActionEvent event) throws IOException{
-        root = new FXMLLoader(getClass().getResource("findAGymNearMe.fxml"));
+        root = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/findAGymNearMe.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());
         stage.setScene(scene);
@@ -93,13 +93,13 @@ public class MyWorkoutPlan extends HomePage{
 
     @FXML
     void clickedOnHomeHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "HomePage";
+        stageToSwitch = "/com/example/fitnesshelp/HomePage";
         switchStage(event);
     }
 
     @FXML
     void clickedOnLogoutHyperlink(ActionEvent event) throws IOException{
-        root = new FXMLLoader(getClass().getResource("login.fxml"));
+        root = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/login.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());
         stage.setScene(scene);
@@ -108,7 +108,7 @@ public class MyWorkoutPlan extends HomePage{
 
     @FXML
     void clickedOnMyTrainingDiaryHyperlink(ActionEvent event) throws IOException{
-        root = new FXMLLoader(getClass().getResource("trainingDiary.fxml"));
+        root = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/trainingDiary.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());
         stage.setScene(scene);
@@ -117,7 +117,7 @@ public class MyWorkoutPlan extends HomePage{
 
     @FXML
     void clickedOnMyWorkoutPlanHyperlink(ActionEvent event) throws IOException{
-        root = new FXMLLoader(getClass().getResource("myWorkoutPlan.fxml"));
+        root = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/myWorkoutPlan.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());
         stage.setScene(scene);
@@ -126,7 +126,7 @@ public class MyWorkoutPlan extends HomePage{
 
     @FXML
     void clickedOnPersonalTrainerHyperlink(ActionEvent event) throws IOException{
-        root = new FXMLLoader(getClass().getResource("personalTrainer.fxml"));
+        root = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/personalTrainer.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());
         stage.setScene(scene);
@@ -134,5 +134,6 @@ public class MyWorkoutPlan extends HomePage{
     }
 
     public void clickedOnTdeeCalculatorHyperlink(ActionEvent event) {
+
     }
 }

@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class TrainingDiary {
+public class TrainingDiary extends HomePage{
 
     @FXML
     private Hyperlink accountHyperlink;

@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class FindAGymNearMe {
+public class FindAGymNearMe extends HomePage{
 
     @FXML
     private AnchorPane Gym1Pane;

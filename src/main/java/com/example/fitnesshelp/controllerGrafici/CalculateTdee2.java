@@ -10,7 +10,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 
-public class CalculateTdee2 {
+public class CalculateTdee2 extends HomePage{
 
     @FXML
     private Hyperlink accountHyperlink;

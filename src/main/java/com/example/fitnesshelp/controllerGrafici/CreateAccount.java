@@ -7,7 +7,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class CreateAccount {
+public class CreateAccount extends HomePage{
 
     @FXML
     private Label email;

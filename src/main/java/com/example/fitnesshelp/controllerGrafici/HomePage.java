@@ -72,12 +72,12 @@ public class HomePage {
     public String stageToSwitch;
     @FXML
     void clickedOnAccountHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "account";
+        stageToSwitch = "/com/example/fitnesshelp/account";
         switchStage(event);
     }
     @FXML
     void clickedOnButtonCreateNew(ActionEvent event) throws IOException {
-        stageToSwitch = "createWorkout";
+        stageToSwitch = "/com/example/fitnesshelp/createWorkout";
         switchStage(event);
     }
     @FXML
@@ -87,32 +87,32 @@ public class HomePage {
     }
     @FXML
     void clickedOnFindAGymNearMeHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "findAGymNearMe";
+        stageToSwitch = "/com/example/fitnesshelp/findAGymNearMe";
         switchStage(event);
     }
     @FXML
     void clickedOnHomeHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "homePage";
+        stageToSwitch = "/com/example/fitnesshelp/homePage";
         switchStage(event);
     }
     @FXML
     void clickedOnLogoutHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "login";
+        stageToSwitch = "/com/example/fitnesshelp/login";
         switchStage(event);
     }
     @FXML
     void clickedOnMyTrainingDiaryHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "trainingDiary";
+        stageToSwitch = "/com/example/fitnesshelp/trainingDiary";
         switchStage(event);
     }
     @FXML
     void clickedOnMyWorkoutPlanHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "myWorkoutPlan";
+        stageToSwitch = "/com/example/fitnesshelp/myWorkoutPlan";
         switchStage(event);
     }
     @FXML
     void clickedOnPersonalTrainerHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "personalTrainer";
+        stageToSwitch = "/com/example/fitnesshelp/personalTrainer";
         switchStage(event);
     }
     @FXML

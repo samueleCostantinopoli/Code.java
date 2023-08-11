@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class BuyWorkoutPlan3 {
+public class BuyWorkoutPlan3 extends HomePage{
 
     @FXML
     private Label CommentExtra;

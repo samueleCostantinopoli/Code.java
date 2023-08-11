@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Login {
+public class Login extends HomePage{
 
     @FXML
     private Button buttonCreateAccount;
