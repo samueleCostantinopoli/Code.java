@@ -225,4 +225,6 @@ public class PersonalTrainer {
         stage.show();
     }
 
+    public void clickedOnTdeeCalculatorHyperlink(ActionEvent event) {
+    }
 }

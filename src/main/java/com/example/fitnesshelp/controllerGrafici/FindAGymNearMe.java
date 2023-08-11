@@ -179,4 +179,9 @@ public class FindAGymNearMe {
         stage.show();
     }
 
+    public void clickedOnHyperlinkBack(ActionEvent event) {
+    }
+
+    public void clickedOnTdeeCalculatorHyperlink(ActionEvent event) {
+    }
 }

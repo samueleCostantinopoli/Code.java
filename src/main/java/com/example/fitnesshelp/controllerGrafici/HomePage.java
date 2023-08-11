@@ -69,81 +69,63 @@ public class HomePage {
     private Stage stage;
     private Scene scene;
     private FXMLLoader root;
+    public String stageToSwitch;
     @FXML
-    void clickedOnAccountHyperlink(ActionEvent event) throws IOException{
-        root = new FXMLLoader(getClass().getResource("account.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root.load());
-        stage.setScene(scene);
-        stage.show();
+    void clickedOnAccountHyperlink(ActionEvent event) throws IOException {
+        stageToSwitch = "account";
+        switchStage(event);
     }
-
     @FXML
-    void clickedOnButtonCreateNew(ActionEvent event) {
-
+    void clickedOnButtonCreateNew(ActionEvent event) throws IOException {
+        stageToSwitch = "createWorkout";
+        switchStage(event);
     }
-
     @FXML
     void clickedOnBuyWorkoutPlanHyperlink(ActionEvent event) throws IOException {
-        root = new FXMLLoader(getClass().getResource("buyWorkoutPlan.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root.load());
-        stage.setScene(scene);
-        stage.show();
+        stageToSwitch = "buyWorkoutPlan";
+        switchStage(event);
     }
-
     @FXML
-    void clickedOnFindAGymNearMeHyperlink(ActionEvent event) throws IOException{
-        root = new FXMLLoader(getClass().getResource("findAGymNearMe.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root.load());
-        stage.setScene(scene);
-        stage.show();
+    void clickedOnFindAGymNearMeHyperlink(ActionEvent event) throws IOException {
+        stageToSwitch = "findAGymNearMe";
+        switchStage(event);
     }
-
     @FXML
-    void clickedOnHomeHyperlink(ActionEvent event) throws IOException{
-        root = new FXMLLoader(getClass().getResource("homePage.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root.load());
-        stage.setScene(scene);
-        stage.show();
+    void clickedOnHomeHyperlink(ActionEvent event) throws IOException {
+        stageToSwitch = "homePage";
+        switchStage(event);
     }
-
     @FXML
-    void clickedOnLogoutHyperlink(ActionEvent event) throws IOException{
-        root = new FXMLLoader(getClass().getResource("login.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root.load());
-        stage.setScene(scene);
-        stage.show();
+    void clickedOnLogoutHyperlink(ActionEvent event) throws IOException {
+        stageToSwitch = "login";
+        switchStage(event);
     }
-
     @FXML
-    void clickedOnMyTrainingDiaryHyperlink(ActionEvent event) throws IOException{
-        root = new FXMLLoader(getClass().getResource("trainingDiary.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root.load());
-        stage.setScene(scene);
-        stage.show();
+    void clickedOnMyTrainingDiaryHyperlink(ActionEvent event) throws IOException {
+        stageToSwitch = "trainingDiary";
+        switchStage(event);
     }
-
     @FXML
-    void clickedOnMyWorkoutPlanHyperlink(ActionEvent event) throws IOException{
-        root = new FXMLLoader(getClass().getResource("myWorkoutPlan.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root.load());
-        stage.setScene(scene);
-        stage.show();
+    void clickedOnMyWorkoutPlanHyperlink(ActionEvent event) throws IOException {
+        stageToSwitch = "myWorkoutPlan";
+        switchStage(event);
     }
-
     @FXML
-    void clickedOnPersonalTrainerHyperlink(ActionEvent event) throws IOException{
-        root = new FXMLLoader(getClass().getResource("personalTrainer.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root.load());
+    void clickedOnPersonalTrainerHyperlink(ActionEvent event) throws IOException {
+        stageToSwitch = "personalTrainer";
+        switchStage(event);
+    }
+    @FXML
+    void clickedOnTdeeCalculatorHyperlink(ActionEvent event) throws IOException {
+        stageToSwitch = "calculateTdee1";
+        switchStage(event);
+    }
+
+    void switchStage(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(stageToSwitch + ".fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root.load());
         stage.setScene(scene);
         stage.show();
     }
-
 }

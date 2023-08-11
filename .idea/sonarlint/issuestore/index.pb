@@ -1,9 +1,9 @@
 
-{
-Ksrc/main/java/com/example/fitnesshelp/ControllerGrafico1BuyWorkoutPlan.java,0\2\02766fad1cc9f7a616ba1436938fc909651ddb18
-‚
-Rsrc/main/java/com/example/fitnesshelp/ControllerGrafico2BuyPreviewWorkoutPlan.java,4\9\49cf713668d7052d73a5e1efcbc1a9987d2a8424
-c
-3src/main/java/com/example/fitnesshelp/HomePage.java,3\5\35ddce13dda0c17b8e1a456b349666ee3e13db39
-
-Osrc/main/java/com/example/fitnesshelp/ControllerGrafico3BuyInfoWorkoutPlan.java,a\f\af8f66e9ccc205aaba967630557257f8c9d65568
+”
+dsrc/main/java/com/example/fitnesshelp/controllerGrafici/ControllerGrafico2BuyPreviewWorkoutPlan.java,4\6\469ef0ddf5508a8d9e40410dbaa870202d899f9e
+‘
+asrc/main/java/com/example/fitnesshelp/controllerGrafici/ControllerGrafico3BuyInfoWorkoutPlan.java,6\5\657908d9811cbb1fbf5fd0e2c2601592c51e59c0
+r
+Bsrc/main/java/com/example/fitnesshelp/controllerGrafici/Login.java,f\4\f49f1a0a757c4e87d88e00f048eccb81fdccc285
+N
+src/main/java/module-info.java,1\c\1c89a5491fbfda3fb050196d6a239f20200296e7

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.contrellgrafici.ControllerGraficoCreateWorkoutPlan">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnesshelp.controllerGrafici.CreateWorkoutPlan">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="600.0">
          <children>
@@ -66,7 +66,7 @@
                   </AnchorPane>
                   <ImageView fx:id="backImageView" fitHeight="49.0" fitWidth="33.0" layoutX="158.0" layoutY="554.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@icons8-back-arrow-50.png" />
+                        <Image url="@back.png" />
                      </image>
                   </ImageView>
                   <Hyperlink fx:id="backHyperlink" layoutX="190.0" layoutY="557.0" onAction="#clickedOnHyperlinkBack" text="Back">

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.contrellgrafici.ControllerGraficoGenerateWorkoutPlan1">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnesshelp.controllerGrafici.BuyWorkoutPlan2">
    <children>
       <AnchorPane prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: #231717;">
          <children>
@@ -19,7 +19,7 @@
             </Label>
             <ImageView fx:id="profileImage" fitHeight="59.0" fitWidth="59.0" layoutX="727.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../FitnessHelp/src/main/resources/man.png" />
+                  <Image url="@../../../man.png" />
                </image>
             </ImageView>
             <Label fx:id="welocme" layoutX="646.0" layoutY="31.0" text="Welcome," textFill="WHITE">
@@ -46,49 +46,82 @@
       </Hyperlink>
       <ImageView fx:id="homeImageView" fitHeight="31.0" fitWidth="31.0" layoutX="159.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../FitnessHelp/src/main/resources/home.png" />
+            <Image url="@../../../home.png" />
          </image>
       </ImageView>
       <ImageView fx:id="logoutImageView" fitHeight="31.0" fitWidth="39.0" layoutX="755.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../FitnessHelp/src/main/resources/logout.png" />
+            <Image url="@../../../logout.png" />
          </image>
       </ImageView>
-      <Hyperlink layoutX="230.0" layoutY="106.0" text="&gt; create new">
+      <Hyperlink fx:id="buyWorkoutPlanHyperlink1" layoutX="230.0" layoutY="106.0" onAction="#clickedOnBuyWorkoutPlanHyperlink" text="&gt; buy workout plan">
          <font>
             <Font size="14.0" />
          </font>
       </Hyperlink>
-      <ImageView fx:id="backImageView" fitHeight="49.0" fitWidth="33.0" layoutX="158.0" layoutY="554.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../../FitnessHelp/src/main/resources/com/example/fitnesshelp/icons8-back-arrow-50.png" />
-         </image>
-      </ImageView>
-      <Hyperlink fx:id="backHyperlink" layoutX="195.0" layoutY="557.0" onAction="#clickedOnHyperlinkBack" text="Back">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Hyperlink>
-      <Button fx:id="customButton" layoutX="433.0" layoutY="245.0" mnemonicParsing="false" onAction="#clickedOnButtonCustom" style="-fx-background-color: #231717;" text="Custom" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <Button fx:id="automaticButton" layoutX="425.0" layoutY="351.0" mnemonicParsing="false" onAction="#clickedOnButtonAutomatic" style="-fx-background-color: #231717;" text="Automatic" textFill="WHITE">
+      <AnchorPane fx:id="dataWorkoutPlan1Pane" layoutX="159.0" layoutY="175.0" prefHeight="40.0" prefWidth="630.0" style="-fx-background-color: #464646;">
+         <children>
+            <Label fx:id="NameSurnameAge1" layoutX="6.0" layoutY="11.0" text="Verticale - livello A" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Button fx:id="pageOneBuyWorkoutPlanButton" layoutX="400.0" layoutY="557.0" mnemonicParsing="false" onAction="#clickedOnButtonPageOneBuyWorkoutPlan" style="-fx-background-color: #231717;" text="1" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Label fx:id="customText" layoutX="178.0" layoutY="207.0" text="Do you already have experience in the world of fitness? You can create a custom workout plan">
+      <Button fx:id="pageTwoBuyWorkoutPlanButton" layoutX="435.0" layoutY="557.0" mnemonicParsing="false" onAction="#clickedOnButtonPageTwoBuyWorkoutPlan" style="-fx-background-color: #231717;" text="2" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
-      </Label>
-      <Label fx:id="automaticText" layoutX="273.0" layoutY="315.0" text="Are you a beginner? Don't worry we'll create your workout plan">
+      </Button>
+      <Button fx:id="pageTreeBuyWorkoutPlanButton" layoutX="470.0" layoutY="557.0" mnemonicParsing="false" onAction="#clickedOnButtonPageTreeBuyWorkoutPlan" style="-fx-background-color: #231717;" text="3" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
-      </Label>
+      </Button>
+      <Button fx:id="nextBuyWorkoutPlanButton" layoutX="505.0" layoutY="557.0" mnemonicParsing="false" onAction="#clickedOnButtonNextBuyWorkoutPlan" style="-fx-background-color: #231717;" text="&gt;" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <AnchorPane fx:id="WorkoutPlan2Pane" layoutX="159.0" layoutY="215.0" prefHeight="208.0" prefWidth="630.0" style="-fx-background-color: #dcdcdc;">
+         <children>
+            <Button fx:id="priceWorkoutPlan2Button" layoutX="556.0" layoutY="164.0" mnemonicParsing="false" onAction="#clickedOnButtonPriceWorkoutPlan" style="-fx-background-color: #231717;" text="19.99$" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="infoWorkoutPlan2Button" layoutX="432.0" layoutY="164.0" mnemonicParsing="false" onAction="#clickedOnButtonInfoWorkoutPlan" style="-fx-background-color: #231717;" text="info" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="prerequisites" layoutX="14.0" layoutY="14.0" text="Prerequisites:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="preview" layoutX="14.0" layoutY="84.0" text="Preview:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="insertPreview" layoutX="74.0" layoutY="84.0" text="insert preview">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="insertPrerequisites" layoutX="105.0" layoutY="14.0" text="insert prerequisites">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
       <AnchorPane layoutY="100.0" prefHeight="501.0" prefWidth="150.0" style="-fx-background-color: #464646;">
          <children>
             <Hyperlink fx:id="myWorkoutPlanHyperlink" layoutX="17.0" layoutY="46.0" onAction="#clickedOnMyWorkoutPlanHyperlink" text="my workout plan" textFill="WHITE">

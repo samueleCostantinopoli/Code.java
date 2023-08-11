@@ -14,37 +14,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ControllerGrafico3BuyInfoWorkoutPlan {
+public class BuyWorkoutPlan2 extends HomePage{
 
     @FXML
-    private Label CommentExtra;
-
-    @FXML
-    private Label InsertDate;
-
-    @FXML
-    private Label NamePT;
-
-    @FXML
-    private Label NameScheda;
-
-    @FXML
-    private Label NameSurnameAge11;
-
-    @FXML
-    private Label NameWorkout;
-
-    @FXML
-    private Label Text1;
-
-    @FXML
-    private Label Text2;
-
-    @FXML
-    private Label Text3;
-
-    @FXML
-    private Label Text4;
+    private Label NameSurnameAge1;
 
     @FXML
     private AnchorPane WorkoutPlan2Pane;
@@ -69,6 +42,15 @@ public class ControllerGrafico3BuyInfoWorkoutPlan {
 
     @FXML
     private ImageView homeImageView;
+
+    @FXML
+    private Button infoWorkoutPlan2Button;
+
+    @FXML
+    private Label insertPrerequisites;
+
+    @FXML
+    private Label insertPreview;
 
     @FXML
     private Hyperlink logoutHyperlink;
@@ -98,13 +80,13 @@ public class ControllerGrafico3BuyInfoWorkoutPlan {
     private Button pageTwoBuyWorkoutPlanButton;
 
     @FXML
-    private Hyperlink personalTrainerHyperlink;
-
-    @FXML
     private Hyperlink personalTrainerHyperlink1;
 
     @FXML
-    private Button previewWorkoutPlan2Button;
+    private Label prerequisites;
+
+    @FXML
+    private Label preview;
 
     @FXML
     private Button priceWorkoutPlan2Button;
@@ -122,17 +104,27 @@ public class ControllerGrafico3BuyInfoWorkoutPlan {
     private Scene scene;
     private FXMLLoader root;
 
-    public void BuyInfoWorkoutPlan(Label commentExtra) {
-        CommentExtra = commentExtra;
-    }
-
     @FXML
     void clickedOnAccountHyperlink(ActionEvent event) throws IOException {
         root = new FXMLLoader(getClass().getResource("account.fxml"));
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    void clickedOnButtonInfoWorkoutPlan(ActionEvent event) throws IOException {
+        root = new FXMLLoader(getClass().getResource("buyInfoWorkoutPlan.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root.load());
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    void clickedOnButtonNextBuyWorkoutPlan(ActionEvent event) {
+
     }
 
     @FXML
@@ -148,15 +140,6 @@ public class ControllerGrafico3BuyInfoWorkoutPlan {
     @FXML
     void clickedOnButtonPageTwoBuyWorkoutPlan(ActionEvent event) {
 
-    }
-
-    @FXML
-    void clickedOnButtonPreviewWorkoutPlan(ActionEvent event) throws IOException {
-        root = new FXMLLoader(getClass().getResource("buyPreviewWorkoutPlan.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root.load());
-        stage.setScene(scene);
-        stage.show();
     }
 
     @FXML
@@ -183,7 +166,7 @@ public class ControllerGrafico3BuyInfoWorkoutPlan {
     }
 
     @FXML
-    void clickedOnFindAGymNearMeHyperlink(ActionEvent event) throws IOException{
+    void clickedOnFindAGymNearMeHyperlink(ActionEvent event) throws IOException {
         root = new FXMLLoader(getClass().getResource("findAGymNearMe.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());
@@ -192,7 +175,7 @@ public class ControllerGrafico3BuyInfoWorkoutPlan {
     }
 
     @FXML
-    void clickedOnHomeHyperlink(ActionEvent event) throws IOException{
+    void clickedOnHomeHyperlink(ActionEvent event) throws IOException {
         root = new FXMLLoader(getClass().getResource("homePage.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());
@@ -201,7 +184,7 @@ public class ControllerGrafico3BuyInfoWorkoutPlan {
     }
 
     @FXML
-    void clickedOnLogoutHyperlink(ActionEvent event) throws IOException{
+    void clickedOnLogoutHyperlink(ActionEvent event) throws IOException {
         root = new FXMLLoader(getClass().getResource("login.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());
@@ -210,7 +193,7 @@ public class ControllerGrafico3BuyInfoWorkoutPlan {
     }
 
     @FXML
-    void clickedOnMyTrainingDiaryHyperlink(ActionEvent event) throws IOException{
+    void clickedOnMyTrainingDiaryHyperlink(ActionEvent event) throws IOException {
         root = new FXMLLoader(getClass().getResource("trainingDiary.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());
@@ -219,7 +202,7 @@ public class ControllerGrafico3BuyInfoWorkoutPlan {
     }
 
     @FXML
-    void clickedOnMyWorkoutPlanHyperlink(ActionEvent event) throws IOException{
+    void clickedOnMyWorkoutPlanHyperlink(ActionEvent event) throws IOException {
         root = new FXMLLoader(getClass().getResource("myWorkoutPlan.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());
@@ -228,7 +211,7 @@ public class ControllerGrafico3BuyInfoWorkoutPlan {
     }
 
     @FXML
-    void clickedOnPersonalTrainerHyperlink(ActionEvent event) throws IOException{
+    void clickedOnPersonalTrainerHyperlink(ActionEvent event) throws IOException {
         root = new FXMLLoader(getClass().getResource("personalTrainer.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root.load());
@@ -236,4 +219,8 @@ public class ControllerGrafico3BuyInfoWorkoutPlan {
         stage.show();
     }
 
+    public void clickedOnTdeeCalculatorHyperlink(ActionEvent event) throws IOException{
+        stageToSwitch = "calculateTdee1";
+        switchStage(event);
+    }
 }

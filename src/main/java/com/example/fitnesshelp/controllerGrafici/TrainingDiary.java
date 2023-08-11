@@ -146,4 +146,6 @@ public class TrainingDiary {
         stage.show();
     }
 
+    public void clickedOnTdeeCalculatorHyperlink(ActionEvent event) {
+    }
 }
