@@ -23,15 +23,15 @@
             </Hyperlink>
             <ImageView fx:id="homeImageView" fitHeight="31.0" fitWidth="31.0" layoutX="159.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../FitnessHelp/src/main/resources/home.png" />
+                  <Image url="@../../../../../../../ISPW/src/main/resources/home.png" />
                </image>
             </ImageView>
             <ImageView fx:id="logoutImageView" fitHeight="31.0" fitWidth="39.0" layoutX="755.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../FitnessHelp/src/main/resources/logout.png" />
+                  <Image url="@../../../../../../../ISPW/src/main/resources/logout.png" />
                </image>
             </ImageView>
-            <Hyperlink fx:id="myWorkoutPlanHyperlink" layoutX="230.0" layoutY="106.0" onAction="#clickedOnMyWorkoutPlanHyperlink" text="&gt; my workou plan">
+            <Hyperlink fx:id="myWorkoutPlanHyperlink" layoutX="230.0" layoutY="106.0" onAction="#clickedOnMyWorkoutPlanHyperlink" text="&gt; my workout plan">
                <font>
                   <Font size="14.0" />
                </font>

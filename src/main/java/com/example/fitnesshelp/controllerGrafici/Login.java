@@ -51,11 +51,8 @@ public class Login extends HomePage{
 
     @FXML
     void clickedOnHomeHyperlink(ActionEvent event) throws IOException {
-        root = new FXMLLoader(getClass().getResource("homePage.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root.load());
-        stage.setScene(scene);
-        stage.show();
+        stageToSwitch = "/com/example/fitnesshelp/homePage";
+        switchStage(event);
     }
 
     @FXML
