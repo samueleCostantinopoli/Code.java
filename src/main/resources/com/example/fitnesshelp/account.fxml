@@ -21,7 +21,7 @@
                   </Label>
                   <ImageView fx:id="profileImage" fitHeight="59.0" fitWidth="59.0" layoutX="727.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../ISPW/src/main/resources/man.png" />
+                        <Image url="@../../../man.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="welcome" layoutX="646.0" layoutY="31.0" text="Welcome," textFill="WHITE">
@@ -48,12 +48,12 @@
             </Hyperlink>
             <ImageView fx:id="homeImageView" fitHeight="31.0" fitWidth="31.0" layoutX="159.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../FitnessHelp/src/main/resources/home.png" />
+                  <Image url="@../../../home.png" />
                </image>
             </ImageView>
             <ImageView fx:id="logoutImageView" fitHeight="31.0" fitWidth="39.0" layoutX="755.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../FitnessHelp/src/main/resources/logout.png" />
+                  <Image url="@../../../logout.png" />
                </image>
             </ImageView>
             <Hyperlink fx:id="accountHyperlink1" layoutX="230.0" layoutY="106.0" onAction="#clickedOnAccountHyperlink" text="&gt; account">
@@ -63,7 +63,7 @@
             </Hyperlink>
             <ImageView fx:id="zoomProfileImage1" fitHeight="100.0" fitWidth="107.0" layoutX="208.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../ISPW/src/main/resources/man.png" />
+                  <Image url="@../../../man.png" />
                </image>
             </ImageView>
             <Label fx:id="NameAndSurname" layoutX="334.0" layoutY="198.0" text="Mario Rossi">
@@ -83,12 +83,12 @@
             </Button>
             <ImageView fx:id="changeNameImageView" fitHeight="32.0" fitWidth="31.0" layoutX="475.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../FitnessHelp/src/main/resources/com/example/fitnesshelp/edit.png" />
+                  <Image url="@edit.png" />
                </image>
             </ImageView>
             <ImageView fx:id="changeProfilePictureImageView1" fitHeight="32.0" fitWidth="31.0" layoutX="271.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../FitnessHelp/src/main/resources/com/example/fitnesshelp/edit.png" />
+                  <Image url="@edit.png" />
                </image>
             </ImageView>
             <Button fx:id="changePasswordButton" layoutX="206.0" layoutY="380.0" mnemonicParsing="false" onAction="#clickedOnButtonChangePassword" style="-fx-background-color: #231717;" text="Change password" textFill="WHITE">
@@ -108,7 +108,7 @@
             </Label>
             <ImageView fx:id="showPassword" fitHeight="32.0" fitWidth="31.0" layoutX="459.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../FitnessHelp/src/main/resources/com/example/fitnesshelp/view.png" />
+                  <Image url="@view.png" />
                </image>
             </ImageView>
             <Button fx:id="viewPurchaseButton" layoutX="206.0" layoutY="426.0" mnemonicParsing="false" onAction="#clickedOnButtonViewPurchase" style="-fx-background-color: #231717;" text="View purchase" textFill="WHITE">

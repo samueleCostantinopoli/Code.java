@@ -21,7 +21,7 @@
       </Hyperlink>
       <ImageView fx:id="logoutImageView" fitHeight="31.0" fitWidth="39.0" layoutX="755.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../FitnessHelp/src/main/resources/logout.png" />
+            <Image url="@../../../logout.png" />
          </image>
       </ImageView>
       <Hyperlink fx:id="findAGymNearMeHyperlink" layoutX="228.0" layoutY="106.0" onAction="#clickedOnFindAGymNearMeHyperlink" text="&gt; find a gym near me">
@@ -42,7 +42,7 @@
             </AnchorPane>
             <ImageView fx:id="gymImageView" fitHeight="128.0" fitWidth="203.0" layoutX="14.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../ISPW/src/main/resources/com/example/fitnesshelp/domus.PNG" />
+                  <Image url="@domus.PNG" />
                </image>
             </ImageView>
             <AnchorPane layoutX="14.0" layoutY="186.0" prefHeight="109.0" prefWidth="203.0" style="-fx-background-color: #464646;">
@@ -73,7 +73,7 @@
       </AnchorPane>
       <ImageView fx:id="homeImageView" fitHeight="31.0" fitWidth="31.0" layoutX="159.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../FitnessHelp/src/main/resources/home.png" />
+            <Image url="@../../../home.png" />
          </image>
       </ImageView>
       <AnchorPane prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: #231717;">
@@ -85,7 +85,7 @@
             </Label>
             <ImageView fx:id="profileImage" fitHeight="59.0" fitWidth="59.0" layoutX="727.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../ISPW/src/main/resources/man.png" />
+                  <Image url="@../../../man.png" />
                </image>
             </ImageView>
             <Label fx:id="welocme" layoutX="646.0" layoutY="31.0" text="Welcome," textFill="WHITE">
@@ -102,7 +102,7 @@
       </AnchorPane>
       <ImageView fx:id="backImageView" fitHeight="49.0" fitWidth="33.0" layoutX="159.0" layoutY="554.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../ISPW/src/main/resources/com/example/fitnesshelp/back.png" />
+            <Image url="@back.png" />
          </image>
       </ImageView>
       <Hyperlink fx:id="backHyperlink" layoutX="196.0" layoutY="557.0" onAction="#clickedOnHyperlinkBack" text="Back">

@@ -27,7 +27,7 @@
                   </Hyperlink>
                   <ImageView fx:id="logoutImageView" fitHeight="31.0" fitWidth="39.0" layoutX="755.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../FitnessHelp/src/main/resources/logout.png" />
+                        <Image url="@../../../logout.png" />
                      </image>
                   </ImageView>
                   <Hyperlink fx:id="customHyperlink" layoutX="228.0" layoutY="106.0" text="&gt; create new &gt; custom">
@@ -37,7 +37,7 @@
                   </Hyperlink>
                   <ImageView fx:id="homeImageView" fitHeight="31.0" fitWidth="31.0" layoutX="159.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../FitnessHelp/src/main/resources/home.png" />
+                        <Image url="@../../../home.png" />
                      </image>
                   </ImageView>
                   <AnchorPane prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: #231717;">
@@ -49,7 +49,7 @@
                         </Label>
                         <ImageView fx:id="profileImage" fitHeight="59.0" fitWidth="59.0" layoutX="727.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../../../../../FitnessHelp/src/main/resources/man.png" />
+                              <Image url="@../../../man.png" />
                            </image>
                         </ImageView>
                         <Label fx:id="welocme" layoutX="646.0" layoutY="31.0" text="Welcome," textFill="WHITE">
