@@ -35,24 +35,6 @@ public class FindAGymNearMe extends HomePage{
     private Label addressGym2;
 
     @FXML
-    private Hyperlink buyWorkoutPlanHyperlink;
-
-    @FXML
-    private Hyperlink findAGymNearMeHyperlink;
-
-    @FXML
-    private Hyperlink homeHyperlink;
-
-    @FXML
-    private ImageView homeImageView;
-
-    @FXML
-    private Hyperlink logoutHyperlink;
-
-    @FXML
-    private ImageView logoutImageView;
-
-    @FXML
     private ImageView mapsImageView;
 
     @FXML
@@ -89,17 +71,6 @@ public class FindAGymNearMe extends HomePage{
     private Button viewInfoGym2Button;
 
     @FXML
-    private Label welocme;
-    private Stage stage;
-    private Scene scene;
-    private FXMLLoader root;
-    @FXML
-    void clickedOnAccountHyperlink(ActionEvent event) throws IOException{
-        stageToSwitch= "/com/example/fitnesshelp/account";
-        switchStage(event);
-    }
-
-    @FXML
     void clickedOnButtonShowAllGym(ActionEvent event) {
 
     }
@@ -113,48 +84,7 @@ public class FindAGymNearMe extends HomePage{
     void clickedOnButtonViewInfoGym2(ActionEvent event) {
 
     }
-
-    @FXML
-    void clickedOnBuyWorkoutPlanHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "/com/example/fitnesshelp/buyWorkoutPlan";
-        switchStage(event);
-    }
-
-    @FXML
-    void clickedOnFindAGymNearMeHyperlink(ActionEvent event) throws IOException{
-        stageToSwitch = "/com/example/fitnesshelp/findAGymNearMe";
-        switchStage(event);
-    }
-    @FXML
-    void clickedOnHomeHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "/com/example/fitnesshelp/HomePage";
-        switchStage(event);
-    }
-
-    @FXML
-    void clickedOnLogoutHyperlink(ActionEvent event) throws IOException{
-        stageToSwitch = "/com/example/fitnesshelp/login";
-        switchStage(event);
-    }
-
-    @FXML
-    void clickedOnMyTrainingDiaryHyperlink(ActionEvent event) throws IOException{
-        stageToSwitch = "/com/example/fitnesshelp/trainingDiary";
-        switchStage(event);
-    }
-
-    @FXML
-    void clickedOnMyWorkoutPlanHyperlink(ActionEvent event) throws IOException{
-        stageToSwitch = "/com/example/fitnesshelp/myWorkoutPlan";
-        switchStage(event);
-    }
-
-    @FXML
-    void clickedOnPersonalTrainerHyperlink(ActionEvent event) throws IOException{
-        stageToSwitch = "/com/example/fitnesshelp/personalTrainer";
-        switchStage(event);
-    }
-
+    // TODO
     public void clickedOnHyperlinkBack(ActionEvent event) {
     }
 
