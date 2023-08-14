@@ -64,7 +64,7 @@ public class HomePage {
     private Label title;
 
     @FXML
-    private Label welocme;
+    private Label welcome;
 
     private Stage home;
     private Scene primary;
