@@ -47,7 +47,7 @@ public class BuyWorkoutPlan2 extends HomePage{
     private Label preview;
 
     @FXML
-    void clickedOnButtonInfoWorkoutPlan(ActionEvent event) throws IOException {
+    public void clickedOnButtonInfoWorkoutPlan(ActionEvent event) throws IOException {
         stageToSwitch= "/com/example/fitnesshelp/buyInfoWorkoutPlan";
         switchStage(event);
     }
