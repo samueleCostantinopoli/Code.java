@@ -20,21 +20,6 @@ public class BuyWorkoutPlan2 extends HomePage{
     private Label NameSurnameAge1;
 
     @FXML
-    private AnchorPane WorkoutPlan2Pane;
-
-    @FXML
-    private Hyperlink accountHyperlink;
-
-    @FXML
-    private Hyperlink buyWorkoutPlanHyperlink;
-
-    @FXML
-    private Hyperlink buyWorkoutPlanHyperlink1;
-
-    @FXML
-    private AnchorPane dataWorkoutPlan1Pane;
-
-    @FXML
     private Hyperlink findAGymNearMeHyperlink;
 
     @FXML
