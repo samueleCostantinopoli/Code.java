@@ -53,23 +53,27 @@ public class BuyWorkoutPlan2 extends HomePage{
     }
 
     @FXML
-    void clickedOnButtonNextBuyWorkoutPlan(ActionEvent event) {
-
+    void clickedOnButtonNextBuyWorkoutPlan(ActionEvent event) throws IOException {
+        stageToSwitch= "/com/example/fitnesshelp/buyWorkoutPlan";
+        switchStage(event);
     }
 
     @FXML
-    void clickedOnButtonPageOneBuyWorkoutPlan(ActionEvent event) {
-
+    void clickedOnButtonPageOneBuyWorkoutPlan(ActionEvent event) throws IOException {
+        stageToSwitch= "/com/example/fitnesshelp/buyWorkoutPlan";
+        switchStage(event);
     }
 
     @FXML
-    void clickedOnButtonPageTreeBuyWorkoutPlan(ActionEvent event) {
-
+    void clickedOnButtonPageTreeBuyWorkoutPlan(ActionEvent event) throws IOException {
+        stageToSwitch= "/com/example/fitnesshelp/buyWorkoutPlan";
+        switchStage(event);
     }
 
     @FXML
-    void clickedOnButtonPageTwoBuyWorkoutPlan(ActionEvent event) {
-
+    void clickedOnButtonPageTwoBuyWorkoutPlan(ActionEvent event) throws IOException {
+        stageToSwitch= "/com/example/fitnesshelp/buyWorkoutPlan";
+        switchStage(event);
     }
 
     @FXML
