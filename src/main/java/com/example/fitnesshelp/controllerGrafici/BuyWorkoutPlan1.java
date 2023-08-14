@@ -110,17 +110,6 @@ public class BuyWorkoutPlan1 extends HomePage{
     private Label title;
 
     @FXML
-    private Label welocme;
-    private Stage stage;
-    private Scene scene;
-    private FXMLLoader root;
-    @FXML
-    void clickedOnAccountHyperlink(ActionEvent event) throws IOException{
-        stageToSwitch= "/com/example/fitnesshelp/account";
-        switchStage(event);
-    }
-
-    @FXML
     void clickedOnButtonInfoWorkoutPlan(ActionEvent event) throws IOException {
         stageToSwitch= "/com/example/fitnesshelp/buyInfoWorkoutPlan";
         switchStage(event);
