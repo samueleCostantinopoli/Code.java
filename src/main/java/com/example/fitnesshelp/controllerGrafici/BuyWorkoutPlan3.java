@@ -53,22 +53,6 @@ public class BuyWorkoutPlan3 extends HomePage{
         CommentExtra = commentExtra;
     }
 
-
-    @FXML
-    void clickedOnButtonPageOneBuyWorkoutPlan(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnButtonPageTreeBuyWorkoutPlan(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnButtonPageTwoBuyWorkoutPlan(ActionEvent event) {
-
-    }
-
     @FXML
     void clickedOnButtonPreviewWorkoutPlan(ActionEvent event) throws IOException {
         stageToSwitch= "/com/example/fitnesshelp/buyPreviewWorkoutPlan";
@@ -76,10 +60,19 @@ public class BuyWorkoutPlan3 extends HomePage{
     }
 
     @FXML
-    void clickedOnButtonPriceWorkoutPlan(ActionEvent event) {
+    public void clickedOnButtonPriceWorkoutPlan(ActionEvent event) {
 
     }
 
     public void clickedOnButtonNextBuyWorkoutPlan(ActionEvent event) {
+    }
+
+    public void clickedOnButtonPageOneBuyWorkoutPlan(ActionEvent event) {
+    }
+
+    public void clickedOnButtonPageTwoBuyWorkoutPlan(ActionEvent event) {
+    }
+
+    public void clickedOnButtonPageTreeBuyWorkoutPlan(ActionEvent event) {
     }
 }
