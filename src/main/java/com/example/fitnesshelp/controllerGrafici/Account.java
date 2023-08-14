@@ -119,53 +119,6 @@ public class Account extends HomePage{
     void clickedOnButtonViewPurchase(ActionEvent event) {
 
     }
-
-    @FXML
-    void clickedOnBuyWorkoutPlanHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "/com/example/fitnesshelp/buyWorkoutPlan";
-        switchStage(event);
-    }
-
-    @FXML
-    void clickedOnFindAGymNearMeHyperlink(ActionEvent event) throws IOException{
-        stageToSwitch = "/com/example/fitnesshelp/findAGymNearMe";
-        switchStage(event);
-    }
-
-    @FXML
-    void clickedOnHomeHyperlink(ActionEvent event) throws IOException{
-        stageToSwitch = "/com/example/fitnesshelp/HomePage";
-        switchStage(event);
-    }
-
-    @FXML
-    void clickedOnLogoutHyperlink(ActionEvent event) throws IOException{
-        stageToSwitch = "/com/example/fitnesshelp/login";
-        switchStage(event);
-    }
-
-    @FXML
-    void clickedOnMyTrainingDiaryHyperlink(ActionEvent event) throws IOException{
-        stageToSwitch = "/com/example/fitnesshelp/trainingDiary";
-        switchStage(event);
-    }
-
-    @FXML
-    void clickedOnMyWorkoutPlanHyperlink(ActionEvent event) throws IOException{
-        stageToSwitch = "/com/example/fitnesshelp/myWorkoutPlan";
-        switchStage(event);
-    }
-
-    @FXML
-    void clickedOnPersonalTrainerHyperlink(ActionEvent event) throws IOException{
-        stageToSwitch = "/com/example/fitnesshelp/personalTrainer";
-        switchStage(event);
-    }
-
-    public void clickedOnTdeeCalculatorHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "/com/example/fitnesshelp/calculateTdee1";
-        switchStage(event);
-    }
 }
 
 
