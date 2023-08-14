@@ -57,22 +57,6 @@ public class BuyWorkoutPlan1 extends HomePage{
 
     @FXML
     private Button infoWorkoutPlan2Button;
-
-    @FXML
-    private Hyperlink logoutHyperlink;
-
-    @FXML
-    private ImageView logoutImageView;
-
-    @FXML
-    private Hyperlink myTrainingDiaryHyperlink;
-
-    @FXML
-    private Hyperlink myWorkoutPlanHyperlink;
-
-    @FXML
-    private Label nameSurname;
-
     @FXML
     private Button nextBuyWorkoutPlanButton;
 
