@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnesshelp.controllerGrafici.MyWorkoutPlan">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnesshelp.controller_grafici.MyWorkoutPlan">
    <children>
       <AnchorPane prefHeight="600.0" prefWidth="800.0">
          <children>
@@ -58,7 +58,7 @@
                         <Image url="@../../../man.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="welocme" layoutX="646.0" layoutY="31.0" text="Welcome," textFill="WHITE">
+                  <Label fx:id="welcome" layoutX="646.0" layoutY="31.0" text="Welcome," textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>

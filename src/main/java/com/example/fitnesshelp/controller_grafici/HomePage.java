@@ -1,4 +1,4 @@
-package com.example.fitnesshelp.controllerGrafici;
+package com.example.fitnesshelp.controller_grafici;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -66,8 +66,8 @@ public class HomePage {
     @FXML
     private Label welcome;
 
-    private Stage stage;
-    private Scene scene;
+    private Stage home;
+    private Scene primary;
     private FXMLLoader root;
     public String stageToSwitch;
     @FXML
@@ -123,9 +123,9 @@ public class HomePage {
 
     void switchStage(ActionEvent event) throws IOException {
         FXMLLoader root = new FXMLLoader(getClass().getResource(stageToSwitch + ".fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root.load());
-        stage.setScene(scene);
-        stage.show();
+        Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene primary = new Scene(root.load());
+        home.setScene(primary);
+        home.show();
     }
 }
