@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -97,7 +96,7 @@
                   </Hyperlink>
                </children>
             </AnchorPane>
-            <Button fx:id="macroButton" layoutX="692.0" layoutY="557.0" mnemonicParsing="false" onAction="#clickedOnButtonNext" prefHeight="29.0" prefWidth="87.0" style="-fx-background-color: #231717;" text="Macro" textFill="WHITE">
+            <Button fx:id="saveButton" layoutX="692.0" layoutY="557.0" mnemonicParsing="false" onAction="#clickedOnButtonSave" prefHeight="29.0" prefWidth="87.0" style="-fx-background-color: #231717;" text="Save" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -112,10 +111,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <RadioButton layoutX="324.0" layoutY="265.0" mnemonicParsing="false" text="Maintenance" />
-            <RadioButton layoutX="437.0" layoutY="265.0" mnemonicParsing="false" text="Cutting" />
-            <RadioButton layoutX="519.0" layoutY="265.0" mnemonicParsing="false" text="Bulking" />
-            <TextField layoutX="412.0" layoutY="175.0" prefHeight="51.0" prefWidth="81.0" text="2000">
+            <TextField fx:id="caloriesTextField" layoutX="412.0" layoutY="175.0" prefHeight="51.0" prefWidth="81.0" text="2000">
                <font>
                   <Font size="24.0" />
                </font>
@@ -138,17 +134,17 @@
             <Label layoutX="269.0" layoutY="376.0" text="protein" />
             <Label layoutX="279.0" layoutY="444.0" text="fats" />
             <Label layoutX="275.0" layoutY="513.0" text="carbs" />
-            <Label layoutX="267.0" layoutY="347.0" text="100g">
+            <Label fx:id="moderateProLabel" layoutX="267.0" layoutY="347.0" text="100g">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="267.0" layoutY="416.0" text="100g">
+            <Label fx:id="moderateFatsLabel" layoutX="267.0" layoutY="416.0" text="100g">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="269.0" layoutY="485.0" text="100g">
+            <Label fx:id="moderateCarbLabel" layoutX="269.0" layoutY="485.0" text="100g">
                <font>
                   <Font size="18.0" />
                </font>
@@ -156,17 +152,17 @@
             <Label layoutX="446.0" layoutY="374.0" text="protein" />
             <Label layoutX="456.0" layoutY="442.0" text="fats" />
             <Label layoutX="452.0" layoutY="511.0" text="carbs" />
-            <Label layoutX="444.0" layoutY="345.0" text="100g">
+            <Label fx:id="lowerProLabel" layoutX="444.0" layoutY="345.0" text="100g">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="444.0" layoutY="414.0" text="100g">
+            <Label fx:id="lowerFatsLabel" layoutX="444.0" layoutY="414.0" text="100g">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="446.0" layoutY="483.0" text="100g">
+            <Label fx:id="lowerCarbLabel" layoutX="446.0" layoutY="483.0" text="100g">
                <font>
                   <Font size="18.0" />
                </font>
@@ -174,19 +170,24 @@
             <Label layoutX="620.0" layoutY="373.0" text="protein" />
             <Label layoutX="630.0" layoutY="441.0" text="fats" />
             <Label layoutX="626.0" layoutY="510.0" text="carbs" />
-            <Label layoutX="618.0" layoutY="344.0" text="100g">
+            <Label fx:id="higherProLabel" layoutX="618.0" layoutY="344.0" text="100g">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="618.0" layoutY="413.0" text="100g">
+            <Label fx:id="higherFatsLabel" layoutX="618.0" layoutY="413.0" text="100g">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="620.0" layoutY="482.0" text="100g">
+            <Label fx:id="higherCarbLabel" layoutX="620.0" layoutY="482.0" text="100g">
                <font>
                   <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="stateNameLabel" layoutX="414.0" layoutY="266.0" text="Mainteinance">
+               <font>
+                  <Font size="14.0" />
                </font>
             </Label>
          </children>

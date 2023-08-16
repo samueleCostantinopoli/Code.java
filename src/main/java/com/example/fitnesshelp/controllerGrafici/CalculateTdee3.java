@@ -5,109 +5,57 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+
+import java.io.IOException;
 
 public class CalculateTdee3 extends HomePage{
 
     @FXML
-    private Hyperlink accountHyperlink;
+    private Button saveButton;
 
     @FXML
-    private Hyperlink buyWorkoutPlanHyperlink;
-
-    @FXML
-    private Hyperlink findAGymNearMeHyperlink;
-
-    @FXML
-    private Hyperlink homeHyperlink;
-
-    @FXML
-    private ImageView homeImageView;
-
-    @FXML
-    private Hyperlink logoutHyperlink;
-
-    @FXML
-    private ImageView logoutImageView;
-
-    @FXML
-    private Button macroButton;
-
-    @FXML
-    private Hyperlink myTrainingDiaryHyperlink;
-
-    @FXML
-    private Hyperlink myWorkoutPlanHyperlink;
-
-    @FXML
-    private Label nameSurname;
-
-    @FXML
-    private Hyperlink personalTrainerHyperlink1;
-
-    @FXML
-    private ImageView profileImage;
-
-    @FXML
-    private Hyperlink tdeeCalculatorHyperlink;
+    private Label stateNameLabel;
 
     @FXML
     private Hyperlink tdeeCalculatorHyperlink1;
 
     @FXML
-    private Label title;
+    private TextField caloriesTextField;
 
     @FXML
-    private Label welcome;
+    private Label higherCarbLabel;
 
     @FXML
-    void clickedOnAccountHyperlink(ActionEvent event) {
+    private Label higherFatsLabel;
 
+    @FXML
+    private Label higherProLabel;
+
+    @FXML
+    private Label lowerCarbLabel;
+
+    @FXML
+    private Label lowerFatsLabel;
+
+    @FXML
+    private Label lowerProLabel;
+
+    @FXML
+    private Label moderateCarbLabel;
+
+    @FXML
+    private Label moderateFatsLabel;
+
+    @FXML
+    private Label moderateProLabel;
+
+    @FXML
+    void clickedOnButtonSave(ActionEvent event) throws IOException {
+        stageToSwitch = "/com/example/fitnesshelp/calculateTdee0";
+        switchStage(event);
     }
 
-    @FXML
-    void clickedOnButtonNext(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnBuyWorkoutPlanHyperlink(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnFindAGymNearMeHyperlink(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnHomeHyperlink(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnLogoutHyperlink(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnMyTrainingDiaryHyperlink(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnMyWorkoutPlanHyperlink(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnPersonalTrainerHyperlink(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnTdeeCalculatorHyperlink(ActionEvent event) {
-
-    }
 
 }

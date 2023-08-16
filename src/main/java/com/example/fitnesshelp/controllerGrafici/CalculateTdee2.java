@@ -10,10 +10,9 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 
-public class CalculateTdee2 extends HomePage{
+import java.io.IOException;
 
-    @FXML
-    private Hyperlink accountHyperlink;
+public class CalculateTdee2 extends HomePage{
 
     @FXML
     private ChoiceBox<?> acticityChoiceBox;
@@ -28,16 +27,13 @@ public class CalculateTdee2 extends HomePage{
     private Label ageTextView;
 
     @FXML
-    private Hyperlink buyWorkoutPlanHyperlink;
-
-    @FXML
     private Button calculateButton;
 
     @FXML
-    private RadioButton femaleRadioButton;
+    private Label emptyAllertLabel;
 
     @FXML
-    private Hyperlink findAGymNearMeHyperlink;
+    private RadioButton femaleRadioButton;
 
     @FXML
     private Label genderTextView;
@@ -49,46 +45,13 @@ public class CalculateTdee2 extends HomePage{
     private Label heightTextView;
 
     @FXML
-    private Hyperlink homeHyperlink;
-
-    @FXML
-    private ImageView homeImageView;
-
-    @FXML
-    private Hyperlink logoutHyperlink;
-
-    @FXML
-    private ImageView logoutImageView;
-
-    @FXML
     private RadioButton maleRadioButton;
-
-    @FXML
-    private Hyperlink myTrainingDiaryHyperlink;
-
-    @FXML
-    private Hyperlink myWorkoutPlanHyperlink;
-
-    @FXML
-    private Label nameSurname;
 
     @FXML
     private Button nextButton;
 
     @FXML
-    private Hyperlink personalTrainerHyperlink1;
-
-    @FXML
-    private ImageView profileImage;
-
-    @FXML
-    private Hyperlink tdeeCalculatorHyperlink;
-
-    @FXML
     private Hyperlink tdeeCalculatorHyperlink1;
-
-    @FXML
-    private Label title;
 
     @FXML
     private TextArea weightTextArea;
@@ -97,12 +60,13 @@ public class CalculateTdee2 extends HomePage{
     private Label weightTextView;
 
     @FXML
-    private Label welcome;
+    private RadioButton bulkingRadioButton;
 
     @FXML
-    void clickedOnAccountHyperlink(ActionEvent event) {
+    private RadioButton maintenanceRadioButton;
 
-    }
+    @FXML
+    private RadioButton cuttingRadioButton;
 
     @FXML
     void clickedOnButtonNext(ActionEvent event) {
@@ -110,32 +74,13 @@ public class CalculateTdee2 extends HomePage{
     }
 
     @FXML
-    void clickedOnBuyWorkoutPlanHyperlink(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnCalculateButton(ActionEvent event) {
-
+    void clickedOnCalculateButton(ActionEvent event) throws IOException {
+        stageToSwitch = "/com/example/fitnesshelp/calculateTdee3";
+        switchStage(event);
     }
 
     @FXML
     void clickedOnFemaleRadioButton(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnFindAGymNearMeHyperlink(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnHomeHyperlink(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnLogoutHyperlink(ActionEvent event) {
 
     }
 
@@ -145,24 +90,18 @@ public class CalculateTdee2 extends HomePage{
     }
 
     @FXML
-    void clickedOnMyTrainingDiaryHyperlink(ActionEvent event) {
+    void clickedOnRadioButtonBulking(ActionEvent event) {
 
     }
 
     @FXML
-    void clickedOnMyWorkoutPlanHyperlink(ActionEvent event) {
+    void clickedOnRadioButtonCutting(ActionEvent event) {
 
     }
 
     @FXML
-    void clickedOnPersonalTrainerHyperlink(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnTdeeCalculatorHyperlink(ActionEvent event) {
+    void clickedOnRadioButtonMaintenance(ActionEvent event) {
 
     }
 
 }
-
