@@ -12,7 +12,7 @@ import javafx.scene.input.KeyEvent;
 import java.io.IOException;
 import java.util.Objects;
 
-public class CreateWorkoutPlan extends HomePage{
+public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomePage {
 
     @FXML
     private Button addCustomExercise;

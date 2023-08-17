@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 
-public class BuyWorkoutPlan2 extends HomePage{
+public class GraphicsControllerBuyWorkoutPlan2 extends GraphicsControllerHomePage {
 
     @FXML
     private Label NameSurnameAge1;

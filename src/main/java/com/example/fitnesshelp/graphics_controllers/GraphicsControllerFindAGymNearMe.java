@@ -10,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class FindAGymNearMe extends HomePage{
+public class GraphicsControllerFindAGymNearMe extends GraphicsControllerHomePage {
 
     @FXML
     private AnchorPane Gym1Pane;

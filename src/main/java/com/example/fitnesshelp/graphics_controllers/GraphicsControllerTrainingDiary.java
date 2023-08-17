@@ -9,7 +9,7 @@ import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 
-public class TrainingDiary extends HomePage{
+public class GraphicsControllerTrainingDiary extends GraphicsControllerHomePage {
 
     @FXML
     private Hyperlink accountHyperlink;

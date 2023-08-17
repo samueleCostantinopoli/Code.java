@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class CalculateTdee3 extends HomePage{
+public class CalculateTdee3 extends GraphicsControllerHomePage {
 
     @FXML
     private Button saveButton;

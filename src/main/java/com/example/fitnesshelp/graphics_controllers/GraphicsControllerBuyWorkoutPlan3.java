@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 
 import java.io.IOException;
 // Classe per infoBuyWorkoutPlan
-public class BuyWorkoutPlan3 extends HomePage{
+public class GraphicsControllerBuyWorkoutPlan3 extends GraphicsControllerHomePage {
 
     @FXML
     private Label CommentExtra;

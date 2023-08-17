@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HomePage {
+public class GraphicsControllerHomePage {
 
     @FXML
     private Hyperlink accountHyperlink;

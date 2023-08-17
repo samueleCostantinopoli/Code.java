@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Account extends HomePage{
+public class GraphicsControllerAccount extends GraphicsControllerHomePage {
     @FXML
     private Label NameAndSurname;
 

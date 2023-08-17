@@ -10,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class BuyWorkoutPlan1 extends HomePage{
+public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePage {
 
     @FXML
     private Label NameSurnameAge1;

@@ -11,7 +11,7 @@ import javafx.scene.control.TextArea;
 
 import java.io.IOException;
 
-public class CalculateTdee2 extends HomePage{
+public class CalculateTdee2 extends GraphicsControllerHomePage {
 
     @FXML
     private ChoiceBox<?> acticityChoiceBox;

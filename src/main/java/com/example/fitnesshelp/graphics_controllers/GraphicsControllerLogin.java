@@ -13,7 +13,7 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 
-public class Login extends HomePage{
+public class GraphicsControllerLogin extends GraphicsControllerHomePage {
 
     @FXML
     private Button buttonCreateAccount;
