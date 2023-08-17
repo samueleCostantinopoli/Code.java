@@ -1,13 +1,16 @@
 package com.example.fitnesshelp.model;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Login {
+public class ModelLogin {
     private Map<String, String> users;
     private File userFile;
-    public Login(String filePath) {
+    public ModelLogin(String filePath) {
         users = new HashMap<>();
         userFile = new File(filePath);
         loadUsersFromFile();
@@ -33,7 +36,9 @@ public class Login {
 
     private void createDefaultUserFile(File file) {
         try {
-            file.createNewFile(); // Crea il file vuoto se non esiste
+            if (!file.createNewFile()) {// Crea il file vuoto se non esiste
+                System.out.println("error");
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
