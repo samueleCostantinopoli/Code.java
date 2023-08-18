@@ -5,6 +5,6 @@ module com.example.fitnesshelp {
 
     opens com.example.fitnesshelp to javafx.fxml;
     exports com.example.fitnesshelp;
-    exports com.example.fitnesshelp.controller_grafici;
-    opens com.example.fitnesshelp.controller_grafici to javafx.fxml;
+    exports com.example.fitnesshelp.graphics_controllers;
+    opens com.example.fitnesshelp.graphics_controllers to javafx.fxml;
 }
