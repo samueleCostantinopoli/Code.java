@@ -1,4 +1,4 @@
-package com.example.fitnesshelp.controller_grafici;
+package com.example.fitnesshelp.graphics_controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
-public class PersonalTrainer extends HomePage{
+public class GraphicsControllerPersonalTrainer extends GraphicsControllerHomePage {
 
     @FXML
     private Label NameSurnameAge1;

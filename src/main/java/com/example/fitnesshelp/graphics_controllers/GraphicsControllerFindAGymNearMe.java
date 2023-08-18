@@ -1,4 +1,4 @@
-package com.example.fitnesshelp.controller_grafici;
+package com.example.fitnesshelp.graphics_controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -10,7 +10,7 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
-public class FindAGymNearMe extends HomePage{
+public class GraphicsControllerFindAGymNearMe extends GraphicsControllerHomePage {
 
     @FXML
     private AnchorPane Gym1Pane;

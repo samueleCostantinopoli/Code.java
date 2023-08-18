@@ -47,7 +47,3 @@ public class User {
     }
 }
 
-enum State {
-    NOT_LOGGED_IN,
-    LOGGED_IN
-}

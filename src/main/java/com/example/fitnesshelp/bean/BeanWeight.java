@@ -1,10 +1,10 @@
 package com.example.fitnesshelp.bean;
 
-public class WeightBean {
+public class BeanWeight {
 
     private float weight;
 
-    public WeightBean(float weight) {
+    public BeanWeight(float weight) {
         this.weight = weight;
     }
 

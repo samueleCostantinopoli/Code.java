@@ -5,7 +5,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
-public class GraphicsControllerCalculateTdee0 extends HomePage{
+public class GraphicsControllerCalculateTdee0 extends GraphicsControllerHomePage{
 
     @FXML
     private ImageView deleteImageView;

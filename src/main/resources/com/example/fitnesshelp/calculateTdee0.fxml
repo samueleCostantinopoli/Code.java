@@ -21,7 +21,7 @@
                   </Label>
                   <ImageView fx:id="profileImage" fitHeight="59.0" fitWidth="59.0" layoutX="727.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../IdeaProjects/ISPW/src/main/resources/com/example/fitnesshelp/man.png" />
+                        <Image url="@../../../man.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="welcome" layoutX="646.0" layoutY="31.0" text="Welcome," textFill="WHITE">
@@ -48,12 +48,12 @@
             </Hyperlink>
             <ImageView fx:id="homeImageView" fitHeight="31.0" fitWidth="31.0" layoutX="159.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../FitnessHelp/src/main/resources/home.png" />
+                  <Image url="@../../../home.png" />
                </image>
             </ImageView>
             <ImageView fx:id="logoutImageView" fitHeight="31.0" fitWidth="39.0" layoutX="755.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../FitnessHelp/src/main/resources/logout.png" />
+                  <Image url="@../../../logout.png" />
                </image>
             </ImageView>
             <AnchorPane layoutY="100.0" prefHeight="501.0" prefWidth="150.0" style="-fx-background-color: #464646;">

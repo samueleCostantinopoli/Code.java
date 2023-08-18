@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import java.io.IOException;
 
-public class GraphicsControllerCalculateTdee1 extends HomePage{
+public class GraphicsControllerCalculateTdee1 extends GraphicsControllerHomePage{
 
     @FXML
     private Button myTdeeButton;

@@ -1,10 +1,10 @@
 package com.example.fitnesshelp.bean;
 
-public class AgeBean {
+public class BeanAge {
 
     private int age;
 
-    public AgeBean(int age) {
+    public BeanAge(int age) {
         this.age = age;
     }
 

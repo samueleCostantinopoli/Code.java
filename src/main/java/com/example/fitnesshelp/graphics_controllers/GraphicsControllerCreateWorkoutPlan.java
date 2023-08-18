@@ -1,4 +1,4 @@
-package com.example.fitnesshelp.controller_grafici;
+package com.example.fitnesshelp.graphics_controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +12,7 @@ import javafx.scene.input.KeyEvent;
 import java.io.IOException;
 import java.util.Objects;
 
-public class CreateWorkoutPlan extends HomePage{
+public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomePage {
 
     @FXML
     private Button addCustomExercise;

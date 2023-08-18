@@ -3,10 +3,6 @@
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-_
-/src/main/java/com/example/fitnesshelp/Main.java,8\7\87251c42cb33e2f3d8209a3fa674104f336bbb9a
-h
-8src/main/java/com/example/fitnesshelp/entities/Tdee.java,e\5\e5d688e9bbbdefe5eec8df44c42b3885285ad22f
 u
 Esrc/main/java/com/example/fitnesshelp/controller_grafici/Account.java,4\a\4a114f1b5d7f866f3ba6ee9b73efc8920dc3b616
 }
@@ -27,8 +23,6 @@ v
 Fsrc/main/java/com/example/fitnesshelp/controller_grafici/HomePage.java,a\3\a3e6429985077b24e53203ad5deaa46b8a344b32
 s
 Csrc/main/java/com/example/fitnesshelp/controller_grafici/Login.java,8\d\8d3ac93174a8eaac2c875006374f7dde972805eb
-N
-src/main/java/module-info.java,1\c\1c89a5491fbfda3fb050196d6a239f20200296e7
 {
 Ksrc/main/java/com/example/fitnesshelp/controller_grafici/MyWorkoutPlan.java,c\f\cf90e9f5719f2e6337a935bc529e4dbc8082c4df
 }
@@ -37,7 +31,3 @@ Msrc/main/java/com/example/fitnesshelp/controller_grafici/PersonalTrainer.java,
 Ksrc/main/java/com/example/fitnesshelp/controller_grafici/TrainingDiary.java,a\6\a6bfb33f6ad300155290f3e9ea96af9e83329a35
 o
 ?src/main/java/com/example/fitnesshelp/entities/WorkoutPlan.java,5\6\5613bc1f64a118d5792bbba73498a01929c11535
-h
-8src/main/java/com/example/fitnesshelp/entities/User.java,d\1\d1e30401720fe98a31bd5977929e99e67d7c7dac
-k
-;src/main/java/com/example/fitnesshelp/entities/Account.java,1\0\102103b04364891bd36d22bb77b2074fa1bb3c9a

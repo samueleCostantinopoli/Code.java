@@ -6,7 +6,7 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 
-public class GraphicsControllerCalculateTdee3 extends HomePage{
+public class GraphicsControllerCalculateTdee3 extends GraphicsControllerHomePage{
 
     @FXML
     private RadioButton higherCarbRadioButton;

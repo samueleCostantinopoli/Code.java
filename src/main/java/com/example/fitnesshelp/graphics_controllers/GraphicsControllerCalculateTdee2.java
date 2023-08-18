@@ -6,7 +6,7 @@ import javafx.scene.control.*;
 
 import java.io.IOException;
 
-public class GraphicsControllerCalculateTdee2 extends HomePage{
+public class GraphicsControllerCalculateTdee2 extends GraphicsControllerHomePage{
 
     @FXML
     private ChoiceBox<String> activityChoiceBox;

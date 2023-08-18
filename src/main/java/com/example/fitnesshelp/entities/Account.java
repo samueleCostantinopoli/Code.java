@@ -57,7 +57,3 @@ public class Account {
     }
 }
 
-enum TypeOfUser {
-    NORMAL,
-    PERSONAL_TRAINER
-}

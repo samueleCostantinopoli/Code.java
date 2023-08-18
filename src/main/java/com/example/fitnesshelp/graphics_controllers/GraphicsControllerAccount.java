@@ -1,4 +1,4 @@
-package com.example.fitnesshelp.controller_grafici;
+package com.example.fitnesshelp.graphics_controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Account extends HomePage{
+public class GraphicsControllerAccount extends GraphicsControllerHomePage {
     @FXML
     private Label NameAndSurname;
 

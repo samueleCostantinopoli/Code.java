@@ -1,4 +1,4 @@
-package com.example.fitnesshelp.controller_grafici;
+package com.example.fitnesshelp.graphics_controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,7 +7,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class CreateAccount extends HomePage{
+public class GraphicsControllerCreateAccount extends GraphicsControllerHomePage {
 
     @FXML
     private Label email;
