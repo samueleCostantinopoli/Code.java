@@ -2,19 +2,14 @@ package com.example.fitnesshelp.controller_grafici;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 
 import java.io.IOException;
 
-public class CalculateTdee2 extends HomePage{
+public class GraphicsControllerCalculateTdee2 extends HomePage{
 
     @FXML
-    private ChoiceBox<?> acticityChoiceBox;
+    private ChoiceBox<String> activityChoiceBox;
 
     @FXML
     private Label activityTextView;
@@ -70,6 +65,33 @@ public class CalculateTdee2 extends HomePage{
     @FXML
     void clickedOnButtonNext(ActionEvent event) {
 
+    }
+
+    private ToggleGroup genderToggleGroup;
+    private ToggleGroup targetToggleGroup;
+
+    @FXML
+    public void initialize() {
+        //choice box selection
+        activityChoiceBox.getItems().addAll(
+                "Sedentary (office job)",
+                "Light Exercise (1-2 days/week)",
+                "Moderate Exercise (3-5 days/week)",
+                "Heavy Exercise (6-7 days/week)",
+                "Athlete (2x day)"
+        );
+
+        // radio button initializzazion
+        genderToggleGroup = new ToggleGroup();
+        targetToggleGroup = new ToggleGroup();
+
+        // add radio button to group
+        maleRadioButton.setToggleGroup(genderToggleGroup);
+        femaleRadioButton.setToggleGroup(genderToggleGroup);
+
+        maintenanceRadioButton.setToggleGroup(targetToggleGroup);
+        cuttingRadioButton.setToggleGroup(targetToggleGroup);
+        bulkingRadioButton.setToggleGroup(targetToggleGroup);
     }
 
     @FXML

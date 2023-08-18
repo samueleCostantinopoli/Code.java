@@ -5,5 +5,5 @@ import com.example.fitnesshelp.entities.Tdee;
 
 public interface TdeeState {
 
-    public Tdee calculateTdee(Questionnaire questionnaire);
+    public double calculateTdee(Questionnaire questionnaire);
 }

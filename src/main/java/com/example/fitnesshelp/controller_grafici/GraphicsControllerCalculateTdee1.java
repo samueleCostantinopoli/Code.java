@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import java.io.IOException;
 
-public class CalculateTdee1 extends HomePage{
+public class GraphicsControllerCalculateTdee1 extends HomePage{
 
     @FXML
     private Button myTdeeButton;
@@ -25,6 +25,7 @@ public class CalculateTdee1 extends HomePage{
 
     @FXML
     void clickedOnButtonMyTdee(ActionEvent event) throws  IOException {
+        //qui dovra partire una query al db che ottenga tutti i tdee dell'utente in base al suo
         stageToSwitch = "/com/example/fitnesshelp/calculateTdee0";
         switchStage(event);
     }

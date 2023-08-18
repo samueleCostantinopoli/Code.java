@@ -57,15 +57,4 @@ public class Questionnaire {
     }
 }
 
-enum Gender {
-    MALE,
-    FEMALE
-}
 
-enum Activity {
-    SEDENTARY,
-    LIGHT_EXERCISE,
-    MODERATE_EXERCISE,
-    HEAVY_EXERCISE,
-    ATHLETE
-}
