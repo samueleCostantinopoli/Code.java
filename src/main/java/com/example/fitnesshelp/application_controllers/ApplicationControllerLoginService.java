@@ -3,11 +3,11 @@ package com.example.fitnesshelp.application_controllers;
 import com.example.fitnesshelp.bean.BeanLogin;
 import com.example.fitnesshelp.model.ModelLogin;
 
-public class AplicationControllerLoginService {
+public class ApplicationControllerLoginService {
     private final String email;
     private final String password;
 
-    public AplicationControllerLoginService(BeanLogin beanLogin) {
+    public ApplicationControllerLoginService(BeanLogin beanLogin) {
         this.email = beanLogin.getEmail();
         this.password = beanLogin.getPassword();
     }
