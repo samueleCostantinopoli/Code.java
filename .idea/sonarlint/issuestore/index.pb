@@ -3,14 +3,10 @@
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-o
-?src/main/java/com/example/fitnesshelp/entities/WorkoutPlan.java,5\6\5613bc1f64a118d5792bbba73498a01929c11535
 l
 <src/main/java/com/example/fitnesshelp/entities/Activity.java,c\b\cb276fd2b1083c18ba5c44379006885dbb1821d8
 j
 :src/main/java/com/example/fitnesshelp/entities/Gender.java,4\6\4661b2851aab61d172da24ed38074c65b196971d
-q
-Asrc/main/java/com/example/fitnesshelp/entities/Questionnaire.java,1\b\1bd925b532919fb7b449b8d39ac8f2e1f0c3ce64
 v
 Fsrc/main/java/com/example/fitnesshelp/system_actor/TdeeCalculator.java,0\a\0a549776990a009af912a2d9c75e890a4655bffe
 j
@@ -25,12 +21,8 @@ q
 Asrc/main/java/com/example/fitnesshelp/state/MaintenanceState.java,8\2\8220d64acd6b947343cf440076754c205b5a2e5d
 N
 src/main/java/module-info.java,1\c\1c89a5491fbfda3fb050196d6a239f20200296e7
-h
-8src/main/java/com/example/fitnesshelp/entities/Tdee.java,e\5\e5d688e9bbbdefe5eec8df44c42b3885285ad22f
 i
 9src/main/java/com/example/fitnesshelp/fileSystem/user.txt,1\3\13d1e26b76d2d1b5e8897bbb24b35f25a948c42d
-k
-;src/main/java/com/example/fitnesshelp/entities/Account.java,1\0\102103b04364891bd36d22bb77b2074fa1bb3c9a
 j
 :src/main/java/com/example/fitnesshelp/bean/BeanHeight.java,3\3\33764dbd1ac9c6c4b21967c7018d838441fa35fd
 i
@@ -81,13 +73,7 @@ _
 /src/main/java/com/example/fitnesshelp/Main.java,8\7\87251c42cb33e2f3d8209a3fa674104f336bbb9a
 h
 8src/main/java/com/example/fitnesshelp/utils/Printer.java,7\7\7708307a3f568d29589d4a5267354b46535f3c4b
-i
-9src/main/java/com/example/fitnesshelp/entities/State.java,1\8\1847fda8dc4609a40b5c748866ad3d7ff3fe361e
 y
 Isrc/main/java/com/example/fitnesshelp/bean/TerminatoreEmailException.java,a\2\a2436573306a333c1f32f1b71461437f01f1df37
-n
->src/main/java/com/example/fitnesshelp/entities/TypeOfUser.java,e\3\e3859bf919622fda73ea897544f027e580549c3d
-h
-8src/main/java/com/example/fitnesshelp/entities/User.java,d\1\d1e30401720fe98a31bd5977929e99e67d7c7dac
 n
 >src/main/java/com/example/fitnesshelp/utils/UtilityAccess.java,2\7\27050387559f849209011483f16eb58547c463ea
