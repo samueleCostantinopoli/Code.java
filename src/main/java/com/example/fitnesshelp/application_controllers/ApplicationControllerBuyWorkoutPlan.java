@@ -12,17 +12,9 @@ public class ApplicationControllerBuyWorkoutPlan {
     int prize;
     String state;
 
-    public ApplicationControllerBuyWorkoutPlan(BeanState stateUser) {
+    public ApplicationControllerBuyWorkoutPlan(BeanState stateUser, BeanBuyWorkoutPlan beanBuyWorkoutPlan) {
         this.state = stateUser.toString();
-    }
-
-    public void ApplicationControllerBuyWorkout(BeanBuyWorkoutPlan beanBuyWorkoutPlan){
         this.prize = beanBuyWorkoutPlan.getPrize();
-
     }
 
-    public boolean isLogged(){
-        BeanState state = new BeanState(User.getState());
-
-    }
 }

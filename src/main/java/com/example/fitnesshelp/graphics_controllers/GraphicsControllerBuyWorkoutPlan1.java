@@ -1,6 +1,7 @@
 package com.example.fitnesshelp.graphics_controllers;
 
 import com.example.fitnesshelp.application_controllers.ApplicationControllerBuyWorkoutPlan;
+import com.example.fitnesshelp.bean.BeanBuyWorkoutPlan;
 import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.entities.User;
 import javafx.event.ActionEvent;
@@ -127,7 +128,8 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
     @FXML
     void clickedOnButtonPriceWorkoutPlan(ActionEvent event) {
         BeanState state = new BeanState(User.getState());
-        ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(state);
+        BeanBuyWorkoutPlan beanBuyWorkoutPlan = new BeanBuyWorkoutPlan(10); //TODO aggiornare il prezzo
+        ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(state, beanBuyWorkoutPlan);
 
     }
 
