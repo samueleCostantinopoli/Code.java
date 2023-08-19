@@ -2,6 +2,7 @@ package com.example.fitnesshelp;
 
 import com.example.fitnesshelp.ComandLineInterface.cliHomePage;
 import com.example.fitnesshelp.entities.Account;
+import com.example.fitnesshelp.entities.State;
 import com.example.fitnesshelp.entities.TypeOfUser;
 import com.example.fitnesshelp.utils.Printer;
 import com.example.fitnesshelp.entities.Account;
@@ -34,7 +35,7 @@ public class Main extends Application {
         String admin = "admin";
         String email = "email@gmail.com";
         TypeOfUser type = NORMAL;
-        UtilityAccess.setAccount(new Account(admin, admin, 0, type ,email));
+        UtilityAccess.setAccount(new Account("admin", admin, admin, 0, null , null, State.NOT_LOGGED_IN));
         BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
         Printer.print("---------------------------------------------------------------------");
         while(true){
