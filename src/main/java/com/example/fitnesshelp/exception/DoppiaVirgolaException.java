@@ -1,4 +1,4 @@
-package com.example.fitnesshelp.bean;
+package com.example.fitnesshelp.exception;
 
 public class DoppiaVirgolaException extends Exception {
 

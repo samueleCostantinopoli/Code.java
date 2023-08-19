@@ -1,4 +1,4 @@
-package com.example.fitnesshelp.model;
+package com.example.fitnesshelp.dao;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -7,10 +7,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ModelLogin {
+public class daoLogin {
     private Map<String, String> users;
     private File userFile;
-    public ModelLogin(String filePath) {
+    public daoLogin(String filePath) {
         users = new HashMap<>();
         userFile = new File(filePath);
         loadUsersFromFile();
