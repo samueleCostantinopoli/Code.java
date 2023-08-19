@@ -5,7 +5,7 @@ public class User {
     private int id;
     private String name;
     private String surname;
-    private State state;
+    private static State state;
 
     public User(int id, String name, String surname, State state) {
         this.id = id;
@@ -38,7 +38,7 @@ public class User {
         this.surname = surname;
     }
 
-    public State getState() {
+    public static State getState() {
         return state;
     }
 

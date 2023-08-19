@@ -77,7 +77,7 @@ public class GraphicsControllerHomePage {
     }
     @FXML
     void clickedOnButtonCreateNew(ActionEvent event) throws IOException {
-        stageToSwitch = "/com/example/fitnesshelp/createWorkout";
+        stageToSwitch = "/com/example/fitnesshelp/customWorkout";
         switchStage(event);
     }
     @FXML

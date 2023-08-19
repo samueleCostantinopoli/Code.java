@@ -1,6 +1,10 @@
 package com.example.fitnesshelp.bean;
 
 
+import com.example.fitnesshelp.exception.DoppiaChiocciolaException;
+import com.example.fitnesshelp.exception.DoppiaVirgolaException;
+import com.example.fitnesshelp.exception.TerminatoreEmailException;
+
 public class BeanVerify {
     //questo bean è un utility per gli altri bean, sarà qui che metterò i metodi per gestire la sintassi degli input passati
     private BeanVerify(){}
