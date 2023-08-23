@@ -7,10 +7,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class daoLogin {
+public class DaoImplLogin {
     private Map<String, String> users;
     private File userFile;
-    public daoLogin(String filePath) {
+    public DaoImplLogin(String filePath) {
         users = new HashMap<>();
         userFile = new File(filePath);
         loadUsersFromFile();

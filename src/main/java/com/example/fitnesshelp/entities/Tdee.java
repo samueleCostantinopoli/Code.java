@@ -3,16 +3,16 @@ package com.example.fitnesshelp.entities;
 public class Tdee {
 
     private int kcal;
-    private int userId;
+    private String username;
     private float pro;
     private float fat;
     private float carb;
     private String target;
     private String quantity;
 
-    public Tdee(int kcal, int userId, float pro, float fat, float carb, String target, String quantity){
+    public Tdee(int kcal, String username, float pro, float fat, float carb, String target, String quantity){
         this.kcal = kcal;
-        this.userId = userId;
+        this.username = username;
         this.pro = pro;
         this.fat = fat;
         this.carb = carb;
@@ -28,12 +28,12 @@ public class Tdee {
         this.kcal = kcal;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public float getPro() {

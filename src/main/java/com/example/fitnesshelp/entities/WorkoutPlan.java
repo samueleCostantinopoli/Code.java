@@ -4,12 +4,12 @@ public class WorkoutPlan {
 
     private String name;
     private String day;
-    private int userId;
+    private String username;
 
-    public WorkoutPlan(String name, String day, int userId) {
+    public WorkoutPlan(String name, String day, String username) {
         this.name = name;
         this.day = day;
-        this.userId = userId;
+        this.username = username;
     }
 
     public String getName() {
@@ -28,11 +28,11 @@ public class WorkoutPlan {
         this.day = day;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

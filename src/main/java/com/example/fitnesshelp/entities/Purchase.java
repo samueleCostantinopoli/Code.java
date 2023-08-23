@@ -7,14 +7,14 @@ public class Purchase {
     private int idPurchase;
     private double price;
     private Date date;
-    private int userId;
+    private String username;
     private String workoutPlan;
 
-    public Purchase(int idPurchase, double price, Date date, int userId, String workoutPlan) {
+    public Purchase(int idPurchase, double price, Date date, String username, String workoutPlan) {
         this.idPurchase = idPurchase;
         this.price = price;
         this.date = date;
-        this.userId = userId;
+        this.username = username;
         this.workoutPlan = workoutPlan;
     }
 
@@ -42,12 +42,12 @@ public class Purchase {
         this.date = date;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getWorkoutPlan() {

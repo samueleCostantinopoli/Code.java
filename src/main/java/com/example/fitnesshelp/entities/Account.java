@@ -2,28 +2,26 @@ package com.example.fitnesshelp.entities;
 
 public class Account {
 
-    private String name;
+    private String username;
     private String password;
-    private int userId;
     private TypeOfUser role;
     private String email;
     private State state;
 
-    public Account(String name, String surname, String password, int userId, TypeOfUser role, String email, State state) {
-        this.name = name;
+    public Account(String username, String surname, String password, TypeOfUser role, String email, State state) {
+        this.username = username;
         this.password = password;
-        this.userId = userId;
         this.role = role;
         this.email = email;
         this.state = state;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -32,14 +30,6 @@ public class Account {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
     }
 
     public TypeOfUser getRole() {
