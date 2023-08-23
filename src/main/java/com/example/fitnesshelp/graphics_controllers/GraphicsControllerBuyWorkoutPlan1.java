@@ -127,7 +127,7 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
 
     @FXML
     void clickedOnButtonPriceWorkoutPlan(ActionEvent event) {
-        BeanState state = new BeanState(User.getState());
+        //BeanState state = new BeanState(User.getState());
         BeanBuyWorkoutPlan beanBuyWorkoutPlan = new BeanBuyWorkoutPlan(10); //TODO aggiornare il prezzo
         ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(state, beanBuyWorkoutPlan);
 

@@ -8,7 +8,5 @@ public class BeanState {
         this.state = stateUser;
     }
 
-    public checkState(){
 
-    }
 }
