@@ -1,4 +1,15 @@
 package com.example.fitnesshelp.dao;
 
-public class DaoImplFileSystemPurchase {
+import com.example.fitnesshelp.entities.Purchase;
+
+import java.util.List;
+
+public class DaoImplFileSystemPurchase implements DaoEntity<Purchase>{
+    @Override
+    public void saveData(Purchase purchase){}
+
+    @Override
+    public List<Purchase> showData(){
+        return null;
+    }
 }

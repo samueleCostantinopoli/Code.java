@@ -3,7 +3,6 @@ package com.example.fitnesshelp.graphics_controllers;
 import com.example.fitnesshelp.application_controllers.ApplicationControllerBuyWorkoutPlan;
 import com.example.fitnesshelp.bean.BeanBuyWorkoutPlan;
 import com.example.fitnesshelp.bean.BeanState;
-import com.example.fitnesshelp.entities.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -124,7 +123,7 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
         stageToSwitch = "/com/example/fitnesshelp/buyPreviewWorkoutPlan";
         switchStage(event);
     }
-
+/*
     @FXML
     void clickedOnButtonPriceWorkoutPlan(ActionEvent event) {
         //BeanState state = new BeanState(User.getState());
@@ -132,7 +131,7 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
         ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(state, beanBuyWorkoutPlan);
 
     }
-
+*/
     @FXML
     void clickedOnBuyWorkoutPlanHyperlink(ActionEvent event) throws IOException {
         stageToSwitch = "/com/example/fitnesshelp/buyWorkoutPlan";

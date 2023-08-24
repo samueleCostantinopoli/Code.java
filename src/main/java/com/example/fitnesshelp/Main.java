@@ -35,7 +35,7 @@ public class Main extends Application {
         String admin = "admin";
         String email = "email@gmail.com";
         TypeOfUser type = NORMAL;
-        UtilityAccess.setAccount(new Account("admin", admin, admin, 0, null , null, State.NOT_LOGGED_IN));
+        UtilityAccess.setAccount(new Account("admin", "admin", NORMAL, null, State.NOT_LOGGED_IN));
         BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
         Printer.print("---------------------------------------------------------------------");
         while(true){

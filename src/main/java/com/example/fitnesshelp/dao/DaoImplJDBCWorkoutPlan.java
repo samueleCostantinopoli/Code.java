@@ -1,4 +1,15 @@
 package com.example.fitnesshelp.dao;
 
-public class DaoImplJDBCWorkoutPlan {
+import com.example.fitnesshelp.entities.WorkoutPlan;
+
+import java.util.List;
+
+public class DaoImplJDBCWorkoutPlan implements DaoEntity<WorkoutPlan>{
+    @Override
+    public void saveData(WorkoutPlan workoutPlan){}
+
+    @Override
+    public List<WorkoutPlan> showData(){
+        return null;
+    }
 }

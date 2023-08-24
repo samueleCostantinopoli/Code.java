@@ -8,7 +8,7 @@ public class Account {
     private String email;
     private State state;
 
-    public Account(String username, String surname, String password, TypeOfUser role, String email, State state) {
+    public Account(String username, String password, TypeOfUser role, String email, State state) {
         this.username = username;
         this.password = password;
         this.role = role;
