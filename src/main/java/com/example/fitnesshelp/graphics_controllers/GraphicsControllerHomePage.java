@@ -46,7 +46,7 @@ public class GraphicsControllerHomePage {
     private Hyperlink myWorkoutPlanHyperlink;
 
     @FXML
-    private Label nameSurname;
+    private Label usernameLabel;
 
     @FXML
     private Hyperlink personalTrainerHyperlink;

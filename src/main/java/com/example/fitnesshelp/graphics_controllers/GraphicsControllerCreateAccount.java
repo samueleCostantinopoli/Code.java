@@ -7,6 +7,8 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
+
 public class GraphicsControllerCreateAccount extends GraphicsControllerHomePage {
 
     @FXML
@@ -19,12 +21,6 @@ public class GraphicsControllerCreateAccount extends GraphicsControllerHomePage 
     private Hyperlink homeHyperlink;
 
     @FXML
-    private Label name;
-
-    @FXML
-    private TextField nameField;
-
-    @FXML
     private Label password;
 
     @FXML
@@ -34,25 +30,18 @@ public class GraphicsControllerCreateAccount extends GraphicsControllerHomePage 
     private Button registerButton;
 
     @FXML
-    private Label surname;
+    private Label username;
 
     @FXML
-    private TextField surnameField;
-
-    @FXML
-    private Label title;
-
-    @FXML
-    private Label welcome;
-
-    @FXML
-    void clickedOnButtonHomeHyperlink(ActionEvent event) {
-
-    }
+    private TextField usernameField;
 
     @FXML
     void clickedOnButtonRegister(ActionEvent event) {
 
     }
 
+    public void clickedOnButtonHomeHyperlink(ActionEvent event) throws IOException {
+        stageToSwitch = "/com/example/fitnesshelp/homePage";
+        switchStage(event);
+    }
 }

@@ -35,18 +35,12 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="name" layoutX="276.0" layoutY="200.0" text="Name">
+      <Label fx:id="username" layoutX="263.0" layoutY="238.0" text="Username">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="surname" layoutX="267.0" layoutY="238.0" text="Surname">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <TextField fx:id="nameField" layoutX="337.0" layoutY="197.0" />
-      <TextField fx:id="surnameField" layoutX="337.0" layoutY="235.0" />
+      <TextField fx:id="usernameField" layoutX="337.0" layoutY="235.0" />
       <TextField fx:id="emailField" layoutX="337.0" layoutY="278.0" />
       <TextField fx:id="passwordField" layoutX="336.0" layoutY="317.0" />
       <Button fx:id="registerButton" layoutX="376.0" layoutY="360.0" mnemonicParsing="false" onAction="#clickedOnButtonRegister" style="-fx-background-color: #231717;" text="Register" textFill="WHITE">

@@ -66,7 +66,7 @@
                   <Image url="@../../../man.png" />
                </image>
             </ImageView>
-            <Label fx:id="NameAndSurname" layoutX="334.0" layoutY="198.0" text="Mario Rossi">
+            <Label fx:id="username" layoutX="334.0" layoutY="198.0" text="Mario Rossi">
                <font>
                   <Font size="22.0" />
                </font>
@@ -76,7 +76,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="changeEmailButton" layoutX="206.0" layoutY="336.0" mnemonicParsing="false" onAction="#clickedOnButtonChangeEmail" style="-fx-background-color: #231717;" text="Change Emial" textFill="WHITE">
+            <Button fx:id="changeEmailButton" layoutX="206.0" layoutY="336.0" mnemonicParsing="false" onAction="#clickedOnButtonChangeEmail" style="-fx-background-color: #231717;" text="Change Email" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -112,11 +112,6 @@
                </image>
             </ImageView>
             <Button fx:id="viewPurchaseButton" layoutX="206.0" layoutY="426.0" mnemonicParsing="false" onAction="#clickedOnButtonViewPurchase" style="-fx-background-color: #231717;" text="View purchase" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="switchAccountButton" layoutX="207.0" layoutY="469.0" mnemonicParsing="false" onAction="#clickedOnButtonSwitchAccount" style="-fx-background-color: #231717;" text="Switch account" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>

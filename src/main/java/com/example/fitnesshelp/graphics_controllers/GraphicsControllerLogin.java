@@ -23,16 +23,16 @@ public class GraphicsControllerLogin extends GraphicsControllerHomePage {
     private Button buttonLogin;
 
     @FXML
-    private Label email;
+    private Label usernameLabel;
 
     @FXML
-    private TextField emailField;
+    private TextField usernameField;
 
     @FXML
     private Hyperlink homeHyperlink;
 
     @FXML
-    private Label password;
+    private Label passwordLabel;
 
     @FXML
     private TextField passwordField;
@@ -65,26 +65,22 @@ public class GraphicsControllerLogin extends GraphicsControllerHomePage {
     private void closeDialog() {
         statusLabel.setVisible(false);
     }
-    @FXML
-    void clickedOnButtonCreateAccount(ActionEvent event) {
-
-    }
 
     @FXML
-    void clickedOnHomeHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "/com/example/fitnesshelp/homePage";
+    void clickedOnButtonCreateAccount(ActionEvent event) throws IOException {
+        stageToSwitch = "/com/example/fitnesshelp/createAccount";
         switchStage(event);
     }
 
     @FXML
     void clickedOnButtonLogin(ActionEvent event) {
-        String username = emailField.getText();
+        String username = usernameField.getText();
         String password = passwordField.getText();
 
         BeanLogin beanLogin = new BeanLogin(username, password);
         // Crea un'istanza del servizio degli utenti
         ApplicationControllerLoginService userService = new ApplicationControllerLoginService(beanLogin);
-
+/*
         if (userService.isValidUser(username, password)) {
             statusLabel.setText("Login riuscito");
             showAndHideDialogWithDuration(3000); // Mostra il dialogo per 3 secondi
@@ -93,6 +89,8 @@ public class GraphicsControllerLogin extends GraphicsControllerHomePage {
             showAndHideDialogWithDuration(3000); // Mostra il dialogo per 3 secondi
 
         }
+
+ */
     }
 
 }

@@ -143,4 +143,5 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
         stageToSwitch = "/com/example/fitnesshelp/buyWorkoutPlan";
         switchStage(event);
     }
+
 }

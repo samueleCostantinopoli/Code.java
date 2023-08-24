@@ -14,13 +14,7 @@ import java.io.IOException;
 
 public class GraphicsControllerAccount extends GraphicsControllerHomePage {
     @FXML
-    private Label NameAndSurname;
-
-    @FXML
-    private Hyperlink accountHyperlink;
-
-    @FXML
-    private Hyperlink buyWorkoutPlanHyperlink;
+    private Label username;
 
     @FXML
     private Button changeEmailButton;
@@ -38,37 +32,7 @@ public class GraphicsControllerAccount extends GraphicsControllerHomePage {
     private Label email;
 
     @FXML
-    private Hyperlink findAGymNearMeHyperlink;
-
-    @FXML
-    private Hyperlink homeHyperlink;
-
-    @FXML
-    private ImageView homeImageView;
-
-    @FXML
-    private Hyperlink logoutHyperlink;
-
-    @FXML
-    private ImageView logoutImageView;
-
-    @FXML
-    private Hyperlink myTrainingDiaryHyperlink;
-
-    @FXML
-    private Hyperlink myWorkoutPlanHyperlink;
-
-    @FXML
-    private Label nameSurname;
-
-    @FXML
     private Label password;
-
-    @FXML
-    private Hyperlink personalTrainerHyperlink1;
-
-    @FXML
-    private ImageView profileImage;
 
     @FXML
     private ImageView showPassword;
@@ -77,13 +41,7 @@ public class GraphicsControllerAccount extends GraphicsControllerHomePage {
     private Button switchAccountButton;
 
     @FXML
-    private Label title;
-
-    @FXML
     private Button viewPurchaseButton;
-
-    @FXML
-    private Label welocme;
 
     @FXML
     private Label zoomEmail;
@@ -106,11 +64,6 @@ public class GraphicsControllerAccount extends GraphicsControllerHomePage {
 
     @FXML
     void clickedOnButtonChangePassword(ActionEvent event) {
-
-    }
-
-    @FXML
-    void clickedOnButtonSwitchAccount(ActionEvent event) {
 
     }
 

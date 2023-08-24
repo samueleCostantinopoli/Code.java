@@ -7,7 +7,14 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DaoImplLogin {
+public class DaoImplLogin implements DaoLogin{
+
+    @Override
+    public boolean login(String username, String password){
+        return false;
+    }
+
+    /*
     private Map<String, String> users;
     private File userFile;
     public DaoImplLogin(String filePath) {
@@ -48,4 +55,5 @@ public class DaoImplLogin {
         String storedPassword = users.get(username);
         return storedPassword != null && storedPassword.equals(password);
     }
+     */
 }
