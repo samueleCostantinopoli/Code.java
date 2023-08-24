@@ -3,6 +3,8 @@ package com.example.fitnesshelp.graphics_controllers;
 import com.example.fitnesshelp.application_controllers.ApplicationControllerBuyWorkoutPlan;
 import com.example.fitnesshelp.bean.BeanBuyWorkoutPlan;
 import com.example.fitnesshelp.bean.BeanState;
+import com.example.fitnesshelp.entities.Account;
+import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -44,12 +46,6 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
 
     @FXML
     private Hyperlink findAGymNearMeHyperlink;
-
-    @FXML
-    private Hyperlink homeHyperlink;
-
-    @FXML
-    private ImageView homeImageView;
 
     @FXML
     private Button infoWorkoutPlan1Button;
@@ -123,15 +119,14 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
         stageToSwitch = "/com/example/fitnesshelp/buyPreviewWorkoutPlan";
         switchStage(event);
     }
-/*
+
     @FXML
     void clickedOnButtonPriceWorkoutPlan(ActionEvent event) {
-        //BeanState state = new BeanState(User.getState());
+        BeanState state = new BeanState(UtilityAccess.getState());
         BeanBuyWorkoutPlan beanBuyWorkoutPlan = new BeanBuyWorkoutPlan(10); //TODO aggiornare il prezzo
         ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(state, beanBuyWorkoutPlan);
-
     }
-*/
+
     @FXML
     void clickedOnBuyWorkoutPlanHyperlink(ActionEvent event) throws IOException {
         stageToSwitch = "/com/example/fitnesshelp/buyWorkoutPlan";

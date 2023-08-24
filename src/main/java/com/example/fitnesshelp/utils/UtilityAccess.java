@@ -1,6 +1,7 @@
 package com.example.fitnesshelp.utils;
 
 import com.example.fitnesshelp.entities.Account;
+import com.example.fitnesshelp.entities.State;
 
 public class UtilityAccess {
     /*questa classe contiene 2 attributi statici che sono settati inizialmente a null
@@ -8,18 +9,18 @@ public class UtilityAccess {
      * con i giusti valori presenti nel database per quell'utente, e tutte le altre classi potranno vedere queste
      * informazioni contenute nella seguente classe, e le useranno per capire se l'utete ha i permessi per entrare
      * in alcune schermate  */
-    private static String nomeUtenteNelDatabase=null;
+    private static String usernameNelDatabase=null;
     private static String codiceUtente=null;
     private UtilityAccess(){
         //NON FA NULLA PERCHE E' UNA CLASSE UTILITY E FORNISCE METODI STATICI PER SETTARE IL VALORE DELLE VARIABILI PRIVATE
     }
 
-    public static String getNomeUtenteNelDatabase() {
-        return nomeUtenteNelDatabase;
+    public static String getUsernameNelDatabase() {
+        return usernameNelDatabase;
     }
 
     public static void setNomeUtenteNelDatabase(String nomeUtenteNelDatabase) {
-        UtilityAccess.nomeUtenteNelDatabase = nomeUtenteNelDatabase;
+        UtilityAccess.usernameNelDatabase = nomeUtenteNelDatabase;
     }
 
     public static String getCodiceUtente() {
@@ -31,7 +32,6 @@ public class UtilityAccess {
     }
 
     //nuova aggiunta account
-
     private static Account account;
 
     public static Account getAccount() {
@@ -40,5 +40,14 @@ public class UtilityAccess {
 
     public static void setAccount(Account account) {
         UtilityAccess.account = account;
+    }
+
+    private static State state;
+    public static State getState() {
+        return state;
+    }
+
+    public static void setState(State state){
+        UtilityAccess.state = state;
     }
 }
