@@ -1,7 +1,6 @@
 package com.example.fitnesshelp;
 
-import com.example.fitnesshelp.ComandLineInterface.cliHomePage;
-import com.example.fitnesshelp.dao.DaoImplJDBCTdee;
+import com.example.fitnesshelp.ComandLineInterface.CliHomePage;
 import com.example.fitnesshelp.entities.*;
 import com.example.fitnesshelp.utils.Printer;
 import com.example.fitnesshelp.entities.Account;
@@ -57,7 +56,7 @@ public class Main extends Application {
                 System.exit(0);
             }else if(numeroScelta==2) {
                 //è stata scelta la linea di comando
-                cliHomePage cliHomePage = new cliHomePage();
+                CliHomePage cliHomePage = new CliHomePage();
                 cliHomePage.displayHomepage();
                 System.exit(0);
             }
