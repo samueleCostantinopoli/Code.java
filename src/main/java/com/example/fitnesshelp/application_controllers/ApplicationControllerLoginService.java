@@ -1,15 +1,16 @@
 package com.example.fitnesshelp.application_controllers;
 
-import com.example.fitnesshelp.bean.BeanLogin;
+import com.example.fitnesshelp.bean.BeanPassword;
+import com.example.fitnesshelp.bean.BeanUsername;
 import com.example.fitnesshelp.dao.DaoImplLogin;
 
 public class ApplicationControllerLoginService {
     private final String email;
     private final String password;
 
-    public ApplicationControllerLoginService(BeanLogin beanLogin) {
-        this.email = beanLogin.getEmail();
-        this.password = beanLogin.getPassword();
+    public ApplicationControllerLoginService(BeanUsername beanUsername, BeanPassword beanPassword) {
+        this.email = beanUsername.getUsername();
+        this.password = beanPassword.getPassword();
     }
 /*
     public boolean isValidUser(String username, String password) {

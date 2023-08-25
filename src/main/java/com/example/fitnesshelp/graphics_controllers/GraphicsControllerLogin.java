@@ -1,7 +1,8 @@
 package com.example.fitnesshelp.graphics_controllers;
 
 import com.example.fitnesshelp.application_controllers.ApplicationControllerLoginService;
-import com.example.fitnesshelp.bean.BeanLogin;
+import com.example.fitnesshelp.bean.BeanPassword;
+import com.example.fitnesshelp.bean.BeanUsername;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -77,9 +78,11 @@ public class GraphicsControllerLogin extends GraphicsControllerHomePage {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        BeanLogin beanLogin = new BeanLogin(username, password);
+        BeanUsername beanUsername = new BeanUsername(username);
+        BeanPassword beanPassword = new BeanPassword(password);
+
         // Crea un'istanza del servizio degli utenti
-        ApplicationControllerLoginService userService = new ApplicationControllerLoginService(beanLogin);
+        ApplicationControllerLoginService userService = new ApplicationControllerLoginService(beanUsername, beanPassword);
 /*
         if (userService.isValidUser(username, password)) {
             statusLabel.setText("Login riuscito");

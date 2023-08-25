@@ -2,10 +2,8 @@ package com.example.fitnesshelp.CLIGraphicsControllers;
 
 import com.example.fitnesshelp.ComandLineInterface.cliHomePage;
 import com.example.fitnesshelp.application_controllers.ApplicationControllerLoginService;
-import com.example.fitnesshelp.bean.BeanLogin;
-import com.example.fitnesshelp.exception.ExceptionErrorReadPass;
-import com.example.fitnesshelp.exception.ExceptionNotExistsUsers;
-import com.example.fitnesshelp.exception.SQLException;
+import com.example.fitnesshelp.bean.BeanPassword;
+import com.example.fitnesshelp.bean.BeanUsername;
 import com.example.fitnesshelp.utils.Printer;
 
 import java.io.BufferedReader;
@@ -14,18 +12,21 @@ import java.io.InputStreamReader;
 
 public class GraphicsControllerSendAccessDataCLI {
     private cliHomePage homePage=new cliHomePage();
-    private String email;
+    private String username;
     private String password;
-    private BeanLogin beanAccessoUtente;
-    public GraphicsControllerSendAccessDataCLI(String email, String password){
-        this.email=email;
+    private BeanUsername beanUsername;
+    private BeanPassword beanPassword;
+    public GraphicsControllerSendAccessDataCLI(String username, String password){
+        this.username=username;
         this.password=password;
     }
     public void sendDataBean() throws IOException {
-        beanAccessoUtente = new BeanLogin(email, password);
+        beanUsername = new BeanUsername(username);
+        beanPassword = new BeanPassword(password);
         //svolgo prima i controlli sulla email inserita dall'utente, verifico cioè se è sintatticamente corretta
-        String controlliSintatticiEmail = beanAccessoUtente.svolgiControlli();
+        String usernameCheck = beanUsername.getUsername();
         //se l'email è sintatticamente corretta vado avanti altrimenti counico l'errore all'utente
+        /*
         if (controlliSintatticiEmail == null) {
             //mando il bean al controller applicativo
             try {
@@ -44,8 +45,10 @@ public class GraphicsControllerSendAccessDataCLI {
             Printer.error(controlliSintatticiEmail);
             backToHome();
         }
-
+*/
     }
+
+
     private void backToHome() throws IOException {
         homePage.displayHomepage();
     }

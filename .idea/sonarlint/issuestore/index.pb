@@ -17,14 +17,6 @@ q
 Asrc/main/java/com/example/fitnesshelp/state/MaintenanceState.java,8\2\8220d64acd6b947343cf440076754c205b5a2e5d
 i
 9src/main/java/com/example/fitnesshelp/fileSystem/user.txt,1\3\13d1e26b76d2d1b5e8897bbb24b35f25a948c42d
-j
-:src/main/java/com/example/fitnesshelp/bean/BeanHeight.java,3\3\33764dbd1ac9c6c4b21967c7018d838441fa35fd
-i
-9src/main/java/com/example/fitnesshelp/bean/BeanLogin.java,b\f\bf7e9da43cee2571c829dbc49ff2d772547395b9
-j
-:src/main/java/com/example/fitnesshelp/bean/BeanVerify.java,6\1\6171fa4b2b986025a35c575f050eec7d942e6c73
-j
-:src/main/java/com/example/fitnesshelp/bean/BeanWeight.java,6\c\6cc00eb2fc64b67b3b9a2a4c8c8e7c6604bf155a
 z
 Jsrc/main/java/com/example/fitnesshelp/ComandLineInterface/cliHomePage.java,b\5\b5167a7b26a8bec81ae6a6d16f6553a268c0cf33
 ë
@@ -53,14 +45,10 @@ h
 8src/main/java/com/example/fitnesshelp/utils/Printer.java,7\7\7708307a3f568d29589d4a5267354b46535f3c4b
 n
 >src/main/java/com/example/fitnesshelp/utils/UtilityAccess.java,2\7\27050387559f849209011483f16eb58547c463ea
-g
-7src/main/java/com/example/fitnesshelp/bean/BeanAge.java,5\d\5d50b1b8b09c6b99c340d0805241ecb67f810e9d
 ï
 esrc/main/java/com/example/fitnesshelp/application_controllers/ApplicationControllerCalculateTdee.java,5\c\5cd42e5e1a9d6859dd89b48ebaaf3d29a01f0db5
 è
 _src/main/java/com/example/fitnesshelp/CLIGraphicsControllers/GraphicsControllerHomePageCLI.java,1\a\1a9e911182585a52c1217fd43358ca0cfdfb3e50
-å
-\src/main/java/com/example/fitnesshelp/CLIGraphicsControllers/GraphicsControllerLoginCLI.java,f\9\f903f14ddc5997936c32bb74fd6294d45dc03ee2
 ê
 `src/main/java/com/example/fitnesshelp/graphics_controllers/GraphicsControllerCalculateTdee2.java,e\1\e16c0c35786222363aacbf190c3a3bddda14435e
 j
@@ -95,5 +83,3 @@ m
 =src/main/java/com/example/fitnesshelp/factory/FactoryDao.java,5\a\5a8f01ac493fba9306c4b506f5e1f8d686df30c0
 r
 Bsrc/main/java/com/example/fitnesshelp/bean/BeanBuyWorkoutPlan.java,6\a\6a4df1a221a42f5bbe1991246ac1aeb1d545c277
-î
-dsrc/main/java/com/example/fitnesshelp/application_controllers/ApplicationControllerLoginService.java,5\a\5a4b014467de74d00dde5e8555945aa379e04332

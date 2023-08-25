@@ -1,27 +1,27 @@
 package com.example.fitnesshelp.bean;
 
 
-import com.example.fitnesshelp.exception.DoppiaChiocciolaException;
-import com.example.fitnesshelp.exception.DoppiaVirgolaException;
-import com.example.fitnesshelp.exception.TerminatoreEmailException;
+import com.example.fitnesshelp.exception.DoubleSnailException;
+import com.example.fitnesshelp.exception.DoubleCommaException;
+import com.example.fitnesshelp.exception.EmailTerminatorException;
 
 public class BeanVerify {
-    //questo bean è un utility per gli altri bean, sarà qui che metterò i metodi per gestire la sintassi degli input passati
+    // this bean provides methods to check the syntax
     private BeanVerify(){}
-    public static void verificaSintassiEmail(String email) throws DoppiaChiocciolaException, DoppiaVirgolaException, TerminatoreEmailException {
-        int contatore = 0;
-        int contatore2 = 0;
-        contatore = email.indexOf('@');
-        contatore2 = email.indexOf('@', contatore + 1);
-        if (contatore2 != -1) {
-            //bisogna lanciare un eccezione
-            throw new DoppiaChiocciolaException("l'email inserita deve\ncontenere una sola '@' ");
+    public static void syntaxCheck(String email) throws DoubleSnailException, DoubleCommaException, EmailTerminatorException {
+        int count1 = 0;
+        int count2 = 0;
+        count1 = email.indexOf('@');
+        count2 = email.indexOf('@', count1 + 1);
+        if (count2 != -1) {
+            // launch exception
+            throw new DoubleSnailException("the email must contain only one @");
         }
         if (email.indexOf(',') != -1) {
-            throw new DoppiaVirgolaException("spiacente l'email non può\ncontente un carattere ','");
+            throw new DoubleCommaException("email cannot contain a ','");
         }
         if(!(email.endsWith(".com") || email.endsWith(".it") || email.endsWith(".live"))){
-            throw new TerminatoreEmailException("l'email deve terminare con\n.com o .it o .live");
+            throw new EmailTerminatorException("the email must end with .com or .it or .live");
         }
     }
 }
