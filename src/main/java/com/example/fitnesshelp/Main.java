@@ -1,9 +1,8 @@
 package com.example.fitnesshelp;
 
 import com.example.fitnesshelp.ComandLineInterface.cliHomePage;
-import com.example.fitnesshelp.entities.Account;
-import com.example.fitnesshelp.entities.State;
-import com.example.fitnesshelp.entities.TypeOfUser;
+import com.example.fitnesshelp.dao.DaoImplJDBCTdee;
+import com.example.fitnesshelp.entities.*;
 import com.example.fitnesshelp.utils.Printer;
 import com.example.fitnesshelp.entities.Account;
 import com.example.fitnesshelp.utils.UtilityAccess;
@@ -15,6 +14,7 @@ import javafx.stage.Stage;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 
 import static com.example.fitnesshelp.entities.TypeOfUser.NORMAL;
 
@@ -29,12 +29,13 @@ public class Main extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SQLException {
 
         //l'app viene lanciata, creiamo quindi un utente di default che possiede come stato di default offline
         String admin = "admin";
         String email = "email@gmail.com";
         TypeOfUser type = NORMAL;
+
         UtilityAccess.setAccount(new Account("admin", "admin", NORMAL, null, State.NOT_LOGGED_IN));
         BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
         Printer.print("---------------------------------------------------------------------");

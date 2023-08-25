@@ -12,7 +12,7 @@ import java.util.List;
 public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
 
     @Override
-    public List<WorkoutPlan> showData(){
+    public List<WorkoutPlan> showData(String username){
         return null;
     }
 

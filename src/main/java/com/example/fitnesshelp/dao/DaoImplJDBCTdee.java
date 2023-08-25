@@ -16,6 +16,7 @@ public class DaoImplJDBCTdee implements DaoEntity<Tdee>{
     public DaoImplJDBCTdee() throws SQLException, IOException {
         connection = SingletonConnection.getInstance().getConnection();
     }
+
     @Override
     public void saveData(Tdee tdee) throws SQLException {
         try (CallableStatement cs = connection.prepareCall("{call add_tdee(?, ?, ?, ?, ?, ?, ?)}")) {
@@ -34,7 +35,28 @@ public class DaoImplJDBCTdee implements DaoEntity<Tdee>{
     }
 
     @Override
-    public List<Tdee> showData(){
-        return null;
+    public List<Tdee> showData(String username){
+        List<Tdee> listOfTdee = null;
+        try (CallableStatement cs = connection.prepareCall("{call list_of_tdee(?)}")) {
+            cs.setString(1, username);
+            ResultSet rs = cs.executeQuery();
+
+            while (rs.next()) {
+                int kcal = rs.getInt("kcal");
+                String user = rs.getString("username");
+                float pro = rs.getFloat("pro");
+                float fat = rs.getFloat("fat");
+                float carb = rs.getFloat("carb");
+                String target = rs.getString("target");
+                String quantity = rs.getString("quantity");
+
+                Tdee tdee = new Tdee(kcal, user, pro, fat, carb, target, quantity);
+                listOfTdee.add(tdee);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Gestisci l'eccezione
+        }
+        return listOfTdee;
     }
 }

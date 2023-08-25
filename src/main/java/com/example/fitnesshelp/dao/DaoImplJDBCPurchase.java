@@ -9,7 +9,7 @@ public class DaoImplJDBCPurchase implements DaoEntity<Purchase>{
     public void saveData(Purchase purchase){}
 
     @Override
-    public List<Purchase> showData(){
+    public List<Purchase> showData(String username){
         return null;
     }
 }

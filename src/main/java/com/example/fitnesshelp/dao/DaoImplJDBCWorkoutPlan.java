@@ -9,7 +9,7 @@ public class DaoImplJDBCWorkoutPlan implements DaoEntity<WorkoutPlan>{
     public void saveData(WorkoutPlan workoutPlan){}
 
     @Override
-    public List<WorkoutPlan> showData(){
+    public List<WorkoutPlan> showData(String username){
         return null;
     }
 }

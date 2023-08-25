@@ -50,7 +50,7 @@ public class DaoImplFileSystemPurchase implements DaoEntity<Purchase>{
     }
 
     @Override
-    public List<Purchase> showData(){
+    public List<Purchase> showData(String username){
         return null;
     }
 
