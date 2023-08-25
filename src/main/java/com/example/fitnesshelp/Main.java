@@ -14,7 +14,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
-
 import static com.example.fitnesshelp.entities.TypeOfUser.NORMAL;
 
 
@@ -30,40 +29,36 @@ public class Main extends Application {
 
     public static void main(String[] args) throws IOException, SQLException {
 
-        //l'app viene lanciata, creiamo quindi un utente di default che possiede come stato di default offline
+        // The app is launched, so we create a default user who has offline by default
         String admin = "admin";
-        String email = "email@gmail.com";
         TypeOfUser type = NORMAL;
 
         UtilityAccess.setAccount(new Account("admin", "admin", NORMAL, null, State.NOT_LOGGED_IN));
         BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
         Printer.print("---------------------------------------------------------------------");
         while(true){
-            Printer.print("digitare:\n1 per visualizzare l'app con l'interfaccia grafica\n2 per visualizzare l'app in linea di comando");
-            String scelta=bufferedReader.readLine();
+            Printer.print("Type:\n1 to view the app with the graphical interface\n2 to view the app in command line");
+            String choice=bufferedReader.readLine();
             try {
-                Integer.parseInt(scelta);
+                Integer.parseInt(choice);
             } catch (NumberFormatException e) {
-                //di default lancio l'interfaccia grafica
+                // by default, I launch the graphical interface
                 launch();
                 break;
             }
             //l'utente ha inserito effettivamente dei numeri
-            int numeroScelta = Integer.parseInt(scelta);
-            if(numeroScelta==1) {
-                //è stata scelta l'interfaccia grafica
+            int numberChoice = Integer.parseInt(choice);
+            if(numberChoice==1) {
+                // the graphical interface has been chosen
                 launch();
                 System.exit(0);
-            }else if(numeroScelta==2) {
-                //è stata scelta la linea di comando
+            }else if(numberChoice==2) {
                 CliHomePage cliHomePage = new CliHomePage();
                 cliHomePage.displayHomepage();
                 System.exit(0);
             }
-            Printer.print("mi spiace, prova a digitare 1 oppure 2");
-            Printer.print("---------------------------------------------------------------------");
+            Printer.print("Sorry, try typing 1 or 2\n");
         }
-
         launch();
     }
 }

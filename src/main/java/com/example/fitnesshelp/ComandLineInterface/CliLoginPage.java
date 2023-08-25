@@ -6,29 +6,29 @@ import com.example.fitnesshelp.utils.Printer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 
-public class cliLoginPage {
+public class CliLoginPage {
     private BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
-    private String email;
+    private String username;
     private String password;
 
-    public void viewAccessPage() throws IOException {
-        Printer.print("--------------------------Pagina log in----------------------------\n" +
-                "digita la tua email ( digita esc per tornare indietro):");
-        this.email=bufferedReader.readLine();
-        Printer.print("inserisci la tua password ( se hai digitato esc per tornare indietro, digita qualsiasi lettera ora): ");
-        this.password=bufferedReader.readLine();
-        //controlla se l'utente e' voluto tornare indietro
-        if(verifyExitInput(email)){
-            //l'utente vuole tornare alla home
+    public void viewAccessPage() throws IOException, SQLException {
+        Printer.print("--------------------------PAGE LOG IN----------------------------\n" +
+                "Type your email (type esc to go back):");
+        this.username = bufferedReader.readLine();
+        Printer.print("Enter your password (if you typed esc to go back, type any letter now):");
+        this.password = bufferedReader.readLine();
+        if(verifyExitInput(username)){
+            // The user wants to go back to the home
             backToHomePage();
         }
-        if (email.equals("") || password.equals("")) {
-            Printer.error("Inserisci una email e una password");
+        if (username.equals("") || password.equals("")) {
+            Printer.error("Enter an email and password");
             backToHomePage();
         }
-        //mando questi dati al controller grafico il quale li manda al bean
-        GraphicsControllerSendAccessDataCLI graphicsControllerSendAccessDataCLI=new GraphicsControllerSendAccessDataCLI(this.email,this.password);
+        // I send this data to the graphics controller which sends them to the bean
+        GraphicsControllerSendAccessDataCLI graphicsControllerSendAccessDataCLI=new GraphicsControllerSendAccessDataCLI(this.username,this.password);
         graphicsControllerSendAccessDataCLI.sendDataBean();
 
     }
@@ -36,8 +36,8 @@ public class cliLoginPage {
         return email.equalsIgnoreCase("esc");
 
     }
-    private void backToHomePage() throws IOException {
-        cliHomePage homePage = new cliHomePage();
+    private void backToHomePage() throws IOException, SQLException {
+        CliHomePage homePage = new CliHomePage();
         homePage.displayHomepage();
     }
 }

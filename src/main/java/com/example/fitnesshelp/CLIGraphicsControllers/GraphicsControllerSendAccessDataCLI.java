@@ -1,6 +1,6 @@
 package com.example.fitnesshelp.CLIGraphicsControllers;
 
-import com.example.fitnesshelp.ComandLineInterface.cliHomePage;
+import com.example.fitnesshelp.ComandLineInterface.CliHomePage;
 import com.example.fitnesshelp.application_controllers.ApplicationControllerLoginService;
 import com.example.fitnesshelp.bean.BeanPassword;
 import com.example.fitnesshelp.bean.BeanUsername;
@@ -9,9 +9,10 @@ import com.example.fitnesshelp.utils.Printer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 
 public class GraphicsControllerSendAccessDataCLI {
-    private cliHomePage homePage=new cliHomePage();
+    private CliHomePage homePage=new CliHomePage();
     private String username;
     private String password;
     private BeanUsername beanUsername;
@@ -20,20 +21,18 @@ public class GraphicsControllerSendAccessDataCLI {
         this.username=username;
         this.password=password;
     }
-    public void sendDataBean() throws IOException {
+    public void sendDataBean() throws IOException, SQLException {
         beanUsername = new BeanUsername(username);
         beanPassword = new BeanPassword(password);
-        //svolgo prima i controlli sulla email inserita dall'utente, verifico cioè se è sintatticamente corretta
         String usernameCheck = beanUsername.getUsername();
-        //se l'email è sintatticamente corretta vado avanti altrimenti counico l'errore all'utente
-        /*
-        if (controlliSintatticiEmail == null) {
+        // if the username is syntactically correct I go on otherwise I communicate the error to the user
+        if (usernameCheck == null) {
             //mando il bean al controller applicativo
             try {
-                new ApplicationControllerLoginService(beanAccessoUtente);
-                // se non si e' verificata nessuna eccezione vuol dire che l'accesso e' stato effettuato con successo
-                Printer.print("Accesso effettuato, premi qualsiasi tasto per tornare alla home");
-                BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
+                new ApplicationControllerLoginService(beanUsername, beanPassword);
+                // if no exception has occurred, it means that the access has been carried out successfully
+                Printer.print("Logged in, press any key to return to home");
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
                 if(bufferedReader.readLine().length()>=1){
                     backToHome();
                 }
@@ -42,14 +41,13 @@ public class GraphicsControllerSendAccessDataCLI {
                 backToHome();
             }
         }else{
-            Printer.error(controlliSintatticiEmail);
+            Printer.error(usernameCheck);
             backToHome();
         }
-*/
     }
 
 
-    private void backToHome() throws IOException {
+    private void backToHome() throws IOException, SQLException {
         homePage.displayHomepage();
     }
 }
