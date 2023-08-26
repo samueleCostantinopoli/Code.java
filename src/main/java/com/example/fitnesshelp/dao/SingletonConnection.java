@@ -11,7 +11,7 @@ import java.util.Properties;
 public class SingletonConnection {
 
     private static SingletonConnection instance;
-    private Connection connection;
+    private static Connection connection;
 
     // private constructor to prevent multiple instance construction
     private SingletonConnection() throws IOException, java.sql.SQLException {
@@ -42,7 +42,7 @@ public class SingletonConnection {
         return connection;
     }
 
-    public void closeConnection() throws SQLException {
+    public static void closeConnection() throws SQLException {
         if (connection != null) {
             connection.close();
         }
