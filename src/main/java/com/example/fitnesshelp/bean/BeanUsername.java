@@ -1,22 +1,25 @@
 package com.example.fitnesshelp.bean;
 
+import com.example.fitnesshelp.exception.LenghtException;
+
 public class BeanUsername {
 
     private String username;
 
     public BeanUsername(String username) {
-        setUsername(username);
+        this.username = username;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
-        if (username.length() <= 12) {
-            this.username = username;
-        } else {
-            throw new IllegalArgumentException("Username must be less than or equal to 12 characters.");
+    public String checkUsernameLength(String username) {
+        try{
+            BeanVerify.lenghtCheck(username);
+        }catch (LenghtException e){
+            return e.getMessage();
         }
+        return null;
     }
 }

@@ -1,14 +1,10 @@
 package com.example.fitnesshelp.CLIGraphicsControllers;
 
 import com.example.fitnesshelp.ComandLineInterface.cliHomePage;
-import com.example.fitnesshelp.application_controllers.ApplicationControllerLoginService;
 import com.example.fitnesshelp.bean.BeanPassword;
 import com.example.fitnesshelp.bean.BeanUsername;
-import com.example.fitnesshelp.utils.Printer;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class GraphicsControllerSendAccessDataCLI {
     private cliHomePage homePage=new cliHomePage();

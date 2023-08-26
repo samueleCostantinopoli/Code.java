@@ -4,6 +4,7 @@ package com.example.fitnesshelp.bean;
 import com.example.fitnesshelp.exception.DoubleSnailException;
 import com.example.fitnesshelp.exception.DoubleCommaException;
 import com.example.fitnesshelp.exception.EmailTerminatorException;
+import com.example.fitnesshelp.exception.LenghtException;
 
 public class BeanVerify {
     // this bean provides methods to check the syntax
@@ -22,6 +23,12 @@ public class BeanVerify {
         }
         if(!(email.endsWith(".com") || email.endsWith(".it") || email.endsWith(".live"))){
             throw new EmailTerminatorException("the email must end with .com or .it or .live");
+        }
+    }
+
+    public static void lenghtCheck(String s) throws LenghtException {
+        if (s.length() > 8){
+            throw new LenghtException("the length must be less than or equal to 8 characters");
         }
     }
 }

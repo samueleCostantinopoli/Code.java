@@ -53,10 +53,11 @@
             <Image url="@../../../home.png" />
          </image>
       </ImageView>
-      <Label fx:id="statusLabel" layoutX="370.0" layoutY="450.0" visible="false">
+      <Label fx:id="statusLabel" layoutX="370.0" layoutY="450.0" prefWidth="0.0" visible="false">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
+      <Label fx:id="errorMessageLabel" layoutX="509.0" layoutY="235.0" opacity="0.0" prefHeight="17.0" prefWidth="240.0" text="message" textFill="RED" />
    </children>
 </AnchorPane>

@@ -1,7 +1,6 @@
 package com.example.fitnesshelp.dao;
 
 import com.example.fitnesshelp.entities.WorkoutPlan;
-import com.example.fitnesshelp.exception.ExceptionErrorReadPass;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

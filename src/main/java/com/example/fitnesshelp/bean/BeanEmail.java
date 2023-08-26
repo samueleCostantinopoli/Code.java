@@ -15,7 +15,7 @@ public class BeanEmail {
         return email;
     }
 
-    public String emailCehck(){
+    public String emailCehck(String email){
         try {
             BeanVerify.syntaxCheck(email);
         }catch(DoubleSnailException | DoubleCommaException | EmailTerminatorException e){
