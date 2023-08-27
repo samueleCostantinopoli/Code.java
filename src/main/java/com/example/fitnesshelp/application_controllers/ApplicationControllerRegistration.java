@@ -4,11 +4,8 @@ import com.example.fitnesshelp.bean.BeanAccountType;
 import com.example.fitnesshelp.bean.BeanEmail;
 import com.example.fitnesshelp.bean.BeanPassword;
 import com.example.fitnesshelp.bean.BeanUsername;
-import com.example.fitnesshelp.dao.DaoImplLogin;
 import com.example.fitnesshelp.dao.DaoImplRegistration;
-import com.example.fitnesshelp.entities.TypeOfUser;
 import com.example.fitnesshelp.exception.EmailAlreadyExistException;
-import com.example.fitnesshelp.exception.NotExistsUsersException;
 import com.example.fitnesshelp.exception.UsernameAlreadyExistException;
 
 import java.io.IOException;
@@ -35,7 +32,6 @@ public class ApplicationControllerRegistration {
         if (daoImplRegistration.checkEmail(email) && daoImplRegistration.checkUsername(username)){
             // the user can be registered now
             daoImplRegistration.registration(email, password, typeOfUser, username);
-            return;
         } else if (!daoImplRegistration.checkEmail(email)) {
             // email already exist
             throw new EmailAlreadyExistException("email already used for another account");

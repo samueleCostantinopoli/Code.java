@@ -35,7 +35,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Button fx:id="buttonCreateAccount" layoutX="355.0" layoutY="354.0" mnemonicParsing="false" onAction="#clickedOnButtonCreateAccount" prefHeight="29.0" prefWidth="114.0" style="-fx-background-color: #231717;" text="Create account" textFill="WHITE">
+      <Button fx:id="buttonCreateAccount" layoutX="668.0" layoutY="556.0" mnemonicParsing="false" onAction="#clickedOnButtonCreateAccount" prefHeight="29.0" prefWidth="114.0" style="-fx-background-color: #231717;" text="Create account" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
@@ -58,6 +58,6 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <Label fx:id="errorMessageLabel" layoutX="509.0" layoutY="235.0" opacity="0.0" prefHeight="17.0" prefWidth="240.0" text="message" textFill="RED" />
+      <Label fx:id="errorMessageLabel" layoutX="250.0" layoutY="189.0" opacity="0.0" prefHeight="17.0" prefWidth="475.0" text="message" textFill="RED" />
    </children>
 </AnchorPane>

@@ -81,11 +81,15 @@ public class GraphicsControllerLogin extends GraphicsControllerHomePage {
                 // in this case I call the application controller
                 try {
                     ApplicationControllerLogin applicationControllerLoginService = new ApplicationControllerLogin(beanUsername, beanPassword);
+                    // successful login
                     usernameField.setDisable(true);
                     passwordField.setDisable(true);
                     buttonLogin.setDisable(true);
                     buttonCreateAccount.setDisable(true);
                     errorMessageLabel.setOpacity(0);
+                    // switch to home page
+                    stageToSwitch = "/com/example/fitnesshelp/homePage";
+                    switchStage(event);
                 }catch (NotExistsUsersException | SQLException | IOException e){
                     errorMessageLabel.setText(e.getMessage());
                     errorMessageLabel.setOpacity(1);

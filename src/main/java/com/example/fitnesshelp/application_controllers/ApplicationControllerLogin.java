@@ -23,10 +23,10 @@ public class ApplicationControllerLogin {
         // this method returns true if this account exist
         if(daoImplLogin.login(username, password)){
             // user is logged in
-            return;
+        } else {
+            // the account does not exist
+            throw new NotExistsUsersException("invalid credentials");
         }
-        // the account does not exist
-        throw new NotExistsUsersException("invalid credentials");
     }
 
 

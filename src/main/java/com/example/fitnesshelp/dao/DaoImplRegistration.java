@@ -17,11 +17,11 @@ public class DaoImplRegistration implements DaoRegistration{
     @Override
     public boolean checkEmail(String email){
         boolean checkForEmail = false;
-        try (CallableStatement cs = connection.prepareCall("{call check_email(?)}")) {
+        try (CallableStatement cs = connection.prepareCall("{call check_email(?, ?)}")) {
             cs.setString(1, email);
-            cs.registerOutParameter(3, Types.BOOLEAN);
+            cs.registerOutParameter(2, Types.BOOLEAN);
             ResultSet rs = cs.executeQuery();
-            checkForEmail = cs.getBoolean(3);
+            checkForEmail = cs.getBoolean(2);
         } catch (SQLException e) {
             e.printStackTrace();
             // Gestisci l'eccezione
@@ -32,11 +32,11 @@ public class DaoImplRegistration implements DaoRegistration{
     @Override
     public boolean checkUsername(String username){
         boolean checkForUsername = false;
-        try (CallableStatement cs = connection.prepareCall("{call check_username(?)}")) {
+        try (CallableStatement cs = connection.prepareCall("{call check_username(?, ?)}")) {
             cs.setString(1, username);
-            cs.registerOutParameter(3, Types.BOOLEAN);
+            cs.registerOutParameter(2, Types.BOOLEAN);
             ResultSet rs = cs.executeQuery();
-            checkForUsername = cs.getBoolean(3);
+            checkForUsername = cs.getBoolean(2);
         } catch (SQLException e) {
             e.printStackTrace();
             // Gestisci l'eccezione

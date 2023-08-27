@@ -1,13 +1,15 @@
 package com.example.fitnesshelp.CLIGraphicsControllers;
 
-import com.example.fitnesshelp.ComandLineInterface.cliHomePage;
+import com.example.fitnesshelp.ComandLineInterface.CliHomePage;
+import com.example.fitnesshelp.ComandLineInterface.CliHomePage;
 import com.example.fitnesshelp.bean.BeanPassword;
 import com.example.fitnesshelp.bean.BeanUsername;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class GraphicsControllerSendAccessDataCLI {
-    private cliHomePage homePage=new cliHomePage();
+    private CliHomePage homePage = new CliHomePage();
     private String username;
     private String password;
     private BeanUsername beanUsername;
@@ -45,7 +47,7 @@ public class GraphicsControllerSendAccessDataCLI {
     }
 
 
-    private void backToHome() throws IOException {
+    private void backToHome() throws IOException, SQLException {
         homePage.displayHomepage();
     }
 }

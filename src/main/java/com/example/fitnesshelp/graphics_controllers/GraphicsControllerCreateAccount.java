@@ -55,6 +55,7 @@ public class GraphicsControllerCreateAccount extends GraphicsControllerHomePage 
     private BeanEmail beanEmail;
     private BeanAccountType beanAccountType;
 
+    // radio button switch
     @FXML
     void clickedOnRadioButtonNormalAccount(ActionEvent event) {
         if (normalAccountRadioButton.isSelected()) {
@@ -91,13 +92,15 @@ public class GraphicsControllerCreateAccount extends GraphicsControllerHomePage 
                 // in this case I call the application controller
                 try{
                     ApplicationControllerRegistration applicationControllerRegistration = new ApplicationControllerRegistration(beanUsername, beanEmail, beanPassword, beanAccountType);
+                    // successful registration
                     usernameField.setDisable(true);
                     emailField.setDisable(true);
                     passwordField.setDisable(true);
-                }catch (EmailAlreadyExistException | java.sql.SQLException | IOException e){
-                    registrationErrorMessageLabel.setText(e.getMessage());
-                    registrationErrorMessageLabel.setOpacity(1);
-                }catch (UsernameAlreadyExistException e){
+                    registrationErrorMessageLabel.setOpacity(0);
+                    // switch to login page
+                    stageToSwitch = "/com/example/fitnesshelp/login";
+                    switchStage(event);
+                }catch (EmailAlreadyExistException | UsernameAlreadyExistException | java.sql.SQLException | IOException e){
                     registrationErrorMessageLabel.setText(e.getMessage());
                     registrationErrorMessageLabel.setOpacity(1);
                 }
