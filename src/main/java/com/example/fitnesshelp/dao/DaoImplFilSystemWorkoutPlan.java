@@ -23,9 +23,7 @@ public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
 
     @Override
     public void saveData(WorkoutPlan instance) throws SQLException, IOException {
-        //se sono qui voglio salvare su file system la buca
         WorkoutPlan workoutPlan = new WorkoutPlan(instance.getName(), instance.getDay(), instance.getUsername());
-        //adesso devo salvarla in locale
         try {
             //imposto a true il secondo parametro del costruttore del file writer, in questo modo non c'e' sovrascrittura
             BufferedWriter fileWriter = new BufferedWriter(new FileWriter(FILE_NAME,true));
@@ -39,11 +37,11 @@ public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
             statusSave =0;
         } catch (IOException e) {
             statusSave =1;
-            throw new IOException("problema con il file writer");
+            throw new IOException("Problem with file writer\n");
         }
     }
     private String convertWorkoutInTxt(WorkoutPlan workoutPlan){
-        return "Nome del workout "+ workoutPlan.getName()+"\ncreato da: "+workoutPlan.getUsername()+"\nstato: ancora non segnalato al database";
+        return "Workout name: "+ workoutPlan.getName()+"\nCreator: "+workoutPlan.getUsername()+"\nState: Not in database";
     }
     public int getEsito(){
         return this.statusSave;

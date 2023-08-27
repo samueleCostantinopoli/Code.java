@@ -10,17 +10,13 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class DaoImplFileSystemPurchase implements DaoEntity<Purchase>{
-    //dao che si occupa di salvare l'entità WorkoutPlan nel file system
+    //dao che si occupa di salvare l'entità Purchase nel file system
     private static final String FILE_NAME = "Purchase.txt";
-    //variabile che viene cambiata in base all'esito del salvataggio della buca stradale nel file system
-    //molto utile nel momento di testare il metodo SaveEntitaStradale
     private int statusSave;
 
     @Override
     public void saveData(Purchase instance) throws SQLException, IOException {
-        //se sono qui voglio salvare su file system la buca
         Purchase purchase = new Purchase(instance.getIdPurchase(), instance.getPrice(), instance.getDate(), instance.getUsername(),instance.getWorkoutPlan());
-        //adesso devo salvarla in locale
         try {
             //imposto a true il secondo parametro del costruttore del file writer, in questo modo non c'e' sovrascrittura
             BufferedWriter fileWriter = new BufferedWriter(new FileWriter(FILE_NAME,true));
@@ -39,11 +35,11 @@ public class DaoImplFileSystemPurchase implements DaoEntity<Purchase>{
     }
     private String convertWorkoutInTxt(Purchase purchase){
         return "ID pagamento "+ purchase.getIdPurchase()+
-                "\nCosto del workout "+ purchase.getPrice()+
-                "\nacquistato il giorno: "+purchase.getDate()+
-                "\ncreato da: "+purchase.getUsername()+
-                "\nnome workout: "+purchase.getWorkoutPlan()+
-                "\nstato: ancora non segnalato al database";
+                "\nWorkout cost: "+ purchase.getPrice()+
+                "\nDate of purchase: "+purchase.getDate()+
+                "\nCreator: "+purchase.getUsername()+
+                "\nWorkout name: "+purchase.getWorkoutPlan()+
+                "\nState: Not in database";
     }
     public int getEsito(){
         return this.statusSave;
