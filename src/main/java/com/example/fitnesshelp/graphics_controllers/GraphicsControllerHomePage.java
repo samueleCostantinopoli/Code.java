@@ -1,5 +1,6 @@
 package com.example.fitnesshelp.graphics_controllers;
 
+import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -63,9 +64,6 @@ public class GraphicsControllerHomePage {
     @FXML
     private Label title;
 
-    @FXML
-    private Label welcome;
-
     private Stage home;
     private Scene primary;
     private FXMLLoader root;
@@ -127,5 +125,9 @@ public class GraphicsControllerHomePage {
         Scene primary = new Scene(root.load());
         home.setScene(primary);
         home.show();
+    }
+
+    public void setUsernameLabel(){
+        usernameLabel.setText(UtilityAccess.getUsername());
     }
 }

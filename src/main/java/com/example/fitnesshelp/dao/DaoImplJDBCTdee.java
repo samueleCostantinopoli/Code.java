@@ -1,12 +1,14 @@
 package com.example.fitnesshelp.dao;
 
 import com.example.fitnesshelp.entities.Tdee;
+import com.example.fitnesshelp.utils.UtilityAccess;
 
 import java.io.IOException;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DaoImplJDBCTdee implements DaoEntity<Tdee>{
@@ -36,21 +38,20 @@ public class DaoImplJDBCTdee implements DaoEntity<Tdee>{
 
     @Override
     public List<Tdee> showData(String username){
-        List<Tdee> listOfTdee = null;
+        List<Tdee> listOfTdee = new ArrayList<>();
         try (CallableStatement cs = connection.prepareCall("{call list_of_tdee(?)}")) {
             cs.setString(1, username);
             ResultSet rs = cs.executeQuery();
 
             while (rs.next()) {
                 int kcal = rs.getInt("kcal");
-                String user = rs.getString("username");
+                String target = rs.getString("target");
+                String quantity = rs.getString("quantity");
                 float pro = rs.getFloat("pro");
                 float fat = rs.getFloat("fat");
                 float carb = rs.getFloat("carb");
-                String target = rs.getString("target");
-                String quantity = rs.getString("quantity");
 
-                Tdee tdee = new Tdee(kcal, user, pro, fat, carb, target, quantity);
+                Tdee tdee = new Tdee(kcal, UtilityAccess.getUsername(), pro, fat, carb, target, quantity);
                 listOfTdee.add(tdee);
             }
         } catch (SQLException e) {

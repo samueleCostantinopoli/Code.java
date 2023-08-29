@@ -2,10 +2,10 @@
 
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnesshelp.graphics_controllers.GraphicsControllerCalculateTdee0">
@@ -100,25 +100,18 @@
                   <Font size="14.0" />
                </font>
             </Hyperlink>
-            <Label layoutX="396.0" layoutY="261.0" />
-            <TextArea layoutX="289.0" layoutY="241.0" prefHeight="40.0" prefWidth="72.0" />
-            <TextArea layoutX="380.0" layoutY="241.0" prefHeight="40.0" prefWidth="72.0" />
-            <TextArea layoutX="470.0" layoutY="241.0" prefHeight="40.0" prefWidth="72.0" />
-            <TextArea layoutX="559.0" layoutY="241.0" prefHeight="40.0" prefWidth="72.0" />
             <Label layoutX="426.0" layoutY="170.0" text="My TDEE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="315.0" layoutY="223.0" text="kcal" />
-            <Label layoutX="407.0" layoutY="223.0" text="pro" />
-            <Label layoutX="499.0" layoutY="223.0" text="fat" />
-            <Label layoutX="583.0" layoutY="223.0" text="carb" />
-            <ImageView fx:id="deleteImageView" fitHeight="38.0" fitWidth="39.0" layoutX="643.0" layoutY="240.0" onMouseClicked="#clickedOnDeleteImageView" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@delete.png" />
-               </image>
-            </ImageView>
+            <Label layoutX="256.0" layoutY="224.0" text="kcal" />
+            <Label layoutX="317.0" layoutY="224.0" text="pro" />
+            <Label layoutX="379.0" layoutY="224.0" text="fat" />
+            <Label layoutX="434.0" layoutY="224.0" text="carb" />
+            <Label layoutX="506.0" layoutY="224.0" text="target" />
+            <Label layoutX="593.0" layoutY="224.0" text="quantity" />
+            <VBox fx:id="tdeeListVBox" layoutX="229.0" layoutY="262.0" prefHeight="313.0" prefWidth="485.0" />
          </children>
       </AnchorPane>
    </children>

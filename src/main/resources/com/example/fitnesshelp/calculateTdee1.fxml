@@ -117,6 +117,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
+            <Label fx:id="errorLoginMessageLabel" layoutX="273.0" layoutY="351.0" opacity="0.0" text="you need to login to calculate your tdee or see the list of calculated tdee" textFill="RED" />
          </children>
       </AnchorPane>
    </children>

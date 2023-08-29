@@ -5,9 +5,12 @@ import com.example.fitnesshelp.bean.BeanAccountType;
 import com.example.fitnesshelp.bean.BeanEmail;
 import com.example.fitnesshelp.bean.BeanPassword;
 import com.example.fitnesshelp.bean.BeanUsername;
+import com.example.fitnesshelp.entities.Account;
+import com.example.fitnesshelp.entities.State;
 import com.example.fitnesshelp.entities.TypeOfUser;
 import com.example.fitnesshelp.exception.EmailAlreadyExistException;
 import com.example.fitnesshelp.exception.UsernameAlreadyExistException;
+import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -84,10 +87,17 @@ public class GraphicsControllerCreateAccount extends GraphicsControllerHomePage 
             String emailSyntax = beanEmail.emailCehck(emailField.getText());
             String usernameLength = beanUsername.checkUsernameLength(usernameField.getText());
             String passwordComplexity = beanPassword.passwordCheck(passwordField.getText());
+            TypeOfUser role;
             // strings are null if checks are ok
             // check radio button value to set the type of account
-            if(normalAccountRadioButton.isSelected()) beanAccountType = new BeanAccountType("normal user");
-            else beanAccountType = new BeanAccountType("personal trainer");
+            if(normalAccountRadioButton.isSelected()){
+                role = TypeOfUser.NORMAL;
+                beanAccountType = new BeanAccountType("normal user");
+            }
+            else {
+                role = TypeOfUser.PERSONAL_TRAINER;
+                beanAccountType = new BeanAccountType("personal trainer");
+            }
             if(usernameLength == null && passwordComplexity == null && emailSyntax == null){
                 // in this case I call the application controller
                 try{
@@ -97,6 +107,8 @@ public class GraphicsControllerCreateAccount extends GraphicsControllerHomePage 
                     emailField.setDisable(true);
                     passwordField.setDisable(true);
                     registrationErrorMessageLabel.setOpacity(0);
+                    // set new account
+                    UtilityAccess.setAccount(new Account(usernameField.getText(), passwordField.getText(), role, emailField.getText(), State.NOT_LOGGED_IN));
                     // switch to login page
                     stageToSwitch = "/com/example/fitnesshelp/login";
                     switchStage(event);

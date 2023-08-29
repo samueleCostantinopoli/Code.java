@@ -134,7 +134,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="calculateButton" layoutX="406.0" layoutY="489.0" mnemonicParsing="false" onAction="#clickedOnCalculateButton" prefHeight="29.0" prefWidth="87.0" style="-fx-background-color: #231717;" text="Calculate" textFill="WHITE">
+            <Button fx:id="calculateButton" layoutX="406.0" layoutY="489.0" mnemonicParsing="false" onAction="#clickedOnCalculateButton" opacity="0.0" prefHeight="29.0" prefWidth="87.0" style="-fx-background-color: #231717;" text="Calculate" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -147,7 +147,7 @@
             <RadioButton fx:id="maintenanceRadioButton" layoutX="320.0" layoutY="443.0" mnemonicParsing="false" onAction="#clickedOnRadioButtonMaintenance" text="Maintenance" />
             <RadioButton fx:id="cuttingRadioButton" layoutX="433.0" layoutY="443.0" mnemonicParsing="false" onAction="#clickedOnRadioButtonCutting" text="Cutting" />
             <RadioButton fx:id="bulkingRadioButton" layoutX="515.0" layoutY="443.0" mnemonicParsing="false" onAction="#clickedOnRadioButtonBulking" text="Bulking" />
-            <Label fx:id="emptyAllertLabel" layoutX="383.0" layoutY="537.0" opacity="0.0" text="Some fiels are empty!" textFill="RED">
+            <Label fx:id="emptyAllertLabel" layoutX="357.0" layoutY="537.0" opacity="0.0" text="Some fiels are empty!" textFill="RED">
                <font>
                   <Font size="14.0" />
                </font>

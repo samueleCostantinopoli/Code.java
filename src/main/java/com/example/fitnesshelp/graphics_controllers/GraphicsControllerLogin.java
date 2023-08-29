@@ -3,7 +3,9 @@ package com.example.fitnesshelp.graphics_controllers;
 import com.example.fitnesshelp.application_controllers.ApplicationControllerLogin;
 import com.example.fitnesshelp.bean.BeanPassword;
 import com.example.fitnesshelp.bean.BeanUsername;
+import com.example.fitnesshelp.entities.State;
 import com.example.fitnesshelp.exception.NotExistsUsersException;
+import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -82,12 +84,15 @@ public class GraphicsControllerLogin extends GraphicsControllerHomePage {
                 try {
                     ApplicationControllerLogin applicationControllerLoginService = new ApplicationControllerLogin(beanUsername, beanPassword);
                     // successful login
+                    UtilityAccess.setUsername(usernameField.getText());
+                    UtilityAccess.setState(State.LOGGED_IN);
                     usernameField.setDisable(true);
                     passwordField.setDisable(true);
                     buttonLogin.setDisable(true);
                     buttonCreateAccount.setDisable(true);
                     errorMessageLabel.setOpacity(0);
                     // switch to home page
+                    setUsernameLabel();
                     stageToSwitch = "/com/example/fitnesshelp/homePage";
                     switchStage(event);
                 }catch (NotExistsUsersException | SQLException | IOException e){

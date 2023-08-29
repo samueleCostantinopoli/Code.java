@@ -77,6 +77,8 @@ public class GraphicsControllerCalculateTdee3 extends GraphicsControllerHomePage
 
     }
 
+
+
     @FXML
     void clickedOnButtonSaveDB(ActionEvent event) throws IOException{
         stageToSwitch = "/com/example/fitnesshelp/calculateTdee0";
