@@ -152,10 +152,12 @@ public class GraphicsControllerCalculateTdee2 extends GraphicsControllerHomePage
             case "Moderate Exercise (3-5 days/week)" -> Activity.MODERATE_EXERCISE;
             case "Heavy Exercise (6-7 days/week)" -> Activity.HEAVY_EXERCISE;
             case "Athlete (2x day)" -> Activity.ATHLETE;
+            default -> null;
         };
         Gender gender = switch (genderSelected.getText()){
             case "male" -> Gender.MALE;
             case "female" -> Gender.FEMALE;
+            default -> null;
         };
         beanGender = new BeanGender(gender);
         beanAge = new BeanAge(Integer.parseInt(ageTextArea.getText()));
