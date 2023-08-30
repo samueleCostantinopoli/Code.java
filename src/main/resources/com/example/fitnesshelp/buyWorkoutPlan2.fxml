@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -8,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnesshelp.graphics_controllers.GraphicsControllerBuyPreviewWorkoutPlan">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnesshelp.graphics_controllers.GraphicsControllerBuyWorkoutPlan2">
    <children>
       <AnchorPane prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: #231717;">
          <children>
@@ -54,57 +56,23 @@
             <Image url="@../../../logout.png" />
          </image>
       </ImageView>
-      <Hyperlink fx:id="buyWorkoutPlanHyperlink1" layoutX="230.0" layoutY="106.0" onAction="#clickedOnBuyWorkoutPlanHyperlink" text="&gt; buy workout plan">
+      <Hyperlink fx:id="buyWorkoutPlanHyperlink1" layoutX="230.0" layoutY="106.0" onAction="#clickedOnBuyWorkoutPlanHyperlink1" text="&gt; buy workout plan">
          <font>
             <Font size="14.0" />
          </font>
       </Hyperlink>
-      <AnchorPane fx:id="dataWorkoutPlan1Pane" layoutX="159.0" layoutY="175.0" prefHeight="40.0" prefWidth="630.0" style="-fx-background-color: #464646;">
+      <AnchorPane fx:id="WorkoutPlan1Pane" layoutX="159.0" layoutY="150.0" prefHeight="425.0" prefWidth="630.0" style="-fx-background-color: #dcdcdc;">
          <children>
-            <Label fx:id="NameSurnameAge1" layoutX="6.0" layoutY="11.0" text="Verticale - livello A" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <Button fx:id="pageOneBuyWorkoutPlanButton" layoutX="393.0" layoutY="557.0" mnemonicParsing="false" onAction="#clickedOnButtonPageOneBuyWorkoutPlan" prefHeight="30.0" prefWidth="162.0" style="-fx-background-color: #231717;" text="Back to Workout Plan" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
-      <AnchorPane fx:id="WorkoutPlan2Pane" layoutX="159.0" layoutY="215.0" prefHeight="208.0" prefWidth="630.0" style="-fx-background-color: #dcdcdc;">
-         <children>
-            <Button fx:id="priceWorkoutPlan2Button" layoutX="556.0" layoutY="164.0" mnemonicParsing="false" onAction="#clickedOnButtonPriceWorkoutPlan" style="-fx-background-color: #231717;" text="19.99$" textFill="WHITE">
+            <Button fx:id="purchaseBuyWorkoutPlanButton" layoutX="484.0" layoutY="381.0" mnemonicParsing="false" onAction="#clickedOnPurchaseBuyWorkoutPlanButton" prefHeight="30.0" prefWidth="132.0" style="-fx-background-color: #231717;" text="Proceed to order" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="infoWorkoutPlan2Button" layoutX="432.0" layoutY="164.0" mnemonicParsing="false" onAction="#clickedOnButtonInfoWorkoutPlan" style="-fx-background-color: #231717;" text="info" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Label fx:id="prerequisites" layoutX="14.0" layoutY="14.0" text="Prerequisites:">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="preview" layoutX="14.0" layoutY="84.0" text="Preview:">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="insertPreview" layoutX="74.0" layoutY="84.0" text="insert preview">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="insertPrerequisites" layoutX="105.0" layoutY="14.0" text="insert prerequisites">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
+            <Accordion layoutX="14.0" layoutY="49.0" />
+            <CheckBox fx:id="CheckCreditCard" layoutX="22.0" layoutY="58.0" mnemonicParsing="false" text="Credit Card" />
+            <CheckBox fx:id="CheckPayPal" layoutX="130.0" layoutY="58.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="61.0" text="PayPal" />
+            <CheckBox fx:id="CheckBitcoin" layoutX="215.0" layoutY="58.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="72.0" text="Bitcoin" />
+            <Button fx:id="PayPalButton" layoutX="272.0" layoutY="174.0" mnemonicParsing="false" onAction="#OnActionPayPalButton" text="PayPal Log In" />
          </children>
       </AnchorPane>
       <AnchorPane layoutY="100.0" prefHeight="501.0" prefWidth="150.0" style="-fx-background-color: #464646;">

@@ -1,78 +1,68 @@
 package com.example.fitnesshelp.graphics_controllers;
 
+import com.sun.javafx.menu.MenuItemBase;
+import javafx.application.HostServices;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
+
+
+import java.io.*;
 
 import java.io.IOException;
+import java.net.*;
+
 
 public class GraphicsControllerBuyWorkoutPlan2 extends GraphicsControllerHomePage {
 
     @FXML
-    private Label NameSurnameAge1;
+    private Button PayPalButton;
 
     @FXML
-    private Hyperlink findAGymNearMeHyperlink;
-
-    @FXML
-    private Hyperlink homeHyperlink;
-
-    @FXML
-    private ImageView homeImageView;
-
-    @FXML
-    private Button infoWorkoutPlan2Button;
-
-    @FXML
-    private Label insertPrerequisites;
-
-    @FXML
-    private Label insertPreview;
-
-    @FXML
-    private Hyperlink personalTrainerHyperlink1;
-
-    @FXML
-    private Label prerequisites;
-
-    @FXML
-    private Label preview;
-
-    @FXML
-    public void clickedOnButtonInfoWorkoutPlan(ActionEvent event) throws IOException {
-        stageToSwitch= "/com/example/fitnesshelp/buyInfoWorkoutPlan";
-        switchStage(event);
+    private void initialize() {
+        // Metodo di inizializzazione
     }
 
     @FXML
-    void clickedOnButtonNextBuyWorkoutPlan(ActionEvent event) throws IOException {
-        stageToSwitch= "/com/example/fitnesshelp/buyWorkoutPlan";
-        switchStage(event);
+    private void OnActionPayPalButton(ActionEvent event) throws IOException {
+        String url = "https://www.google.com"; // L'URL della pagina web da aprire
+
+        try {
+            URL webpageUrl = new URL(url);
+            HttpURLConnection connection = (HttpURLConnection) webpageUrl.openConnection();
+
+            // Imposta il metodo della richiesta HTTP (GET)
+            connection.setRequestMethod("GET");
+
+            // Ottiene la risposta dal server
+            int responseCode = connection.getResponseCode();
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                String line;
+                StringBuilder content = new StringBuilder();
+
+                while ((line = reader.readLine()) != null) {
+                    content.append(line);
+                }
+
+                reader.close();
+
+                // Stampa il contenuto della pagina web
+                System.out.println(content.toString());
+            } else {
+                System.out.println("Errore nella connessione: " + responseCode);
+            }
+
+            connection.disconnect();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    @FXML
-    void clickedOnButtonPageOneBuyWorkoutPlan(ActionEvent event) throws IOException {
-        stageToSwitch= "/com/example/fitnesshelp/buyWorkoutPlan";
-        switchStage(event);
+    public void clickedOnPurchaseBuyWorkoutPlanButton(ActionEvent event) {
     }
 
-    @FXML
-    void clickedOnButtonPageTreeBuyWorkoutPlan(ActionEvent event) throws IOException {
-        stageToSwitch= "/com/example/fitnesshelp/buyWorkoutPlan";
-        switchStage(event);
-    }
-
-    @FXML
-    void clickedOnButtonPageTwoBuyWorkoutPlan(ActionEvent event) throws IOException {
-        stageToSwitch= "/com/example/fitnesshelp/buyWorkoutPlan";
-        switchStage(event);
-    }
-
-    @FXML
-    void clickedOnButtonPriceWorkoutPlan(ActionEvent event) {
-
+    public void clickedOnBuyWorkoutPlanHyperlink1(ActionEvent event) {
     }
 }
+

@@ -2,21 +2,35 @@ package com.example.fitnesshelp.dao;
 
 import com.example.fitnesshelp.entities.WorkoutPlan;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
 
+    private static final String FILE_NAME = "WorkoutPlan.txt";
+    List<String> lines = new ArrayList<>();
     @Override
-    public List<WorkoutPlan> showData(String username){
+    public List<WorkoutPlan> showData(String username) throws IOException {
         return null;
     }
 
-    //dao che si occupa di salvare l'entità WorkoutPlan nel file system
-    private static final String FILE_NAME = "WorkoutPlan.txt";
+    public List<String> checkWorkout () throws IOException{
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
+            String WorkoutName = reader.readLine(); // read the first line
+            while (!WorkoutName.trim().isEmpty()) {
+                lines.add(WorkoutName);
+                System.out.println(WorkoutName); // print the line
+                WorkoutName = reader.readLine(); // read another line
+            }
+        } catch (IOException e) {
+            throw new IOException("Problem with file read\n");
+        }
+        return lines;
+    }
+
+
     //variabile che viene cambiata in base all'esito del salvataggio della buca stradale nel file system
     //molto utile nel momento di testare il metodo SaveEntitaStradale
     private int statusSave;
@@ -25,7 +39,6 @@ public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
     public void saveData(WorkoutPlan instance) throws SQLException, IOException {
         WorkoutPlan workoutPlan = new WorkoutPlan(instance.getName(), instance.getDay(), instance.getUsername());
         try {
-            //imposto a true il secondo parametro del costruttore del file writer, in questo modo non c'e' sovrascrittura
             BufferedWriter fileWriter = new BufferedWriter(new FileWriter(FILE_NAME,true));
             String workoutPlanLocal = convertWorkoutInTxt(workoutPlan);
             fileWriter.write(workoutPlanLocal);
@@ -33,7 +46,6 @@ public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
             //nuova non si attaccherà alla vecchia
             fileWriter.newLine();
             fileWriter.close();
-            //tutto e' andato a buon fine, esito assumerà un valore che indica il successo
             statusSave =0;
         } catch (IOException e) {
             statusSave =1;

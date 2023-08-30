@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 
 import java.io.IOException;
 // Classe per infoBuyWorkoutPlan
-public class GraphicsControllerBuyWorkoutPlan3 extends GraphicsControllerHomePage {
+public class GraphicsControllerBuyInfoWorkoutPlan extends GraphicsControllerHomePage {
 
     @FXML
     private Label CommentExtra;
@@ -57,15 +57,8 @@ public class GraphicsControllerBuyWorkoutPlan3 extends GraphicsControllerHomePag
 
     }
 
-    public void clickedOnButtonNextBuyWorkoutPlan(ActionEvent event) {
-    }
-
-    public void clickedOnButtonPageOneBuyWorkoutPlan(ActionEvent event) {
-    }
-
-    public void clickedOnButtonPageTwoBuyWorkoutPlan(ActionEvent event) {
-    }
-
-    public void clickedOnButtonPageTreeBuyWorkoutPlan(ActionEvent event) {
+    public void clickedOnButtonPageOneBuyWorkoutPlan(ActionEvent event) throws IOException {
+        stageToSwitch= "/com/example/fitnesshelp/buyWorkoutPlan";
+        switchStage(event);
     }
 }

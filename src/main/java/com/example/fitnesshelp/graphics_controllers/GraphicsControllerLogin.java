@@ -108,42 +108,5 @@ public class GraphicsControllerLogin extends GraphicsControllerHomePage {
                 errorMessageLabel.setOpacity(1);
             }
         }
-
-
-        // questa parte commentata da errore, eliminala se non serve, nel dubbio l'ho lasciata
-
-        /*
-        // Metodo per mostrare il dialogo per un breve periodo di tempo
-        public void showAndHideDialogWithDuration(long milliseconds) {
-            statusLabel.setVisible(true);
-
-            Timeline timeline = new Timeline(
-                    new KeyFrame(Duration.millis(milliseconds), event -> {
-                        closeDialog();
-                    })
-            );
-            timeline.play();
-        }
-
-        @FXML
-        private void closeDialog() {
-            statusLabel.setVisible(false);
-        }
-
-
-        // Crea un'istanza del servizio degli utenti
-        //ApplicationControllerLoginService userService = new ApplicationControllerLoginService(beanUsername, beanPassword);
-
-        if (userService.isValidUser(username, password)) {
-            statusLabel.setText("Login riuscito");
-            showAndHideDialogWithDuration(3000); // Mostra il dialogo per 3 secondi
-        } else {
-            statusLabel.setText("Login non riuscito");
-            showAndHideDialogWithDuration(3000); // Mostra il dialogo per 3 secondi
-
-        }
-
- */
     }
-
 }
