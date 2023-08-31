@@ -6,10 +6,13 @@ public class WorkoutPlan {
     private String day;
     private String username;
 
-    public WorkoutPlan(String name, String day, String username) {
+    private int prize;
+
+    public WorkoutPlan(String name, String day, String username, int prize) {
         this.name = name;
         this.day = day;
         this.username = username;
+        this.prize = prize;
     }
 
     public String getName() {
@@ -24,6 +27,10 @@ public class WorkoutPlan {
         return day;
     }
 
+    public int getPrize() {
+        return prize;
+    }
+
     public void setDay(String day) {
         this.day = day;
     }
@@ -34,5 +41,9 @@ public class WorkoutPlan {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public void setPrize(int prize) {
+        this.prize = prize;
     }
 }

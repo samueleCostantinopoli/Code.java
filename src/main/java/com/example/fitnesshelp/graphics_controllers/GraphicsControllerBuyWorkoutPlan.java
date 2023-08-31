@@ -3,7 +3,9 @@ package com.example.fitnesshelp.graphics_controllers;
 import com.example.fitnesshelp.application_controllers.ApplicationControllerBuyWorkoutPlan;
 import com.example.fitnesshelp.bean.BeanBuyWorkoutPlan;
 import com.example.fitnesshelp.bean.BeanState;
+import com.example.fitnesshelp.entities.Purchase;
 import com.example.fitnesshelp.entities.State;
+import com.example.fitnesshelp.entities.WorkoutPlan;
 import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +22,8 @@ import javafx.scene.text.Font;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage implements Initializable {
@@ -103,9 +107,12 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
     @FXML
     private VBox anchorPaneContainer;
 
+    public GraphicsControllerBuyWorkoutPlan() throws SQLException, IOException {
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        int numberOfAnchorPanes = 0; // Leggi il valore dal file system
+        int numberOfAnchorPanes = 0;
         try {
             numberOfAnchorPanes = readValueFromFileSystem();
         } catch (SQLException e) {
@@ -115,16 +122,18 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
         }
 
         for (int i = 0; i < numberOfAnchorPanes; i++) {
-            AnchorPane anchorPane = createAnchorPane(i);
+            AnchorPane anchorPane = null;
+            anchorPane = createAnchorPane(i, new Purchase(0,0.1,new Date(), UtilityAccess.getUsername(), listWorkouts.get(i)));
             anchorPaneContainer.getChildren().add(anchorPane);
         }
     }
-
-
+    BeanState beanState = new BeanState(UtilityAccess.getState());
+    ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(beanState);
+    List<WorkoutPlan> listWorkouts = applicationControllerBuyWorkoutPlan.checkWorkoutPlan();
     private int readValueFromFileSystem() throws SQLException, IOException {
-        //ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan();
-        //applicationControllerBuyWorkoutPlan.checkWorkoutPlan();
-        return 5;
+        // Read value from the file system
+
+        return applicationControllerBuyWorkoutPlan.checkWorkoutPlan().size();
     }
 
     @FXML
@@ -151,7 +160,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
         }
         BeanState state = new BeanState(UtilityAccess.getState());
         BeanBuyWorkoutPlan beanBuyWorkoutPlan = new BeanBuyWorkoutPlan(10); //TODO aggiornare il prezzo
-        ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(state, beanBuyWorkoutPlan);
+        ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(state);
     }
 
     @FXML
@@ -166,24 +175,19 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
         switchStage(event);
     }
 
-    public void clickedOnButtonErrorLoginMessageButton(ActionEvent event) throws IOException{
-        stageToSwitch = "/com/example/fitnesshelp/login";
-        switchStage(event);
-    }
 
     public void clickedOnPurchaseBuyWorkoutPlanButton(ActionEvent event) {
     }
 
-    private AnchorPane createAnchorPane(int numberOfAnchorPanes) {
+    private AnchorPane createAnchorPane(int numberOfAnchorPanes, Purchase purchase) {
         AnchorPane anchorPane = new AnchorPane();
-        // Personalizza l'AnchorPane qui (posizione, dimensioni, stile, contenuti, ecc.)
-        for (int i = 1; i <= numberOfAnchorPanes; i++) {
+        for (int i = 0; i <= numberOfAnchorPanes; i++) {
             AnchorPane anchorPaneView = new AnchorPane();
             anchorPaneView.setPrefHeight(115.0);
             anchorPaneView.setPrefWidth(601.0);
             anchorPaneView.setStyle("-fx-background-color: #dcdcdc;");
 
-            Button priceButton = new Button("19.99$");
+            Button priceButton = new Button(String.valueOf(purchase.getPrice()));
             priceButton.setLayoutX(546.0);
             priceButton.setLayoutY(72.0);
             priceButton.setStyle("-fx-background-color: #231717;");

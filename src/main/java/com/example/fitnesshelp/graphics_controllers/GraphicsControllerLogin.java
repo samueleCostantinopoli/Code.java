@@ -51,12 +51,6 @@ public class GraphicsControllerLogin extends GraphicsControllerHomePage {
     @FXML
     private Label errorMessageLabel;
 
-    @FXML
-    private Label welcome;
-    private Stage stage;
-    private Scene scene;
-    private FXMLLoader root;
-
     private BeanUsername beanUsername;
     private BeanPassword beanPassword;
 

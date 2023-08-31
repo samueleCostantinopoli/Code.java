@@ -7,9 +7,9 @@ public class Exercise {
     private int sets;
     private int reps;
     private float rest;
-    private String workoutPlan;
+    private WorkoutPlan workoutPlan;
 
-    public Exercise(String exercise, Muscle muscle, int sets, int reps, float rest, String workoutPlan) {
+    public Exercise(String exercise, Muscle muscle, int sets, int reps, float rest, WorkoutPlan workoutPlan) {
         this.exercise = exercise;
         this.muscle = muscle;
         this.sets = sets;
@@ -58,11 +58,11 @@ public class Exercise {
         this.rest = rest;
     }
 
-    public String getWorkoutPlan() {
+    public WorkoutPlan getWorkoutPlan() {
         return workoutPlan;
     }
 
-    public void setWorkoutPlan(String workoutPlan) {
+    public void setWorkoutPlan(WorkoutPlan workoutPlan) {
         this.workoutPlan = workoutPlan;
     }
 }

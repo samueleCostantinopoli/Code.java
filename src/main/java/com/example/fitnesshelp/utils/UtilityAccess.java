@@ -30,9 +30,7 @@ public class UtilityAccess {
     // new account added
     private static Account account;
 
-    public static Account getAccount() {
-        return account;
-    }
+    public static Account getAccount() {return account;}
 
     public static void setAccount(Account account) {
         UtilityAccess.account = account;

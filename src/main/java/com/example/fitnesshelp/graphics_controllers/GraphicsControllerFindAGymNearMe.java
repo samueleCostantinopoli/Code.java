@@ -13,60 +13,6 @@ import java.io.IOException;
 public class GraphicsControllerFindAGymNearMe extends GraphicsControllerHomePage {
 
     @FXML
-    private AnchorPane Gym1Pane;
-
-    @FXML
-    private AnchorPane Gym2Pane;
-
-    @FXML
-    private AnchorPane GymPane;
-
-    @FXML
-    private Hyperlink accountHyperlink;
-
-    @FXML
-    private Label addressGym1;
-
-    @FXML
-    private Label addressGym2;
-
-    @FXML
-    private ImageView mapsImageView;
-
-    @FXML
-    private Hyperlink myTrainingDiaryHyperlink;
-
-    @FXML
-    private Hyperlink myWorkoutPlanHyperlink;
-
-    @FXML
-    private Label nameGym1;
-
-    @FXML
-    private Label nameGym2;
-
-    @FXML
-    private Label nameSurname;
-
-    @FXML
-    private Hyperlink personalTrainerHyperlink;
-
-    @FXML
-    private ImageView profileImage;
-
-    @FXML
-    private Button showAllGymButton;
-
-    @FXML
-    private Label title;
-
-    @FXML
-    private Button viewInfoGym1Button;
-
-    @FXML
-    private Button viewInfoGym2Button;
-
-    @FXML
     void clickedOnButtonShowAllGym(ActionEvent event) {
 
     }

@@ -111,5 +111,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
+      <Label fx:id="errorLoginMessageLabel" layoutX="368.0" layoutY="446.0" opacity="0.0" text="you need to login to buy workout plan" textFill="RED" />
+      <Button fx:id="errorLoginMessageButton" layoutX="445.0" layoutY="470.0" onAction="#clickedOnButtonErrorLoginMessageButton" opacity="0.0" text="Log In" textFill="BLACK" />
    </children>
 </AnchorPane>

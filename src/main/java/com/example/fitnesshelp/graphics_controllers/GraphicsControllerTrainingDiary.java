@@ -12,54 +12,6 @@ import java.io.IOException;
 public class GraphicsControllerTrainingDiary extends GraphicsControllerHomePage {
 
     @FXML
-    private Hyperlink accountHyperlink;
-
-    @FXML
-    private Button addNoteButton;
-
-    @FXML
-    private Hyperlink buyWorkoutPlanHyperlink;
-
-    @FXML
-    private Hyperlink findAGymNearMeHyperlink;
-
-    @FXML
-    private Hyperlink homeHyperlink;
-
-    @FXML
-    private ImageView homeImageView;
-
-    @FXML
-    private Hyperlink logoutHyperlink;
-
-    @FXML
-    private ImageView logoutImageView;
-
-    @FXML
-    private Hyperlink myTrainingDiaryHyperlink;
-
-    @FXML
-    private Hyperlink myWorkoutPlanHyperlink;
-
-    @FXML
-    private Label nameSurname;
-
-    @FXML
-    private Label noteDescription;
-
-    @FXML
-    private Hyperlink personalTrainerHyperlink1;
-
-    @FXML
-    private ImageView profileImage;
-
-    @FXML
-    private Label title;
-
-    @FXML
-    private Hyperlink trainingDiaryHyperlink;
-
-    @FXML
     void clickedOnButtonAddNote(ActionEvent event) {
 
     }
