@@ -50,4 +50,9 @@ public class DaoImplFileSystemPurchase implements DaoEntity<Purchase>{
         return null;
     }
 
+    @Override
+    public void removeData(Purchase entity) throws SQLException, IOException {
+
+    }
+
 }

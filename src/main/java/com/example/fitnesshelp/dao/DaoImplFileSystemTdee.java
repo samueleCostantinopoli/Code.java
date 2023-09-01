@@ -15,6 +15,11 @@ public class DaoImplFileSystemTdee implements DaoEntity<Tdee>{
         return null;
     }
 
+    @Override
+    public void removeData(Tdee entity) throws SQLException, IOException {
+
+    }
+
 
     //dao che si occupa di salvare l'entità Tdee nel file system
     private static final String FILE_NAME = "Tdee.txt";

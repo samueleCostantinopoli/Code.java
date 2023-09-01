@@ -1,7 +1,5 @@
 package com.example.fitnesshelp.graphics_controllers;
 
-import com.sun.javafx.menu.MenuItemBase;
-import javafx.application.HostServices;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

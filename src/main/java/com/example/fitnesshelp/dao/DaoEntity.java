@@ -7,6 +7,6 @@ import java.util.List;
 public interface DaoEntity<T> {
     //methods common to all dao
     void saveData(T entity) throws SQLException, IOException;
-    List<T> showData(String username);
+    List<T> showData(String username) throws IOException;
     void removeData(T entity) throws SQLException, IOException;
 }

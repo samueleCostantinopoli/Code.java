@@ -46,6 +46,10 @@ public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
         return workoutPlans;
     }
 
+    @Override
+    public void removeData(WorkoutPlan entity) throws SQLException, IOException {
+        // questo metodo ho dovuto aggiungerlo per forza avendolo aggiunto nell'interfaccia
+    }
 
 
     private int statusSave;

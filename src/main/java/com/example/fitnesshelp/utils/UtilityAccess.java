@@ -2,11 +2,13 @@ package com.example.fitnesshelp.utils;
 
 import com.example.fitnesshelp.entities.Account;
 import com.example.fitnesshelp.entities.State;
+import com.example.fitnesshelp.entities.TypeOfUser;
 
 public class UtilityAccess {
     // this is only used to set this static parameter for another class, so this can see the status of user
     private static String username = null;
     private static State state = State.NOT_LOGGED_IN;
+    private static TypeOfUser typeOfUser = TypeOfUser.NORMAL;
     private UtilityAccess(){
         // is empty because this class provides only methods to set and get user status
     }
@@ -17,6 +19,14 @@ public class UtilityAccess {
 
     public static void setUsername(String username) {
         UtilityAccess.username = username;
+    }
+
+    public static TypeOfUser getTypeOfUser() {
+        return typeOfUser;
+    }
+
+    public static void setUsername(TypeOfUser typeOfUser) {
+        UtilityAccess.typeOfUser = typeOfUser;
     }
 
     public static State getState() {

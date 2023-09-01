@@ -1,6 +1,8 @@
 package com.example.fitnesshelp.dao;
 
 import com.example.fitnesshelp.entities.Tdee;
+import com.example.fitnesshelp.entities.TypeOfUser;
+import com.example.fitnesshelp.utils.UtilityAccess;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -20,12 +22,15 @@ public class DaoImplLogin implements DaoLogin{
     @Override
     public boolean login(String username, String password) {
         boolean loginState = false;
-        try (CallableStatement cs = connection.prepareCall("{call login(?, ?, ?)}")) {
+        try (CallableStatement cs = connection.prepareCall("{call login(?, ?, ?, ?)}")) {
             cs.setString(1, password);
             cs.setString(2, username);
             cs.registerOutParameter(3, Types.BOOLEAN);
+            cs.registerOutParameter(4, Types.CHAR);
             ResultSet rs = cs.executeQuery();
             loginState = cs.getBoolean(3);
+            String typeOfUser = cs.getString(4);
+            UtilityAccess.setUsername(typeOfUser);
         } catch (SQLException e) {
             e.printStackTrace();
             // Gestisci l'eccezione
