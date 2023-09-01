@@ -25,7 +25,7 @@ public class UtilityAccess {
         return typeOfUser;
     }
 
-    public static void setUsername(TypeOfUser typeOfUser) {
+    public static void setTypeOfUser(TypeOfUser typeOfUser) {
         UtilityAccess.typeOfUser = typeOfUser;
     }
 

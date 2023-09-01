@@ -29,8 +29,14 @@ public class DaoImplLogin implements DaoLogin{
             cs.registerOutParameter(4, Types.CHAR);
             ResultSet rs = cs.executeQuery();
             loginState = cs.getBoolean(3);
-            String typeOfUser = cs.getString(4);
-            UtilityAccess.setUsername(typeOfUser);
+            String role = cs.getString(4);
+            TypeOfUser typeOfUser;
+            typeOfUser = switch (role){
+                case "normal user" -> TypeOfUser.NORMAL;
+                case "personal trainer" -> TypeOfUser.PERSONAL_TRAINER;
+                default -> null;
+            };
+            UtilityAccess.setTypeOfUser(typeOfUser);
         } catch (SQLException e) {
             e.printStackTrace();
             // Gestisci l'eccezione
