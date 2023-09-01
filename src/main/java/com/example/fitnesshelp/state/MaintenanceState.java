@@ -18,14 +18,14 @@ public class MaintenanceState implements TdeeState{
         }
 
         actMain = switch (questionnaire.getActivity()){
-            case SEDENTARY -> mbMain*1.05;
-            case LIGHT_EXERCISE -> mbMain*1.2;
-            case MODERATE_EXERCISE -> mbMain*1.35;
-            case HEAVY_EXERCISE -> mbMain*1.5;
-            case ATHLETE -> mbMain*1.65;
+            case SEDENTARY -> 1.05;
+            case LIGHT_EXERCISE -> 1.2;
+            case MODERATE_EXERCISE -> 1.35;
+            case HEAVY_EXERCISE -> 1.5;
+            case ATHLETE -> 1.65;
         };
 
-        kcalMain = mbMain + mbMain*actMain + kcalMain*0.1;
+        kcalMain = mbMain*actMain + mbMain*0.1;
 
         return kcalMain;
     }

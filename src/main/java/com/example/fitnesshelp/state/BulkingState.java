@@ -18,14 +18,14 @@ public class BulkingState implements TdeeState{
         }
 
         actBulk = switch (questionnaire.getActivity()){
-            case SEDENTARY -> mbBulk*1.05;
-            case LIGHT_EXERCISE -> mbBulk*1.2;
-            case MODERATE_EXERCISE -> mbBulk*1.35;
-            case HEAVY_EXERCISE -> mbBulk*1.5;
-            case ATHLETE -> mbBulk*1.65;
+            case SEDENTARY -> 1.05;
+            case LIGHT_EXERCISE -> 1.2;
+            case MODERATE_EXERCISE -> 1.35;
+            case HEAVY_EXERCISE -> 1.5;
+            case ATHLETE -> 1.65;
         };
 
-        kcalBulk = mbBulk + mbBulk*actBulk + kcalBulk*0.1 + 500;
+        kcalBulk = mbBulk*actBulk + mbBulk*0.1 + 500;
 
         return kcalBulk;
     }

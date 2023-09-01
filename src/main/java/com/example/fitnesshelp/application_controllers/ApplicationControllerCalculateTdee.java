@@ -1,10 +1,8 @@
 package com.example.fitnesshelp.application_controllers;
 
 import com.example.fitnesshelp.bean.*;
-import com.example.fitnesshelp.entities.Activity;
-import com.example.fitnesshelp.entities.Gender;
-import com.example.fitnesshelp.entities.Questionnaire;
-import com.example.fitnesshelp.entities.Tdee;
+import com.example.fitnesshelp.dao.DaoEntity;
+import com.example.fitnesshelp.entities.*;
 import com.example.fitnesshelp.factory.FactoryDao;
 import com.example.fitnesshelp.factory.TypeOfEntity;
 import com.example.fitnesshelp.factory.TypeOfPersistence;
@@ -13,6 +11,7 @@ import com.example.fitnesshelp.system_actor.TdeeCalculator;
 import com.example.fitnesshelp.utils.UtilityAccess;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ApplicationControllerCalculateTdee {
@@ -52,5 +51,27 @@ public class ApplicationControllerCalculateTdee {
         FactoryDao factoryDao = new FactoryDao();
         List<Tdee> tdeeList = factoryDao.useDao(TypeOfPersistence.JDBC, TypeOfEntity.TDEE).showData(UtilityAccess.getUsername());
         return tdeeList;
+    }
+
+    public List<Macro> requestMacroList(int kcal){
+        // this method request at tdee calculator to calculate the partition of macro based on kcal
+        List<Macro> macroList = new ArrayList<>();
+        TdeeCalculator tdeeCalculator = new TdeeCalculator();
+        macroList = tdeeCalculator.calculateMacro(kcal);
+        return macroList;
+    }
+
+    public void saveTdee(TypeOfPersistence typeOfPersistence, Tdee tdee) throws SQLException, IOException {
+        // this method save the tdee passed in db/fs
+        FactoryDao factoryDao = new FactoryDao();
+        DaoEntity daoEntity = factoryDao.useDao(typeOfPersistence, TypeOfEntity.TDEE);
+        daoEntity.saveData(tdee);
+    }
+
+    public void removeTdee(Tdee tdee) throws SQLException, IOException {
+        // this method remove a tdee selected from db
+        FactoryDao factoryDao = new FactoryDao();
+        DaoEntity daoEntity = factoryDao.useDao(TypeOfPersistence.JDBC, TypeOfEntity.TDEE);
+        daoEntity.removeData(tdee);
     }
 }

@@ -5,7 +5,7 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -98,43 +98,40 @@
                   </Hyperlink>
                </children>
             </AnchorPane>
-            <Label fx:id="genderTextView" layoutX="332.0" layoutY="198.0" text="Gender">
+            <Label fx:id="genderTextView" layoutX="332.0" layoutY="208.0" text="Gender">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="ageTextView" layoutX="334.0" layoutY="247.0" text="Age">
+            <Label fx:id="ageTextView" layoutX="334.0" layoutY="257.0" text="Age">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="weightTextView" layoutX="334.0" layoutY="295.0" text="Weight">
+            <Label fx:id="weightTextView" layoutX="334.0" layoutY="305.0" text="Weight">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="heightTextView" layoutX="334.0" layoutY="345.0" text="Height">
+            <Label fx:id="heightTextView" layoutX="334.0" layoutY="355.0" text="Height">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="activityTextView" layoutX="334.0" layoutY="397.0" text="Activity">
+            <Label fx:id="activityTextView" layoutX="334.0" layoutY="407.0" text="Activity">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <RadioButton fx:id="maleRadioButton" layoutX="403.0" layoutY="199.0" mnemonicParsing="false" onAction="#clickedOnMaleRadioButton" text="male" />
-            <RadioButton fx:id="femaleRadioButton" layoutX="472.0" layoutY="199.0" mnemonicParsing="false" onAction="#clickedOnFemaleRadioButton" text="female" />
-            <TextArea fx:id="ageTextArea" layoutX="403.0" layoutY="237.0" prefHeight="31.0" prefWidth="22.0" />
-            <TextArea fx:id="weightTextArea" layoutX="403.0" layoutY="285.0" prefHeight="31.0" prefWidth="22.0" />
-            <TextArea fx:id="heightTextArea" layoutX="403.0" layoutY="334.0" prefHeight="31.0" prefWidth="22.0" />
-            <ChoiceBox fx:id="activityChoiceBox" layoutX="403.0" layoutY="395.0" prefHeight="25.0" prefWidth="162.0" />
+            <RadioButton fx:id="maleRadioButton" layoutX="403.0" layoutY="209.0" mnemonicParsing="false" text="male" />
+            <RadioButton fx:id="femaleRadioButton" layoutX="472.0" layoutY="209.0" mnemonicParsing="false" text="female" />
+            <ChoiceBox fx:id="activityChoiceBox" layoutX="403.0" layoutY="405.0" prefHeight="25.0" prefWidth="173.0" />
             <Button fx:id="nextButton" layoutX="692.0" layoutY="557.0" mnemonicParsing="false" onAction="#clickedOnButtonNext" prefHeight="29.0" prefWidth="87.0" style="-fx-background-color: #231717;" text="Next" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <Button fx:id="calculateButton" layoutX="406.0" layoutY="489.0" mnemonicParsing="false" onAction="#clickedOnCalculateButton" opacity="0.0" prefHeight="29.0" prefWidth="87.0" style="-fx-background-color: #231717;" text="Calculate" textFill="WHITE">
+            <Button fx:id="calculateButton" layoutX="406.0" layoutY="499.0" mnemonicParsing="false" onAction="#clickedOnCalculateButton" opacity="0.0" prefHeight="29.0" prefWidth="87.0" style="-fx-background-color: #231717;" text="Calculate" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -144,14 +141,17 @@
                   <Font size="14.0" />
                </font>
             </Hyperlink>
-            <RadioButton fx:id="maintenanceRadioButton" layoutX="320.0" layoutY="443.0" mnemonicParsing="false" onAction="#clickedOnRadioButtonMaintenance" text="Maintenance" />
-            <RadioButton fx:id="cuttingRadioButton" layoutX="433.0" layoutY="443.0" mnemonicParsing="false" onAction="#clickedOnRadioButtonCutting" text="Cutting" />
-            <RadioButton fx:id="bulkingRadioButton" layoutX="515.0" layoutY="443.0" mnemonicParsing="false" onAction="#clickedOnRadioButtonBulking" text="Bulking" />
-            <Label fx:id="emptyAllertLabel" layoutX="357.0" layoutY="537.0" opacity="0.0" text="Some fiels are empty!" textFill="RED">
+            <RadioButton fx:id="maintenanceRadioButton" layoutX="320.0" layoutY="453.0" mnemonicParsing="false" text="Maintenance" />
+            <RadioButton fx:id="cuttingRadioButton" layoutX="433.0" layoutY="453.0" mnemonicParsing="false" text="Cutting" />
+            <RadioButton fx:id="bulkingRadioButton" layoutX="515.0" layoutY="453.0" mnemonicParsing="false" text="Bulking" />
+            <Label fx:id="emptyAllertLabel" layoutX="332.0" layoutY="166.0" opacity="0.0" text="Some fiels are empty!" textFill="RED">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
+            <TextField fx:id="ageTextField" layoutX="404.0" layoutY="254.0" prefHeight="25.0" prefWidth="45.0" />
+            <TextField fx:id="heightTextField" layoutX="404.0" layoutY="352.0" prefHeight="25.0" prefWidth="45.0" />
+            <TextField fx:id="weightTextField" layoutX="404.0" layoutY="302.0" prefHeight="25.0" prefWidth="45.0" />
          </children>
       </AnchorPane>
    </children>

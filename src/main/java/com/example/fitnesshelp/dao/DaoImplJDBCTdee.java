@@ -60,4 +60,15 @@ public class DaoImplJDBCTdee implements DaoEntity<Tdee>{
         }
         return listOfTdee;
     }
+
+    @Override
+    public void removeData(Tdee tdee) {
+        try (CallableStatement cs = connection.prepareCall("{call delete_tdee(?)}")) {
+            cs.setInt(1, tdee.getKcal());
+            ResultSet rs = cs.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            // Gestisci l'eccezione
+        }
+    }
 }

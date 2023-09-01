@@ -18,14 +18,14 @@ public class CuttingState implements TdeeState{
         }
 
         actCut = switch (questionnaire.getActivity()){
-            case SEDENTARY -> mbCut*1.05;
-            case LIGHT_EXERCISE -> mbCut*1.2;
-            case MODERATE_EXERCISE -> mbCut*1.35;
-            case HEAVY_EXERCISE -> mbCut*1.5;
-            case ATHLETE -> mbCut*1.65;
+            case SEDENTARY -> 1.05;
+            case LIGHT_EXERCISE -> 1.2;
+            case MODERATE_EXERCISE -> 1.35;
+            case HEAVY_EXERCISE -> 1.5;
+            case ATHLETE -> 1.65;
         };
 
-        kcalCut = mbCut + mbCut*actCut + kcalCut*0.1 - 500;
+        kcalCut = mbCut*actCut + mbCut*0.1 - 500;
 
         return kcalCut;
     }
