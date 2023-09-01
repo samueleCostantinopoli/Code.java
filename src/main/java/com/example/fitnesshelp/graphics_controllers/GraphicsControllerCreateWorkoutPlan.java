@@ -19,6 +19,7 @@ import java.sql.SQLException;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import static java.lang.Double.parseDouble;
 import static java.lang.Float.parseFloat;
 import static java.lang.Integer.parseInt;
 
@@ -170,7 +171,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
         removeCustomExercise.setVisible(true);
         nameCustomWorkoutTextField.setVisible(true);
         customeWorkoutNameLabel.setVisible(true);
-        if(UtilityAccess.getAccount().getRole().equals(TypeOfUser.PERSONAL_TRAINER)){
+        if(UtilityAccess.getTypeOfUser().equals(TypeOfUser.PERSONAL_TRAINER)){
             priceTextField.setVisible(true);
             customePriceNameLabel1.setVisible(true);
         }
@@ -283,8 +284,8 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
         emptyTextFieldCheck(nameCustomExerciseTextField6, customSetTextfield6, customRepstextFields6, customRestTextField6, muscleCustomTextField6);
 
         BeanCustomWorkoutData dataBean = new BeanCustomWorkoutData();
-        if(UtilityAccess.getAccount().getRole().equals(TypeOfUser.PERSONAL_TRAINER)){
-            WorkoutPlan workoutPlanPT = new WorkoutPlan(nameCustomWorkoutTextField.getText(), String.valueOf(exerciseNumber/3), UtilityAccess.getUsername(), parseInt(priceTextField.getText()));
+        if(UtilityAccess.getTypeOfUser().equals(TypeOfUser.PERSONAL_TRAINER)){
+            WorkoutPlan workoutPlanPT = new WorkoutPlan(nameCustomWorkoutTextField.getText(), String.valueOf(exerciseNumber/3), UtilityAccess.getUsername(), parseDouble(priceTextField.getText()));
             Exercise exercise1PT = new Exercise(nameCustomExerciseTextField1.getText(), Muscle.valueOf(muscleCustomTextField1.getText()), parseInt(customSetTextfield1.getText()),parseInt(customRepstextFields1.getText()), parseFloat(customRestTextField1.getText()), workoutPlanPT);
             dataBean.setExercise1(exercise1PT);
             if(!nameCustomExerciseTextField2.getText().isEmpty() ){

@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
 public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
@@ -32,11 +33,11 @@ public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String workoutName = reader.readLine(); // read the first line
             while (workoutName != null) {
-                String[] parts = workoutName.split(",");
+                String[] parts = workoutName.split("-");
                 if (parts.length == 4) {
-                    WorkoutPlan workoutPlan = new WorkoutPlan(parts[0], parts[1], parts[2], parseInt(parts[3]));
+                    WorkoutPlan workoutPlan = new WorkoutPlan(parts[0], parts[1], parts[2], parseDouble(parts[3]));
                     workoutPlans.add(workoutPlan);
-                    System.out.println(workoutPlan.getName()); // print the name
+                    System.out.println(workoutPlan.getName() + workoutPlan.getPrize()); // print the name
                 }
                 workoutName = reader.readLine(); // read another line
             }
@@ -61,18 +62,19 @@ public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
             BufferedWriter fileWriter = new BufferedWriter(new FileWriter(FILE_NAME,true));
             convertWorkoutInTxt(workoutPlan);
             fileWriter.write(workoutPlan.getName());
-            fileWriter.write(",");
+            fileWriter.write("-");
             fileWriter.write(workoutPlan.getDay());
 
             String username = workoutPlan.getUsername();
-            fileWriter.write(",");
+            fileWriter.write("-");
             if (username != null) {
                 fileWriter.write(username);
             } else {
                 fileWriter.write("UsernameNotAvailable");
             }
-            fileWriter.write(",");
-            fileWriter.write(workoutPlan.getPrize());
+            fileWriter.write("-");
+            System.out.println(String.valueOf(workoutPlan.getPrize()));
+            fileWriter.write(String.valueOf(workoutPlan.getPrize()));
 
             fileWriter.newLine();
             fileWriter.close();

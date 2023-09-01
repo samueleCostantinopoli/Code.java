@@ -6,9 +6,9 @@ public class WorkoutPlan {
     private String day;
     private String username;
 
-    private int prize;
+    private double prize;
 
-    public WorkoutPlan(String name, String day, String username, int prize) {
+    public WorkoutPlan(String name, String day, String username, double prize) {
         this.name = name;
         this.day = day;
         this.username = username;
@@ -27,7 +27,7 @@ public class WorkoutPlan {
         return day;
     }
 
-    public int getPrize() {
+    public double getPrize() {
         return prize;
     }
 

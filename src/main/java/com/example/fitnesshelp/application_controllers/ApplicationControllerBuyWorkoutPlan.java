@@ -21,7 +21,6 @@ public class ApplicationControllerBuyWorkoutPlan {
     public List<WorkoutPlan> checkWorkoutPlan() throws SQLException, IOException {
         DaoImplFilSystemWorkoutPlan daoImplFilSystemWorkoutPlan = new DaoImplFilSystemWorkoutPlan();
         return daoImplFilSystemWorkoutPlan.showData(UtilityAccess.getUsername());
-
     }
 
 
