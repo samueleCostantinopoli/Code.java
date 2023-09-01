@@ -1,5 +1,6 @@
 package com.example.fitnesshelp.graphics_controllers;
 
+import com.example.fitnesshelp.entities.State;
 import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -68,6 +69,11 @@ public class GraphicsControllerHomePage {
     private Scene primary;
     private FXMLLoader root;
     public String stageToSwitch;
+
+    @FXML
+    private Label errorLoginMessageLabel;
+    @FXML
+    private Button errorLoginMessageButton;
     @FXML
     void clickedOnAccountHyperlink(ActionEvent event) throws IOException {
         stageToSwitch = "/com/example/fitnesshelp/account";
@@ -75,8 +81,14 @@ public class GraphicsControllerHomePage {
     }
     @FXML
     void clickedOnButtonCreateNew(ActionEvent event) throws IOException {
-        stageToSwitch = "/com/example/fitnesshelp/customWorkout";
-        switchStage(event);
+        if(UtilityAccess.getState() == State.LOGGED_IN) {
+            GraphicsControllerBuyWorkoutPlan1 graphicsControllerBuyWorkoutPlan4 = new GraphicsControllerBuyWorkoutPlan1();
+            stageToSwitch = "/com/example/fitnesshelp/customWorkout";
+            switchStage(event);
+        } else {
+            errorLoginMessageLabel.setOpacity(1);
+            errorLoginMessageButton.setOpacity(1);
+        }
     }
     @FXML
     void clickedOnBuyWorkoutPlanHyperlink(ActionEvent event) throws IOException {
@@ -119,6 +131,11 @@ public class GraphicsControllerHomePage {
         switchStage(event);
     }
 
+    public void clickedOnButtonErrorLoginMessageButton(ActionEvent event) throws IOException {
+        stageToSwitch = "/com/example/fitnesshelp/login";
+        switchStage(event);
+    }
+
     void switchStage(ActionEvent event) throws IOException {
         FXMLLoader root = new FXMLLoader(getClass().getResource(stageToSwitch + ".fxml"));
         Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -130,4 +147,6 @@ public class GraphicsControllerHomePage {
     public void setUsernameLabel(){
         usernameLabel.setText(UtilityAccess.getUsername());
     }
+
+
 }

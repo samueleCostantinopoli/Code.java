@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnesshelp.graphics_controllers.GraphicsControllerBuyWorkoutPlan3">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnesshelp.graphics_controllers.GraphicsControllerBuyInfoWorkoutPlan">
    <AnchorPane prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: #231717;">
       <Label fx:id="title" layoutX="14.0" layoutY="31.0" text="Fitness Helper" textFill="WHITE">
          <font>
@@ -70,22 +70,7 @@
          </Label>
       </children>
    </AnchorPane>
-   <Button fx:id="pageOneBuyWorkoutPlanButton" layoutX="400.0" layoutY="557.0" mnemonicParsing="false" onAction="#clickedOnButtonPageOneBuyWorkoutPlan" style="-fx-background-color: #231717;" text="1" textFill="WHITE">
-      <font>
-         <Font size="14.0" />
-      </font>
-   </Button>
-   <Button fx:id="pageTwoBuyWorkoutPlanButton" layoutX="435.0" layoutY="557.0" mnemonicParsing="false" onAction="#clickedOnButtonPageTwoBuyWorkoutPlan" style="-fx-background-color: #231717;" text="2" textFill="WHITE">
-      <font>
-         <Font size="14.0" />
-      </font>
-   </Button>
-   <Button fx:id="pageTreeBuyWorkoutPlanButton" layoutX="470.0" layoutY="557.0" mnemonicParsing="false" onAction="#clickedOnButtonPageTreeBuyWorkoutPlan" style="-fx-background-color: #231717;" text="3" textFill="WHITE">
-      <font>
-         <Font size="14.0" />
-      </font>
-   </Button>
-   <Button fx:id="nextBuyWorkoutPlanButton" layoutX="505.0" layoutY="557.0" mnemonicParsing="false" onAction="#clickedOnButtonNextBuyWorkoutPlan" style="-fx-background-color: #231717;" text="&gt;" textFill="WHITE">
+   <Button fx:id="pageOneBuyWorkoutPlanButton" layoutX="393.0" layoutY="557.0" mnemonicParsing="false" onAction="#clickedOnButtonPageOneBuyWorkoutPlan" prefHeight="30.0" prefWidth="162.0" style="-fx-background-color: #231717;" text="Back to Workout Plan" textFill="WHITE">
       <font>
          <Font size="14.0" />
       </font>

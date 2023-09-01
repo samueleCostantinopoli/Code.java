@@ -8,9 +8,9 @@ public class Purchase {
     private double price;
     private Date date;
     private String username;
-    private String workoutPlan;
+    private WorkoutPlan workoutPlan;
 
-    public Purchase(int idPurchase, double price, Date date, String username, String workoutPlan) {
+    public Purchase(int idPurchase, double price, Date date, String username, WorkoutPlan workoutPlan) {
         this.idPurchase = idPurchase;
         this.price = price;
         this.date = date;
@@ -50,11 +50,11 @@ public class Purchase {
         this.username = username;
     }
 
-    public String getWorkoutPlan() {
+    public WorkoutPlan getWorkoutPlan() {
         return workoutPlan;
     }
 
-    public void setWorkoutPlan(String workoutPlan) {
+    public void setWorkoutPlan(WorkoutPlan workoutPlan) {
         this.workoutPlan = workoutPlan;
     }
 }

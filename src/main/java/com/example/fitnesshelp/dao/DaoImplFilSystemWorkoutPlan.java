@@ -1,39 +1,77 @@
 package com.example.fitnesshelp.dao;
 
+import com.example.fitnesshelp.entities.Exercise;
 import com.example.fitnesshelp.entities.WorkoutPlan;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
+
+import static java.lang.Integer.parseInt;
 
 public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
 
+    private static final String FILE_NAME = "WorkoutPlan.txt";
+    List<String> lines = new ArrayList<>();
+
+
     @Override
-    public List<WorkoutPlan> showData(String username){
-        return null;
+    public List<WorkoutPlan> showData(String username) throws IOException {
+        File fileSys = new File(FILE_NAME);
+        List<WorkoutPlan> workoutPlans = new ArrayList<>();
+
+        if (!fileSys.exists()) {
+            try {
+                fileSys.createNewFile();
+            } catch (IOException e) {
+                throw new IOException("Problem creating file\n");
+            }
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
+            String workoutName = reader.readLine(); // read the first line
+            while (workoutName != null) {
+                String[] parts = workoutName.split(",");
+                if (parts.length == 4) {
+                    WorkoutPlan workoutPlan = new WorkoutPlan(parts[0], parts[1], parts[2], parseInt(parts[3]));
+                    workoutPlans.add(workoutPlan);
+                    System.out.println(workoutPlan.getName()); // print the name
+                }
+                workoutName = reader.readLine(); // read another line
+            }
+        } catch (IOException e) {
+            throw new IOException("Problem with file read\n");
+        }
+        return workoutPlans;
     }
 
-    //dao che si occupa di salvare l'entità WorkoutPlan nel file system
-    private static final String FILE_NAME = "WorkoutPlan.txt";
-    //variabile che viene cambiata in base all'esito del salvataggio della buca stradale nel file system
-    //molto utile nel momento di testare il metodo SaveEntitaStradale
+
+
     private int statusSave;
 
     @Override
     public void saveData(WorkoutPlan instance) throws SQLException, IOException {
-        WorkoutPlan workoutPlan = new WorkoutPlan(instance.getName(), instance.getDay(), instance.getUsername());
+        WorkoutPlan workoutPlan = new WorkoutPlan(instance.getName(), instance.getDay(), instance.getUsername(), instance.getPrize());
         try {
-            //imposto a true il secondo parametro del costruttore del file writer, in questo modo non c'e' sovrascrittura
             BufferedWriter fileWriter = new BufferedWriter(new FileWriter(FILE_NAME,true));
-            String workoutPlanLocal = convertWorkoutInTxt(workoutPlan);
-            fileWriter.write(workoutPlanLocal);
-            //vado a capo cosi la prossima volta che si scrive su quel file e' tutto piu ordinato e la segnalazione
-            //nuova non si attaccherà alla vecchia
+            convertWorkoutInTxt(workoutPlan);
+            fileWriter.write(workoutPlan.getName());
+            fileWriter.write(",");
+            fileWriter.write(workoutPlan.getDay());
+
+            String username = workoutPlan.getUsername();
+            fileWriter.write(",");
+            if (username != null) {
+                fileWriter.write(username);
+            } else {
+                fileWriter.write("UsernameNotAvailable");
+            }
+            fileWriter.write(",");
+            fileWriter.write(workoutPlan.getPrize());
+
             fileWriter.newLine();
             fileWriter.close();
-            //tutto e' andato a buon fine, esito assumerà un valore che indica il successo
             statusSave =0;
         } catch (IOException e) {
             statusSave =1;
@@ -41,7 +79,7 @@ public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
         }
     }
     private String convertWorkoutInTxt(WorkoutPlan workoutPlan){
-        return "Workout name: "+ workoutPlan.getName()+"\nCreator: "+workoutPlan.getUsername()+"\nState: Not in database";
+        return "Workout name: "+ workoutPlan.getName()+"\nNumber of day:"+ workoutPlan.getDay() +"\nCreator: "+workoutPlan.getUsername();
     }
     public int getEsito(){
         return this.statusSave;
