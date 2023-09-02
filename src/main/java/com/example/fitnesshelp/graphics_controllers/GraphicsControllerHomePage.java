@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -57,6 +58,9 @@ public class GraphicsControllerHomePage {
     private ImageView profileImage;
 
     @FXML
+    private Hyperlink loginHyperlink;
+
+    @FXML
     private Label simpleDescription;
 
     @FXML
@@ -74,11 +78,21 @@ public class GraphicsControllerHomePage {
     private Label errorLoginMessageLabel;
     @FXML
     private Button errorLoginMessageButton;
+
     @FXML
     void clickedOnAccountHyperlink(ActionEvent event) throws IOException {
         stageToSwitch = "/com/example/fitnesshelp/account";
         switchStage(event);
     }
+
+    @FXML
+    void clickedOnLoginHyperlink(ActionEvent event) throws IOException {
+        if(UtilityAccess.getState() == State.NOT_LOGGED_IN){
+            stageToSwitch = "/com/example/fitnesshelp/login";
+            switchStage(event);
+        }
+    }
+
     @FXML
     void clickedOnButtonCreateNew(ActionEvent event) throws IOException {
         if(UtilityAccess.getState() == State.LOGGED_IN) {
@@ -107,6 +121,8 @@ public class GraphicsControllerHomePage {
     }
     @FXML
     void clickedOnLogoutHyperlink(ActionEvent event) throws IOException {
+        UtilityAccess.setUsername("admin");
+        UtilityAccess.setState(State.NOT_LOGGED_IN);
         stageToSwitch = "/com/example/fitnesshelp/login";
         switchStage(event);
     }
@@ -127,8 +143,12 @@ public class GraphicsControllerHomePage {
     }
     @FXML
     void clickedOnTdeeCalculatorHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "/com/example/fitnesshelp/calculateTdee1";
-        switchStage(event);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/calculateTdee1.fxml"));
+        Parent root = loader.load();
+        GraphicsControllerCalculateTdee1 graphicsControllerCalculateTdee1 = loader.getController();
+        Scene scene = new Scene(root);
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        currentStage.setScene(scene);
     }
 
     public void clickedOnButtonErrorLoginMessageButton(ActionEvent event) throws IOException {
@@ -144,9 +164,8 @@ public class GraphicsControllerHomePage {
         home.show();
     }
 
-    public void setUsernameLabel(){
+    @FXML
+    void setUsernameLabel(){
         usernameLabel.setText(UtilityAccess.getUsername());
     }
-
-
 }

@@ -6,16 +6,9 @@ import com.example.fitnesshelp.bean.BeanUsername;
 import com.example.fitnesshelp.entities.State;
 import com.example.fitnesshelp.exception.NotExistsUsersException;
 import com.example.fitnesshelp.utils.UtilityAccess;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
-import javafx.util.Duration;
-
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -40,7 +33,7 @@ public class GraphicsControllerLogin extends GraphicsControllerHomePage {
     private Label passwordLabel;
 
     @FXML
-    private TextField passwordField;
+    private PasswordField passwordField;
 
     @FXML
     private Label title;
@@ -53,6 +46,11 @@ public class GraphicsControllerLogin extends GraphicsControllerHomePage {
 
     private BeanUsername beanUsername;
     private BeanPassword beanPassword;
+
+    @FXML
+    void initialize() {
+        passwordField.setPromptText("\u2022\u2022\u2022\u2022\u2022");
+    }
 
     @FXML
     void clickedOnButtonCreateAccount(ActionEvent event) throws IOException {

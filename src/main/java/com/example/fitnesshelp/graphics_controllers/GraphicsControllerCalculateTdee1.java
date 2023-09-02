@@ -34,8 +34,12 @@ public class GraphicsControllerCalculateTdee1 extends GraphicsControllerHomePage
     void clickedOnButtonStart(ActionEvent event) throws  IOException{
         // check if the user is logged in
         if(UtilityAccess.getState() == State.LOGGED_IN) {
-            stageToSwitch = "/com/example/fitnesshelp/calculateTdee2";
-            switchStage(event);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/calculateTdee2.fxml"));
+            Parent root = loader.load();
+            GraphicsControllerCalculateTdee2 graphicsControllerCalculateTdee2 = loader.getController();
+            Scene scene = new Scene(root);
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.setScene(scene);
         } else {
             errorLoginMessageLabel.setOpacity(1);
         }

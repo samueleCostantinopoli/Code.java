@@ -50,7 +50,6 @@ public class GraphicsControllerCalculateTdee0 extends GraphicsControllerHomePage
 
     @FXML
     void initialize() throws SQLException, IOException {
-
         String imagePath = "/com/example/fitnesshelp/delete.png";
         URL imageURL = getClass().getResource(imagePath);
 

@@ -33,7 +33,7 @@ public class GraphicsControllerCreateAccount extends GraphicsControllerHomePage 
     private Label password;
 
     @FXML
-    private TextField passwordField;
+    private PasswordField passwordField;
 
     @FXML
     private Button registerButton;
@@ -57,6 +57,11 @@ public class GraphicsControllerCreateAccount extends GraphicsControllerHomePage 
     private BeanUsername beanUsername;
     private BeanEmail beanEmail;
     private BeanAccountType beanAccountType;
+
+    @FXML
+    void initialize() {
+        passwordField.setPromptText("\u2022\u2022\u2022\u2022\u2022");
+    }
 
     // radio button switch
     @FXML
