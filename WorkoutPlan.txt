@@ -5,3 +5,7 @@ Workout name: Chest Workout
 Number of day:1
 Creator: user!
 Chest Workout,0,UsernameNotAvailable
+Chest Workout,0,user,0.0
+Leg Workout,0,user,0.0
+Chest Press-0-user-0.0
+Leg Workout-0-user-0.0

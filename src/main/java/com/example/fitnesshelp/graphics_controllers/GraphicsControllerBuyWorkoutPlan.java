@@ -123,7 +123,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
 
         for (int i = 0; i < numberOfAnchorPanes; i++) {
             AnchorPane anchorPane = null;
-            anchorPane = createAnchorPane(i, new Purchase(0,0.1,new Date(), UtilityAccess.getUsername(), listWorkouts.get(i)));
+            anchorPane = createAnchorPane(i, listWorkouts.get(i),new Purchase(0,listWorkouts.get(i).getPrize(),new Date(), UtilityAccess.getUsername(), listWorkouts.get(i)));
             anchorPaneContainer.getChildren().add(anchorPane);
         }
     }
@@ -179,7 +179,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
     public void clickedOnPurchaseBuyWorkoutPlanButton(ActionEvent event) {
     }
 
-    private AnchorPane createAnchorPane(int numberOfAnchorPanes, Purchase purchase) {
+    private AnchorPane createAnchorPane(int numberOfAnchorPanes, WorkoutPlan workoutPlan,Purchase purchase) {
         AnchorPane anchorPane = new AnchorPane();
         for (int i = 0; i <= numberOfAnchorPanes; i++) {
             AnchorPane anchorPaneView = new AnchorPane();
@@ -187,7 +187,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
             anchorPaneView.setPrefWidth(601.0);
             anchorPaneView.setStyle("-fx-background-color: #dcdcdc;");
 
-            Button priceButton = new Button(String.valueOf(purchase.getPrice()));
+            Button priceButton = new Button(String.valueOf(workoutPlan.getPrize()));
             priceButton.setLayoutX(546.0);
             priceButton.setLayoutY(72.0);
             priceButton.setStyle("-fx-background-color: #231717;");
@@ -213,7 +213,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
             dataPane.setPrefWidth(609.0);
             dataPane.setStyle("-fx-background-color: #464646;");
 
-            Label nameLabel = new Label("Verticale - livello " + i);
+            Label nameLabel = new Label(workoutPlan.getName());
             nameLabel.setLayoutX(6.0);
             nameLabel.setLayoutY(11.0);
             nameLabel.setTextFill(Color.WHITE);
@@ -222,7 +222,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
             dataPane.getChildren().add(nameLabel);
             anchorPaneView.getChildren().addAll(priceButton, previewButton, infoButton, dataPane);
 
-            // Aggiungi anchorPane al tuo layout principale, ad esempio:
+
             // workoutPlanContainer.getChildren().add(anchorPane);
             return anchorPaneView;
         }
