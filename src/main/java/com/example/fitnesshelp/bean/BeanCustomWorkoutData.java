@@ -4,7 +4,6 @@ import com.example.fitnesshelp.entities.Exercise;
 
 public class BeanCustomWorkoutData {
 
-
     private Exercise exercise1;
     private Exercise exercise2;
     private Exercise exercise3;

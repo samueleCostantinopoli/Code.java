@@ -5,7 +5,6 @@ public class WorkoutPlan {
     private String name;
     private String day;
     private String username;
-
     private double prize;
 
     public WorkoutPlan(String name, String day, String username, double prize) {
@@ -43,7 +42,7 @@ public class WorkoutPlan {
         this.username = username;
     }
 
-    public void setPrize(int prize) {
+    public void setPrize(double prize) {
         this.prize = prize;
     }
 }

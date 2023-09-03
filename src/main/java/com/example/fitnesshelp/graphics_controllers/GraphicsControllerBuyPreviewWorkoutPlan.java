@@ -7,6 +7,7 @@ import java.io.IOException;
 
 public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerHomePage {
 
+
     @FXML
     public void clickedOnButtonInfoWorkoutPlan(ActionEvent event) throws IOException {
         stageToSwitch= "/com/example/fitnesshelp/buyInfoWorkoutPlan";

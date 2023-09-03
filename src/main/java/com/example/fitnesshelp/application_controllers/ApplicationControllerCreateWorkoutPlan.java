@@ -11,7 +11,6 @@ public class ApplicationControllerCreateWorkoutPlan {
         DaoImplFilSystemWorkoutPlan daoImplFilSystemWorkoutPlan = new DaoImplFilSystemWorkoutPlan();
         daoImplFilSystemWorkoutPlan.saveData(dataBean.getExercise1().getWorkoutPlan());
 
-
         // Ecco come accedere ai dati nel bean:
 
         // ... E così via per gli altri campi
