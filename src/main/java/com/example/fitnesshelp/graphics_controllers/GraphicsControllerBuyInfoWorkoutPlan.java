@@ -1,11 +1,15 @@
 package com.example.fitnesshelp.graphics_controllers;
 
+import com.example.fitnesshelp.entities.WorkoutPlan;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
 // Classe per infoBuyWorkoutPlan
 public class GraphicsControllerBuyInfoWorkoutPlan extends GraphicsControllerHomePage {
 
@@ -42,9 +46,25 @@ public class GraphicsControllerBuyInfoWorkoutPlan extends GraphicsControllerHome
     @FXML
     private Button previewWorkoutPlan2Button;
 
-    public void BuyInfoWorkoutPlan(Label commentExtra) {
-        CommentExtra = commentExtra;
+    public GraphicsControllerBuyInfoWorkoutPlan() {
+        // Costruttore senza argomenti
     }
+    public void setNamePT(String name) {
+        NamePT.setText(name);
+    }
+
+    public void setNameWorkout(String name) {
+        NameWorkout.setText(name);
+    }
+
+    public void setInsertDate(String date) {
+        InsertDate.setText(date);
+    }
+
+    public void setCommentExtra(String comment) {
+        CommentExtra.setText(comment);
+    }
+
 
     @FXML
     void clickedOnButtonPreviewWorkoutPlan(ActionEvent event) throws IOException {

@@ -8,7 +8,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnesshelp.graphics_controllers.GraphicsControllerBuyInfoWorkoutPlan">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.fitnesshelp.graphics_controllers.GraphicsControllerBuyInfoWorkoutPlan">
    <AnchorPane prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: #231717;">
       <Label fx:id="title" layoutX="14.0" layoutY="31.0" text="Fitness Helper" textFill="WHITE">
          <font>
@@ -87,12 +88,12 @@
                <Font size="14.0" />
             </font>
          </Button>
-         <Label fx:id="Text1" layoutX="14.0" layoutY="10.0" text="Scheda venduta da:">
+         <Label fx:id="Text1" layoutX="14.0" layoutY="10.0" text="Workout offered for sale by:">
             <font>
                <Font size="14.0" />
             </font>
          </Label>
-         <Label fx:id="Text2" layoutX="13.0" layoutY="40.0" text="Allenamento orientato:">
+         <Label fx:id="Text2" layoutX="13.0" layoutY="40.0" text="Training for:">
             <font>
                <Font size="14.0" />
             </font>
@@ -102,12 +103,12 @@
                <Font size="14.0" />
             </font>
          </Label>
-         <Label fx:id="Text3" layoutX="13.0" layoutY="70.0" text="Durata scheda di allenamento:">
+         <Label fx:id="Text3" layoutX="13.0" layoutY="70.0" text="Time of workout:">
             <font>
                <Font size="14.0" />
             </font>
          </Label>
-         <Label fx:id="Text4" layoutX="14.0" layoutY="100.0" text="Altre informazioni utili:">
+         <Label fx:id="Text4" layoutX="14.0" layoutY="100.0" text="Other useful information::">
             <font>
                <Font size="14.0" />
             </font>

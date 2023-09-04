@@ -9,3 +9,10 @@ Chest Workout,0,user,0.0
 Leg Workout,0,user,0.0
 Chest Press-0-user-0.0
 Leg Workout-0-user-0.0
+Back Workout-0-user-0.0
+Full body -0-user-0.0
+Chest -0-user-0.0
+Back-0-user-0.0
+Back Workout-0-user-0
+Legs-0-user-10
+Chest Workout-0-user-10.90

@@ -35,15 +35,25 @@ public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
             while (workoutName != null) {
                 String[] parts = workoutName.split("-");
                 if (parts.length == 4) {
-                    WorkoutPlan workoutPlan = new WorkoutPlan(parts[0], parts[1], parts[2], parseDouble(parts[3]));
+                    String name = parts[0].trim();
+                    String category = parts[1].trim();
+                    String description = parts[2].trim();
+                    double prize;
+                    try {
+                        prize = Double.parseDouble(parts[3].trim());
+                    } catch (NumberFormatException e) {
+                        prize = 5.0;
+                    }
+                    WorkoutPlan workoutPlan = new WorkoutPlan(name, category, description, prize);
                     workoutPlans.add(workoutPlan);
-                    System.out.println(workoutPlan.getName() + workoutPlan.getPrize()); // print the name
+                    System.out.println(workoutPlan.getName() + workoutPlan.getPrize());
                 }
-                workoutName = reader.readLine(); // read another line
+                workoutName = reader.readLine(); 
             }
         } catch (IOException e) {
-            throw new IOException("Problem with file read\n");
+            // 
         }
+
         return workoutPlans;
     }
 
