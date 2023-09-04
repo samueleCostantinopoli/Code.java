@@ -1,27 +1,16 @@
 package com.example.fitnesshelp.graphics_controllers;
 
 import com.example.fitnesshelp.application_controllers.ApplicationControllerCalculateTdee;
-import com.example.fitnesshelp.dao.DaoEntity;
 import com.example.fitnesshelp.entities.Macro;
 import com.example.fitnesshelp.entities.Tdee;
-import com.example.fitnesshelp.factory.FactoryDao;
-import com.example.fitnesshelp.factory.TypeOfEntity;
 import com.example.fitnesshelp.factory.TypeOfPersistence;
-import com.example.fitnesshelp.system_actor.TdeeCalculator;
 import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.List;
 
 public class GraphicsControllerCalculateTdee3 extends GraphicsControllerHomePage{
@@ -111,7 +100,6 @@ public class GraphicsControllerCalculateTdee3 extends GraphicsControllerHomePage
     private Label caloriesLabel;
 
     private ToggleGroup quantityToggleGroup;
-    private TypeOfPersistence typeOfPersistance;
 
     @FXML
     void clickedOnButtonMacro(ActionEvent event) {
@@ -148,6 +136,7 @@ public class GraphicsControllerCalculateTdee3 extends GraphicsControllerHomePage
         higherCarbLabel.setOpacity(1);
         higherCarbsText.setOpacity(1);
     }
+
 
     void initialize(double kcal, String target){
         // initialize radio button
@@ -188,40 +177,59 @@ public class GraphicsControllerCalculateTdee3 extends GraphicsControllerHomePage
 
     @FXML
     void clickedOnButtonSaveDB(ActionEvent event) throws IOException, SQLException {
-        RadioButton quantitySelected = (RadioButton) quantityToggleGroup.getSelectedToggle();
-        String quantity = switch (quantitySelected.getText()){
-            case "Moderate carb (30/35/35)" ->
-                    "moderate carb";
-            case "Lower carb (40/40/20)" ->
-                    "lower carb";
-            case "Higher carb (30/20/50)" ->
-                    "higher carb";
-            default -> "";
-        };
-        Macro macro = switch (quantitySelected.getText()){
-            case "Moderate carb (30/35/35)" ->
-                new Macro(Float.parseFloat(moderateProLabel.getText()), Float.parseFloat(moderateFatsLabel.getText()), Float.parseFloat(moderateCarbLabel.getText()));
-            case "Lower carb (40/40/20)" ->
-                    new Macro(Float.parseFloat(lowerProLabel.getText()), Float.parseFloat(lowerFatsLabel.getText()), Float.parseFloat(lowerCarbLabel.getText()));
-            case "Higher carb (30/20/50)" ->
-                    new Macro(Float.parseFloat(higherProLabel.getText()), Float.parseFloat(higherFatsLabel.getText()), Float.parseFloat(higherCarbLabel.getText()));
-            default -> null;
-        };
-        // now I can create a tdee to save in db
-        Tdee tdee = new Tdee(Integer.parseInt(caloriesLabel.getText()), UtilityAccess.getUsername(), macro.getPro(), macro.getFat(), macro.getCarb(), stateNameLabel.getText().toLowerCase(), quantity);
-        typeOfPersistance = TypeOfPersistence.JDBC;
-        ApplicationControllerCalculateTdee applicationControllerCalculateTdee = new ApplicationControllerCalculateTdee();
-        applicationControllerCalculateTdee.saveTdee(typeOfPersistance, tdee);
-        // finally switch on page "my tdee"
-        stageToSwitch = "/com/example/fitnesshelp/calculateTdee0";
-        switchStage(event);
+        errorCarbLabel.setOpacity(0);
+            // Check if user has selected the quantity of carb
+            RadioButton quantitySelected = (RadioButton) quantityToggleGroup.getSelectedToggle();
+
+            if (quantitySelected == null || quantitySelected.getText().isEmpty()) {
+                errorCarbLabel.setOpacity(1);
+            } else {
+                saveData(event, TypeOfPersistence.JDBC, quantitySelected);
+                // Back to summary page
+                stageToSwitch = "/com/example/fitnesshelp/calculateTdee0";
+                switchStage(event);
+            }
+
+    }
+
+
+    @FXML
+    void clickedOnButtonSaveFS(ActionEvent event) throws SQLException, IOException {
+
+            // Check if user has selected the quantity of carb
+            RadioButton quantitySelected = (RadioButton) quantityToggleGroup.getSelectedToggle();
+
+            if (quantitySelected == null || quantitySelected.getText().isEmpty()) {
+                errorCarbLabel.setOpacity(1);
+            } else {
+                saveData(event, TypeOfPersistence.JDBC, quantitySelected);
+                saveData(event, TypeOfPersistence.FILE_SYSTEM, quantitySelected);
+                // Back to summary page
+                stageToSwitch = "/com/example/fitnesshelp/calculateTdee0";
+                switchStage(event);
+            }
+
     }
 
     @FXML
-    void clickedOnButtonSaveFS(ActionEvent event) throws IOException{
-        // TO DO
+    private void saveData(ActionEvent event, TypeOfPersistence typeOfPersistence, RadioButton quantitySelected) throws IOException, SQLException {
+        // set data that user has selected
+        String quantity = switch (quantitySelected.getText()) {
+            case "Moderate carb (30/35/35)" -> "moderate carb";
+            case "Lower carb (40/40/20)" -> "lower carb";
+            case "Higher carb (30/20/50)" -> "higher carb";
+            default -> "";
+        };
+        Macro macro = switch (quantitySelected.getText()) {
+            case "Moderate carb (30/35/35)" -> new Macro(Float.parseFloat(moderateProLabel.getText()), Float.parseFloat(moderateFatsLabel.getText()), Float.parseFloat(moderateCarbLabel.getText()));
+            case "Lower carb (40/40/20)" -> new Macro(Float.parseFloat(lowerProLabel.getText()), Float.parseFloat(lowerFatsLabel.getText()), Float.parseFloat(lowerCarbLabel.getText()));
+            case "Higher carb (30/20/50)" -> new Macro(Float.parseFloat(higherProLabel.getText()), Float.parseFloat(higherFatsLabel.getText()), Float.parseFloat(higherCarbLabel.getText()));
+            default -> null;
+        };
+        Tdee tdee = new Tdee(Integer.parseInt(caloriesLabel.getText()), UtilityAccess.getUsername(), macro.getPro(), macro.getFat(), macro.getCarb(), stateNameLabel.getText().toLowerCase(), quantity);
+        // call application controller to save data
+        ApplicationControllerCalculateTdee applicationControllerCalculateTdee = new ApplicationControllerCalculateTdee();
+        applicationControllerCalculateTdee.saveTdee(typeOfPersistence, tdee);
     }
-
-
 
 }

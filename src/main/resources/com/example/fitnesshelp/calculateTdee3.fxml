@@ -163,7 +163,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="stateNameLabel" layoutX="412.0" layoutY="256.0" text="Mainteinance" AnchorPane.leftAnchor="412.0">
+      <Label fx:id="stateNameLabel" layoutX="438.0" layoutY="257.0" text="Mainteinance" AnchorPane.leftAnchor="438.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -171,7 +171,7 @@
       <RadioButton fx:id="moderateCarbRadioButton" layoutX="200.0" layoutY="304.0" mnemonicParsing="false" opacity="0.0" text="Moderate carb (30/35/35)" />
       <RadioButton fx:id="lowerCarbRadioButton" layoutX="387.0" layoutY="304.0" mnemonicParsing="false" opacity="0.0" text="Lower carb (40/40/20)" />
       <RadioButton fx:id="higherCarbRadioButton" layoutX="567.0" layoutY="302.0" mnemonicParsing="false" opacity="0.0" text="Higher carb (30/20/50)" />
-      <Label fx:id="errorCarbLabel" layoutX="367.0" layoutY="146.0" opacity="0.0" text="Select a target before save! " textFill="RED">
+      <Label fx:id="errorCarbLabel" layoutX="367.0" layoutY="170.0" opacity="0.0" text="Select a target before save! " textFill="RED">
          <font>
             <Font size="14.0" />
          </font>
@@ -189,6 +189,11 @@
       <Label fx:id="caloriesLabel" layoutX="428.0" layoutY="193.0" text="2000">
          <font>
             <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="393.0" layoutY="257.0" text="Target:">
+         <font>
+            <Font size="14.0" />
          </font>
       </Label>
    </children>

@@ -156,6 +156,7 @@ public class GraphicsControllerHomePage {
         switchStage(event);
     }
 
+
     void switchStage(ActionEvent event) throws IOException {
         FXMLLoader root = new FXMLLoader(getClass().getResource(stageToSwitch + ".fxml"));
         Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();

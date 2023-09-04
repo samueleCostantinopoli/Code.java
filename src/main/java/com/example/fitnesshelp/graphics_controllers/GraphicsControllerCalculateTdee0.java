@@ -2,7 +2,7 @@ package com.example.fitnesshelp.graphics_controllers;
 
 import com.example.fitnesshelp.application_controllers.ApplicationControllerCalculateTdee;
 import com.example.fitnesshelp.entities.Tdee;
-import com.example.fitnesshelp.factory.TypeOfPersistence;
+import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.control.Hyperlink;
@@ -52,8 +52,6 @@ public class GraphicsControllerCalculateTdee0 extends GraphicsControllerHomePage
     void initialize() throws SQLException, IOException {
         String imagePath = "/com/example/fitnesshelp/delete.png";
         URL imageURL = getClass().getResource(imagePath);
-
-
         // call the application controller to request the list of tdee calculated
         ApplicationControllerCalculateTdee applicationControllerCalculateTdee = new ApplicationControllerCalculateTdee();
         List<Tdee> tdeeList = applicationControllerCalculateTdee.requestTdeeList();
@@ -72,7 +70,6 @@ public class GraphicsControllerCalculateTdee0 extends GraphicsControllerHomePage
             quantityElementLabel = new Label("" + tdee.getQuantity());
 
             // image view button for delete tdee selected
-
             deleteTdeeImageView = new ImageView(imageURL.toExternalForm());
             deleteTdeeImageView.setFitHeight(30);
             deleteTdeeImageView.setFitWidth(30);
@@ -86,7 +83,7 @@ public class GraphicsControllerCalculateTdee0 extends GraphicsControllerHomePage
                 }
             });
 
-            Insets labelMargin = new Insets(5, 12, 5, 12); // Imposta i margini desiderati (sinistra, alto, destra, basso)
+            Insets labelMargin = new Insets(5, 12, 5, 12);
             HBox.setMargin(kcalElementLabel, labelMargin);
             HBox.setMargin(proElementLabel, labelMargin);
             HBox.setMargin(fatElementLabel, labelMargin);
@@ -96,7 +93,6 @@ public class GraphicsControllerCalculateTdee0 extends GraphicsControllerHomePage
 
             // add element in the row
             elementHbox.getChildren().addAll(kcalElementLabel, proElementLabel, fatElementLabel, carbElementLabel, targetElementLabel, quantityElementLabel, deleteTdeeImageView);
-
             // add row in VBox
             tdeeListVBox.getChildren().add(elementHbox);
         }
@@ -107,12 +103,28 @@ public class GraphicsControllerCalculateTdee0 extends GraphicsControllerHomePage
     void clickedOnDeleteTdeeImageView(MouseEvent event) throws SQLException, IOException {
         // this image view, on click, delete the tdee on the same row from
         HBox rowToRemove = (HBox) ((ImageView) event.getSource()).getParent();
-        Tdee tdee = (Tdee) rowToRemove.getUserData();
-        // Rimuovi la riga dall'interfaccia grafica
+
+        // extract text from label
+        String kcalText = ((Label)rowToRemove.getChildren().get(0)).getText();
+        String proText = ((Label)rowToRemove.getChildren().get(1)).getText();
+        String fatText = ((Label)rowToRemove.getChildren().get(2)).getText();
+        String carbText = ((Label)rowToRemove.getChildren().get(3)).getText();
+        String targetText = ((Label)rowToRemove.getChildren().get(4)).getText();
+        String quantityText = ((Label)rowToRemove.getChildren().get(5)).getText();
+
+        // remove row from VBox
         tdeeListVBox.getChildren().remove(rowToRemove);
-        // now I call application controller to remove the tdee from db
+
+        // create new tdee and set values
+        int kcal = Integer.parseInt(kcalText.split(": ")[1]);
+        float pro = Float.parseFloat(proText.split(": ")[1]);
+        float fat = Float.parseFloat(fatText.split(": ")[1]);
+        float carb = Float.parseFloat(carbText.split(": ")[1]);
+        Tdee tdee = new Tdee(kcal, UtilityAccess.getUsername(), pro, fat, carb, targetText, quantityText);
+        // now I can call application controller to delete this tdee
         ApplicationControllerCalculateTdee applicationControllerCalculateTdee = new ApplicationControllerCalculateTdee();
         applicationControllerCalculateTdee.removeTdee(tdee);
     }
+
 
 }

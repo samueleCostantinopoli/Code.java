@@ -83,7 +83,7 @@ public class GraphicsControllerCalculateTdee2 extends GraphicsControllerHomePage
     private BeanTarget beanTarget;
 
     @FXML
-    void clickedOnButtonNext(ActionEvent event) throws IOException {
+    void clickedOnButtonNext(ActionEvent event) {
         // check if all fields are empty
         if (activityChoiceBox.getSelectionModel().isEmpty()
                 || ageTextField.getText().isEmpty()
@@ -102,10 +102,20 @@ public class GraphicsControllerCalculateTdee2 extends GraphicsControllerHomePage
                 emptyAllertLabel.setOpacity(1);
             } else {
                 // if fields are not empty and values insert are numeric, user can try to calculate tdee
+                // disable the filed that user has confirmed
                 calculateButton.setOpacity(1);
                 nextButton.setDisable(true);
                 calculateButton.setOpacity(1);
                 calculateButton.setDisable(false);
+                ageTextField.setDisable(true);
+                activityChoiceBox.setDisable(true);
+                heightTextField.setDisable(true);
+                weightTextField.setDisable(true);
+                maleRadioButton.setDisable(true);
+                femaleRadioButton.setDisable(true);
+                maintenanceRadioButton.setDisable(true);
+                cuttingRadioButton.setDisable(true);
+                bulkingRadioButton.setDisable(true);
             }
         }
     }
