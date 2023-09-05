@@ -1,6 +1,5 @@
 package com.example.fitnesshelp.ComandLineInterface;
 
-import com.example.fitnesshelp.CLIGraphicsControllers.GraphicsControllerSendAccessDataCLI;
 import com.example.fitnesshelp.utils.Printer;
 
 import java.io.BufferedReader;
@@ -28,8 +27,7 @@ public class CliLoginPage {
             backToHomePage();
         }
         // I send this data to the graphics controller which sends them to the bean
-        GraphicsControllerSendAccessDataCLI graphicsControllerSendAccessDataCLI=new GraphicsControllerSendAccessDataCLI(this.username,this.password);
-        graphicsControllerSendAccessDataCLI.sendDataBean();
+
 
     }
     private boolean verifyExitInput(String email){

@@ -38,7 +38,6 @@ public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
                     }
                     WorkoutPlan workoutPlan = new WorkoutPlan(name, category, description, prize);
                     workoutPlans.add(workoutPlan);
-                    System.out.println(workoutPlan.getName() + workoutPlan.getPrize());
                 }
                 workoutName = reader.readLine(); 
             }
@@ -75,7 +74,6 @@ public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
                 fileWriter.write("UsernameNotAvailable");
             }
             fileWriter.write("-");
-            System.out.println(workoutPlan.getPrize());
             fileWriter.write(String.valueOf(workoutPlan.getPrize()));
 
             fileWriter.newLine();

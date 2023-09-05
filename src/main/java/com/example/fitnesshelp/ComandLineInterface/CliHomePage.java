@@ -1,7 +1,6 @@
 package com.example.fitnesshelp.ComandLineInterface;
 
-import com.example.fitnesshelp.CLIGraphicsControllers.GraphicsControllerHomePageCLI;
-import com.example.fitnesshelp.CLIGraphicsControllers.GraphicsControllerLoginCLI;
+
 import com.example.fitnesshelp.dao.SingletonConnection;
 import com.example.fitnesshelp.utils.Printer;
 import java.io.BufferedReader;
@@ -11,8 +10,6 @@ import java.sql.SQLException;
 
 
 public class CliHomePage {
-    private GraphicsControllerLoginCLI graphicsControllerLoginCLI = new GraphicsControllerLoginCLI();
-    private GraphicsControllerHomePageCLI graphicsControllerHomePageCLI = new GraphicsControllerHomePageCLI();
 
     public void displayHomepage() throws IOException, SQLException {
 
@@ -39,7 +36,6 @@ public class CliHomePage {
             //l'utente ha inserito effettivamente dei numeri
             int numeroScelta = Integer.parseInt(scelta);
             if(numeroScelta == 1){
-                this.graphicsControllerHomePageCLI.CreateWorkout();
                 break;
             }
             if(numeroScelta == 2){
@@ -70,7 +66,6 @@ public class CliHomePage {
 
             if(numeroScelta==8){
                 //l'utente vuole fare il login
-                this.graphicsControllerLoginCLI.Access();
             }
             if(numeroScelta==9){
 

@@ -8,7 +8,6 @@ import com.example.fitnesshelp.entities.WorkoutPlan;
 import com.example.fitnesshelp.utils.UtilityAccess;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 

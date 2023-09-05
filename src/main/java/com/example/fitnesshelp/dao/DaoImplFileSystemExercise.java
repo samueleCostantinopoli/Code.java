@@ -27,7 +27,7 @@ public class DaoImplFileSystemExercise implements DaoEntity<Exercise>{
             fileWriter.write("-");
             fileWriter.write(String.valueOf(exerciseToSave.getSets()));
             fileWriter.write("-");
-            fileWriter.write(exerciseToSave.getReps());
+            fileWriter.write(String.valueOf(exerciseToSave.getReps()));
             fileWriter.write("-");
             fileWriter.write(exerciseToSave.getWorkoutPlan().getName());
             fileWriter.write("-");
@@ -47,7 +47,7 @@ public class DaoImplFileSystemExercise implements DaoEntity<Exercise>{
     }
 
     @Override
-    public List showData(String username) throws IOException {
+    public List<Exercise> showData(String username) throws IOException {
         List<Exercise> exerciseList = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String exerciseName = reader.readLine(); // read the first line
@@ -69,6 +69,7 @@ public class DaoImplFileSystemExercise implements DaoEntity<Exercise>{
         } catch (IOException e) {
             //
         }
+        System.out.println(exerciseList);
         return exerciseList;
     }
 

@@ -75,7 +75,7 @@
       </Button>
       <AnchorPane fx:id="WorkoutPlan2Pane" layoutX="159.0" layoutY="215.0" prefHeight="208.0" prefWidth="630.0" style="-fx-background-color: #dcdcdc;">
          <children>
-            <Button fx:id="priceWorkoutPlan2Button" layoutX="556.0" layoutY="164.0" mnemonicParsing="false" onAction="#clickedOnButtonPriceWorkoutPlan" style="-fx-background-color: #231717;" text="19.99$" textFill="WHITE">
+            <Button fx:id="priceWorkoutPlan2Button" layoutX="556.0" layoutY="164.0" mnemonicParsing="false" onAction="#clickedOnButtonPriceWorkoutPlan" style="-fx-background-color: #231717;" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -90,7 +90,7 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="insertPreview" layoutX="79.0" layoutY="14.0" >
+            <Label fx:id="insertPreview" layoutX="79.0" layoutY="14.0" prefHeight="137.0" prefWidth="542.0" text="No preview">
                <font>
                   <Font size="14.0" />
                </font>
