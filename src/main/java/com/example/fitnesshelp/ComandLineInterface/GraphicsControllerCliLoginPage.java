@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
 
-public class CliLoginPage {
+public class GraphicsControllerCliLoginPage {
     private BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
     private String username;
     private String password;
@@ -35,7 +35,7 @@ public class CliLoginPage {
 
     }
     private void backToHomePage() throws IOException, SQLException {
-        CliHomePage homePage = new CliHomePage();
+        GraphicsControllerCliHomePage homePage = new GraphicsControllerCliHomePage();
         homePage.displayHomepage();
     }
 }

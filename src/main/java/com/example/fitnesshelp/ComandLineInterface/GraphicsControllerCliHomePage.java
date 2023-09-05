@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.sql.SQLException;
 
 
-public class CliHomePage {
+public class GraphicsControllerCliHomePage {
 
     public void displayHomepage() throws IOException, SQLException {
 

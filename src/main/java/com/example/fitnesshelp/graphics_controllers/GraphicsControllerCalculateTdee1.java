@@ -12,9 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.sql.SQLException;
 
 public class GraphicsControllerCalculateTdee1 extends GraphicsControllerHomePage{
 
@@ -46,7 +44,7 @@ public class GraphicsControllerCalculateTdee1 extends GraphicsControllerHomePage
     }
 
     @FXML
-    void clickedOnButtonMyTdee(ActionEvent event) throws IOException, SQLException {
+    void clickedOnButtonMyTdee(ActionEvent event) throws IOException {
         // this method shows all tdee that user has saved
         if(UtilityAccess.getState() == State.LOGGED_IN) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/calculateTdee0.fxml"));

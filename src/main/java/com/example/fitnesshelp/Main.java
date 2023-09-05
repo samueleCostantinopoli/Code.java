@@ -1,20 +1,14 @@
 package com.example.fitnesshelp;
 
-import com.example.fitnesshelp.ComandLineInterface.CliHomePage;
+import com.example.fitnesshelp.ComandLineInterface.GraphicsControllerCliHomePage;
 import com.example.fitnesshelp.entities.*;
-import com.example.fitnesshelp.graphics_controllers.GraphicsControllerCalculateTdee1;
-import com.example.fitnesshelp.graphics_controllers.GraphicsControllerHomePage;
-import com.example.fitnesshelp.graphics_controllers.GraphicsControllerLogin;
 import com.example.fitnesshelp.utils.Printer;
 import com.example.fitnesshelp.entities.Account;
 import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -54,7 +48,7 @@ public class Main extends Application {
                 launch();
                 System.exit(0);
             }else if(numberChoice==2) {
-                CliHomePage cliHomePage = new CliHomePage();
+                GraphicsControllerCliHomePage cliHomePage = new GraphicsControllerCliHomePage();
                 cliHomePage.displayHomepage();
                 System.exit(0);
             }

@@ -1,0 +1,30 @@
+Kcal: 2086
+Protein: 208.6
+Fat: 92.7
+Carb: 104.3
+Target: cutting
+Quantity: lower carb
+Kcal: 2122
+Protein: 159.1
+Fat: 47.1
+Carb: 265.2
+Target: cutting
+Quantity: higher carb
+Kcal: 2018
+Protein: 201.8
+Fat: 89.6
+Carb: 100.9
+Target: maintenance
+Quantity: lower carb
+Kcal: 2393
+Protein: 179.4
+Fat: 93.0
+Carb: 209.3
+Target: bulking
+Quantity: moderate carb
+Kcal: 2000
+Protein: 200.0
+Fat: 88.8
+Carb: 100.0
+Target: maintenance
+Quantity: lower carb

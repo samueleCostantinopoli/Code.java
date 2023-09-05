@@ -186,7 +186,7 @@ public class GraphicsControllerCalculateTdee2 extends GraphicsControllerHomePage
         // strings values null if checks are ok
         if (ageRange == null && heightRange == null && weightRange == null){
             try {
-                // in this I can call the application controller, which will call the tdee calculator to get the tdee
+                // in this case I can call the application controller, which will call the tdee calculator to get the tdee
                 ApplicationControllerCalculateTdee applicationControllerCalculateTdee = new ApplicationControllerCalculateTdee(beanAge, beanHeight, beanWeight, beanGender, beanActivity, beanTarget);
                 // now I can create the questionnaire with my answers to be sent to the tdee calculator via the application controller
                 Questionnaire questionnaire = new Questionnaire(gender, Integer.parseInt(ageTextField.getText()), Float.parseFloat(weightTextField.getText()), Float.parseFloat(heightTextField.getText()), activity);
