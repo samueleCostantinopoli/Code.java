@@ -94,7 +94,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
     }
 
     @FXML
-    void clickedOnButtonPriceWorkoutPlan(ActionEvent event) throws IOException {
+    void clickedOnButtonPriceWorkoutPlan(ActionEvent event, int CurrentWorkout) throws IOException {
         if(UtilityAccess.getState() == State.LOGGED_IN) {
             GraphicsControllerBuyWorkoutPlan1 graphicsControllerBuyWorkoutPlan1 = new GraphicsControllerBuyWorkoutPlan1();
             stageToSwitch = "/com/example/fitnesshelp/buyWorkoutPlan1";
@@ -104,7 +104,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
             errorLoginMessageButton.setOpacity(1);
         }
         BeanState state = new BeanState(UtilityAccess.getState());
-        BeanBuyWorkoutPlan beanBuyWorkoutPlan = new BeanBuyWorkoutPlan(10); //TODO aggiornare il prezzo
+        BeanBuyWorkoutPlan beanBuyWorkoutPlan = new BeanBuyWorkoutPlan(CurrentWorkout);
         ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(state);
     }
 
@@ -128,15 +128,22 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
 
     private List<AnchorPane> createAnchorPanes(int numberOfAnchorPanes, List<WorkoutPlan> workoutPlanList) {
         List<AnchorPane> anchorPanes = new ArrayList<>();
-        for (int i = 0; i < numberOfAnchorPanes; i++) {
+        for (int index = 0; index < numberOfAnchorPanes; index++) {
             AnchorPane anchorPaneView = new AnchorPane();
             anchorPaneView.setPrefHeight(115.0);
             anchorPaneView.setPrefWidth(585.0);
             anchorPaneView.setStyle("-fx-background-color: #dcdcdc;");
-
-            Button priceButton = new Button(workoutPlanList.get(i).getPrize() + "€");
+            int numberOfWorkout = index;
+            Button priceButton = new Button(workoutPlanList.get(index).getPrize() + "€");
             priceButton.setLayoutX(526.0);
             priceButton.setLayoutY(72.0);
+            priceButton.setOnAction(event -> {
+                try {
+                    clickedOnButtonPriceWorkoutPlan(event, numberOfWorkout);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
             priceButton.setStyle("-fx-background-color: #231717;");
             priceButton.setTextFill(Color.WHITE);
             priceButton.setFont(new Font(14.0));
@@ -144,10 +151,9 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
             Button previewButton = new Button("preview");
             previewButton.setLayoutX(449.0);
             previewButton.setLayoutY(72.0);
-            int finalI = i;
             previewButton.setOnAction(event -> {
                 try {
-                    clickedOnButtonPreviewWorkoutPlan(event, finalI);
+                    clickedOnButtonPreviewWorkoutPlan(event, numberOfWorkout);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -161,7 +167,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
             infoButton.setLayoutY(72.0);
             infoButton.setOnAction(event -> {
                 try {
-                    clickedOnButtonInfoWorkoutPlan(event, finalI);
+                    clickedOnButtonInfoWorkoutPlan(event, numberOfWorkout);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -175,7 +181,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
             dataPane.setPrefWidth(585.0);
             dataPane.setStyle("-fx-background-color: #464646;");
 
-            Label nameLabel = new Label(workoutPlanList.get(i).getName());
+            Label nameLabel = new Label(workoutPlanList.get(index).getName());
             nameLabel.setLayoutX(6.0);
             nameLabel.setLayoutY(11.0);
             nameLabel.setTextFill(Color.WHITE);
