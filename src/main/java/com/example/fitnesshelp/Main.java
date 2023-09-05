@@ -1,6 +1,6 @@
 package com.example.fitnesshelp;
 
-import com.example.fitnesshelp.ComandLineInterface.GraphicsControllerCliHomePage;
+import com.example.fitnesshelp.cli_graphics_controller.GraphicsControllerCliHomePage;
 import com.example.fitnesshelp.entities.*;
 import com.example.fitnesshelp.utils.Printer;
 import com.example.fitnesshelp.entities.Account;

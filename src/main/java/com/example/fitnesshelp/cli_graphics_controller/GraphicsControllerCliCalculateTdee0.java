@@ -1,4 +1,4 @@
-package com.example.fitnesshelp.ComandLineInterface;
+package com.example.fitnesshelp.cli_graphics_controller;
 
 import com.example.fitnesshelp.application_controllers.ApplicationControllerCalculateTdee;
 import com.example.fitnesshelp.entities.Tdee;
