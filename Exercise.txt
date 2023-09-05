@@ -1,18 +1,4 @@
-Chest Press-CHEST-3--Chest Press-0-user-5.9
-Bench Press-CHEST-3-
--Chest Press-0-user-5.9
-Chest Press-CHEST-3--Chest Workout-0-user-5.9
-Chest-CHEST-3-
--Chest day-0-user-5.9
-Bench press-CHEST-2-
--Chest day-0-user-5.9
-Chest-CHEST-3-
--Chest day-0-user-5.9
-Bench press-CHEST-2-
--Chest day-0-user-5.9
-Chest-CHEST-3-
--Chest day-0-user-5.9
-Chest-CHEST-3--Chest day-0-user-5.9
-chest press-CHEST-3--Chest Extreme-0-user-7.99
-Bench press-CHEST-3-
--Chest Extreme-0-user-7.99
+Curl-BICEPS-3-12-60.0-Arms-0-user-2.5
+Pull down-TRICEPS-4-10-90.0-Arms-0-user-2.5
+Chest Press-CHEST-3-10-90.0-Chest Workout Personal-0-user!--10.0
+chest press-CHEST-5-5-180.0-Chest Workout PowerLifting-0-user-2.5

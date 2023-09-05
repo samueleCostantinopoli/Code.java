@@ -16,7 +16,6 @@ public class ApplicationControllerCreateWorkoutPlan {
         for (int i = 0; i < 7; i++) {
             if (i < dataBean.getExerciseListSize()) {
                 Exercise exercise = dataBean.getExercise(i);
-
                 if (exercise != null) {
                     String exerciseData = exercise.getExercise();
 

@@ -50,15 +50,22 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
             throw new RuntimeException(e);
         }
 
-        List<AnchorPane> anchorPanes = createAnchorPanes(numberOfAnchorPanes, listWorkouts);
+        List<AnchorPane> anchorPanes = createAnchorPanes(numberOfAnchorPanes, listWorkoutsForSale);
         anchorPaneContainer.getChildren().addAll(anchorPanes);
     }
     BeanState beanState = new BeanState(UtilityAccess.getState());
     ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(beanState);
     List<WorkoutPlan> listWorkouts = applicationControllerBuyWorkoutPlan.checkWorkoutPlan();
+    List<WorkoutPlan> listWorkoutsForSale = new ArrayList<>();
     private int readValueFromFileSystem() throws SQLException, IOException {
         // Read value from the file system
-        return applicationControllerBuyWorkoutPlan.checkWorkoutPlan().size();
+        int sizeOfAnchorPane = 0;
+        for (WorkoutPlan listWorkout : listWorkouts) {
+            if (listWorkout.getPrize() != -10)
+                sizeOfAnchorPane++;
+            listWorkoutsForSale.add(listWorkout);
+        }
+        return sizeOfAnchorPane;
     }
 
     @FXML
@@ -124,18 +131,18 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
         for (int i = 0; i < numberOfAnchorPanes; i++) {
             AnchorPane anchorPaneView = new AnchorPane();
             anchorPaneView.setPrefHeight(115.0);
-            anchorPaneView.setPrefWidth(601.0);
+            anchorPaneView.setPrefWidth(585.0);
             anchorPaneView.setStyle("-fx-background-color: #dcdcdc;");
 
-            Button priceButton = new Button(String.valueOf(workoutPlanList.get(i).getPrize()));
-            priceButton.setLayoutX(546.0);
+            Button priceButton = new Button(workoutPlanList.get(i).getPrize() + "€");
+            priceButton.setLayoutX(526.0);
             priceButton.setLayoutY(72.0);
             priceButton.setStyle("-fx-background-color: #231717;");
             priceButton.setTextFill(Color.WHITE);
             priceButton.setFont(new Font(14.0));
 
             Button previewButton = new Button("preview");
-            previewButton.setLayoutX(469.0);
+            previewButton.setLayoutX(449.0);
             previewButton.setLayoutY(72.0);
             int finalI = i;
             previewButton.setOnAction(event -> {
@@ -150,7 +157,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
             previewButton.setFont(new Font(14.0));
 
             Button infoButton = new Button("info");
-            infoButton.setLayoutX(415.0);
+            infoButton.setLayoutX(385.0);
             infoButton.setLayoutY(72.0);
             infoButton.setOnAction(event -> {
                 try {
@@ -165,7 +172,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
 
             AnchorPane dataPane = new AnchorPane();
             dataPane.setPrefHeight(40.0);
-            dataPane.setPrefWidth(609.0);
+            dataPane.setPrefWidth(585.0);
             dataPane.setStyle("-fx-background-color: #464646;");
 
             Label nameLabel = new Label(workoutPlanList.get(i).getName());
@@ -176,8 +183,6 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
             dataPane.getChildren().add(nameLabel);
             anchorPaneView.getChildren().addAll(priceButton, previewButton, infoButton, dataPane);
 
-
-            // workoutPlanContainer.getChildren().add(anchorPane);
             anchorPanes.add(anchorPaneView);
         }
         return anchorPanes;

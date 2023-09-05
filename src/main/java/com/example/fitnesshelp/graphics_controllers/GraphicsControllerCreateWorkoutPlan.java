@@ -310,7 +310,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
             }
         }
         else {
-            WorkoutPlan workoutPlan = new WorkoutPlan(nameCustomWorkoutTextField.getText(), String.valueOf(exerciseNumber / 3), UtilityAccess.getUsername(), 0);
+            WorkoutPlan workoutPlan = new WorkoutPlan(nameCustomWorkoutTextField.getText(), String.valueOf(exerciseNumber / 3), UtilityAccess.getUsername(), -10);
 
             Exercise exercise1 = new Exercise(nameCustomExerciseTextField1.getText(), Muscle.valueOf(muscleCustomTextField1.getText()), parseInt(customSetTextfield1.getText()), parseInt(customRepstextFields1.getText()), parseFloat(customRestTextField1.getText()), workoutPlan);
             dataBean.setExercise(exercise1);

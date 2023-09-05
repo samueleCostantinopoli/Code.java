@@ -29,6 +29,8 @@ public class DaoImplFileSystemExercise implements DaoEntity<Exercise>{
             fileWriter.write("-");
             fileWriter.write(String.valueOf(exerciseToSave.getReps()));
             fileWriter.write("-");
+            fileWriter.write(String.valueOf(exerciseToSave.getRest()));
+            fileWriter.write("-");
             fileWriter.write(exerciseToSave.getWorkoutPlan().getName());
             fileWriter.write("-");
             fileWriter.write(exerciseToSave.getWorkoutPlan().getDay());
@@ -69,7 +71,6 @@ public class DaoImplFileSystemExercise implements DaoEntity<Exercise>{
         } catch (IOException e) {
             //
         }
-        System.out.println(exerciseList);
         return exerciseList;
     }
 

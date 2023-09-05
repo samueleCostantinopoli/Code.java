@@ -21,7 +21,6 @@ public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
     public List<WorkoutPlan> showData(String username) throws IOException {
         List<WorkoutPlan> workoutPlans = new ArrayList<>();
 
-
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String workoutName = reader.readLine(); // read the first line
             while (workoutName != null) {
