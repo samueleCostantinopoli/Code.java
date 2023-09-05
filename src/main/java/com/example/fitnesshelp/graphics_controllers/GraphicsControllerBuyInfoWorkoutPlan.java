@@ -1,14 +1,20 @@
 package com.example.fitnesshelp.graphics_controllers;
 
+import com.example.fitnesshelp.application_controllers.ApplicationControllerBuyWorkoutPlan;
+import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.entities.WorkoutPlan;
+import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.jar.Attributes;
 
 // Classe per infoBuyWorkoutPlan
 public class GraphicsControllerBuyInfoWorkoutPlan extends GraphicsControllerHomePage {
@@ -32,39 +38,18 @@ public class GraphicsControllerBuyInfoWorkoutPlan extends GraphicsControllerHome
     private Label NameWorkout;
 
     @FXML
-    private Label Text1;
-
-    @FXML
-    private Label Text2;
-
-    @FXML
-    private Label Text3;
-
-    @FXML
-    private Label Text4;
-
-    @FXML
     private Button previewWorkoutPlan2Button;
 
-    public GraphicsControllerBuyInfoWorkoutPlan() {
-        // Costruttore senza argomenti
-    }
-    public void setNamePT(String name) {
-        NamePT.setText(name);
+    public GraphicsControllerBuyInfoWorkoutPlan() throws IOException {
     }
 
-    public void setNameWorkout(String name) {
-        NameWorkout.setText(name);
+    public void setIndex(WorkoutPlan currentWorkout) {
+        NameScheda.setText(currentWorkout.getName());
+        NameWorkout.setText(currentWorkout.getName());
+        NamePT.setText(currentWorkout.getUsername());
+        InsertDate.setText(currentWorkout.getDay());
+        CommentExtra.setText("Prize: " + currentWorkout.getPrize());
     }
-
-    public void setInsertDate(String date) {
-        InsertDate.setText(date);
-    }
-
-    public void setCommentExtra(String comment) {
-        CommentExtra.setText(comment);
-    }
-
 
     @FXML
     void clickedOnButtonPreviewWorkoutPlan(ActionEvent event) throws IOException {

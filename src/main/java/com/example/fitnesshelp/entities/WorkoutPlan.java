@@ -14,6 +14,7 @@ public class WorkoutPlan {
         this.prize = prize;
     }
 
+
     public String getName() {
         return name;
     }

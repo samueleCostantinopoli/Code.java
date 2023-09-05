@@ -16,3 +16,5 @@ Back-0-user-0.0
 Back Workout-0-user-0
 Legs-0-user-10
 Chest Workout-0-user-10.90
+Chest day-0-user-5.9
+Chest Extreme-0-user-7.99

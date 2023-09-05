@@ -85,22 +85,12 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Label fx:id="prerequisites" layoutX="14.0" layoutY="14.0" text="Prerequisites:">
+            <Label fx:id="preview" layoutX="14.0" layoutY="14.0" text="Preview:">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="preview" layoutX="14.0" layoutY="84.0" text="Preview:">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="insertPreview" layoutX="74.0" layoutY="84.0" text="insert preview">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="insertPrerequisites" layoutX="105.0" layoutY="14.0" text="insert prerequisites">
+            <Label fx:id="insertPreview" layoutX="79.0" layoutY="14.0" >
                <font>
                   <Font size="14.0" />
                </font>

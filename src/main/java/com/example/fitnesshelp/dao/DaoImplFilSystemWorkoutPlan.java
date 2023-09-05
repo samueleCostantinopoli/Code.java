@@ -19,16 +19,8 @@ public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
 
     @Override
     public List<WorkoutPlan> showData(String username) throws IOException {
-        File fileSys = new File(FILE_NAME);
         List<WorkoutPlan> workoutPlans = new ArrayList<>();
 
-        if (!fileSys.exists()) {
-            try {
-                fileSys.createNewFile();
-            } catch (IOException e) {
-                throw new IOException("Problem creating file\n");
-            }
-        }
 
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
             String workoutName = reader.readLine(); // read the first line
@@ -83,7 +75,7 @@ public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
                 fileWriter.write("UsernameNotAvailable");
             }
             fileWriter.write("-");
-            System.out.println(String.valueOf(workoutPlan.getPrize()));
+            System.out.println(workoutPlan.getPrize());
             fileWriter.write(String.valueOf(workoutPlan.getPrize()));
 
             fileWriter.newLine();
