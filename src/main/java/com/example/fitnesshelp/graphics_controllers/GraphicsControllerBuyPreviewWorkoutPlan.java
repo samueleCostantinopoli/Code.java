@@ -41,9 +41,9 @@ public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerH
 
         List<String> exercise = new ArrayList<>();
         if (!exerciseList.isEmpty()) {
-            for (int i = 0 ; i < exerciseList.size(); i++) {
-                if (workoutPlan.getName().equals(exerciseList.get(i).getWorkoutPlan().getName()))
-                    exercise.add(exerciseList.get(i).getExercise().trim() + "\n");
+            for (Exercise value : exerciseList) {
+                if (workoutPlan.getName().equals(value.getWorkoutPlan().getName()))
+                    exercise.add(value.getExercise().trim() + "\n");
             }
             String exerciseText = String.join("\n", exercise);
             insertPreview.setText(exerciseText);

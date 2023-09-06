@@ -28,20 +28,6 @@ public class ApplicationControllerCreateWorkoutPlan {
 
         DaoImplFilSystemWorkoutPlan daoImplFilSystemWorkoutPlan = new DaoImplFilSystemWorkoutPlan();
         daoImplFilSystemWorkoutPlan.saveData(dataBean.getExercise(0).getWorkoutPlan());
-
-        /*daoImplFileSystemExercise.saveData(dataBean.getExercise(0));
-        for (int i = 1; i <= 6; i++) {
-            String exerciseData = dataBean.getExercise(i).getExercise();
-
-            if (exerciseData != null && !exerciseData.isEmpty()) {
-                daoImplFileSystemExercise.saveData(dataBean.getExercise(i));
-            }
-        }
-        DaoImplFilSystemWorkoutPlan daoImplFilSystemWorkoutPlan = new DaoImplFilSystemWorkoutPlan();
-        daoImplFilSystemWorkoutPlan.saveData(dataBean.getExercise(0).getWorkoutPlan());
-
-         */
-
     }
 }
 

@@ -7,6 +7,10 @@ import com.example.fitnesshelp.entities.WorkoutPlan;
 import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
@@ -15,8 +19,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
+import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -74,32 +80,14 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
 
     private WebView webView;
     private WebEngine webEngine;
-    public Purchase newPurchase;
-    ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
-    List<WorkoutPlan> workoutPlanList = applicationControllerBuyWorkoutPlan.checkWorkoutPlan();
+
+    int CurrentWorkout = -1;
 
     public GraphicsControllerBuyWorkoutPlan1() throws IOException {
     }
 
     void SaveWorkout(int thisWorkout) {
-        WorkoutPlan workoutPlanToPurchase= workoutPlanList.get(thisWorkout);
-        newPurchase = new Purchase(GenerateId(), workoutPlanToPurchase.getPrize(), TakeDate(), UtilityAccess.getUsername(), workoutPlanToPurchase);
-    }
-
-    private Date TakeDate() {
-        Date currentDate = new Date();
-        return currentDate;
-    }
-
-    private int GenerateId() {
-        Random random = new Random();
-        // Generate int random ID
-        int id = random.nextInt(Integer.MAX_VALUE);
-        return id;
-    }
-
-    @FXML
-    void initialize() {
+        CurrentWorkout = thisWorkout;
         CheckCreditCard.setOnAction(event -> {
             if (CheckCreditCard.isSelected()) {
                 // Se CheckCreditCard è selezionato, deseleziona gli altri
@@ -130,6 +118,13 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
             }
         });
     }
+
+    /*@FXML
+    void initialize() {
+
+    }
+
+     */
 
     private void SetCreditCard(boolean state){
         CardNumberTextField.setVisible(state);
@@ -172,11 +167,16 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
         BackPaymentMethodsButton.setStyle("-fx-background-color: #FF0000; -fx-text-fill: white;");
     }
 
-    public void clickedOnPurchaseBuyWorkoutPlanButton(ActionEvent event) throws IOException {
-        GraphicsControllerBuyWorkoutPlan2 graphicsControllerBuyWorkoutPlan2 = new GraphicsControllerBuyWorkoutPlan2();
-        graphicsControllerBuyWorkoutPlan2.savePurchase(newPurchase);
-        stageToSwitch = "/com/example/fitnesshelp/buyWorkoutPlan2";
-        switchStage(event);
+    public void clickedOnPurchaseBuyWorkoutPlanButton(ActionEvent event) throws IOException, SQLException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyWorkoutPlan2.fxml"));
+        Parent root = loader.load();
+        GraphicsControllerBuyWorkoutPlan2 infoController2 = loader.getController();
+        infoController2.savePurchase(CurrentWorkout);
+
+        Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene primary = new Scene(root);
+        home.setScene(primary);
+        home.show();
     }
 
     public void clickedOnBuyWorkoutPlanHyperlink1(ActionEvent event) throws IOException {

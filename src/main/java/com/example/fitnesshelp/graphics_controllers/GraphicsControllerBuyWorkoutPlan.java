@@ -1,7 +1,6 @@
 package com.example.fitnesshelp.graphics_controllers;
 
 import com.example.fitnesshelp.application_controllers.ApplicationControllerBuyWorkoutPlan;
-import com.example.fitnesshelp.bean.BeanBuyWorkoutPlan;
 import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.entities.State;
 import com.example.fitnesshelp.entities.WorkoutPlan;
@@ -43,7 +42,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        int numberOfAnchorPanes = 0;
+        int numberOfAnchorPanes;
         try {
             numberOfAnchorPanes = readValueFromFileSystem();
         } catch (SQLException | IOException e) {
@@ -96,10 +95,14 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
     @FXML
     void clickedOnButtonPriceWorkoutPlan(ActionEvent event, int CurrentWorkout) throws IOException {
         if(UtilityAccess.getState() == State.LOGGED_IN) {
-            GraphicsControllerBuyWorkoutPlan1 graphicsControllerBuyWorkoutPlan1 = new GraphicsControllerBuyWorkoutPlan1();
-            graphicsControllerBuyWorkoutPlan1.SaveWorkout(CurrentWorkout);
-            stageToSwitch = "/com/example/fitnesshelp/buyWorkoutPlan1";
-            switchStage(event);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyWorkoutPlan1.fxml"));
+            Parent root = loader.load();
+            GraphicsControllerBuyWorkoutPlan1 infoController1 = loader.getController();
+            infoController1.SaveWorkout(CurrentWorkout);
+            Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene primary = new Scene(root);
+            home.setScene(primary);
+            home.show();
         } else {
             errorLoginMessageLabel.setOpacity(1);
             errorLoginMessageButton.setOpacity(1);

@@ -13,44 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class GraphicsControllerAccount extends GraphicsControllerHomePage {
-    @FXML
-    private Label username;
 
-    @FXML
-    private Button changeEmailButton;
-
-    @FXML
-    private ImageView changeNameImageView;
-
-    @FXML
-    private Button changePasswordButton;
-
-    @FXML
-    private ImageView changeProfilePictureImageView1;
-
-    @FXML
-    private Label email;
-
-    @FXML
-    private Label password;
-
-    @FXML
-    private ImageView showPassword;
-
-    @FXML
-    private Button switchAccountButton;
-
-    @FXML
-    private Button viewPurchaseButton;
-
-    @FXML
-    private Label zoomEmail;
-
-    @FXML
-    private ImageView zoomProfileImage1;
-    private Stage stage;
-    private Scene scene;
-    private FXMLLoader root;
     @FXML
     void clickedOnAccountHyperlink(ActionEvent event) throws IOException{
         stageToSwitch= "/com/example/fitnesshelp/account";
@@ -68,8 +31,9 @@ public class GraphicsControllerAccount extends GraphicsControllerHomePage {
     }
 
     @FXML
-    void clickedOnButtonViewPurchase(ActionEvent event) {
-
+    void clickedOnButtonViewPurchase(ActionEvent event) throws IOException {
+        stageToSwitch = "/com/example/fitnesshelp/accountPurchase";
+        switchStage(event);
     }
 }
 

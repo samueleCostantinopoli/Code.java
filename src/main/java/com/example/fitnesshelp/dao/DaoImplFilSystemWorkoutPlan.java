@@ -16,6 +16,34 @@ public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
     private static final String FILE_NAME = "WorkoutPlan.txt";
     List<String> lines = new ArrayList<>();
 
+    @Override
+    public void saveData(WorkoutPlan instance) throws SQLException, IOException {
+        WorkoutPlan workoutPlan = new WorkoutPlan(instance.getName(), instance.getDay(), instance.getUsername(), instance.getPrize());
+        try {
+            BufferedWriter fileWriter = new BufferedWriter(new FileWriter(FILE_NAME,true));
+            convertWorkoutInTxt(workoutPlan);
+            fileWriter.write(workoutPlan.getName());
+            fileWriter.write("-");
+            fileWriter.write(workoutPlan.getDay());
+
+            String username = workoutPlan.getUsername();
+            fileWriter.write("-");
+            if (username != null) {
+                fileWriter.write(username);
+            } else {
+                fileWriter.write("UsernameNotAvailable");
+            }
+            fileWriter.write("-");
+            fileWriter.write(String.valueOf(workoutPlan.getPrize()));
+
+            fileWriter.newLine();
+            fileWriter.close();
+            statusSave =0;
+        } catch (IOException e) {
+            statusSave =1;
+            throw new IOException("Problem with file writer\n");
+        }
+    }
 
     @Override
     public List<WorkoutPlan> showData(String username) throws IOException {
@@ -55,34 +83,6 @@ public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
 
     private int statusSave;
 
-    @Override
-    public void saveData(WorkoutPlan instance) throws SQLException, IOException {
-        WorkoutPlan workoutPlan = new WorkoutPlan(instance.getName(), instance.getDay(), instance.getUsername(), instance.getPrize());
-        try {
-            BufferedWriter fileWriter = new BufferedWriter(new FileWriter(FILE_NAME,true));
-            convertWorkoutInTxt(workoutPlan);
-            fileWriter.write(workoutPlan.getName());
-            fileWriter.write("-");
-            fileWriter.write(workoutPlan.getDay());
-
-            String username = workoutPlan.getUsername();
-            fileWriter.write("-");
-            if (username != null) {
-                fileWriter.write(username);
-            } else {
-                fileWriter.write("UsernameNotAvailable");
-            }
-            fileWriter.write("-");
-            fileWriter.write(String.valueOf(workoutPlan.getPrize()));
-
-            fileWriter.newLine();
-            fileWriter.close();
-            statusSave =0;
-        } catch (IOException e) {
-            statusSave =1;
-            throw new IOException("Problem with file writer\n");
-        }
-    }
     private String convertWorkoutInTxt(WorkoutPlan workoutPlan){
         return "Workout name: "+ workoutPlan.getName()+"\nNumber of day:"+ workoutPlan.getDay() +"\nCreator: "+workoutPlan.getUsername();
     }
