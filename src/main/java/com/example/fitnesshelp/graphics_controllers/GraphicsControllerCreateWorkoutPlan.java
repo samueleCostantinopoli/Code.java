@@ -29,15 +29,6 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
     private Button addCustomExercise;
 
     @FXML
-    private Hyperlink backHyperlink;
-
-    @FXML
-    private ImageView backImageView;
-
-    @FXML
-    private Hyperlink customHyperlink;
-
-    @FXML
     private Label customeWorkoutNameLabel;
 
     @FXML
@@ -364,6 +355,4 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
         stageToSwitch = "createWorkout";
         switchStage(event);
     }
-
-
 }

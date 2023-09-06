@@ -97,15 +97,13 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
     void clickedOnButtonPriceWorkoutPlan(ActionEvent event, int CurrentWorkout) throws IOException {
         if(UtilityAccess.getState() == State.LOGGED_IN) {
             GraphicsControllerBuyWorkoutPlan1 graphicsControllerBuyWorkoutPlan1 = new GraphicsControllerBuyWorkoutPlan1();
+            graphicsControllerBuyWorkoutPlan1.SaveWorkout(CurrentWorkout);
             stageToSwitch = "/com/example/fitnesshelp/buyWorkoutPlan1";
             switchStage(event);
         } else {
             errorLoginMessageLabel.setOpacity(1);
             errorLoginMessageButton.setOpacity(1);
         }
-        BeanState state = new BeanState(UtilityAccess.getState());
-        BeanBuyWorkoutPlan beanBuyWorkoutPlan = new BeanBuyWorkoutPlan(CurrentWorkout);
-        ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(state);
     }
 
 
@@ -122,9 +120,6 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
         switchStage(event);
     }
 
-
-    public void clickedOnPurchaseBuyWorkoutPlanButton(ActionEvent event) {
-    }
 
     private List<AnchorPane> createAnchorPanes(int numberOfAnchorPanes, List<WorkoutPlan> workoutPlanList) {
         List<AnchorPane> anchorPanes = new ArrayList<>();

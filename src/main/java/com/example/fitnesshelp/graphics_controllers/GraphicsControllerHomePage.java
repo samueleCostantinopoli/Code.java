@@ -96,7 +96,6 @@ public class GraphicsControllerHomePage {
     @FXML
     void clickedOnButtonCreateNew(ActionEvent event) throws IOException {
         if(UtilityAccess.getState() == State.LOGGED_IN) {
-            GraphicsControllerBuyWorkoutPlan1 graphicsControllerBuyWorkoutPlan4 = new GraphicsControllerBuyWorkoutPlan1();
             stageToSwitch = "/com/example/fitnesshelp/customWorkout";
             switchStage(event);
         } else {

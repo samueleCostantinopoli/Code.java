@@ -1,66 +1,46 @@
 package com.example.fitnesshelp.graphics_controllers;
 
+import com.example.fitnesshelp.application_controllers.ApplicationControllerBuyWorkoutPlan;
+import com.example.fitnesshelp.bean.BeanState;
+import com.example.fitnesshelp.entities.Purchase;
+import com.example.fitnesshelp.entities.WorkoutPlan;
+import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-
-
-import java.io.*;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
-import java.net.*;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
+
+public class GraphicsControllerBuyWorkoutPlan2 extends GraphicsControllerHomePage{
+    public Label IDPurchase;
+    public Label PrizePurchase;
+    public Label DatePurchase;
+    public Label UsernameCreatorPurchase;
+    public Label WorkoutNamePurchase;
 
 
-public class GraphicsControllerBuyWorkoutPlan2 extends GraphicsControllerHomePage {
+    public GraphicsControllerBuyWorkoutPlan2() {
+    }
 
-    @FXML
-    private Button PayPalButton;
-
-    @FXML
-    private void initialize() {
-        // Metodo di inizializzazione
+    public Purchase newPurchase;
+    public void savePurchase(Purchase newPurchase) {
+        this.newPurchase = newPurchase;
     }
 
     @FXML
-    private void OnActionPayPalButton(ActionEvent event) throws IOException {
-        String url = "https://www.google.com"; // L'URL della pagina web da aprire
-
-        try {
-            URL webpageUrl = new URL(url);
-            HttpURLConnection connection = (HttpURLConnection) webpageUrl.openConnection();
-
-            // Imposta il metodo della richiesta HTTP (GET)
-            connection.setRequestMethod("GET");
-
-            // Ottiene la risposta dal server
-            int responseCode = connection.getResponseCode();
-            if (responseCode == HttpURLConnection.HTTP_OK) {
-                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                String line;
-                StringBuilder content = new StringBuilder();
-
-                while ((line = reader.readLine()) != null) {
-                    content.append(line);
-                }
-
-                reader.close();
-
-                // Stampa il contenuto della pagina web
-                System.out.println(content.toString());
-            } else {
-                System.out.println("Errore nella connessione: " + responseCode);
-            }
-
-            connection.disconnect();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void initialize(){
+        IDPurchase.setText("ID: " + newPurchase.getIdPurchase());
+        PrizePurchase.setText("Prize:" + newPurchase.getWorkoutPlan().getPrize());
+        DatePurchase.setText("Date:" + newPurchase.getDate());
+        UsernameCreatorPurchase.setText("Username of creator:" + newPurchase.getWorkoutPlan().getUsername());
+        WorkoutNamePurchase.setText("Workout name:" + newPurchase.getWorkoutPlan().getName());
     }
 
-    public void clickedOnPurchaseBuyWorkoutPlanButton(ActionEvent event) {
-    }
-
-    public void clickedOnBuyWorkoutPlanHyperlink1(ActionEvent event) {
+    public void clickedOnBuyWorkoutPlanHyperlink1(ActionEvent event) throws IOException {
+        stageToSwitch = "/com/example/fitnesshelp/buyWorkoutPlan";
+        switchStage(event);
     }
 }
-

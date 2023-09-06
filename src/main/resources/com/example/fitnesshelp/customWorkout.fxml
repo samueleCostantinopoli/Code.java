@@ -78,24 +78,24 @@
                      <children>
                         <AnchorPane prefHeight="59.0" prefWidth="469.0" style="-fx-background-color: #464646;">
                            <children>
-                              <Label fx:id="infoBar" layoutX="21.0" layoutY="21.0" visible="false" prefHeight="20.0" prefWidth="487.0" text="Exercise                        Set        Reps         Rest            Muscle" textFill="WHITE">
+                              <Label fx:id="infoBar" layoutX="21.0" layoutY="21.0" prefHeight="20.0" prefWidth="487.0" text="Exercise                        Set        Reps         Rest            Muscle" textFill="WHITE" visible="false">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
                            </children>
                         </AnchorPane>
-                        <TextField fx:id="nameCustomExerciseTextField1" layoutX="14.0" layoutY="80.0" visible="false" prefHeight="20.0" prefWidth="130.0" />
-                        <TextField fx:id="muscleCustomTextField1" layoutX="345.0" layoutY="80.0" visible="false" prefHeight="25.0" prefWidth="150.0" />
-                        <TextField fx:id="customSetTextfield1" layoutX="159.0" layoutY="80.0" visible="false" prefHeight="25.0" prefWidth="33.0" />
-                        <TextField fx:id="customRepstextFields1" layoutX="208.0" layoutY="80.0" visible="false" prefHeight="25.0" prefWidth="47.0" />
-                        <TextField fx:id="customRestTextField1" layoutX="271.0" layoutY="80.0" visible="false" prefHeight="25.0" prefWidth="61.0" />
-                        <Button fx:id="addCustomExercise" layoutX="357.0" layoutY="315.0" visible="false" mnemonicParsing="false" onAction="#clickedOnButtonAddCustomExercise" style="-fx-background-color: #231717;" text="+" textFill="WHITE">
+                        <TextField fx:id="nameCustomExerciseTextField1" layoutX="14.0" layoutY="80.0" prefHeight="20.0" prefWidth="130.0" visible="false" />
+                        <TextField fx:id="muscleCustomTextField1" layoutX="345.0" layoutY="80.0" prefHeight="25.0" prefWidth="150.0" visible="false" />
+                        <TextField fx:id="customSetTextfield1" layoutX="159.0" layoutY="80.0" prefHeight="25.0" prefWidth="33.0" visible="false" />
+                        <TextField fx:id="customRepstextFields1" layoutX="208.0" layoutY="80.0" prefHeight="25.0" prefWidth="47.0" visible="false" />
+                        <TextField fx:id="customRestTextField1" layoutX="271.0" layoutY="80.0" prefHeight="25.0" prefWidth="61.0" visible="false" />
+                        <Button fx:id="addCustomExercise" layoutX="357.0" layoutY="315.0" mnemonicParsing="false" onAction="#clickedOnButtonAddCustomExercise" style="-fx-background-color: #231717;" text="+" textFill="WHITE" visible="false">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="saveCustomWorkout" layoutX="395.0" layoutY="315.0" visible="false" mnemonicParsing="false" onAction="#clickedOnButtonSaveCustomWorkout" style="-fx-background-color: #231717;" text="Save workout" textFill="WHITE">
+                        <Button fx:id="saveCustomWorkout" layoutX="395.0" layoutY="315.0" mnemonicParsing="false" onAction="#clickedOnButtonSaveCustomWorkout" style="-fx-background-color: #231717;" text="Save workout" textFill="WHITE" visible="false">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -125,18 +125,18 @@
                         <TextField fx:id="customSetTextfield6" layoutX="160.0" layoutY="254.0" opacity="0.0" prefHeight="25.0" prefWidth="33.0" />
                         <TextField fx:id="customRepstextFields6" layoutX="209.0" layoutY="254.0" opacity="0.0" prefHeight="25.0" prefWidth="47.0" />
                         <TextField fx:id="customRestTextField6" layoutX="272.0" layoutY="254.0" opacity="0.0" prefHeight="25.0" prefWidth="61.0" />
-                        <Button fx:id="removeCustomExercise" layoutX="15.0" layoutY="315.0" visible="false" mnemonicParsing="false" onAction="#clickedOnButtonRemoveCustomExercise" opacity="0.0" style="-fx-background-color: #231717;" text="-" textFill="WHITE">
+                        <Button fx:id="removeCustomExercise" layoutX="15.0" layoutY="315.0" mnemonicParsing="false" onAction="#clickedOnButtonRemoveCustomExercise" opacity="0.0" style="-fx-background-color: #231717;" text="-" textFill="WHITE" visible="false">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="nameCustomWorkoutTextField" layoutX="47.0" layoutY="313.0" visible="false" onKeyTyped="#writeOnWorkoutName" prefHeight="33.0" prefWidth="302.0" />
-                        <Label fx:id="customeWorkoutNameLabel" layoutX="56.0" layoutY="321.0" visible="false" text="Workout name..." textFill="#aca2a2">
+                        <TextField fx:id="nameCustomWorkoutTextField" layoutX="47.0" layoutY="313.0" onKeyTyped="#writeOnWorkoutName" prefHeight="33.0" prefWidth="302.0" visible="false" />
+                        <Label fx:id="customeWorkoutNameLabel" layoutX="56.0" layoutY="321.0" text="Workout name..." textFill="#aca2a2" visible="false">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button fx:id="StartButton" layoutX="197.0" layoutY="159.0" visible="true" mnemonicParsing="false" onAction="#OnClickStartButton" prefHeight="33.0" prefWidth="72.0" text="Start" />
+                        <Button fx:id="StartButton" layoutX="216.0" layoutY="162.0" mnemonicParsing="false" onAction="#OnClickStartButton" prefHeight="47.0" prefWidth="81.0" text="Start" visible="true" />
                      </children>
                   </AnchorPane>
                   <Label fx:id="customFieldEmpty" layoutX="593.0" layoutY="544.0" opacity="0.0" text="Some field are empty!" textFill="RED">
@@ -183,12 +183,7 @@
                         </Hyperlink>
                      </children>
                   </AnchorPane>
-                  <TextField fx:id="priceTextField" layoutX="455.0" layoutY="542.0" visible="false" prefHeight="25.0" prefWidth="119.0" />
-                  <Label fx:id="customePriceNameLabel1" layoutX="484.0" layoutY="544.0" visible="false" prefHeight="20.0" prefWidth="61.0" text="Set Price" textFill="#aca2a2">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
+                  <TextField fx:id="priceTextField" layoutX="524.0" layoutY="542.0" prefHeight="25.0" prefWidth="204.0" promptText="Set price" visible="false" />
                </children>
             </AnchorPane>
          </children>
