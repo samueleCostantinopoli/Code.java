@@ -40,7 +40,7 @@ public class GraphicsControllerCliCalculateTdee1 {
                         graphicsControllerCliCalculateTdee2.showQuestionnaire();
                     }
                     case 3 -> {
-                        switchToHome();
+                        backToHomePage();
                         return;
                     }
                     default -> Printer.error("Invalid choice\n");
@@ -60,12 +60,15 @@ public class GraphicsControllerCliCalculateTdee1 {
                 if (choiceNumber == 1) {
                     // go to login page
                 } else {
-                    switchToHome();
+                    backToHomePage();
                     return;
                 }
             }
         }
     }
 
-    public void switchToHome(){}
+    public void backToHomePage() throws SQLException, IOException {
+        GraphicsControllerCliHomePage graphicsControllerCliHomePage = new GraphicsControllerCliHomePage();
+        graphicsControllerCliHomePage.displayHomepage();
+    }
 }

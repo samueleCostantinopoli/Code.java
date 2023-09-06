@@ -1,7 +1,5 @@
 package com.example.fitnesshelp.bean;
 
-import com.example.fitnesshelp.entities.TypeOfUser;
-
 public class BeanAccountType {
 
     private String typeOfUser;

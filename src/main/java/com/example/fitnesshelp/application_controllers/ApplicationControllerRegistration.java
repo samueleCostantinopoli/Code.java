@@ -18,12 +18,11 @@ public class ApplicationControllerRegistration {
     private final String typeOfUser;
     private final String email;
 
-    public ApplicationControllerRegistration(BeanUsername beanUsername, BeanEmail beanEmail, BeanPassword beanPassword, BeanAccountType beanAccountType) throws SQLException, IOException, EmailAlreadyExistException, UsernameAlreadyExistException {
+    public ApplicationControllerRegistration(BeanUsername beanUsername, BeanEmail beanEmail, BeanPassword beanPassword, BeanAccountType beanAccountType) {
         this.username = beanUsername.getUsername();
         this.password = beanPassword.getPassword();
         this.email = beanEmail.getEmail();
         this.typeOfUser = beanAccountType.getTypeOfUser();
-        checkCredentials();
     }
 
     public void checkCredentials() throws SQLException, IOException, EmailAlreadyExistException, UsernameAlreadyExistException {

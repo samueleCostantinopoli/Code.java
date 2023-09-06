@@ -1,16 +1,9 @@
 package com.example.fitnesshelp.dao;
 
-import com.example.fitnesshelp.entities.Tdee;
 import com.example.fitnesshelp.entities.TypeOfUser;
 import com.example.fitnesshelp.utils.UtilityAccess;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
-import java.util.HashMap;
-import java.util.Map;
 
 public class DaoImplLogin implements DaoLogin{
     private Connection connection;
@@ -30,16 +23,18 @@ public class DaoImplLogin implements DaoLogin{
             ResultSet rs = cs.executeQuery();
             loginState = cs.getBoolean(3);
             String role = cs.getString(4);
-            TypeOfUser typeOfUser;
-            typeOfUser = switch (role){
-                case "normal user" -> TypeOfUser.NORMAL;
-                case "personal trainer" -> TypeOfUser.PERSONAL_TRAINER;
-                default -> null;
-            };
+            TypeOfUser typeOfUser = null;
+            if (loginState) {
+                typeOfUser = switch (role) {
+                    case "normal user" -> TypeOfUser.NORMAL;
+                    case "personal trainer" -> TypeOfUser.PERSONAL_TRAINER;
+                    default -> null;
+                };
+            }
             UtilityAccess.setTypeOfUser(typeOfUser);
         } catch (SQLException e) {
-            e.printStackTrace();
-            // Gestisci l'eccezione
+            System.out.println("Error: " + e.getMessage());
+            return false;
         }
         return loginState;
     }

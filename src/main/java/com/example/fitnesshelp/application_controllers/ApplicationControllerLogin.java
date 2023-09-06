@@ -15,18 +15,16 @@ public class ApplicationControllerLogin {
     public ApplicationControllerLogin(BeanUsername beanUsername, BeanPassword beanPassword) throws SQLException, IOException, NotExistsUsersException {
         this.username = beanUsername.getUsername();
         this.password = beanPassword.getPassword();
-        checkUserAccount();
     }
 
     public void checkUserAccount() throws SQLException, IOException, NotExistsUsersException {
         DaoImplLogin daoImplLogin = new DaoImplLogin();
         // this method returns true if this account exist
-        if(daoImplLogin.login(username, password)){
-            // user is logged in
-        } else {
+        if(!daoImplLogin.login(username, password)){
             // the account does not exist
             throw new NotExistsUsersException("invalid credentials");
         }
+        // login success
     }
 
 }

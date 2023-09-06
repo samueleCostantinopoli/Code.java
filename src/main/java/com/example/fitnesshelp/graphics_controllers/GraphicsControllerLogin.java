@@ -74,7 +74,8 @@ public class GraphicsControllerLogin extends GraphicsControllerHomePage {
             if(usernameLength == null && passwordComplexity == null) {
                 // in this case I call the application controller
                 try {
-                    ApplicationControllerLogin applicationControllerLoginService = new ApplicationControllerLogin(beanUsername, beanPassword);
+                    ApplicationControllerLogin applicationControllerLogin = new ApplicationControllerLogin(beanUsername, beanPassword);
+                    applicationControllerLogin.checkUserAccount();
                     // successful login
                     UtilityAccess.setUsername(usernameField.getText());
                     UtilityAccess.setState(State.LOGGED_IN);

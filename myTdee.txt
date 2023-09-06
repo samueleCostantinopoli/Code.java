@@ -28,3 +28,9 @@ Fat: 88.8
 Carb: 100.0
 Target: maintenance
 Quantity: lower carb
+Kcal: 2102
+Protein: 210.1
+Fat: 93.4
+Carb: 105.0
+Target: cutting
+Quantity: lower carb

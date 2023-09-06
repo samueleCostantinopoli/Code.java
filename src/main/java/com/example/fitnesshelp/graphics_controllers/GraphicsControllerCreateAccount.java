@@ -107,6 +107,7 @@ public class GraphicsControllerCreateAccount extends GraphicsControllerHomePage 
                 // in this case I call the application controller
                 try{
                     ApplicationControllerRegistration applicationControllerRegistration = new ApplicationControllerRegistration(beanUsername, beanEmail, beanPassword, beanAccountType);
+                    applicationControllerRegistration.checkCredentials();
                     // successful registration
                     usernameField.setDisable(true);
                     emailField.setDisable(true);
