@@ -50,15 +50,22 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
             throw new RuntimeException(e);
         }
 
-        List<AnchorPane> anchorPanes = createAnchorPanes(numberOfAnchorPanes, listWorkouts);
+        List<AnchorPane> anchorPanes = createAnchorPanes(numberOfAnchorPanes, listWorkoutsForSale);
         anchorPaneContainer.getChildren().addAll(anchorPanes);
     }
     BeanState beanState = new BeanState(UtilityAccess.getState());
     ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(beanState);
     List<WorkoutPlan> listWorkouts = applicationControllerBuyWorkoutPlan.checkWorkoutPlan();
+    List<WorkoutPlan> listWorkoutsForSale = new ArrayList<>();
     private int readValueFromFileSystem() throws SQLException, IOException {
         // Read value from the file system
-        return applicationControllerBuyWorkoutPlan.checkWorkoutPlan().size();
+        int sizeOfAnchorPane = 0;
+        for (WorkoutPlan listWorkout : listWorkouts) {
+            if (listWorkout.getPrize() != -10)
+                sizeOfAnchorPane++;
+            listWorkoutsForSale.add(listWorkout);
+        }
+        return sizeOfAnchorPane;
     }
 
     @FXML
@@ -87,7 +94,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
     }
 
     @FXML
-    void clickedOnButtonPriceWorkoutPlan(ActionEvent event) throws IOException {
+    void clickedOnButtonPriceWorkoutPlan(ActionEvent event, int CurrentWorkout) throws IOException {
         if(UtilityAccess.getState() == State.LOGGED_IN) {
             GraphicsControllerBuyWorkoutPlan1 graphicsControllerBuyWorkoutPlan1 = new GraphicsControllerBuyWorkoutPlan1();
             stageToSwitch = "/com/example/fitnesshelp/buyWorkoutPlan1";
@@ -97,7 +104,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
             errorLoginMessageButton.setOpacity(1);
         }
         BeanState state = new BeanState(UtilityAccess.getState());
-        BeanBuyWorkoutPlan beanBuyWorkoutPlan = new BeanBuyWorkoutPlan(10); //TODO aggiornare il prezzo
+        BeanBuyWorkoutPlan beanBuyWorkoutPlan = new BeanBuyWorkoutPlan(CurrentWorkout);
         ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(state);
     }
 
@@ -121,26 +128,32 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
 
     private List<AnchorPane> createAnchorPanes(int numberOfAnchorPanes, List<WorkoutPlan> workoutPlanList) {
         List<AnchorPane> anchorPanes = new ArrayList<>();
-        for (int i = 0; i < numberOfAnchorPanes; i++) {
+        for (int index = 0; index < numberOfAnchorPanes; index++) {
             AnchorPane anchorPaneView = new AnchorPane();
             anchorPaneView.setPrefHeight(115.0);
-            anchorPaneView.setPrefWidth(601.0);
+            anchorPaneView.setPrefWidth(585.0);
             anchorPaneView.setStyle("-fx-background-color: #dcdcdc;");
-
-            Button priceButton = new Button(String.valueOf(workoutPlanList.get(i).getPrize()));
-            priceButton.setLayoutX(546.0);
+            int numberOfWorkout = index;
+            Button priceButton = new Button(workoutPlanList.get(index).getPrize() + "€");
+            priceButton.setLayoutX(526.0);
             priceButton.setLayoutY(72.0);
+            priceButton.setOnAction(event -> {
+                try {
+                    clickedOnButtonPriceWorkoutPlan(event, numberOfWorkout);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
             priceButton.setStyle("-fx-background-color: #231717;");
             priceButton.setTextFill(Color.WHITE);
             priceButton.setFont(new Font(14.0));
 
             Button previewButton = new Button("preview");
-            previewButton.setLayoutX(469.0);
+            previewButton.setLayoutX(449.0);
             previewButton.setLayoutY(72.0);
-            int finalI = i;
             previewButton.setOnAction(event -> {
                 try {
-                    clickedOnButtonPreviewWorkoutPlan(event, finalI);
+                    clickedOnButtonPreviewWorkoutPlan(event, numberOfWorkout);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -150,11 +163,11 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
             previewButton.setFont(new Font(14.0));
 
             Button infoButton = new Button("info");
-            infoButton.setLayoutX(415.0);
+            infoButton.setLayoutX(385.0);
             infoButton.setLayoutY(72.0);
             infoButton.setOnAction(event -> {
                 try {
-                    clickedOnButtonInfoWorkoutPlan(event, finalI);
+                    clickedOnButtonInfoWorkoutPlan(event, numberOfWorkout);
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
@@ -165,10 +178,10 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
 
             AnchorPane dataPane = new AnchorPane();
             dataPane.setPrefHeight(40.0);
-            dataPane.setPrefWidth(609.0);
+            dataPane.setPrefWidth(585.0);
             dataPane.setStyle("-fx-background-color: #464646;");
 
-            Label nameLabel = new Label(workoutPlanList.get(i).getName());
+            Label nameLabel = new Label(workoutPlanList.get(index).getName());
             nameLabel.setLayoutX(6.0);
             nameLabel.setLayoutY(11.0);
             nameLabel.setTextFill(Color.WHITE);
@@ -176,8 +189,6 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
             dataPane.getChildren().add(nameLabel);
             anchorPaneView.getChildren().addAll(priceButton, previewButton, infoButton, dataPane);
 
-
-            // workoutPlanContainer.getChildren().add(anchorPane);
             anchorPanes.add(anchorPaneView);
         }
         return anchorPanes;

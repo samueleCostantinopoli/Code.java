@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerHomePage {
 
     @FXML
@@ -39,15 +40,13 @@ public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerH
         currentWorkout = workoutPlan;
 
         List<String> exercise = new ArrayList<>();
-        int index = 0;
-        System.out.println(exerciseList.get(index).getWorkoutPlan());
         if (!exerciseList.isEmpty()) {
-            while (!exerciseList.get(index).getWorkoutPlan().getName().isEmpty()) {
-                if (workoutPlan.getName().equals(exerciseList.get(index).getWorkoutPlan().getName()))
-                    exercise.add(exerciseList.get(index).getExercise() + "\n");
-                index++;
+            for (int i = 0 ; i < exerciseList.size(); i++) {
+                if (workoutPlan.getName().equals(exerciseList.get(i).getWorkoutPlan().getName()))
+                    exercise.add(exerciseList.get(i).getExercise().trim() + "\n");
             }
-            insertPreview.setText(exercise.toString());
+            String exerciseText = String.join("\n", exercise);
+            insertPreview.setText(exerciseText);
         }
     }
 
