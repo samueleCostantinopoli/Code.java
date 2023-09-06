@@ -26,9 +26,8 @@ public class GraphicsControllerAccountPurchase extends GraphicsControllerHomePag
     BeanState beanState = new BeanState(UtilityAccess.getState());
     ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(beanState);
     BeanUsername beanUsername = new BeanUsername(UtilityAccess.getUsername());
-    //List<Purchase> purchaseList = applicationControllerBuyWorkoutPlan.checkUserPurchase(beanUsername);
+    List<Purchase> purchaseList = applicationControllerBuyWorkoutPlan.checkUserPurchase(beanUsername);
 
-    List<Purchase> purchaseList = applicationControllerBuyWorkoutPlan.checkPurchase();
 
 
     public GraphicsControllerAccountPurchase() throws IOException {

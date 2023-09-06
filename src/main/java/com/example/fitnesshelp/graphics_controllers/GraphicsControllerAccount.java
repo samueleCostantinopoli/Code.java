@@ -1,5 +1,6 @@
 package com.example.fitnesshelp.graphics_controllers;
 
+import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +12,8 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+
+import static com.example.fitnesshelp.entities.State.LOGGED_IN;
 
 public class GraphicsControllerAccount extends GraphicsControllerHomePage {
 
@@ -32,8 +35,10 @@ public class GraphicsControllerAccount extends GraphicsControllerHomePage {
 
     @FXML
     void clickedOnButtonViewPurchase(ActionEvent event) throws IOException {
-        stageToSwitch = "/com/example/fitnesshelp/accountPurchase";
-        switchStage(event);
+        if(UtilityAccess.getState().equals(LOGGED_IN)) {
+            stageToSwitch = "/com/example/fitnesshelp/accountPurchase";
+            switchStage(event);
+        }
     }
 }
 
