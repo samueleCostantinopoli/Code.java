@@ -72,7 +72,7 @@
       </Button>
       <AnchorPane fx:id="WorkoutPlan1" layoutX="159.0" layoutY="150.0" prefHeight="425.0" prefWidth="630.0" style="-fx-background-color: #dcdcdc;">
          <children>
-            <Button fx:id="purchaseBuyWorkoutPlanButton" layoutX="484.0" layoutY="381.0" mnemonicParsing="false" onAction="#clickedOnPurchaseBuyWorkoutPlanButton" prefHeight="30.0" prefWidth="132.0" style="-fx-background-color: #231717;" text="Proceed to order" textFill="WHITE">
+            <Button fx:id="purchaseBuyWorkoutPlanButton" layoutX="484.0" layoutY="381.0" visible="false" mnemonicParsing="false" onAction="#clickedOnPurchaseBuyWorkoutPlanButton" prefHeight="30.0" prefWidth="132.0" style="-fx-background-color: #231717;" text="Proceed to order" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -341,5 +341,6 @@
             </Hyperlink>
          </children>
       </AnchorPane>
+      <Label fx:id="errorLoginMessageLabel" layoutX="368.0" layoutY="540.0" opacity="0.0" text="There is some field that has not been entered" textFill="RED" />
    </children>
 </AnchorPane>

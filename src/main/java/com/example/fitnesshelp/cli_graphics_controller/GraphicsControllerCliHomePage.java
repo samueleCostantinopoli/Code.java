@@ -58,7 +58,8 @@ public class GraphicsControllerCliHomePage {
                 Printer.print("'Look for a personal trainer' has not been implemented, it will be available soon\nSelect another function\n");
             }
             if(choiceNumber == 6){
-                // caso d'uso buy workout plan
+                GraphicsControllerCliBuyWorkoutPlan graphicsControllerCliBuyWorkoutPlan = new GraphicsControllerCliBuyWorkoutPlan();
+                graphicsControllerCliBuyWorkoutPlan.showMenu();
             }
             if(choiceNumber == 7){
                 Printer.print("'My training diary' has not been implemented, it will be available soon\nSelect another function\n");
