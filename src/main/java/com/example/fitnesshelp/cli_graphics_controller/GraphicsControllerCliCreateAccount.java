@@ -35,19 +35,19 @@ public class GraphicsControllerCliCreateAccount {
             ApplicationControllerRegistration applicationControllerRegistration = new ApplicationControllerRegistration(beanUsername, beanEmail, beanPassword, beanAccountType);
             applicationControllerRegistration.checkCredentials();
             // successful registration
-            System.out.println("successful registration\nnow you can login!\n");
+            Printer.print("successful registration\nnow you can login!\n");
             // switch to login page
             GraphicsControllerCliLoginPage graphicsControllerCliLoginPage = new GraphicsControllerCliLoginPage();
             graphicsControllerCliLoginPage.viewAccessPage();
         } catch (EmailAlreadyExistException | UsernameAlreadyExistException | SQLException | IOException e) {
-            System.out.println("" + e.getMessage());
-            System.out.println("\nregistration failed, try again\n");
+            Printer.print("" + e.getMessage());
+            Printer.print("\nregistration failed, try again\n");
             backToHomePage();
         }
     }
 
     private void getUsername() throws IOException, SQLException, TdeeRemoveException {
-        System.out.println("Type your username (type esc to go back): ");
+        Printer.print("Type your username (type esc to go back): ");
         String usernameCheck = "";
         String username = "";
         while (username.equals("") || usernameCheck != null) {
@@ -58,18 +58,18 @@ public class GraphicsControllerCliCreateAccount {
                 return;
             }
             if (username.equals("")) {
-                System.out.println("please, enter your username or type 'esc' to go back: ");
+                Printer.print("please, enter your username or type 'esc' to go back: ");
             }
             beanUsername = new BeanUsername(username);
             usernameCheck = beanUsername.checkUsernameLength(username);
             if (usernameCheck != null) {
-                System.out.println(usernameCheck + "\nRe-insert username: ");
+                Printer.print(usernameCheck + "\nRe-insert username: ");
             }
         }
     }
 
     private void getEmail() throws IOException, SQLException, TdeeRemoveException {
-        System.out.println("Type your email (type esc to go back): ");
+        Printer.print("Type your email (type esc to go back): ");
         String emailCheck = "";
         String email = "";
         while (email.equals("") || emailCheck != null) {
@@ -80,18 +80,18 @@ public class GraphicsControllerCliCreateAccount {
                 return;
             }
             if (email.equals("")) {
-                System.out.println("please, enter your email or type 'esc' to go back: ");
+                Printer.print("please, enter your email or type 'esc' to go back: ");
             }
             beanEmail = new BeanEmail(email);
             emailCheck = beanEmail.emailCehck(email);
             if (emailCheck != null) {
-                System.out.println(emailCheck + "\nRe-insert email: ");
+                Printer.print(emailCheck + "\nRe-insert email: ");
             }
         }
     }
 
     private void getPassword() throws IOException, SQLException, TdeeRemoveException {
-        System.out.println("Type your password (type esc to go back): ");
+        Printer.print("Type your password (type esc to go back): ");
         String passwordCheck = "";
         String password = "";
         while (password.equals("") || passwordCheck != null) {
@@ -102,18 +102,18 @@ public class GraphicsControllerCliCreateAccount {
                 return;
             }
             if (password.equals("")) {
-                System.out.println("please, enter your password: ");
+                Printer.print("please, enter your password: ");
             }
             beanPassword = new BeanPassword(password);
             passwordCheck = beanPassword.passwordCheck(password);
             if (passwordCheck != null) {
-                System.out.println(passwordCheck + "Re-insert password: ");
+                Printer.print(passwordCheck + "Re-insert password: ");
             }
         }
     }
 
     private void getAccountType() throws IOException, SQLException, TdeeRemoveException {
-        System.out.println("Select your role (type esc to go back)\nType 1 for normal account or 2 for personal trainer account: ");
+        Printer.print("Select your role (type esc to go back)\nType 1 for normal account or 2 for personal trainer account: ");
         String role;
         boolean exit = false;
         while (!exit) {
@@ -135,13 +135,10 @@ public class GraphicsControllerCliCreateAccount {
                 exit = true;
             }
             if (!role.equals("1") && !role.equals("2")) {
-                System.out.println("Invalid choice. Please select 1 for normal account or 2 for personal trainer account: ");
+                Printer.print("Invalid choice. Please select 1 for normal account or 2 for personal trainer account: ");
             }
         }
     }
-
-// Rest of your methods
-
 
     private boolean verifyExitInput(String email){
         return email.equalsIgnoreCase("esc");

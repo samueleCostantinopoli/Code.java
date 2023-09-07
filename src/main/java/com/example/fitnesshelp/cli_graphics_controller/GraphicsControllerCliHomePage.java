@@ -134,7 +134,7 @@ public class GraphicsControllerCliHomePage {
             GraphicsControllerCliLoginPage graphicsControllerCliLoginPage = new GraphicsControllerCliLoginPage();
             graphicsControllerCliLoginPage.viewAccessPage();
         } else {
-            System.out.println("you are already logged in, go to logout before\n");
+            Printer.print("you are already logged in, go to logout before\n");
         }
     }
 

@@ -57,7 +57,7 @@ public class GraphicsControllerCliCalculateTdee1 {
     }
 
     private void printLoggedOutMenu() {
-        System.out.println("you must be logged in to view or calculate a tdee\ntype\n1 to login\n2 to return to the home");
+        Printer.print("you must be logged in to view or calculate a tdee\ntype\n1 to login\n2 to return to the home");
     }
 
     private String getUserInput() {
