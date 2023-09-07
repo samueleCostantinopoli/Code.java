@@ -1,5 +1,6 @@
 package com.example.fitnesshelp.application_controllers;
 
+import com.example.fitnesshelp.bean.BeanBuyWorkoutPlan;
 import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.bean.BeanUsername;
 import com.example.fitnesshelp.dao.DaoImplFilSystemWorkoutPlan;
@@ -30,9 +31,43 @@ public class ApplicationControllerBuyWorkoutPlan {
         return daoImplFilSystemWorkoutPlan.showData(UtilityAccess.getUsername());
     }
 
+    public List<WorkoutPlan> checkUserWorkoutPlan(BeanUsername beanUsername) throws IOException {
+        DaoImplFilSystemWorkoutPlan daoImplFilSystemWorkoutPlan = new DaoImplFilSystemWorkoutPlan();
+        List<WorkoutPlan> workoutUser = new ArrayList<>();
+        try {
+            List<WorkoutPlan> workoutPlanList = daoImplFilSystemWorkoutPlan.showData(beanUsername.getUsername());
+            for (WorkoutPlan workoutPlan : workoutPlanList) {
+                if (workoutPlan.getUsername().equals(beanUsername.getUsername())) {
+                    workoutUser.add(workoutPlan);
+                }
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return workoutUser;
+
+    }
+
     public List<Exercise> checkExercise() throws IOException {
         DaoImplFileSystemExercise daoImplFileSystemExercise = new DaoImplFileSystemExercise();
         return daoImplFileSystemExercise.showData(UtilityAccess.getUsername());
+    }
+
+    public List<Exercise> checkUserExercise(BeanBuyWorkoutPlan beanBuyWorkoutPlan) {
+        DaoImplFileSystemExercise daoImplFileSystemExercise = new DaoImplFileSystemExercise();
+        List<Exercise> exerciseUser = new ArrayList<>();
+        try {
+            List<Exercise> exerciseTotal = daoImplFileSystemExercise.showData(UtilityAccess.getUsername());
+            for (Exercise exercise : exerciseTotal) {
+                if (exercise.getWorkoutPlan().getName().equals(beanBuyWorkoutPlan.getName())
+                        || exercise.getWorkoutPlan().getUsername().equals(beanBuyWorkoutPlan.getUsername())) {
+                    exerciseUser.add(exercise);
+                }
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return exerciseUser;
     }
 
     public void createPurchase(Purchase purchaseToSave) throws SQLException, IOException {
@@ -60,4 +95,5 @@ public class ApplicationControllerBuyWorkoutPlan {
         }
         return purchaseUser;
     }
+
 }

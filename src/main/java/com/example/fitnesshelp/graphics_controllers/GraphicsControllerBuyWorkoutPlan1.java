@@ -44,8 +44,6 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
     public Button purchaseBuyWorkoutPlanButton;
     @FXML
     private ChoiceBox<String> StateChoiceBox;
-    @FXML
-    public CheckBox MyEmailCheckBox;
 
     @FXML
     private Button HyperLinkButton;
@@ -114,7 +112,7 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
     }
 
     private boolean checkCreditCard() {
-        if (!CardNumberTextField.getText().isEmpty() &&
+        return !CardNumberTextField.getText().isEmpty() &&
                 !ExpiresTextField.getText().isEmpty() &&
                 !CVVTextField.getText().isEmpty() &&
                 !FirstNameTextField.getText().isEmpty() &&
@@ -124,13 +122,8 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
                 !CityTextField.getText().isEmpty() &&
                 !ZipCodeTextField.getText().isEmpty() &&
                 !MobileTextField.getText().isEmpty() &&
-                !StateChoiceBox.getSelectionModel().isEmpty()) {
-            if(EmailTextField.getText().isEmpty() || !MyEmailCheckBox.isSelected()){
-                return false;
-            }
-            return false;
-        }
-        return false;
+                !StateChoiceBox.getSelectionModel().isEmpty()
+                && !EmailTextField.getText().isEmpty();
     }
 
     private void SetCreditCard(boolean state){
@@ -146,7 +139,6 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
         MobileTextField.setVisible(state);
         EmailTextField.setVisible(state);
         StateChoiceBox.setVisible(state);
-        MyEmailCheckBox.setVisible(state);
     }
 
 
@@ -175,10 +167,7 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
     }
 
     public void clickedOnPurchaseBuyWorkoutPlanButton(ActionEvent event) throws IOException, SQLException {
-        if(!checkCreditCard()){
-            errorLoginMessageLabel.setOpacity(1);
-        }
-        else {
+        if(!CheckPayPal.isVisible() && !CheckBitcoin.isVisible()){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyWorkoutPlan2.fxml"));
             Parent root = loader.load();
             GraphicsControllerBuyWorkoutPlan2 infoController2 = loader.getController();
@@ -188,6 +177,11 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
             Scene primary = new Scene(root);
             home.setScene(primary);
             home.show();
+        }
+        else {
+            if(!checkCreditCard()){
+                errorLoginMessageLabel.setOpacity(1);
+            }
         }
     }
 

@@ -39,7 +39,7 @@ public class GraphicsControllerBuyWorkoutPlan2 extends GraphicsControllerHomePag
         PrizePurchase.setText("Prize: " + newPurchase.getWorkoutPlan().getPrize());
         DatePurchase.setText("Date: " + newPurchase.getDate());
         UsernameCreatorPurchase.setText("Username of creator: " + newPurchase.getWorkoutPlan().getUsername());
-        WorkoutNamePurchase.setText("Workout name: " + newPurchase.getWorkoutPlan());
+        WorkoutNamePurchase.setText("Workout name: " + workoutPlanToPurchase.getName());
 
         ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan1 = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
         applicationControllerBuyWorkoutPlan1.createPurchase(newPurchase);

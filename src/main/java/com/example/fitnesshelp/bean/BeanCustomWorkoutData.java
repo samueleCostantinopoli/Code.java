@@ -6,14 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BeanCustomWorkoutData {
-
-
-    /*public void setExercise(Exercise exercise, int number) {
-        this.exerciseList.set(number, exercise);
-    }
-
-     */
-
     private List<Exercise> exerciseList = new ArrayList<>();
 
     public void setExercise(Exercise exercise) {

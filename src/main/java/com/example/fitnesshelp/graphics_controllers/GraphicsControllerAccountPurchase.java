@@ -63,7 +63,7 @@ public class GraphicsControllerAccountPurchase extends GraphicsControllerHomePag
             Label priceLabel = new Label("Price: " + purchaseList.get(index).getPrice());
             Label dateLabel = new Label("Date: " + purchaseList.get(index).getDate().toString());
             Label usernameLabel = new Label("Username: " + purchaseList.get(index).getUsername());
-            Label workoutPlanLabel = new Label("Workout Plan: " + purchaseList.get(index).getWorkoutPlan().toString());
+            Label workoutPlanLabel = new Label("Workout Plan: " + purchaseList.get(index).getWorkoutPlan().getName());
 
             // Posiziona le label all'interno dell'AnchorPane
             AnchorPane.setTopAnchor(idLabel, 10.0);

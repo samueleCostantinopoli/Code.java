@@ -299,7 +299,6 @@
                   </FXCollections>
                </items>
             </ChoiceBox>
-            <CheckBox fx:id="MyEmailCheckBox" layoutX="315.0" layoutY="166.0" visible="false" mnemonicParsing="false" text="I want to use my account email" />
          </children>
       </AnchorPane>
       <AnchorPane layoutY="100.0" prefHeight="501.0" prefWidth="150.0" style="-fx-background-color: #464646;">
