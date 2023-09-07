@@ -1,10 +1,7 @@
 package com.example.fitnesshelp.dao;
 
-import com.example.fitnesshelp.entities.Exercise;
-import com.example.fitnesshelp.entities.Muscle;
 import com.example.fitnesshelp.entities.Purchase;
 import com.example.fitnesshelp.entities.WorkoutPlan;
-import jdk.internal.access.JavaNetHttpCookieAccess;
 
 import java.io.*;
 import java.sql.SQLException;
