@@ -34,3 +34,9 @@ Fat: 93.4
 Carb: 105.0
 Target: cutting
 Quantity: lower carb
+Kcal: 2056
+Protein: 154.1
+Fat: 45.6
+Carb: 257.0
+Target: bulking
+Quantity: higher carb

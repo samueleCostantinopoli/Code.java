@@ -47,7 +47,7 @@ public class GraphicsControllerCliCalculateTdee1 {
                 }
             }
         } else {
-            System.out.println("you must be logged in to view or calculate a tdee\ntype\n1: to login\n2 to return to the home\n");
+            System.out.println("you must be logged in to view or calculate a tdee\ntype\n1 to login\n2 to return to the home");
             while (true) {
                 String choice = bufferedReader.readLine();
                 try {
@@ -58,8 +58,10 @@ public class GraphicsControllerCliCalculateTdee1 {
                 }
                 int choiceNumber = Integer.parseInt(choice);
                 if (choiceNumber == 1) {
-                    // go to login page
-                } else {
+                    GraphicsControllerCliLoginPage graphicsControllerCliLoginPage = new GraphicsControllerCliLoginPage();
+                    graphicsControllerCliLoginPage.viewAccessPage();
+                    break;
+                } else if (choiceNumber == 2){
                     backToHomePage();
                     return;
                 }

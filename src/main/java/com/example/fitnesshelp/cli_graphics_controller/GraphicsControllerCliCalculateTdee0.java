@@ -15,63 +15,80 @@ public class GraphicsControllerCliCalculateTdee0 {
         ApplicationControllerCalculateTdee applicationControllerCalculateTdee = new ApplicationControllerCalculateTdee();
         List<Tdee> tdeeList = applicationControllerCalculateTdee.requestTdeeList();
 
-        // print tdee
-        int index = 0; // used for delete tdee
-        for (Tdee tdee : tdeeList) {
-            System.out.println("TDEE #" + index);
-            System.out.println("Kcal: " + tdee.getKcal());
-            System.out.println("Protein: " + tdee.getPro());
-            System.out.println("Fat: " + tdee.getFat());
-            System.out.println("Carb: " + tdee.getCarb());
-            System.out.println("Target: " + tdee.getTarget());
-            System.out.println("Quantity: " + tdee.getQuantity());
+        boolean exit = true;
+        while (exit) {
+            // print tdee
+            int index = 0; // used for delete tdee
+            for (Tdee tdee : tdeeList) {
+                System.out.println("\nTDEE #" + index);
+                System.out.println("Kcal: " + tdee.getKcal());
+                System.out.println("Protein: " + tdee.getPro());
+                System.out.println("Fat: " + tdee.getFat());
+                System.out.println("Carb: " + tdee.getCarb());
+                System.out.println("Target: " + tdee.getTarget());
+                System.out.println("Quantity: " + tdee.getQuantity());
 
-            index++;
-        }
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        // after print all tdee of list
-        System.out.println("Select an option:");
-        System.out.println("1: Return to home");
-        System.out.println("2: Calculate new tdee");
-        System.out.println("3: Delete a TDEE (type 'delete <TDEE number>')");
+                index++;
+            }
 
-        String userInput = bufferedReader.readLine();
+            // after print all tdee of list
+            System.out.println("\nSelect an option:");
+            System.out.println("1: Return to home");
+            System.out.println("2: Calculate new tdee");
+            System.out.println("3: Delete a tdee");
 
-        switch (userInput) {
-            case "1":
-                // Torna alla home
-                // Inserisci il codice per tornare alla home
-                break;
-            case "2":
-                // Vai a un altro controller
-                // Inserisci il codice per andare a un altro controller
-                break;
-            case "3":
-                // Elimina un TDEE
-                System.out.println("Type 'delete <TDEE number>' to delete a TDEE");
-                String deleteCommand = bufferedReader.readLine();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+            String userInput = bufferedReader.readLine();
 
-                // Esegui la verifica e l'eliminazione del TDEE
-                if (deleteCommand.startsWith("delete ")) {
-                    String[] parts = deleteCommand.split(" ");
-                    if (parts.length == 2) {
-                        try {
-                            int tdeeToDelete = Integer.parseInt(parts[1]);
-                            // Inserisci il codice per eliminare il TDEE alla posizione 'tdeeToDelete' dalla lista
-                            // Esempio: tdeeList.remove(tdeeToDelete);
-                        } catch (NumberFormatException e) {
-                            System.out.println("Invalid TDEE number.");
+            switch (userInput) {
+                case "1" -> {
+                    backToHomePage();
+                    exit = false;
+                }
+                case "2" -> {
+                    GraphicsControllerCliCalculateTdee2 graphicsControllerCliCalculateTdee2 = new GraphicsControllerCliCalculateTdee2();
+                    graphicsControllerCliCalculateTdee2.showQuestionnaire();
+                    exit = false;
+                }
+                case "3" -> {
+                    // delete a tdee
+                    System.out.println("Type 'delete <TDEE number>' to delete a TDEE");
+                    String deleteCommand = bufferedReader.readLine().trim();
+
+                    // delete check
+                    if (deleteCommand.startsWith("delete ")) {
+                        String[] parts = deleteCommand.split(" ");
+                        if (parts.length == 2) {
+                            try {
+                                int tdeeToDelete = Integer.parseInt(parts[1]);
+                                if (tdeeToDelete >= 0 && tdeeToDelete < tdeeList.size()) { // Verifica che il numero TDEE sia valido.
+                                    Tdee tdee = tdeeList.get(tdeeToDelete);
+                                    tdeeList.remove(tdeeToDelete);
+                                    // now I call application controller to delete this tdee from db
+                                    applicationControllerCalculateTdee.removeTdee(tdee);
+                                    System.out.println("tdee deleted\n");
+                                } else {
+                                    System.out.println("Invalid TDEE number.");
+                                }
+                            } catch (NumberFormatException e) {
+                                System.out.println("Invalid TDEE number.");
+                            }
+                        } else {
+                            System.out.println("Invalid command.");
                         }
                     } else {
                         System.out.println("Invalid command.");
                     }
-                } else {
-                    System.out.println("Invalid command.");
                 }
-                break;
-            default:
-                System.out.println("Invalid option.");
+                default -> System.out.println("Invalid option.");
+            }
         }
 
     }
+
+    private void backToHomePage() throws IOException, SQLException {
+        GraphicsControllerCliHomePage homePage = new GraphicsControllerCliHomePage();
+        homePage.displayHomepage();
+    }
+
 }

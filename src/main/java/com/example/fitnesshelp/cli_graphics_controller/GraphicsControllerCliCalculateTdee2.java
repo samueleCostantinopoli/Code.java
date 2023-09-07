@@ -9,6 +9,7 @@ import com.example.fitnesshelp.entities.Questionnaire;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
 
 public class GraphicsControllerCliCalculateTdee2 {
 
@@ -19,8 +20,13 @@ public class GraphicsControllerCliCalculateTdee2 {
     private BeanActivity beanActivity;
     private BeanTarget beanTarget;
 
-    public void showQuestionnaire() throws IOException {
+    public void showQuestionnaire() throws IOException, SQLException {
+        System.out.println("-------------------QUESTIONNAIRE PAGE--------------------\n");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        String mainTarget = "maintenance";
+        String cutTarget = "cutting";
+        String bulkTarget = "bulking";
 
         // gender choice
         String gender = "";
@@ -116,7 +122,7 @@ public class GraphicsControllerCliCalculateTdee2 {
 
         // target choice
         String target = "";
-        while (!target.equals("maintenance") && !target.equals("cutting") && !target.equals("bulking")) {
+        while (!target.equals(mainTarget) && !target.equals(cutTarget) && !target.equals(bulkTarget)) {
             System.out.println("Select your target: ");
             System.out.println("1: Maintenance (maintain current weight)");
             System.out.println("2: Cutting (lose weight)");
@@ -124,16 +130,16 @@ public class GraphicsControllerCliCalculateTdee2 {
             String choice = bufferedReader.readLine();
             switch (choice) {
                 case "1" -> {
-                    beanTarget = new BeanTarget("maintenance");
-                    target = "maintenance";
+                    beanTarget = new BeanTarget(mainTarget);
+                    target = mainTarget;
                 }
                 case "2" -> {
-                    beanTarget = new BeanTarget("cutting");
-                    target = "cutting";
+                    beanTarget = new BeanTarget(cutTarget);
+                    target = cutTarget;
                 }
                 case "3" -> {
-                    beanTarget = new BeanTarget("bulking");
-                    target = "bulking";
+                    beanTarget = new BeanTarget(bulkTarget);
+                    target = bulkTarget;
                 }
                 default ->
                         System.out.println("Invalid choice. Please select 1 for Maintenance, 2 for Cutting, or 3 for Bulking.");
@@ -147,7 +153,7 @@ public class GraphicsControllerCliCalculateTdee2 {
         double kcal = applicationControllerCalculateTdee.calculateTdee(questionnaire, target);
         // finally call tha graphics controller that will show the result
         GraphicsControllerCliCalculateTdee3 graphicsControllerCliCalculateTdee3 = new GraphicsControllerCliCalculateTdee3();
-        graphicsControllerCliCalculateTdee3.showResult(kcal);
+        graphicsControllerCliCalculateTdee3.showResult(kcal, target);
     }
 
     private boolean isNumeric(String str) {

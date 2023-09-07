@@ -38,7 +38,7 @@ public class GraphicsControllerCliHomePage {
                 Printer.error("Digit a number\n");
                 System.exit(-1);
             }
-            //l'utente ha inserito effettivamente dei numeri
+
             int choiceNumber = Integer.parseInt(choice);
             if(choiceNumber == 1){
                 Printer.print("'Create workout' has not been implemented, it will be available soon\nSelect another function\n");
