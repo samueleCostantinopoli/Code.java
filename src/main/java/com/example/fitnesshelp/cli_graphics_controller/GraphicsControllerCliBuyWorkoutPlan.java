@@ -94,12 +94,12 @@ public class GraphicsControllerCliBuyWorkoutPlan {
         }
     }
 
-
     private String getUserInput() throws IOException {
         // to get user input
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         return bufferedReader.readLine().trim();
     }
+
 
     private void printWorkoutPlanList(List<WorkoutPlan> workoutPlanList) {
         // this method print all tdee of user
