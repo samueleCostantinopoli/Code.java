@@ -47,12 +47,16 @@ public class ApplicationControllerBuyWorkoutPlan {
 
     public List<Purchase> checkUserPurchase(BeanUsername beanUsername) throws IOException {
         DaoImplFileSystemPurchase daoImplFileSystemPurchase = new DaoImplFileSystemPurchase();
-        List<Purchase> purchaseTotal = daoImplFileSystemPurchase.showData(UtilityAccess.getUsername());
         List<Purchase> purchaseUser = new ArrayList<>();
-        for (Purchase purchase : purchaseTotal) {
-            if (purchase.getUsername().equals(beanUsername.getUsername())) {
-                purchaseUser.add(purchase);
+        try {
+            List<Purchase> purchaseTotal = daoImplFileSystemPurchase.showData(UtilityAccess.getUsername());
+            for (Purchase purchase : purchaseTotal) {
+                if (purchase.getUsername().equals(beanUsername.getUsername())) {
+                    purchaseUser.add(purchase);
+                }
             }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
         return purchaseUser;
     }

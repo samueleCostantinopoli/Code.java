@@ -28,8 +28,6 @@ public class GraphicsControllerAccountPurchase extends GraphicsControllerHomePag
     BeanUsername beanUsername = new BeanUsername(UtilityAccess.getUsername());
     List<Purchase> purchaseList = applicationControllerBuyWorkoutPlan.checkUserPurchase(beanUsername);
 
-
-
     public GraphicsControllerAccountPurchase() throws IOException {
     }
 
@@ -41,15 +39,13 @@ public class GraphicsControllerAccountPurchase extends GraphicsControllerHomePag
         } catch (SQLException | IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(purchaseList.get(0).getIdPurchase());
         List<AnchorPane> anchorPanes = createAnchorPanes(numberOfAnchorPanes, purchaseList);
         anchorPaneContainer.getChildren().addAll(anchorPanes);
     }
 
     private int readValueFromFileSystem() throws SQLException, IOException {
         // Read value from the file system
-        int sizeOfAnchorPane = purchaseList.size();
-        return sizeOfAnchorPane;
+        return purchaseList.size();
     }
 
     private List<AnchorPane> createAnchorPanes(int numberOfAnchorPanes, List<Purchase> purchaseList) {
