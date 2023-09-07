@@ -84,5 +84,6 @@ public class GraphicsControllerAccountPurchase extends GraphicsControllerHomePag
             anchorPanes.add(anchorPane);
         }
         return anchorPanes;
+
     }
 }
