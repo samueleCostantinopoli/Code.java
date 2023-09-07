@@ -159,7 +159,6 @@ public class GraphicsControllerCliBuyWorkoutPlan1 {
         }
     }
 
-
     private String getUserInput() throws IOException {
         // to get user input
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
