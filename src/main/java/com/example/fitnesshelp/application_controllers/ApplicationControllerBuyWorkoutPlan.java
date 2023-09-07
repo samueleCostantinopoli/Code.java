@@ -45,8 +45,8 @@ public class ApplicationControllerBuyWorkoutPlan {
             throw new RuntimeException(e);
         }
         return workoutUser;
-
     }
+
 
     public List<Exercise> checkExercise() throws IOException {
         DaoImplFileSystemExercise daoImplFileSystemExercise = new DaoImplFileSystemExercise();
@@ -60,7 +60,8 @@ public class ApplicationControllerBuyWorkoutPlan {
             List<Exercise> exerciseTotal = daoImplFileSystemExercise.showData(UtilityAccess.getUsername());
             for (Exercise exercise : exerciseTotal) {
                 if (exercise.getWorkoutPlan().getName().equals(beanBuyWorkoutPlan.getName())
-                        || exercise.getWorkoutPlan().getUsername().equals(beanBuyWorkoutPlan.getUsername())) {
+                        && exercise.getWorkoutPlan().getUsername().equals(beanBuyWorkoutPlan.getUsername())
+                        && exercise.getWorkoutPlan().getPrize() == beanBuyWorkoutPlan.prize) {
                     exerciseUser.add(exercise);
                 }
             }

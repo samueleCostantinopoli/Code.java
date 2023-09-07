@@ -7,7 +7,6 @@ import com.example.fitnesshelp.entities.Purchase;
 import com.example.fitnesshelp.entities.WorkoutPlan;
 import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
@@ -31,15 +30,13 @@ public class GraphicsControllerBuyWorkoutPlan2 extends GraphicsControllerHomePag
     }
 
     public Purchase newPurchase;
-    public void savePurchase(int thisWorkout) throws SQLException, IOException {
-        CurrentWorkout = thisWorkout;
-        WorkoutPlan workoutPlanToPurchase = workoutPlanList.get(thisWorkout);
-        newPurchase = new Purchase(GenerateId(), workoutPlanToPurchase.getPrize(), TakeDate(), UtilityAccess.getUsername(), workoutPlanToPurchase);
+    public void savePurchase(WorkoutPlan thisWorkout) throws SQLException, IOException {
+        newPurchase = new Purchase(GenerateId(), thisWorkout.getPrize(), TakeDate(), UtilityAccess.getUsername(), thisWorkout);
         IDPurchase.setText("ID: " + newPurchase.getIdPurchase());
         PrizePurchase.setText("Prize: " + newPurchase.getWorkoutPlan().getPrize());
         DatePurchase.setText("Date: " + newPurchase.getDate());
         UsernameCreatorPurchase.setText("Username of creator: " + newPurchase.getWorkoutPlan().getUsername());
-        WorkoutNamePurchase.setText("Workout name: " + workoutPlanToPurchase.getName());
+        WorkoutNamePurchase.setText("Workout name: " + thisWorkout.getName());
 
         ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan1 = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
         applicationControllerBuyWorkoutPlan1.createPurchase(newPurchase);

@@ -1,5 +1,6 @@
 package com.example.fitnesshelp.graphics_controllers;
 
+import com.example.fitnesshelp.entities.WorkoutPlan;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -72,12 +73,12 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
     private WebView webView;
     private WebEngine webEngine;
 
-    int CurrentWorkout = -1;
+    WorkoutPlan CurrentWorkout;
 
     public GraphicsControllerBuyWorkoutPlan1() throws IOException {
     }
 
-    void SaveWorkout(int thisWorkout) {
+    void SaveWorkout(WorkoutPlan thisWorkout) {
         CurrentWorkout = thisWorkout;
         CheckCreditCard.setOnAction(event -> {
             if (CheckCreditCard.isSelected()) {

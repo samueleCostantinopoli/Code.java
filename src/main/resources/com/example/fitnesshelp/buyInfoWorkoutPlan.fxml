@@ -59,7 +59,7 @@
    </Hyperlink>
    <AnchorPane fx:id="dataWorkoutPlan1Pane" layoutX="159.0" layoutY="175.0" prefHeight="40.0" prefWidth="630.0" style="-fx-background-color: #464646;">
       <children>
-         <Label fx:id="NameScheda" layoutX="55.0" layoutY="10.0" textFill="WHITE">
+         <Label fx:id="NameForm" layoutX="55.0" layoutY="10.0" textFill="WHITE">
             <font>
                <Font size="14.0" />
             </font>
@@ -78,7 +78,7 @@
    </Button>
    <AnchorPane fx:id="WorkoutPlan2Pane" layoutX="159.0" layoutY="215.0" prefHeight="207.0" prefWidth="630.0" style="-fx-background-color: #dcdcdc;">
       <children>
-         <Button fx:id="priceWorkoutPlan2Button" layoutX="556.0" layoutY="164.0" mnemonicParsing="false" onAction="#clickedOnButtonPriceWorkoutPlan" style="-fx-background-color: #231717;" text="19.99$" textFill="WHITE">
+         <Button fx:id="priceWorkoutPlan2Button" layoutX="556.0" layoutY="164.0" mnemonicParsing="false" onAction="#clickedOnButtonPriceWorkoutPlan" style="-fx-background-color: #231717;" text="0 €" textFill="WHITE">
             <font>
                <Font size="14.0" />
             </font>
@@ -167,6 +167,9 @@
                <Font size="14.0" />
             </font>
          </Hyperlink>
-      </children>
+         </children>
    </AnchorPane>
+   <Label fx:id="errorLoginMessageLabel" layoutX="368.0" layoutY="446.0" opacity="0.0" text="you need to login to buy workout plan" textFill="RED" />
+   <Button fx:id="errorLoginMessageButton" layoutX="445.0" layoutY="470.0" onAction="#clickedOnButtonErrorLoginMessageButton" opacity="0.0" text="Log In" textFill="BLACK" />
+
 </AnchorPane>

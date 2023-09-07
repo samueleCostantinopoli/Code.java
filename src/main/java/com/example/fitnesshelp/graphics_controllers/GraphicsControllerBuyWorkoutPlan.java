@@ -19,7 +19,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -93,12 +92,12 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
     }
 
     @FXML
-    void clickedOnButtonPriceWorkoutPlan(ActionEvent event, int CurrentWorkout) throws IOException {
+    void clickedOnButtonPriceWorkoutPlan(ActionEvent event,int CurrentWorkout) throws IOException {
         if(UtilityAccess.getState() == State.LOGGED_IN) {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyWorkoutPlan1.fxml"));
             Parent root = loader.load();
             GraphicsControllerBuyWorkoutPlan1 infoController1 = loader.getController();
-            infoController1.SaveWorkout(CurrentWorkout);
+            infoController1.SaveWorkout(listWorkouts.get(CurrentWorkout));
             Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene primary = new Scene(root);
             home.setScene(primary);
