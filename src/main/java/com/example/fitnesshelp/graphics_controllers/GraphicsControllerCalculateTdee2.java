@@ -4,7 +4,6 @@ import com.example.fitnesshelp.application_controllers.ApplicationControllerCalc
 import com.example.fitnesshelp.bean.*;
 import com.example.fitnesshelp.entities.Activity;
 import com.example.fitnesshelp.entities.Gender;
-import com.example.fitnesshelp.entities.Questionnaire;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,13 +21,7 @@ public class GraphicsControllerCalculateTdee2 extends GraphicsControllerHomePage
     private ChoiceBox<String> activityChoiceBox;
 
     @FXML
-    private Label activityTextView;
-
-    @FXML
     private TextField ageTextField;
-
-    @FXML
-    private Label ageTextView;
 
     @FXML
     private Button calculateButton;
@@ -40,13 +33,7 @@ public class GraphicsControllerCalculateTdee2 extends GraphicsControllerHomePage
     private RadioButton femaleRadioButton;
 
     @FXML
-    private Label genderTextView;
-
-    @FXML
     private TextField heightTextField;
-
-    @FXML
-    private Label heightTextView;
 
     @FXML
     private RadioButton maleRadioButton;
@@ -55,13 +42,7 @@ public class GraphicsControllerCalculateTdee2 extends GraphicsControllerHomePage
     private Button nextButton;
 
     @FXML
-    private Hyperlink tdeeCalculatorHyperlink1;
-
-    @FXML
     private TextField weightTextField;
-
-    @FXML
-    private Label weightTextView;
 
     @FXML
     private RadioButton bulkingRadioButton;
@@ -74,13 +55,6 @@ public class GraphicsControllerCalculateTdee2 extends GraphicsControllerHomePage
 
     private ToggleGroup genderToggleGroup;
     private ToggleGroup targetToggleGroup;
-
-    private BeanGender beanGender;
-    private BeanHeight beanHeight;
-    private BeanAge beanAge;
-    private BeanWeight beanWeight;
-    private BeanActivity beanActivity;
-    private BeanTarget beanTarget;
 
     @FXML
     void clickedOnButtonNext(ActionEvent event) {
@@ -97,7 +71,7 @@ public class GraphicsControllerCalculateTdee2 extends GraphicsControllerHomePage
         } else {
             // Clear the error message if all fields are filled/selected
             emptyAllertLabel.setOpacity(0);
-            if (!isNumeric(ageTextField.getText()) || !isNumeric(heightTextField.getText()) || !isNumeric(weightTextField.getText())){
+            if (!isNotNumeric(ageTextField.getText()) || !isNotNumeric(heightTextField.getText()) || !isNotNumeric(weightTextField.getText())){
                 emptyAllertLabel.setText("Invalid input. Age, height, and weight must be numeric values");
                 emptyAllertLabel.setOpacity(1);
             } else {
@@ -120,7 +94,7 @@ public class GraphicsControllerCalculateTdee2 extends GraphicsControllerHomePage
         }
     }
 
-    private boolean isNumeric(String str) {
+    private boolean isNotNumeric(String str) {
         // this method verify if the age, weight and height are numeric
         try {
             Float.parseFloat(str);
@@ -130,7 +104,6 @@ public class GraphicsControllerCalculateTdee2 extends GraphicsControllerHomePage
         }
     }
 
-    @FXML
     public void initialize() {
         calculateButton.setDisable(true);
         //choice box selection
@@ -174,12 +147,12 @@ public class GraphicsControllerCalculateTdee2 extends GraphicsControllerHomePage
             default -> null;
         };
         // create bean for check syntax
-        beanGender = new BeanGender(gender);
-        beanAge = new BeanAge(Integer.parseInt(ageTextField.getText()));
-        beanHeight = new BeanHeight(Float.parseFloat(heightTextField.getText()));
-        beanWeight = new BeanWeight(Float.parseFloat(weightTextField.getText()));
-        beanActivity = new BeanActivity(activity);
-        beanTarget = new BeanTarget(targetSelected.getText());
+        BeanGender beanGender = new BeanGender(gender);
+        BeanAge beanAge = new BeanAge(Integer.parseInt(ageTextField.getText()));
+        BeanHeight beanHeight = new BeanHeight(Float.parseFloat(heightTextField.getText()));
+        BeanWeight beanWeight = new BeanWeight(Float.parseFloat(weightTextField.getText()));
+        BeanActivity beanActivity = new BeanActivity(activity);
+        BeanTarget beanTarget = new BeanTarget(targetSelected.getText());
         String ageRange = beanAge.verifyAge(Integer.parseInt(ageTextField.getText()));
         String heightRange = beanHeight.verifyHeight(Float.parseFloat(heightTextField.getText()));
         String weightRange = beanWeight.verifyWeight(Float.parseFloat(weightTextField.getText()));
@@ -188,9 +161,8 @@ public class GraphicsControllerCalculateTdee2 extends GraphicsControllerHomePage
             try {
                 // in this case I can call the application controller, which will call the tdee calculator to get the tdee
                 ApplicationControllerCalculateTdee applicationControllerCalculateTdee = new ApplicationControllerCalculateTdee(beanAge, beanHeight, beanWeight, beanGender, beanActivity, beanTarget);
-                // now I can create the questionnaire with my answers to be sent to the tdee calculator via the application controller
-                Questionnaire questionnaire = new Questionnaire(gender, Integer.parseInt(ageTextField.getText()), Float.parseFloat(weightTextField.getText()), Float.parseFloat(heightTextField.getText()), activity);
-                double kcal = applicationControllerCalculateTdee.calculateTdee(questionnaire, targetSelected.getText());
+                // now I can calculate my tdee
+                double kcal = applicationControllerCalculateTdee.calculateTdee();
                 // I pass the calculated tdee to the page that will display the results
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/calculateTdee3.fxml"));
                 Parent root = loader.load();

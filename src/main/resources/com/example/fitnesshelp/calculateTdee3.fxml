@@ -99,7 +99,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Hyperlink fx:id="tdeeCalculatorHyperlink1" layoutX="232.0" layoutY="106.0" onAction="#clickedOnTdeeCalculatorHyperlink" text="&gt; tdee calculator">
+      <Hyperlink layoutX="232.0" layoutY="106.0" text="&gt; tdee calculator">
          <font>
             <Font size="14.0" />
          </font>

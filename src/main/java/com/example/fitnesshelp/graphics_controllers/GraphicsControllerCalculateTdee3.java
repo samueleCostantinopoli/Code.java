@@ -67,9 +67,6 @@ public class GraphicsControllerCalculateTdee3 extends GraphicsControllerHomePage
     private Label stateNameLabel;
 
     @FXML
-    private Hyperlink tdeeCalculatorHyperlink1;
-
-    @FXML
     private Label higherCarbLabel;
 
     @FXML
