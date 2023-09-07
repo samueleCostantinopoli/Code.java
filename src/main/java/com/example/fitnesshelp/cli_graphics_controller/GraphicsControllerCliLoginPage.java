@@ -20,7 +20,6 @@ public class GraphicsControllerCliLoginPage {
 
     public void viewAccessPage() throws IOException, SQLException, TdeeRemoveException {
         Printer.print("--------------------------PAGE LOG IN----------------------------\n");
-        Printer.print("Please, type 'yes' to login or 'no' to register: ");
 
         if (!askUserIfAccountExists()) {
             // User wants to register
