@@ -61,7 +61,7 @@
       </Hyperlink>
       <AnchorPane fx:id="dataWorkoutPlan1Pane" layoutX="159.0" layoutY="175.0" prefHeight="40.0" prefWidth="630.0" style="-fx-background-color: #464646;">
          <children>
-            <Label fx:id="NameSurnameAge1" layoutX="6.0" layoutY="11.0" text="Verticale - livello A" textFill="WHITE">
+            <Label fx:id="NameWorkout" layoutX="6.0" layoutY="11.0" text=" " textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -136,5 +136,7 @@
             </Hyperlink>
          </children>
       </AnchorPane>
+      <Label fx:id="errorLoginMessageLabel" layoutX="368.0" layoutY="446.0" opacity="0.0" text="you need to login to buy workout plan" textFill="RED" />
+      <Button fx:id="errorLoginMessageButton" layoutX="445.0" layoutY="470.0" onAction="#clickedOnButtonErrorLoginMessageButton" opacity="0.0" text="Log In" textFill="BLACK" />
    </children>
 </AnchorPane>

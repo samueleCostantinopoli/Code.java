@@ -24,7 +24,6 @@ public class DaoImplRegistration implements DaoRegistration{
             checkForEmail = cs.getBoolean(2);
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gestisci l'eccezione
         }
         return checkForEmail;
     }
@@ -39,7 +38,6 @@ public class DaoImplRegistration implements DaoRegistration{
             checkForUsername = cs.getBoolean(2);
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gestisci l'eccezione
         }
         return checkForUsername;
     }
@@ -54,7 +52,6 @@ public class DaoImplRegistration implements DaoRegistration{
             ResultSet rs = cs.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gestisci l'eccezione
         }
     }
 }

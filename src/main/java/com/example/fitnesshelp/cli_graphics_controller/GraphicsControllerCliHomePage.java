@@ -120,7 +120,7 @@ public class GraphicsControllerCliHomePage {
         Printer.print("'Look for a personal trainer' has not been implemented, it will be available soon\nSelect another function\n");
     }
 
-    private void handleBuyWorkoutPlan() {
+    private void handleBuyWorkoutPlan() throws IOException, SQLException, TdeeRemoveException {
         GraphicsControllerCliBuyWorkoutPlan graphicsControllerCliBuyWorkoutPlan = new GraphicsControllerCliBuyWorkoutPlan();
         graphicsControllerCliBuyWorkoutPlan.showMenu();
     }

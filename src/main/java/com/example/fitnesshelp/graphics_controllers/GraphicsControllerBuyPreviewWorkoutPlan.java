@@ -3,6 +3,7 @@ package com.example.fitnesshelp.graphics_controllers;
 import com.example.fitnesshelp.application_controllers.ApplicationControllerBuyWorkoutPlan;
 import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.entities.Exercise;
+import com.example.fitnesshelp.entities.State;
 import com.example.fitnesshelp.entities.WorkoutPlan;
 import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.event.ActionEvent;
@@ -22,11 +23,17 @@ import java.util.List;
 
 public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerHomePage {
 
+    public Label NameWorkout;
     @FXML
     Label insertPreview;
 
     @FXML
     Button priceWorkoutPlan2Button;
+
+    @FXML
+    private Label errorLoginMessageLabel;
+    @FXML
+    private Button errorLoginMessageButton;
 
     ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
     List<Exercise> exerciseList = applicationControllerBuyWorkoutPlan.checkExercise();
@@ -35,9 +42,12 @@ public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerH
     }
 
     public WorkoutPlan currentWorkout;
+
     public void setIndex(WorkoutPlan workoutPlan) {
-        priceWorkoutPlan2Button.setText(String.valueOf(workoutPlan.getPrize()));
+        priceWorkoutPlan2Button.setText(String.valueOf(workoutPlan.getPrize())+ " €");
+        NameWorkout.setText(workoutPlan.getName());
         currentWorkout = workoutPlan;
+
 
         List<String> exercise = new ArrayList<>();
         if (!exerciseList.isEmpty()) {
@@ -52,10 +62,10 @@ public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerH
 
     @FXML
     public void clickedOnButtonInfoWorkoutPlan(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyPreviewWorkoutPlan.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyInfoWorkoutPlan.fxml"));
         Parent root = loader.load();
-        GraphicsControllerBuyPreviewWorkoutPlan previewWorkoutPlanController = loader.getController();
-        previewWorkoutPlanController.setIndex(currentWorkout);
+        GraphicsControllerBuyInfoWorkoutPlan controller = (GraphicsControllerBuyInfoWorkoutPlan) loader.getController();
+        controller.setIndex(currentWorkout);
         Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene primary = new Scene(root);
         home.setScene(primary);
@@ -71,7 +81,19 @@ public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerH
 
 
     @FXML
-    void clickedOnButtonPriceWorkoutPlan(ActionEvent event) {
-
+    void clickedOnButtonPriceWorkoutPlan(ActionEvent event) throws IOException {
+        if(UtilityAccess.getState() == State.LOGGED_IN) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyWorkoutPlan1.fxml"));
+            Parent root = loader.load();
+            GraphicsControllerBuyWorkoutPlan1 infoController1 = loader.getController();
+            infoController1.SaveWorkout(currentWorkout);
+            Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene primary = new Scene(root);
+            home.setScene(primary);
+            home.show();
+        } else {
+            errorLoginMessageLabel.setOpacity(1);
+            errorLoginMessageButton.setOpacity(1);
+        }
     }
 }
