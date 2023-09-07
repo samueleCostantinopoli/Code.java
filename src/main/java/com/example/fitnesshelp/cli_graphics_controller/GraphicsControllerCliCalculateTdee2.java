@@ -5,7 +5,7 @@ import com.example.fitnesshelp.bean.*;
 import com.example.fitnesshelp.entities.Activity;
 import com.example.fitnesshelp.entities.Gender;
 import com.example.fitnesshelp.entities.Questionnaire;
-
+import com.example.fitnesshelp.exception.TdeeRemoveException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -20,7 +20,7 @@ public class GraphicsControllerCliCalculateTdee2 {
     private BeanActivity beanActivity;
     private BeanTarget beanTarget;
 
-    public void showQuestionnaire() throws IOException, SQLException {
+    public void showQuestionnaire() throws IOException, SQLException, TdeeRemoveException {
         System.out.println("-------------------QUESTIONNAIRE PAGE--------------------\n");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
@@ -28,7 +28,29 @@ public class GraphicsControllerCliCalculateTdee2 {
         String cutTarget = "cutting";
         String bulkTarget = "bulking";
 
-        // gender choice
+        Gender genderSelected = selectGender(bufferedReader);
+
+        int age = selectAge(bufferedReader);
+
+        float weight = selectWeight(bufferedReader);
+
+        float height = selectHeight(bufferedReader);
+
+        Activity activitySelected = selectActivityLevel(bufferedReader);
+
+        String target = selectTarget(bufferedReader, mainTarget, cutTarget, bulkTarget);
+
+        // at this point of methods I can call application controller to calculate tdee
+        ApplicationControllerCalculateTdee applicationControllerCalculateTdee = new ApplicationControllerCalculateTdee(beanAge, beanHeight, beanWeight, beanGender, beanActivity, beanTarget);
+        // now I can create the questionnaire with my answers to be sent to the tdee calculator via the application controller
+        Questionnaire questionnaire = new Questionnaire(genderSelected, age, weight, height, activitySelected);
+        double kcal = applicationControllerCalculateTdee.calculateTdee(questionnaire, target);
+        // finally call tha graphics controller that will show the result
+        GraphicsControllerCliCalculateTdee3 graphicsControllerCliCalculateTdee3 = new GraphicsControllerCliCalculateTdee3();
+        graphicsControllerCliCalculateTdee3.showResult(kcal, target);
+    }
+
+    private Gender selectGender(BufferedReader bufferedReader) throws IOException {
         String gender = "";
         Gender genderSelected = null;
         while (!gender.equals("male") && !gender.equals("female")) {
@@ -50,8 +72,10 @@ public class GraphicsControllerCliCalculateTdee2 {
                 default -> System.out.println("Invalid choice. Please select 1 for Male or 2 for Female.\n");
             }
         }
+        return genderSelected;
+    }
 
-        // age
+    private int selectAge(BufferedReader bufferedReader) throws IOException {
         int age = 0;
         while (age <= 0) {
             System.out.println("Enter your age: ");
@@ -64,8 +88,10 @@ public class GraphicsControllerCliCalculateTdee2 {
                 System.out.println("Invalid input. Please enter a valid age.");
             }
         }
+        return age;
+    }
 
-        // weight
+    private float selectWeight(BufferedReader bufferedReader) throws IOException {
         float weight = 0.0f;
         while (weight <= 0) {
             System.out.println("Enter your weight (in kg): ");
@@ -78,8 +104,10 @@ public class GraphicsControllerCliCalculateTdee2 {
                 System.out.println("Invalid input. Please enter a valid weight.");
             }
         }
+        return weight;
+    }
 
-        // height
+    private float selectHeight(BufferedReader bufferedReader) throws IOException {
         float height = 0.0f;
         while (height <= 0) {
             System.out.println("Enter your height (in cm): ");
@@ -92,8 +120,10 @@ public class GraphicsControllerCliCalculateTdee2 {
                 System.out.println("Invalid input. Please enter a valid height.");
             }
         }
+        return height;
+    }
 
-        // activity selection
+    private Activity selectActivityLevel(BufferedReader bufferedReader) throws IOException {
         int activityLevel = 0;
         Activity activitySelected = null;
         while (activityLevel < 1 || activityLevel > 5) {
@@ -119,8 +149,10 @@ public class GraphicsControllerCliCalculateTdee2 {
                 System.out.println("Invalid choice. Please select a number from 1 to 5.");
             }
         }
+        return activitySelected;
+    }
 
-        // target choice
+    private String selectTarget(BufferedReader bufferedReader, String mainTarget, String cutTarget, String bulkTarget) throws IOException {
         String target = "";
         while (!target.equals(mainTarget) && !target.equals(cutTarget) && !target.equals(bulkTarget)) {
             System.out.println("Select your target: ");
@@ -145,16 +177,9 @@ public class GraphicsControllerCliCalculateTdee2 {
                         System.out.println("Invalid choice. Please select 1 for Maintenance, 2 for Cutting, or 3 for Bulking.");
             }
         }
-
-        // at this point of methods I can call application controller to calculate tdee
-        ApplicationControllerCalculateTdee applicationControllerCalculateTdee = new ApplicationControllerCalculateTdee(beanAge, beanHeight, beanWeight, beanGender, beanActivity, beanTarget);
-        // now I can create the questionnaire with my answers to be sent to the tdee calculator via the application controller
-        Questionnaire questionnaire = new Questionnaire(genderSelected, age, weight, height, activitySelected);
-        double kcal = applicationControllerCalculateTdee.calculateTdee(questionnaire, target);
-        // finally call tha graphics controller that will show the result
-        GraphicsControllerCliCalculateTdee3 graphicsControllerCliCalculateTdee3 = new GraphicsControllerCliCalculateTdee3();
-        graphicsControllerCliCalculateTdee3.showResult(kcal, target);
+        return target;
     }
+
 
     private boolean isNumeric(String str) {
         // this method verify if the age, weight and height are numeric

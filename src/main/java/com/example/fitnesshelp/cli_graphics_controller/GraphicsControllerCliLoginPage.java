@@ -5,6 +5,7 @@ import com.example.fitnesshelp.bean.BeanPassword;
 import com.example.fitnesshelp.bean.BeanUsername;
 import com.example.fitnesshelp.entities.State;
 import com.example.fitnesshelp.exception.NotExistsUsersException;
+import com.example.fitnesshelp.exception.TdeeRemoveException;
 import com.example.fitnesshelp.utils.Printer;
 import com.example.fitnesshelp.utils.UtilityAccess;
 import java.io.BufferedReader;
@@ -19,7 +20,7 @@ public class GraphicsControllerCliLoginPage {
     private BeanUsername beanUsername;
     private BeanPassword beanPassword;
 
-    public void viewAccessPage() throws IOException, SQLException {
+    public void viewAccessPage() throws IOException, SQLException, TdeeRemoveException {
         Printer.print("--------------------------PAGE LOG IN----------------------------\n");
 
         // possibility to register if user don't have an account
@@ -101,7 +102,7 @@ public class GraphicsControllerCliLoginPage {
         return email.equalsIgnoreCase("esc");
 
     }
-    private void backToHomePage() throws IOException, SQLException {
+    private void backToHomePage() throws IOException, SQLException, TdeeRemoveException {
         GraphicsControllerCliHomePage homePage = new GraphicsControllerCliHomePage();
         homePage.displayHomepage();
     }

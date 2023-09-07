@@ -3,7 +3,6 @@ package com.example.fitnesshelp.system_actor;
 import com.example.fitnesshelp.entities.Macro;
 import com.example.fitnesshelp.entities.Questionnaire;
 import com.example.fitnesshelp.state.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,10 +11,10 @@ public class TdeeCalculator {
     public double calculateTdee(Questionnaire questionnaire, String target){
         double kcal;
         TdeeContext tdeeContext = new TdeeContext();
-        if (target == "Maintenance"){
+        if (target.equals("Maintenance")){
             TdeeState tdeeState = new MaintenanceState();
             tdeeContext.setState(tdeeState);
-        } else if (target == "Bulking") {
+        } else if (target.equals("Bulking")) {
             TdeeState tdeeState = new BulkingState();
             tdeeContext.setState(tdeeState);
         } else {

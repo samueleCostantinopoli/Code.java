@@ -12,7 +12,7 @@ public class ApplicationControllerLogin {
     private final String username;
     private final String password;
 
-    public ApplicationControllerLogin(BeanUsername beanUsername, BeanPassword beanPassword) throws SQLException, IOException, NotExistsUsersException {
+    public ApplicationControllerLogin(BeanUsername beanUsername, BeanPassword beanPassword) {
         this.username = beanUsername.getUsername();
         this.password = beanPassword.getPassword();
     }

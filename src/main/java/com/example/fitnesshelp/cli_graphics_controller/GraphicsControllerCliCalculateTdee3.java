@@ -3,6 +3,7 @@ package com.example.fitnesshelp.cli_graphics_controller;
 import com.example.fitnesshelp.application_controllers.ApplicationControllerCalculateTdee;
 import com.example.fitnesshelp.entities.Macro;
 import com.example.fitnesshelp.entities.Tdee;
+import com.example.fitnesshelp.exception.TdeeRemoveException;
 import com.example.fitnesshelp.factory.TypeOfPersistence;
 import com.example.fitnesshelp.utils.UtilityAccess;
 import java.io.BufferedReader;
@@ -14,7 +15,7 @@ import java.util.List;
 
 public class GraphicsControllerCliCalculateTdee3 {
 
-    public void showResult(double kcal, String target) throws IOException, SQLException {
+    public void showResult(double kcal, String target) throws IOException, SQLException, TdeeRemoveException {
         System.out.println("------------------------YOUR TDEE-----------------------\n");
         // take only integer part of kcal
         DecimalFormat decimalFormat = new DecimalFormat("#");
@@ -100,7 +101,7 @@ public class GraphicsControllerCliCalculateTdee3 {
 
     }
 
-    public void backToHomePage() throws SQLException, IOException {
+    public void backToHomePage() throws SQLException, IOException, TdeeRemoveException {
         GraphicsControllerCliHomePage graphicsControllerCliHomePage = new GraphicsControllerCliHomePage();
         graphicsControllerCliHomePage.displayHomepage();
     }

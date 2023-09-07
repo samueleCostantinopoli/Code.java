@@ -3,6 +3,11 @@ package com.example.fitnesshelp.bean;
 import com.example.fitnesshelp.exception.*;
 
 public class BeanComplexity {
+
+    private BeanComplexity() {
+        // private constructor to prevent instantiation
+    }
+
     public static void checkComplexity(String password) throws UpperCaseException, LowerCaseException, DigitException, LenghtException, SpecialException {
         boolean hasUppercase = !password.equals(password.toLowerCase());
         boolean hasLowercase = !password.equals(password.toUpperCase());

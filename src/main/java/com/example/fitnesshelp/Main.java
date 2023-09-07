@@ -2,6 +2,7 @@ package com.example.fitnesshelp;
 
 import com.example.fitnesshelp.cli_graphics_controller.GraphicsControllerCliHomePage;
 import com.example.fitnesshelp.entities.*;
+import com.example.fitnesshelp.exception.TdeeRemoveException;
 import com.example.fitnesshelp.utils.Printer;
 import com.example.fitnesshelp.entities.Account;
 import com.example.fitnesshelp.utils.UtilityAccess;
@@ -26,7 +27,7 @@ public class Main extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) throws IOException, SQLException {
+    public static void main(String[] args) throws IOException, SQLException, TdeeRemoveException {
         // The app is launched, so we create a default user who has offline by default
         UtilityAccess.setAccount(new Account("admin", "admin", NORMAL, null, State.NOT_LOGGED_IN));
         BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(System.in));
