@@ -4,7 +4,6 @@ import com.example.fitnesshelp.bean.BeanPassword;
 import com.example.fitnesshelp.bean.BeanUsername;
 import com.example.fitnesshelp.dao.DaoImplLogin;
 import com.example.fitnesshelp.exception.NotExistsUsersException;
-
 import java.io.IOException;
 import java.sql.SQLException;
 

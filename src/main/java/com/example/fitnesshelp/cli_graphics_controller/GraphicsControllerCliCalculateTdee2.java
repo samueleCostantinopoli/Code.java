@@ -4,10 +4,8 @@ import com.example.fitnesshelp.application_controllers.ApplicationControllerCalc
 import com.example.fitnesshelp.bean.*;
 import com.example.fitnesshelp.entities.Activity;
 import com.example.fitnesshelp.entities.Gender;
-import com.example.fitnesshelp.entities.Questionnaire;
 import com.example.fitnesshelp.exception.TdeeRemoveException;
 import com.example.fitnesshelp.utils.Printer;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -30,31 +28,30 @@ public class GraphicsControllerCliCalculateTdee2 {
         String cutTarget = "cutting";
         String bulkTarget = "bulking";
 
-        Gender genderSelected = selectGender(bufferedReader);
+        selectGender(bufferedReader);
 
-        int age = selectAge(bufferedReader);
+        selectAge(bufferedReader);
 
-        float weight = selectWeight(bufferedReader);
+        selectWeight(bufferedReader);
 
-        float height = selectHeight(bufferedReader);
+        selectHeight(bufferedReader);
 
-        Activity activitySelected = selectActivityLevel(bufferedReader);
+        selectActivityLevel(bufferedReader);
 
-        String target = selectTarget(bufferedReader, mainTarget, cutTarget, bulkTarget);
+        selectTarget(bufferedReader, mainTarget, cutTarget, bulkTarget);
 
         // at this point of methods I can call application controller to calculate tdee
         ApplicationControllerCalculateTdee applicationControllerCalculateTdee = new ApplicationControllerCalculateTdee(beanAge, beanHeight, beanWeight, beanGender, beanActivity, beanTarget);
         // now I can create the questionnaire with my answers to be sent to the tdee calculator via the application controller
-        Questionnaire questionnaire = new Questionnaire(genderSelected, age, weight, height, activitySelected);
-        double kcal = applicationControllerCalculateTdee.calculateTdee(questionnaire, target);
+        double kcal = applicationControllerCalculateTdee.calculateTdee();
         // finally call tha graphics controller that will show the result
         GraphicsControllerCliCalculateTdee3 graphicsControllerCliCalculateTdee3 = new GraphicsControllerCliCalculateTdee3();
-        graphicsControllerCliCalculateTdee3.showResult(kcal, target);
+        graphicsControllerCliCalculateTdee3.showResult(kcal, beanTarget.getTarget());
     }
 
-    private Gender selectGender(BufferedReader bufferedReader) throws IOException {
+    private void selectGender(BufferedReader bufferedReader) throws IOException {
         String gender = "";
-        Gender genderSelected = null;
+        Gender genderSelected;
         while (!gender.equals("male") && !gender.equals("female")) {
             Printer.print("Select your gender: \n");
             Printer.print("1: Male\n");
@@ -74,10 +71,9 @@ public class GraphicsControllerCliCalculateTdee2 {
                 default -> Printer.print("Invalid choice. Please select 1 for Male or 2 for Female.\n");
             }
         }
-        return genderSelected;
     }
 
-    private int selectAge(BufferedReader bufferedReader) throws IOException {
+    private void selectAge(BufferedReader bufferedReader) throws IOException {
         int age = 0;
         while (age <= 0) {
             Printer.print("Enter your age: ");
@@ -90,10 +86,9 @@ public class GraphicsControllerCliCalculateTdee2 {
                 Printer.print("Invalid input. Please enter a valid age.");
             }
         }
-        return age;
     }
 
-    private float selectWeight(BufferedReader bufferedReader) throws IOException {
+    private void selectWeight(BufferedReader bufferedReader) throws IOException {
         float weight = 0.0f;
         while (weight <= 0) {
             Printer.print("Enter your weight (in kg): ");
@@ -106,10 +101,9 @@ public class GraphicsControllerCliCalculateTdee2 {
                 Printer.print("Invalid input. Please enter a valid weight.");
             }
         }
-        return weight;
     }
 
-    private float selectHeight(BufferedReader bufferedReader) throws IOException {
+    private void selectHeight(BufferedReader bufferedReader) throws IOException {
         float height = 0.0f;
         while (height <= 0) {
             Printer.print("Enter your height (in cm): ");
@@ -122,12 +116,11 @@ public class GraphicsControllerCliCalculateTdee2 {
                 Printer.print("Invalid input. Please enter a valid height.");
             }
         }
-        return height;
     }
 
-    private Activity selectActivityLevel(BufferedReader bufferedReader) throws IOException {
+    private void selectActivityLevel(BufferedReader bufferedReader) throws IOException {
         int activityLevel = 0;
-        Activity activitySelected = null;
+        Activity activitySelected;
         while (activityLevel < 1 || activityLevel > 5) {
             Printer.print("Select your activity level: ");
             Printer.print("1: Sedentary (office job)");
@@ -151,10 +144,9 @@ public class GraphicsControllerCliCalculateTdee2 {
                 Printer.print("Invalid choice. Please select a number from 1 to 5.");
             }
         }
-        return activitySelected;
     }
 
-    private String selectTarget(BufferedReader bufferedReader, String mainTarget, String cutTarget, String bulkTarget) throws IOException {
+    private void selectTarget(BufferedReader bufferedReader, String mainTarget, String cutTarget, String bulkTarget) throws IOException {
         String target = "";
         while (!target.equals(mainTarget) && !target.equals(cutTarget) && !target.equals(bulkTarget)) {
             Printer.print("Select your target: ");
@@ -179,7 +171,6 @@ public class GraphicsControllerCliCalculateTdee2 {
                         Printer.print("Invalid choice. Please select 1 for Maintenance, 2 for Cutting, or 3 for Bulking.");
             }
         }
-        return target;
     }
 
 

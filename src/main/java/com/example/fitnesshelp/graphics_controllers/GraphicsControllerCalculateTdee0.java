@@ -5,7 +5,6 @@ import com.example.fitnesshelp.entities.Tdee;
 import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -20,9 +19,6 @@ public class GraphicsControllerCalculateTdee0 extends GraphicsControllerHomePage
 
     @FXML
     private ImageView deleteTdeeImageView;
-
-    @FXML
-    private Hyperlink tdeeCalculatorHyperlink1;
 
     @FXML
     private Label carbElementLabel;
@@ -48,10 +44,11 @@ public class GraphicsControllerCalculateTdee0 extends GraphicsControllerHomePage
     @FXML
     private VBox tdeeListVBox;
 
-    @FXML
     void initialize() throws SQLException, IOException {
+        // get image for delete from properties
         String imagePath = "/com/example/fitnesshelp/delete.png";
         URL imageURL = getClass().getResource(imagePath);
+
         // call the application controller to request the list of tdee calculated
         ApplicationControllerCalculateTdee applicationControllerCalculateTdee = new ApplicationControllerCalculateTdee();
         List<Tdee> tdeeList = applicationControllerCalculateTdee.requestTdeeList();
@@ -76,9 +73,7 @@ public class GraphicsControllerCalculateTdee0 extends GraphicsControllerHomePage
             deleteTdeeImageView.setOnMouseClicked(event -> {
                 try {
                     clickedOnDeleteTdeeImageView(event);
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                } catch (IOException e) {
+                } catch (SQLException | IOException e) {
                     throw new RuntimeException(e);
                 }
             });

@@ -98,27 +98,27 @@
                   </Hyperlink>
                </children>
             </AnchorPane>
-            <Label fx:id="genderTextView" layoutX="332.0" layoutY="208.0" text="Gender">
+            <Label layoutX="332.0" layoutY="208.0" text="Gender">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="ageTextView" layoutX="334.0" layoutY="257.0" text="Age">
+            <Label layoutX="334.0" layoutY="257.0" text="Age">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="weightTextView" layoutX="334.0" layoutY="305.0" text="Weight">
+            <Label layoutX="334.0" layoutY="305.0" text="Weight">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="heightTextView" layoutX="334.0" layoutY="355.0" text="Height">
+            <Label layoutX="334.0" layoutY="355.0" text="Height">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="activityTextView" layoutX="334.0" layoutY="407.0" text="Activity">
+            <Label layoutX="334.0" layoutY="407.0" text="Activity">
                <font>
                   <Font size="14.0" />
                </font>
@@ -136,7 +136,7 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Hyperlink fx:id="tdeeCalculatorHyperlink1" layoutX="232.0" layoutY="106.0" onAction="#clickedOnTdeeCalculatorHyperlink" text="&gt; tdee calculator">
+            <Hyperlink layoutX="232.0" layoutY="106.0" text="&gt; tdee calculator">
                <font>
                   <Font size="14.0" />
                </font>
