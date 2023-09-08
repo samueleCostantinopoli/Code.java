@@ -15,10 +15,6 @@ import static com.example.fitnesshelp.cli_graphics_controller.GraphicsController
 public class GraphicsControllerCliBuyInfoWorkoutPlan {
 
     public void setIndex(WorkoutPlan currentWorkout) throws IOException, SQLException, TdeeRemoveException, ExerciseLoadException, PurchaseUserLoadException {
-        //ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
-        //BeanBuyWorkoutPlan beanBuyWorkoutPlan = new BeanBuyWorkoutPlan(currentWorkout.getName(), currentWorkout.getPrize(), currentWorkout.getUsername());
-        //List<Exercise> exerciseList = applicationControllerBuyWorkoutPlan.checkUserExercise(beanBuyWorkoutPlan);
-
         boolean exit = true;
         while (exit) {
             printWorkoutPlan(currentWorkout);
