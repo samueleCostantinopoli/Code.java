@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 public class GraphicsControllerCliBuyInfoWorkoutPlan {
 
-    public void setIndex(WorkoutPlan currentWorkout, int numberInput) throws IOException, SQLException, TdeeRemoveException {
+    public void setIndex(WorkoutPlan currentWorkout) throws IOException, SQLException, TdeeRemoveException {
 
         boolean exit = true;
         while (exit) {
@@ -35,14 +35,14 @@ public class GraphicsControllerCliBuyInfoWorkoutPlan {
                 }
                 case "3" -> {
                     GraphicsControllerCliBuyPreviewWorkoutPlan infoController = new GraphicsControllerCliBuyPreviewWorkoutPlan();
-                    infoController.setIndex(currentWorkout, numberInput);
+                    infoController.setIndex(currentWorkout);
                     exit = false;
 
                 }
                 case "4" -> {
                     if (UtilityAccess.getState() == State.LOGGED_IN) {
                         GraphicsControllerCliBuyWorkoutPlan1 infoController = new GraphicsControllerCliBuyWorkoutPlan1();
-                        infoController.SaveWorkout(numberInput);
+                        infoController.SaveWorkout(currentWorkout);
 
                     } else {
                         Printer.print("\nTo purchase a workout you must be logged in");

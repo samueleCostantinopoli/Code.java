@@ -13,13 +13,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class GraphicsControllerCliBuyPreviewWorkoutPlan {
 
 
-    public void setIndex(WorkoutPlan currentWorkout, int numberInput) throws IOException, SQLException, TdeeRemoveException {
+    public void setIndex(WorkoutPlan currentWorkout) throws IOException, SQLException, TdeeRemoveException {
         ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
         BeanBuyWorkoutPlan beanBuyWorkoutPlan = new BeanBuyWorkoutPlan(currentWorkout.getName(), currentWorkout.getPrize(), currentWorkout.getUsername());
 
@@ -48,14 +47,14 @@ public class GraphicsControllerCliBuyPreviewWorkoutPlan {
                 }
                 case "3" -> {
                     GraphicsControllerCliBuyInfoWorkoutPlan infoController = new GraphicsControllerCliBuyInfoWorkoutPlan();
-                    infoController.setIndex(currentWorkout, numberInput);
+                    infoController.setIndex(currentWorkout);
                     exit = false;
 
                 }
                 case "4" -> {
                     if (UtilityAccess.getState() == State.LOGGED_IN) {
                         GraphicsControllerCliBuyWorkoutPlan1 infoController = new GraphicsControllerCliBuyWorkoutPlan1();
-                        infoController.SaveWorkout(numberInput);
+                        infoController.SaveWorkout(currentWorkout);
 
                     } else {
                         Printer.print("\nTo purchase a workout you must be logged in");

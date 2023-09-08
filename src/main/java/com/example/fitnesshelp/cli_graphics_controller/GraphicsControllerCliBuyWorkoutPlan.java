@@ -3,21 +3,10 @@ package com.example.fitnesshelp.cli_graphics_controller;
 import com.example.fitnesshelp.application_controllers.ApplicationControllerBuyWorkoutPlan;
 import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.entities.State;
-import com.example.fitnesshelp.entities.Tdee;
 import com.example.fitnesshelp.entities.WorkoutPlan;
 import com.example.fitnesshelp.exception.TdeeRemoveException;
-import com.example.fitnesshelp.graphics_controllers.GraphicsControllerBuyInfoWorkoutPlan;
-import com.example.fitnesshelp.graphics_controllers.GraphicsControllerBuyPreviewWorkoutPlan;
-import com.example.fitnesshelp.graphics_controllers.GraphicsControllerBuyWorkoutPlan1;
 import com.example.fitnesshelp.utils.Printer;
 import com.example.fitnesshelp.utils.UtilityAccess;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -55,7 +44,7 @@ public class GraphicsControllerCliBuyWorkoutPlan {
                         int numberInput= Integer.parseInt(getUserInput());
                         if(numberInput <= workoutPlanList.size()){
                             GraphicsControllerCliBuyInfoWorkoutPlan infoController = new GraphicsControllerCliBuyInfoWorkoutPlan();
-                            infoController.setIndex(workoutPlanList.get(numberInput-1), numberInput-1);
+                            infoController.setIndex(workoutPlanList.get(numberInput-1));
                             exit = false;
                         }
                         else {
@@ -70,7 +59,7 @@ public class GraphicsControllerCliBuyWorkoutPlan {
                         int numberInput = Integer.parseInt(getUserInput());
                         if(numberInput <= workoutPlanList.size()){
                             GraphicsControllerCliBuyPreviewWorkoutPlan graphicsControllerCliBuyPreviewWorkoutPlan = new GraphicsControllerCliBuyPreviewWorkoutPlan();
-                            graphicsControllerCliBuyPreviewWorkoutPlan.setIndex(workoutPlanList.get(numberInput-1), numberInput-1);
+                            graphicsControllerCliBuyPreviewWorkoutPlan.setIndex(workoutPlanList.get(numberInput-1));
                             exit = false;
                         }
                         else {
@@ -86,7 +75,7 @@ public class GraphicsControllerCliBuyWorkoutPlan {
                             int numberInput = Integer.parseInt(getUserInput());
                             if(numberInput <= workoutPlanList.size()){
                                 GraphicsControllerCliBuyWorkoutPlan1 infoController = new GraphicsControllerCliBuyWorkoutPlan1();
-                                infoController.SaveWorkout(numberInput);
+                                infoController.SaveWorkout(workoutPlanList.get(numberInput-1));
                             }
                             else {
                                 Printer.print("\nWrite correct number");
@@ -105,12 +94,12 @@ public class GraphicsControllerCliBuyWorkoutPlan {
         }
     }
 
-
     private String getUserInput() throws IOException {
         // to get user input
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         return bufferedReader.readLine().trim();
     }
+
 
     private void printWorkoutPlanList(List<WorkoutPlan> workoutPlanList) {
         // this method print all tdee of user

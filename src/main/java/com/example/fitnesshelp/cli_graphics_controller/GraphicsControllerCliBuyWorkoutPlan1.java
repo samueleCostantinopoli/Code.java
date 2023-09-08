@@ -1,25 +1,18 @@
 package com.example.fitnesshelp.cli_graphics_controller;
 
-import com.example.fitnesshelp.entities.State;
 import com.example.fitnesshelp.entities.WorkoutPlan;
 import com.example.fitnesshelp.exception.TdeeRemoveException;
 import com.example.fitnesshelp.utils.Printer;
-import com.example.fitnesshelp.utils.UtilityAccess;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class GraphicsControllerCliBuyWorkoutPlan1 {
 
     String CardNumber;
     String ExpiresCard;
-
     int CVV;
-
     String FirstName;
     String LastName;
     String StreetAddress;
@@ -30,15 +23,10 @@ public class GraphicsControllerCliBuyWorkoutPlan1 {
     String MobileNumber;
     String Email;
 
+    WorkoutPlan thisWorkout;
 
-
-
-    // Crea una lista di stringhe con i nomi dei paesi
-    List<String> countryList = new ArrayList<>();
-
-
-    public void SaveWorkout(int numberWorkout) throws IOException, SQLException, TdeeRemoveException {
-
+    public void SaveWorkout(WorkoutPlan workout) throws IOException, SQLException, TdeeRemoveException {
+        thisWorkout = workout;
         boolean exit = true;
         while (exit) {
 
@@ -54,30 +42,19 @@ public class GraphicsControllerCliBuyWorkoutPlan1 {
 
             switch (userInput) {
                 case "1" -> {
-                    creditCardInput();
+                    CreditCardInput();
+                    PaymentDone();
+                    exit = false;
                 }
                 case "2" -> {
-                    while (exit) {
-                        Printer.print("\nWrite the number of the workout you want to get preview about:");
+                    PayPalInput();
+                    PaymentDone();
+                    exit = false;
 
-                        int numberInput = Integer.parseInt(getUserInput());
-
-                    }
                 }
                 case "3" -> {
-                    if(UtilityAccess.getState() == State.LOGGED_IN) {
-                        while (exit) {
-                            Printer.print("\nWrite the number of the workout you want to buy about:");
-
-                            int numberInput = Integer.parseInt(getUserInput());
-
-
-                        }
-                    } else {
-                        Printer.print("\nTo purchase a workout you must be logged in");
-                        GraphicsControllerCliLoginPage graphicsControllerCliLoginPage = new GraphicsControllerCliLoginPage();
-                        graphicsControllerCliLoginPage.viewAccessPage();
-                    }
+                    BitcoinInput();
+                    PaymentDone();
                     exit = false;
                 }
                 case "4" -> {
@@ -89,7 +66,41 @@ public class GraphicsControllerCliBuyWorkoutPlan1 {
         }
     }
 
-    private void creditCardInput() throws IOException, SQLException, TdeeRemoveException {
+    private void PaymentDone() {
+        try {
+            Thread.sleep(5000); // Attendiamo per 5 secondi
+        } catch (InterruptedException e) {
+            System.out.println("Problem with payments");
+        }
+        Printer.print("\nPayment done");
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            System.out.println("Problem with payments");
+        }
+
+        GraphicsControllerCliBuyWorkoutPlan2 graphicsControllerCliBuyWorkoutPlan2 = new GraphicsControllerCliBuyWorkoutPlan2();
+        graphicsControllerCliBuyWorkoutPlan2.savePurchase(thisWorkout);
+    }
+
+    private void BitcoinInput() {
+        Printer.print("\nNot yet implemented");
+        Printer.print("if you want you can make a donation ;). Bitcoin address:" +
+                "\n" +
+                "\"-------------------bc1qqu4l3sueuqxm9fdr9puqp4vl905lq57l4zzcz2-------------------" +
+                "\n");
+    }
+
+    private void PayPalInput() {
+        Printer.print("\nNot yet implemented");
+        Printer.print("if you want you can make a donation ;)" +
+                "\n" +
+                "\"-------------------https://www.paypal.me/sCostantinopoli" +
+                "\n");
+
+    }
+
+    private void CreditCardInput() throws IOException, SQLException, TdeeRemoveException {
         boolean exit = true;
         while (exit) {
             Printer.print("\nInsert Card number: ");
@@ -108,23 +119,23 @@ public class GraphicsControllerCliBuyWorkoutPlan1 {
                         CVV = userInputCVV;
                         Printer.print("\nEnter the First name written on the credit card: ");
                         String userInputFirstName = getUserInput();
-                        if (userInputFirstName.length() < 1){
+                        if (userInputFirstName.length() > 1){
                             FirstName = userInputFirstName;
                             Printer.print("\nEnter the Last name written on the credit card: ");
                             String userInputLastName = getUserInput();
-                            if (userInputLastName.length() < 1) {
+                            if (userInputLastName.length() > 1) {
                                 LastName = userInputFirstName;
                                 Printer.print("\nEnter street address: ");
                                 String userStreetAddress = getUserInput();
-                                if(userStreetAddress.length() < 3){
+                                if(userStreetAddress.length() > 3){
                                     StreetAddress = userStreetAddress;
                                     Printer.print("\nEnter apartment, building, ... : ");
                                     String userApartment = getUserInput();
-                                    if (userApartment.length() < 2){
+                                    if (userApartment.length() > 2){
                                         Apartment = userApartment;
                                         Printer.print("\nEnter Nation: ");
                                         String userNation = getUserInput();
-                                        if(userNation.length() < 2){
+                                        if(userNation.length() > 2){
                                             StateUser = userNation;
                                             Printer.print("\nEnter ZIP code: ");
                                             int userZIPCode = Integer.parseInt(getUserInput());
@@ -168,19 +179,5 @@ public class GraphicsControllerCliBuyWorkoutPlan1 {
     private void backToHomePage() throws IOException, SQLException, TdeeRemoveException {
         GraphicsControllerCliHomePage homePage = new GraphicsControllerCliHomePage();
         homePage.displayHomepage();
-    }
-
-    private void printPaymentsMethods(List<WorkoutPlan> workoutPlanList) {
-        // this method print all tdee of user
-        //Printer.print("-------------------WORKOUT PLAN SOLD PAGE-------------------\n");
-
-        int index = 1;
-        for (WorkoutPlan workoutPlan : workoutPlanList) {
-            Printer.print("\n_________");
-            Printer.print(index + " Workout name:" + workoutPlan.getName());
-            Printer.print(" Prize: " + workoutPlan.getPrize());
-            Printer.print("_________");
-            index++;
-        }
     }
 }
