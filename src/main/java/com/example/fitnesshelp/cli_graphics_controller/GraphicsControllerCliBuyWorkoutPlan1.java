@@ -66,7 +66,7 @@ public class GraphicsControllerCliBuyWorkoutPlan1 {
         }
     }
 
-    private void PaymentDone() {
+    private void PaymentDone() throws SQLException, IOException, TdeeRemoveException {
         try {
             Thread.sleep(5000); // Attendiamo per 5 secondi
         } catch (InterruptedException e) {

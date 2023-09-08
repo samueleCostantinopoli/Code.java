@@ -144,8 +144,13 @@ public class GraphicsControllerCliHomePage {
         graphicsControllerCliLoginPage.viewAccessPage();
     }
 
-    private void handleViewAccount() {
-        Printer.print("'My account' has not been implemented, it will be available soon\nSelect another function\n");
+    private void handleViewAccount() throws SQLException, IOException, TdeeRemoveException {
+        if (UtilityAccess.getState().equals(State.LOGGED_IN)) {
+            GraphicsControllerCliAccount graphicsControllerCliAccount = new GraphicsControllerCliAccount();
+            graphicsControllerCliAccount.viewAccount();
+        } else {
+            Printer.print("\nTo access to account section you must be logged in\n");
+        }
     }
 
     private void handleCloseApplication() throws SQLException {

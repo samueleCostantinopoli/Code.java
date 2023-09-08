@@ -24,9 +24,7 @@ public class GraphicsControllerBuyWorkoutPlan2 extends GraphicsControllerHomePag
     public Label WorkoutNamePurchase;
 
     ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
-    List<WorkoutPlan> workoutPlanList = applicationControllerBuyWorkoutPlan.checkWorkoutPlan();
-    int CurrentWorkout = -1;
-    public GraphicsControllerBuyWorkoutPlan2() throws IOException {
+    public GraphicsControllerBuyWorkoutPlan2() {
     }
 
     public Purchase newPurchase;
@@ -38,8 +36,7 @@ public class GraphicsControllerBuyWorkoutPlan2 extends GraphicsControllerHomePag
         UsernameCreatorPurchase.setText("Username of creator: " + newPurchase.getWorkoutPlan().getUsername());
         WorkoutNamePurchase.setText("Workout name: " + thisWorkout.getName());
 
-        ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan1 = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
-        applicationControllerBuyWorkoutPlan1.createPurchase(newPurchase);
+        applicationControllerBuyWorkoutPlan.createPurchase(newPurchase);
     }
 
     private Date TakeDate() {
@@ -52,7 +49,6 @@ public class GraphicsControllerBuyWorkoutPlan2 extends GraphicsControllerHomePag
         int id = random.nextInt(Integer.MAX_VALUE);
         return id;
     }
-
 
     public void clickedOnBuyWorkoutPlanHyperlink1(ActionEvent event) throws IOException {
         stageToSwitch = "/com/example/fitnesshelp/buyWorkoutPlan";
