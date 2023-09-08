@@ -11,7 +11,14 @@ public class BeanComplexity {
     public static void checkComplexity(String password) throws UpperCaseException, LowerCaseException, DigitException, LenghtException, SpecialException {
         boolean hasUppercase = !password.equals(password.toLowerCase());
         boolean hasLowercase = !password.equals(password.toUpperCase());
-        boolean hasDigit = password.matches(".*\\d.*");
+        boolean hasDigit = false;
+        for (char c : password.toCharArray()) {
+            if (Character.isDigit(c)) {
+                hasDigit = true;
+                break; // Esci dal ciclo una volta trovato un numero
+            }
+        }
+
         boolean hasSpecial = !password.matches("[A-Za-z0-9]*");
 
         if(!hasUppercase){
