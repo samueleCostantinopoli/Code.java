@@ -11,11 +11,13 @@ public class DaoImplFileSystemTdee implements DaoEntity<Tdee>{
 
     @Override
     public List<Tdee> showData(String username){
-        return null;
+        throw new UnsupportedOperationException("showData method is implemented in the dao of db by default");
     }
 
     @Override
     public void removeData(Tdee entity){
+        // this method is empty because by default this operation
+        // are made on db
     }
 
     private static final String FILE_NAME = "myTdee.txt";

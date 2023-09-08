@@ -1,6 +1,7 @@
 package com.example.fitnesshelp.dao;
 
 import com.example.fitnesshelp.entities.TypeOfUser;
+import com.example.fitnesshelp.utils.Printer;
 import com.example.fitnesshelp.utils.UtilityAccess;
 import java.io.IOException;
 import java.sql.*;
@@ -20,7 +21,7 @@ public class DaoImplLogin implements DaoLogin{
             cs.setString(2, username);
             cs.registerOutParameter(3, Types.BOOLEAN);
             cs.registerOutParameter(4, Types.CHAR);
-            ResultSet rs = cs.executeQuery();
+            cs.executeQuery();
             loginState = cs.getBoolean(3);
             String role = cs.getString(4);
             TypeOfUser typeOfUser = null;
@@ -33,7 +34,7 @@ public class DaoImplLogin implements DaoLogin{
             }
             UtilityAccess.setTypeOfUser(typeOfUser);
         } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            Printer.print("Error: " + e.getMessage());
             return false;
         }
         return loginState;

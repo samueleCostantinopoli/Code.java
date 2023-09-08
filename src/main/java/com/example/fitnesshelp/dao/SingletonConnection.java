@@ -26,9 +26,9 @@ public class SingletonConnection {
         return instance;
     }
 
-    private void connectToDB() throws IOException, java.sql.SQLException {
+    private static void connectToDB() throws IOException, java.sql.SQLException {
         Properties properties = new Properties();
-        InputStream is = getClass().getClassLoader().getResourceAsStream("application.properties");
+        InputStream is = SingletonConnection.class.getClassLoader().getResourceAsStream("application.properties");
         properties.load(is);
 
         String dbUrl = properties.getProperty("db.url");

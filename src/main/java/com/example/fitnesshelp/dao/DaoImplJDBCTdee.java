@@ -29,10 +29,9 @@ public class DaoImplJDBCTdee implements DaoEntity<Tdee>{
             cs.setFloat(5, tdee.getFat());
             cs.setFloat(6, tdee.getCarb());
             cs.setString(7, tdee.getUsername());
-            ResultSet rs = cs.executeQuery();
+            cs.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gestisci l'eccezione
         }
     }
 
@@ -56,7 +55,6 @@ public class DaoImplJDBCTdee implements DaoEntity<Tdee>{
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gestisci l'eccezione
         }
         return listOfTdee;
     }
@@ -65,10 +63,9 @@ public class DaoImplJDBCTdee implements DaoEntity<Tdee>{
     public void removeData(Tdee tdee) {
         try (CallableStatement cs = connection.prepareCall("{call delete_tdee(?)}")) {
             cs.setInt(1, tdee.getKcal());
-            ResultSet rs = cs.executeQuery();
+            cs.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
-            // Gestisci l'eccezione
         }
     }
 }
