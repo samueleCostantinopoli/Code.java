@@ -17,9 +17,9 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-import java.io.IOException;
+
 import java.net.URL;
-import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -49,12 +49,8 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
         if(numberOfAnchorPanes > 0){
             simpleDescription.setVisible(false);
             simpleDescription2.setVisible(false);
-            List<AnchorPane> anchorPanes = null;
-            try {
-                anchorPanes = createAnchorPanes(numberOfAnchorPanes, listWorkouts);
-            } catch (ExerciseLoadException e) {
-                throw e;
-            }
+            List<AnchorPane> anchorPanes;
+            anchorPanes = createAnchorPanes(numberOfAnchorPanes, listWorkouts);
             anchorPaneContainer.getChildren().addAll(anchorPanes);
         }
         else{
