@@ -11,11 +11,12 @@ import com.example.fitnesshelp.exception.PurchaseUserLoadException;
 import com.example.fitnesshelp.exception.TdeeRemoveException;
 import com.example.fitnesshelp.utils.Printer;
 import com.example.fitnesshelp.utils.UtilityAccess;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.List;
+
+import static com.example.fitnesshelp.cli_graphics_controller.GraphicsControllerCliCommonOperations.getUserInput;
+
 
 public class GraphicsControllerCliBuyPreviewWorkoutPlan {
 
@@ -23,7 +24,6 @@ public class GraphicsControllerCliBuyPreviewWorkoutPlan {
     public void setIndex(WorkoutPlan currentWorkout) throws IOException, SQLException, TdeeRemoveException, ExerciseLoadException, PurchaseUserLoadException {
         ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
         BeanBuyWorkoutPlan beanBuyWorkoutPlan = new BeanBuyWorkoutPlan(currentWorkout.getName(), currentWorkout.getPrize(), currentWorkout.getUsername());
-
         List<Exercise> exerciseList = applicationControllerBuyWorkoutPlan.checkUserExercise(beanBuyWorkoutPlan);
 
         boolean exit = true;
@@ -35,23 +35,14 @@ public class GraphicsControllerCliBuyPreviewWorkoutPlan {
             Printer.print("3: Get info workout");
             Printer.print("4: Buy workout");
             Printer.print("");
-
             String userInput = getUserInput();
-
             switch (userInput) {
-                case "1" -> {
-                    backToHomePage();
-                    exit = false;
-                }
-                case "2" -> {
-                    backToBuyWorkoutPlan();
-                    exit = false;
-                }
+                case "1" -> GraphicsControllerCliCommonOperations.backToHomePage();
+                case "2" -> GraphicsControllerCliCommonOperations.backToBuyWorkoutPlan();
                 case "3" -> {
                     GraphicsControllerCliBuyInfoWorkoutPlan infoController = new GraphicsControllerCliBuyInfoWorkoutPlan();
                     infoController.setIndex(currentWorkout);
                     exit = false;
-
                 }
                 case "4" -> {
                     if (UtilityAccess.getState() == State.LOGGED_IN) {
@@ -70,22 +61,6 @@ public class GraphicsControllerCliBuyPreviewWorkoutPlan {
         }
     }
 
-    private void backToBuyWorkoutPlan() throws SQLException, IOException, TdeeRemoveException, ExerciseLoadException, PurchaseUserLoadException {
-        GraphicsControllerCliBuyWorkoutPlan graphicsControllerCliBuyWorkoutPlan = new GraphicsControllerCliBuyWorkoutPlan();
-        graphicsControllerCliBuyWorkoutPlan.showMenu();
-    }
-
-
-    private void backToHomePage() throws IOException, SQLException, TdeeRemoveException {
-        GraphicsControllerCliHomePage homePage = new GraphicsControllerCliHomePage();
-        homePage.displayHomepage();
-    }
-
-    private String getUserInput() throws IOException {
-        // to get user input
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        return bufferedReader.readLine().trim();
-    }
 
     public void printWorkoutPlan(List<Exercise> exerciseList) {
         Printer.print("-------------------WORKOUT PREVIEW PAGE-------------------");

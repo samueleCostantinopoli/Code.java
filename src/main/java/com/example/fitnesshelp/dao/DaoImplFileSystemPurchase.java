@@ -67,7 +67,6 @@ public class DaoImplFileSystemPurchase implements DaoEntity<Purchase>{
             }
         } catch (IOException | ParseException e) {
             Printer.print("Problem with read file\n");
-            e.printStackTrace(); // Stampa il messaggio di errore
         }
         return purchaseArrayList;
     }

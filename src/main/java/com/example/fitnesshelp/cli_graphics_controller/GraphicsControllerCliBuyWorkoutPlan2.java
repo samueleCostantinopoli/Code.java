@@ -17,8 +17,6 @@ import java.util.Date;
 import java.util.Random;
 
 public class GraphicsControllerCliBuyWorkoutPlan2 {
-
-
     Purchase newPurchase;
     ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
     private Random random = new Random();

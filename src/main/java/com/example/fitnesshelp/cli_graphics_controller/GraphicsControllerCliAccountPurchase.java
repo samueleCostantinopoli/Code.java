@@ -15,7 +15,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class GraphicsControllerCliAccountPurchase {
-
     BeanState beanState = new BeanState(UtilityAccess.getState());
     ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(beanState);
     BeanUsername beanUsername = new BeanUsername(UtilityAccess.getUsername());
