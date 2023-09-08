@@ -5,6 +5,7 @@ import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.bean.BeanUsername;
 import com.example.fitnesshelp.entities.Purchase;
 import com.example.fitnesshelp.utils.UtilityAccess;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -17,7 +18,9 @@ import java.util.ResourceBundle;
 
 public class GraphicsControllerAccountPurchase extends GraphicsControllerHomePage implements Initializable {
 
+    @FXML
     public VBox anchorPaneContainer;
+    @FXML
     public ScrollPane scrollPane;
 
     BeanState beanState = new BeanState(UtilityAccess.getState());

@@ -35,7 +35,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
     @FXML
     private VBox anchorPaneContainer;
 
-    public final String colorBox = "-fx-background-color: #231717;";
+    static final String COLORBOX = "-fx-background-color: #231717;";
 
     public GraphicsControllerBuyWorkoutPlan() throws IOException {
         // Only for exception
@@ -139,7 +139,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
                     throw new RuntimeException(e);
                 }
             });
-            priceButton.setStyle(colorBox);
+            priceButton.setStyle(COLORBOX);
             priceButton.setTextFill(Color.WHITE);
             priceButton.setFont(new Font(14.0));
 
@@ -153,7 +153,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
                     throw new RuntimeException(e);
                 }
             });
-            previewButton.setStyle(colorBox);
+            previewButton.setStyle(COLORBOX);
             previewButton.setTextFill(Color.WHITE);
             previewButton.setFont(new Font(14.0));
 
@@ -167,7 +167,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
                     throw new RuntimeException(e);
                 }
             });
-            infoButton.setStyle(colorBox);
+            infoButton.setStyle(COLORBOX);
             infoButton.setTextFill(Color.WHITE);
             infoButton.setFont(new Font(14.0));
 

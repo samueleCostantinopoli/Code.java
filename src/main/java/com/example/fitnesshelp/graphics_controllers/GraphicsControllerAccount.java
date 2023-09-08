@@ -8,11 +8,11 @@ import java.io.IOException;
 import static com.example.fitnesshelp.entities.State.LOGGED_IN;
 
 public class GraphicsControllerAccount extends GraphicsControllerHomePage {
-    public final String ACCOUNT= "/com/example/fitnesshelp/account";
+    static final String ACCOUNT = "/com/example/fitnesshelp/account";
 
     @FXML
     void clickedOnAccountHyperlink(ActionEvent event) throws IOException{
-        stageToSwitch= ACCOUNT;
+        stageToSwitch = ACCOUNT;
         switchStage(event);
     }
 

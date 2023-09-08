@@ -44,18 +44,15 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
     @FXML
     private ScrollPane scrollPane;
 
-
     public GraphicsControllerMyWorkoutPlan() throws WorkoutPlanLoadException {
+        // Only for exception
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int numberOfAnchorPanes;
-        try {
-            numberOfAnchorPanes = readValueFromFileSystem();
-        } catch (SQLException | IOException e) {
-            throw new RuntimeException(e);
-        }
+        numberOfAnchorPanes = readValueFromFileSystem();
         if(numberOfAnchorPanes > 0){
             simpleDescription.setVisible(false);
             simpleDescription2.setVisible(false);
@@ -80,7 +77,7 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
 
 
 
-    private int readValueFromFileSystem() throws SQLException, IOException {
+    private int readValueFromFileSystem(){
         // Read value from the file system
         return listWorkouts.size();
     }

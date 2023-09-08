@@ -140,10 +140,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
     private boolean remove = false;
     private boolean saveWorkout = false;
 
-    public GraphicsControllerCreateWorkoutPlan() {
-    }
-
-    public void OnClickStartButton() {
+    public void onClickStartButton() {
         startButton.setVisible(false);
         infoBar.setVisible(true);
         nameCustomExerciseTextField1.setVisible(true);
@@ -309,10 +306,8 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
         String workoutUsername = UtilityAccess.getUsername();
 
         double workoutPrice = -10;
-        if (UtilityAccess.getTypeOfUser().equals(TypeOfUser.PERSONAL_TRAINER)) {
-            if (!priceTextField.getText().isEmpty()) {
-                workoutPrice = Double.parseDouble(priceTextField.getText());
-            }
+        if (UtilityAccess.getTypeOfUser().equals(TypeOfUser.PERSONAL_TRAINER) && !priceTextField.getText().isEmpty()) {
+            workoutPrice = Double.parseDouble(priceTextField.getText());
         }
 
         return new WorkoutPlan(workoutName, workoutCategory, workoutUsername, workoutPrice);
