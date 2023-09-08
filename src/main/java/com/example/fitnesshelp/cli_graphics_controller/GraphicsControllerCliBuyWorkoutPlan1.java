@@ -1,6 +1,8 @@
 package com.example.fitnesshelp.cli_graphics_controller;
 
 import com.example.fitnesshelp.entities.WorkoutPlan;
+import com.example.fitnesshelp.exception.ExerciseLoadException;
+import com.example.fitnesshelp.exception.PurchaseUserLoadException;
 import com.example.fitnesshelp.exception.TdeeRemoveException;
 import com.example.fitnesshelp.utils.Printer;
 import java.io.BufferedReader;
@@ -10,22 +12,22 @@ import java.sql.SQLException;
 
 public class GraphicsControllerCliBuyWorkoutPlan1 {
 
-    String CardNumber;
-    String ExpiresCard;
-    int CVV;
-    String FirstName;
-    String LastName;
-    String StreetAddress;
-    String Apartment;
-    String City;
-    String StateUser;
-    int ZIPCode;
-    String MobileNumber;
-    String Email;
+    String cardNumber;
+    String expiresCard;
+    int cvv;
+    String firstName;
+    String lastName;
+    String streetAddress;
+    String apartment;
+    String city;
+    String stateUser;
+    int zipCode;
+    String mobileNumber;
+    String email;
 
     WorkoutPlan thisWorkout;
 
-    public void SaveWorkout(WorkoutPlan workout) throws IOException, SQLException, TdeeRemoveException {
+    public void saveWorkout(WorkoutPlan workout) throws IOException, SQLException, TdeeRemoveException, ExerciseLoadException, PurchaseUserLoadException {
         thisWorkout = workout;
         boolean exit = true;
         while (exit) {
@@ -42,19 +44,19 @@ public class GraphicsControllerCliBuyWorkoutPlan1 {
 
             switch (userInput) {
                 case "1" -> {
-                    CreditCardInput();
-                    PaymentDone();
+                    creditCardInput();
+                    paymentDone();
                     exit = false;
                 }
                 case "2" -> {
-                    PayPalInput();
-                    PaymentDone();
+                    payPalInput();
+                    paymentDone();
                     exit = false;
 
                 }
                 case "3" -> {
-                    BitcoinInput();
-                    PaymentDone();
+                    bitcoinInput();
+                    paymentDone();
                     exit = false;
                 }
                 case "4" -> {
@@ -66,13 +68,13 @@ public class GraphicsControllerCliBuyWorkoutPlan1 {
         }
     }
 
-    private void PaymentDone() throws SQLException, IOException, TdeeRemoveException {
+    private void paymentDone() throws SQLException, IOException, TdeeRemoveException, ExerciseLoadException, PurchaseUserLoadException {
         try {
             Thread.sleep(5000); // Attend for 5 second
         } catch (InterruptedException e) {
             // Restore the stopped state of the current thread
             Thread.currentThread().interrupt();
-            System.out.println("Problem with payments");
+            Printer.print("Problem with payments");
         }
         Printer.print("\nPayment done");
         try {
@@ -80,7 +82,6 @@ public class GraphicsControllerCliBuyWorkoutPlan1 {
         } catch (InterruptedException e) {
             // Restore the stopped state of the current thread
             Thread.currentThread().interrupt();
-            System.out.println("Problem with payments");
         }
 
         GraphicsControllerCliBuyWorkoutPlan2 graphicsControllerCliBuyWorkoutPlan2 = new GraphicsControllerCliBuyWorkoutPlan2();
@@ -88,7 +89,7 @@ public class GraphicsControllerCliBuyWorkoutPlan1 {
     }
 
 
-    private void BitcoinInput() {
+    private void bitcoinInput() {
         Printer.print("\nNot yet implemented");
         Printer.print("""
                 if you want you can make a donation ;). Bitcoin address:
@@ -96,7 +97,7 @@ public class GraphicsControllerCliBuyWorkoutPlan1 {
                 """);
     }
 
-    private void PayPalInput() {
+    private void payPalInput() {
         Printer.print("\nNot yet implemented");
         Printer.print("""
                 if you want you can make a donation ;)
@@ -105,84 +106,192 @@ public class GraphicsControllerCliBuyWorkoutPlan1 {
 
     }
 
-    private void CreditCardInput() throws IOException, SQLException, TdeeRemoveException {
+    private void creditCardInput() throws IOException, SQLException, TdeeRemoveException {
         boolean exit = true;
+
         while (exit) {
-            Printer.print("\nInsert Card number: ");
-            String userInput = getUserInput();
-            if(userInput.length() == 16 ){
-                CardNumber = userInput;
+            cardNumber = getCreditCardNumber();
+            expiresCard = getExpiresCard();
+            cvv = getCVV();
+            firstName = getFirstName();
+            lastName = getLastName();
+            streetAddress = getStreetAddress();
+            apartment = getApartment();
+            city = getCity();
+            stateUser = getState();
+            zipCode = getZIPCode();
+            mobileNumber = getMobileNumber();
+            email = getEmail();
 
-                Printer.print("\nInsert Expires Card: ");
-                String userInputExpires = getUserInput();
-                if (userInputExpires.length() >= 4){
-                    ExpiresCard = userInputExpires;
+            Printer.print("\nInsertion completed, continue with payment? Enter \"yes\" to continue and \"no\" to return to the home page: ");
+            String userAnswer = getUserInput();
 
-                    Printer.print("\nInsert CVV: ");
-                    int userInputCVV = Integer.parseInt(getUserInput());
-                    if (String.valueOf(userInputCVV).length() == 3){
-                        CVV = userInputCVV;
-                        Printer.print("\nEnter the First name written on the credit card: ");
-                        String userInputFirstName = getUserInput();
-                        if (userInputFirstName.length() > 1){
-                            FirstName = userInputFirstName;
-                            Printer.print("\nEnter the Last name written on the credit card: ");
-                            String userInputLastName = getUserInput();
-                            if (userInputLastName.length() > 1) {
-                                LastName = userInputFirstName;
-                                Printer.print("\nEnter street address: ");
-                                String userStreetAddress = getUserInput();
-                                if(userStreetAddress.length() > 3){
-                                    StreetAddress = userStreetAddress;
-                                    Printer.print("\nEnter apartment, building, ... : ");
-                                    String userApartment = getUserInput();
-                                    if (userApartment.length() > 2){
-                                        Apartment = userApartment;
-                                        Printer.print("\nEnter city: ");
-                                        String userCity = getUserInput();
-                                        if(userCity.length() > 2) {
-                                            City = userCity;
-                                            Printer.print("\nEnter Nation: ");
-                                            String userNation = getUserInput();
-                                            if (userNation.length() > 2) {
-                                                StateUser = userNation;
-                                                Printer.print("\nEnter ZIP code: ");
-                                                int userZIPCode = Integer.parseInt(getUserInput());
-                                                if (String.valueOf(userZIPCode).length() == 5) {
-                                                    ZIPCode = userZIPCode;
-                                                    Printer.print("\nEnter mobile number: ");
-                                                    String userMobile = getUserInput();
-                                                    if (userMobile.length() < 9) {
-                                                        MobileNumber = userMobile;
-                                                        Printer.print("\nEnter email: ");
-                                                        String userEmail = getUserInput();
-                                                        if (userEmail.length() < 4) {
-                                                            Email = userEmail;
-                                                            Printer.print("\nInsertion completed, continue with payment? Enter \"yes\" to continue and \"no\" to return to the home page: ");
-                                                            String userAnswer = getUserInput();
-                                                            if (userAnswer.equals("yes")) {
-                                                                exit = false;
-                                                            } else if (userAnswer.equals("no")) {
-                                                                backToHomePage();
-                                                            } else
-                                                                Printer.print("\nInsertion completed, continue with payment? Enter \"yes\" to continue and \"no\" to return to the home page: ");
-                                                        } else
-                                                            Printer.print("Invalid value, check that you have entered email");
-                                                    } else
-                                                        Printer.print("Invalid value, check that you have entered mobile number");
-                                                } else
-                                                    Printer.print("Invalid value, check that you have entered ZIP code, 5 number");
-                                            } else Printer.print("Invalid value");
-                                        }else Printer.print("Invalid value");
-                                    } else Printer.print("Invalid value");
-                                } else Printer.print("Invalid value");
-                            } else Printer.print("Invalid value");
-                        } else Printer.print("Invalid value");
-                    } else Printer.print("Invalid value, check that you have entered CVV, 3 number");
-                } else Printer.print("Invalid value, check that you have entered all the digits");
-            } else Printer.print("Invalid value, check that you have entered all the digits");
+            if (userAnswer.equals("yes")) {
+                exit = false;
+            } else if (userAnswer.equals("no")) {
+                backToHomePage();
+            } else {
+                Printer.print("\nInvalid answer, please enter \"yes\" or \"no\".");
+            }
         }
     }
+
+    private String getCreditCardNumber() throws IOException {
+        while (true) {
+            Printer.print("\nInsert Card number: ");
+            String userInput = getUserInput();
+
+            if (userInput.length() == 16) {
+                return userInput;
+            } else {
+                Printer.print("Invalid value, check that you have entered all 16 digits.");
+            }
+        }
+    }
+
+    private String getExpiresCard() throws IOException {
+        while (true) {
+            Printer.print("\nInsert Expires Card: ");
+            String userInputExpires = getUserInput();
+
+            if (userInputExpires.length() >= 4) {
+                return userInputExpires;
+            } else {
+                Printer.print("Invalid value, check that you have entered all the required digits.");
+            }
+        }
+    }
+
+    private String getFirstName() throws IOException {
+        while (true) {
+            Printer.print("\nEnter the First name written on the credit card: ");
+            String userInputFirstName = getUserInput();
+
+            if (userInputFirstName.length() > 1) {
+                return userInputFirstName;
+            } else {
+                Printer.print("Invalid value, please enter a valid First Name.");
+            }
+        }
+    }
+
+    private String getLastName() throws IOException {
+        while (true) {
+            Printer.print("\nEnter the Last name written on the credit card: ");
+            String userInputLastName = getUserInput();
+
+            if (userInputLastName.length() > 1) {
+                return userInputLastName;
+            } else {
+                Printer.print("Invalid value, please enter a valid Last Name.");
+            }
+        }
+    }
+
+    private String getStreetAddress() throws IOException {
+        while (true) {
+            Printer.print("\nEnter street address: ");
+            String userStreetAddress = getUserInput();
+
+            if (userStreetAddress.length() > 3) {
+                return userStreetAddress;
+            } else {
+                Printer.print("Invalid value, please enter a valid Street Address.");
+            }
+        }
+    }
+
+    private String getApartment() throws IOException {
+        while (true) {
+            Printer.print("\nEnter apartment, building, ... : ");
+            String userApartment = getUserInput();
+
+            if (userApartment.length() > 2) {
+                return userApartment;
+            } else {
+                Printer.print("Invalid value, please enter a valid Apartment/Building.");
+            }
+        }
+    }
+
+    private String getCity() throws IOException {
+        while (true) {
+            Printer.print("\nEnter city: ");
+            String userCity = getUserInput();
+
+            if (userCity.length() > 2) {
+                return userCity;
+            } else {
+                Printer.print("Invalid value, please enter a valid City.");
+            }
+        }
+    }
+
+    private String getState() throws IOException {
+        while (true) {
+            Printer.print("\nEnter Nation: ");
+            String userNation = getUserInput();
+
+            if (userNation.length() > 2) {
+                return userNation;
+            } else {
+                Printer.print("Invalid value, please enter a valid Nation.");
+            }
+        }
+    }
+
+    private int getZIPCode() throws IOException {
+        while (true) {
+            Printer.print("\nEnter ZIP code: ");
+            int userZIPCode = Integer.parseInt(getUserInput());
+
+            if (String.valueOf(userZIPCode).length() == 5) {
+                return userZIPCode;
+            } else {
+                Printer.print("Invalid value, please enter a valid ZIP code with 5 digits.");
+            }
+        }
+    }
+
+    private String getMobileNumber() throws IOException {
+        while (true) {
+            Printer.print("\nEnter mobile number: ");
+            String userMobile = getUserInput();
+
+            if (userMobile.length() < 9) {
+                return userMobile;
+            } else {
+                Printer.print("Invalid value, please enter a valid Mobile Number.");
+            }
+        }
+    }
+
+    private int getCVV() throws IOException {
+        while (true) {
+            Printer.print("\nInsert CVV: ");
+            int userInputCVV = Integer.parseInt(getUserInput());
+
+            if (String.valueOf(userInputCVV).length() == 3) {
+                return userInputCVV;
+            } else {
+                Printer.print("Invalid value, check that you have entered CVV, 3 numbers.");
+            }
+        }
+    }
+
+    private String getEmail() throws IOException {
+        while (true) {
+            Printer.print("\nEnter email: ");
+            String userEmail = getUserInput();
+
+            if (userEmail.length() >= 4) {
+                return userEmail;
+            } else {
+                Printer.print("Invalid value, check that you have entered an email.");
+            }
+        }
+    }
+
 
     private String getUserInput() throws IOException {
         // to get user input

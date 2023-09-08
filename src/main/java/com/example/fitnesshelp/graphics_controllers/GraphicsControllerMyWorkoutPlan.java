@@ -6,6 +6,8 @@ import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.bean.BeanUsername;
 import com.example.fitnesshelp.entities.Exercise;
 import com.example.fitnesshelp.entities.WorkoutPlan;
+import com.example.fitnesshelp.exception.ExerciseLoadException;
+import com.example.fitnesshelp.exception.WorkoutPlanLoadException;
 import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -43,7 +45,7 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
     private ScrollPane scrollPane;
 
 
-    public GraphicsControllerMyWorkoutPlan() throws IOException {
+    public GraphicsControllerMyWorkoutPlan() throws WorkoutPlanLoadException {
     }
 
     @Override
@@ -57,7 +59,12 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
         if(numberOfAnchorPanes > 0){
             simpleDescription.setVisible(false);
             simpleDescription2.setVisible(false);
-            List<AnchorPane> anchorPanes = createAnchorPanes(numberOfAnchorPanes, listWorkouts);
+            List<AnchorPane> anchorPanes = null;
+            try {
+                anchorPanes = createAnchorPanes(numberOfAnchorPanes, listWorkouts);
+            } catch (ExerciseLoadException e) {
+                throw new RuntimeException(e);
+            }
             anchorPaneContainer.getChildren().addAll(anchorPanes);
         }
         else{
@@ -78,7 +85,7 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
         return listWorkouts.size();
     }
 
-    private List<AnchorPane> createAnchorPanes(int numberOfAnchorPanes, List<WorkoutPlan> workoutPlanList) {
+    private List<AnchorPane> createAnchorPanes(int numberOfAnchorPanes, List<WorkoutPlan> workoutPlanList) throws ExerciseLoadException {
         List<AnchorPane> anchorPanes = new ArrayList<>();
 
         for (int index = 0; index < numberOfAnchorPanes; index++) {
@@ -92,7 +99,7 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
         return anchorPanes;
     }
 
-    private AnchorPane createAnchorPane(WorkoutPlan workoutPlan) {
+    private AnchorPane createAnchorPane(WorkoutPlan workoutPlan) throws ExerciseLoadException {
         // Creazione dell'AnchorPane per il titolo del workout
         AnchorPane anchorPaneTitle = createTitleAnchorPane(workoutPlan.getName());
 
@@ -130,7 +137,7 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
         return anchorPaneTitle;
     }
 
-    private AnchorPane createInfoAnchorPane(WorkoutPlan workoutPlan) {
+    private AnchorPane createInfoAnchorPane(WorkoutPlan workoutPlan) throws ExerciseLoadException {
         AnchorPane anchorPaneInfo = new AnchorPane();
         anchorPaneInfo.setPrefWidth(585.0);
         anchorPaneInfo.setStyle("-fx-background-color: #FFFFFF; -fx-border-color: black; -fx-border-width: 1px;");

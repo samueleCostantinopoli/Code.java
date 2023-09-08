@@ -1,5 +1,6 @@
 package com.example.fitnesshelp.cli_graphics_controller;
 
+import com.example.fitnesshelp.exception.PurchaseUserLoadException;
 import com.example.fitnesshelp.exception.TdeeRemoveException;
 import com.example.fitnesshelp.utils.Printer;
 
@@ -9,7 +10,7 @@ import java.io.InputStreamReader;
 import java.sql.SQLException;
 
 public class GraphicsControllerCliAccount {
-    public void viewAccount() throws IOException, SQLException, TdeeRemoveException {
+    public void viewAccount() throws IOException, SQLException, TdeeRemoveException, PurchaseUserLoadException {
 
         Printer.print("\n-------------------MY ACCOUNT-------------------");
 

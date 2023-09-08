@@ -1,26 +1,37 @@
 package com.example.fitnesshelp.bean;
 
 public class BeanBuyWorkoutPlan {
-    public double prize;
+    private double prize;
     public String name;
-    public String Username;
+    public String username;
 
-
-    public BeanBuyWorkoutPlan (String name, double prize, String Username){
+    public BeanBuyWorkoutPlan(String name, double prize, String username) {
         this.name = name;
         this.prize = prize;
-        this.Username = Username;
+        this.username = username;
     }
 
-    public double getPrize(){
+    public double getPrize() {
         return prize;
+    }
+
+    public void setPrize(double prize) {
+        this.prize = prize;
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getUsername() {
-        return Username;
+        return username;
+    }
+
+    public void setUsername(String Username) {
+        this.username = Username;
     }
 }

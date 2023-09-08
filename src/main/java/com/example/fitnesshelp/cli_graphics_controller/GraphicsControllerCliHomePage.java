@@ -2,6 +2,8 @@ package com.example.fitnesshelp.cli_graphics_controller;
 
 import com.example.fitnesshelp.dao.SingletonConnection;
 import com.example.fitnesshelp.entities.State;
+import com.example.fitnesshelp.exception.ExerciseLoadException;
+import com.example.fitnesshelp.exception.PurchaseUserLoadException;
 import com.example.fitnesshelp.exception.TdeeRemoveException;
 import com.example.fitnesshelp.utils.Printer;
 import com.example.fitnesshelp.utils.UtilityAccess;
@@ -37,14 +39,14 @@ public class GraphicsControllerCliHomePage {
             try {
                 int choiceNumber = Integer.parseInt(choice);
                 exitRequested = handleChoice(choiceNumber);
-            } catch (NumberFormatException e) {
+            } catch (NumberFormatException | ExerciseLoadException | PurchaseUserLoadException e) {
                 Printer.error("Digit a number\n");
                 System.exit(-1);
             }
         }
     }
 
-    private boolean handleChoice(int choiceNumber) throws IOException, SQLException, TdeeRemoveException {
+    private boolean handleChoice(int choiceNumber) throws IOException, SQLException, TdeeRemoveException, ExerciseLoadException, PurchaseUserLoadException {
         switch (choiceNumber) {
             case 1 -> {
                 handleCreateWorkout();
@@ -120,7 +122,7 @@ public class GraphicsControllerCliHomePage {
         Printer.print("'Look for a personal trainer' has not been implemented, it will be available soon\nSelect another function\n");
     }
 
-    private void handleBuyWorkoutPlan() throws IOException, SQLException, TdeeRemoveException {
+    private void handleBuyWorkoutPlan() throws IOException, SQLException, TdeeRemoveException, ExerciseLoadException, PurchaseUserLoadException {
         GraphicsControllerCliBuyWorkoutPlan graphicsControllerCliBuyWorkoutPlan = new GraphicsControllerCliBuyWorkoutPlan();
         graphicsControllerCliBuyWorkoutPlan.showMenu();
     }
@@ -144,7 +146,7 @@ public class GraphicsControllerCliHomePage {
         graphicsControllerCliLoginPage.viewAccessPage();
     }
 
-    private void handleViewAccount() throws SQLException, IOException, TdeeRemoveException {
+    private void handleViewAccount() throws SQLException, IOException, TdeeRemoveException, PurchaseUserLoadException {
         if (UtilityAccess.getState().equals(State.LOGGED_IN)) {
             GraphicsControllerCliAccount graphicsControllerCliAccount = new GraphicsControllerCliAccount();
             graphicsControllerCliAccount.viewAccount();

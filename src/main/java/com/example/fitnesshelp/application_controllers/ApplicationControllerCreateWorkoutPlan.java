@@ -4,8 +4,6 @@ import com.example.fitnesshelp.bean.BeanCustomWorkoutData;
 import com.example.fitnesshelp.dao.DaoImplFilSystemWorkoutPlan;
 import com.example.fitnesshelp.dao.DaoImplFileSystemExercise;
 import com.example.fitnesshelp.entities.Exercise;
-import com.example.fitnesshelp.utils.UtilityAccess;
-
 import java.io.IOException;
 import java.sql.SQLException;
 

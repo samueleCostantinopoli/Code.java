@@ -4,33 +4,27 @@ import com.example.fitnesshelp.application_controllers.ApplicationControllerBuyW
 import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.entities.Purchase;
 import com.example.fitnesshelp.entities.WorkoutPlan;
+import com.example.fitnesshelp.exception.ExerciseLoadException;
+import com.example.fitnesshelp.exception.PurchaseUserLoadException;
 import com.example.fitnesshelp.exception.TdeeRemoveException;
 import com.example.fitnesshelp.utils.Printer;
 import com.example.fitnesshelp.utils.UtilityAccess;
-import javafx.event.ActionEvent;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.Date;
-import java.util.List;
 import java.util.Random;
 
 public class GraphicsControllerCliBuyWorkoutPlan2 {
 
-    public GraphicsControllerCliBuyWorkoutPlan2() throws IOException {
-    }
 
-    public Purchase newPurchase;
+    Purchase newPurchase;
     ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
-    List<WorkoutPlan> workoutPlanList = applicationControllerBuyWorkoutPlan.checkWorkoutPlan();
-
     private Random random = new Random();
 
-
-    public void savePurchase(WorkoutPlan thisWorkout) throws SQLException, IOException, TdeeRemoveException {
-        newPurchase = new Purchase(GenerateId(), thisWorkout.getPrize(), TakeDate(), UtilityAccess.getUsername(), thisWorkout);
+    public void savePurchase(WorkoutPlan thisWorkout) throws SQLException, IOException, TdeeRemoveException, ExerciseLoadException, PurchaseUserLoadException {
+        newPurchase = new Purchase(generateId(), thisWorkout.getPrize(), takeDate(), UtilityAccess.getUsername(), thisWorkout);
 
         Printer.print("\n-------------------PURCHASE RECAP-------------------");
         Printer.print("ID: " + newPurchase.getIdPurchase());
@@ -46,7 +40,7 @@ public class GraphicsControllerCliBuyWorkoutPlan2 {
 
             Printer.print("1: Return to home");
             Printer.print("2: Return to workout");
-            Printer.print("3: ");
+            Printer.print("3: Go to Account");
 
 
             String userInput = getUserInput();
@@ -62,7 +56,8 @@ public class GraphicsControllerCliBuyWorkoutPlan2 {
 
                 }
                 case "3" -> {
-
+                    GraphicsControllerCliAccount graphicsControllerCliAccount = new GraphicsControllerCliAccount();
+                    graphicsControllerCliAccount.viewAccount();
                     exit = false;
                 }
                 default -> Printer.print("Invalid option.");
@@ -71,11 +66,11 @@ public class GraphicsControllerCliBuyWorkoutPlan2 {
     }
 
 
-    private Date TakeDate() {
+    private Date takeDate() {
         return new Date();
     }
 
-    private int GenerateId() {
+    private int generateId() {
         // Generate int random ID
         return random.nextInt(Integer.MAX_VALUE);
     }
@@ -86,7 +81,7 @@ public class GraphicsControllerCliBuyWorkoutPlan2 {
         return bufferedReader.readLine().trim();
     }
 
-    private void backToBuyWorkoutPlan() throws SQLException, IOException, TdeeRemoveException {
+    private void backToBuyWorkoutPlan() throws SQLException, IOException, TdeeRemoveException, ExerciseLoadException, PurchaseUserLoadException {
         GraphicsControllerCliBuyWorkoutPlan graphicsControllerCliBuyWorkoutPlan = new GraphicsControllerCliBuyWorkoutPlan();
         graphicsControllerCliBuyWorkoutPlan.showMenu();
     }

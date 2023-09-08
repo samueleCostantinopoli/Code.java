@@ -9,6 +9,9 @@ import com.example.fitnesshelp.dao.DaoImplFileSystemPurchase;
 import com.example.fitnesshelp.entities.Exercise;
 import com.example.fitnesshelp.entities.Purchase;
 import com.example.fitnesshelp.entities.WorkoutPlan;
+import com.example.fitnesshelp.exception.ExerciseLoadException;
+import com.example.fitnesshelp.exception.PurchaseUserLoadException;
+import com.example.fitnesshelp.exception.WorkoutPlanLoadException;
 import com.example.fitnesshelp.utils.UtilityAccess;
 
 import java.io.IOException;
@@ -31,7 +34,7 @@ public class ApplicationControllerBuyWorkoutPlan {
         return daoImplFilSystemWorkoutPlan.showData(UtilityAccess.getUsername());
     }
 
-    public List<WorkoutPlan> checkUserWorkoutPlan(BeanUsername beanUsername) throws IOException {
+    public List<WorkoutPlan> checkUserWorkoutPlan(BeanUsername beanUsername) throws WorkoutPlanLoadException {
         DaoImplFilSystemWorkoutPlan daoImplFilSystemWorkoutPlan = new DaoImplFilSystemWorkoutPlan();
         List<WorkoutPlan> workoutUser = new ArrayList<>();
         try {
@@ -41,8 +44,8 @@ public class ApplicationControllerBuyWorkoutPlan {
                     workoutUser.add(workoutPlan);
                 }
             }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (IOException e) {
+        throw new WorkoutPlanLoadException("Error loading workout plans: " + e.getMessage());
         }
         return workoutUser;
     }
@@ -53,7 +56,7 @@ public class ApplicationControllerBuyWorkoutPlan {
         return daoImplFileSystemExercise.showData(UtilityAccess.getUsername());
     }
 
-    public List<Exercise> checkUserExercise(BeanBuyWorkoutPlan beanBuyWorkoutPlan) {
+    public List<Exercise> checkUserExercise(BeanBuyWorkoutPlan beanBuyWorkoutPlan) throws ExerciseLoadException {
         DaoImplFileSystemExercise daoImplFileSystemExercise = new DaoImplFileSystemExercise();
         List<Exercise> exerciseUser = new ArrayList<>();
         try {
@@ -61,12 +64,12 @@ public class ApplicationControllerBuyWorkoutPlan {
             for (Exercise exercise : exerciseTotal) {
                 if (exercise.getWorkoutPlan().getName().equals(beanBuyWorkoutPlan.getName())
                         && exercise.getWorkoutPlan().getUsername().equals(beanBuyWorkoutPlan.getUsername())
-                        && exercise.getWorkoutPlan().getPrize() == beanBuyWorkoutPlan.prize) {
+                        && exercise.getWorkoutPlan().getPrize() == beanBuyWorkoutPlan.getPrize()) {
                     exerciseUser.add(exercise);
                 }
             }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new ExerciseLoadException("Error loading workout plans: " + e.getMessage());
         }
         return exerciseUser;
     }
@@ -76,23 +79,19 @@ public class ApplicationControllerBuyWorkoutPlan {
         daoImplFileSystemPurchase.saveData(purchaseToSave);
     }
 
-    public List<Purchase> checkPurchase() throws IOException {
+    public List<Purchase> checkPurchase() {
         DaoImplFileSystemPurchase daoImplFileSystemPurchase = new DaoImplFileSystemPurchase();
         return daoImplFileSystemPurchase.showData(UtilityAccess.getUsername());
     }
 
-    public List<Purchase> checkUserPurchase(BeanUsername beanUsername) throws IOException {
+    public List<Purchase> checkUserPurchase(BeanUsername beanUsername) {
         DaoImplFileSystemPurchase daoImplFileSystemPurchase = new DaoImplFileSystemPurchase();
         List<Purchase> purchaseUser = new ArrayList<>();
-        try {
-            List<Purchase> purchaseTotal = daoImplFileSystemPurchase.showData(UtilityAccess.getUsername());
-            for (Purchase purchase : purchaseTotal) {
-                if (purchase.getUsername().equals(beanUsername.getUsername())) {
-                    purchaseUser.add(purchase);
-                }
+        List<Purchase> purchaseTotal = daoImplFileSystemPurchase.showData(UtilityAccess.getUsername());
+        for (Purchase purchase : purchaseTotal) {
+            if (purchase.getUsername().equals(beanUsername.getUsername())) {
+                purchaseUser.add(purchase);
             }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
         }
         return purchaseUser;
     }

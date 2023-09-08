@@ -6,6 +6,8 @@ import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.entities.Exercise;
 import com.example.fitnesshelp.entities.State;
 import com.example.fitnesshelp.entities.WorkoutPlan;
+import com.example.fitnesshelp.exception.ExerciseLoadException;
+import com.example.fitnesshelp.exception.PurchaseUserLoadException;
 import com.example.fitnesshelp.exception.TdeeRemoveException;
 import com.example.fitnesshelp.utils.Printer;
 import com.example.fitnesshelp.utils.UtilityAccess;
@@ -18,7 +20,7 @@ import java.util.List;
 public class GraphicsControllerCliBuyPreviewWorkoutPlan {
 
 
-    public void setIndex(WorkoutPlan currentWorkout) throws IOException, SQLException, TdeeRemoveException {
+    public void setIndex(WorkoutPlan currentWorkout) throws IOException, SQLException, TdeeRemoveException, ExerciseLoadException, PurchaseUserLoadException {
         ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
         BeanBuyWorkoutPlan beanBuyWorkoutPlan = new BeanBuyWorkoutPlan(currentWorkout.getName(), currentWorkout.getPrize(), currentWorkout.getUsername());
 
@@ -54,7 +56,7 @@ public class GraphicsControllerCliBuyPreviewWorkoutPlan {
                 case "4" -> {
                     if (UtilityAccess.getState() == State.LOGGED_IN) {
                         GraphicsControllerCliBuyWorkoutPlan1 infoController = new GraphicsControllerCliBuyWorkoutPlan1();
-                        infoController.SaveWorkout(currentWorkout);
+                        infoController.saveWorkout(currentWorkout);
 
                     } else {
                         Printer.print("\nTo purchase a workout you must be logged in");
@@ -68,7 +70,7 @@ public class GraphicsControllerCliBuyPreviewWorkoutPlan {
         }
     }
 
-    private void backToBuyWorkoutPlan() throws SQLException, IOException, TdeeRemoveException {
+    private void backToBuyWorkoutPlan() throws SQLException, IOException, TdeeRemoveException, ExerciseLoadException, PurchaseUserLoadException {
         GraphicsControllerCliBuyWorkoutPlan graphicsControllerCliBuyWorkoutPlan = new GraphicsControllerCliBuyWorkoutPlan();
         graphicsControllerCliBuyWorkoutPlan.showMenu();
     }

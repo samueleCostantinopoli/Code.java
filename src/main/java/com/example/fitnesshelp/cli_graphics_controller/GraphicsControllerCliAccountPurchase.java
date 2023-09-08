@@ -4,6 +4,7 @@ import com.example.fitnesshelp.application_controllers.ApplicationControllerBuyW
 import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.bean.BeanUsername;
 import com.example.fitnesshelp.entities.Purchase;
+import com.example.fitnesshelp.exception.PurchaseUserLoadException;
 import com.example.fitnesshelp.exception.TdeeRemoveException;
 import com.example.fitnesshelp.utils.Printer;
 import com.example.fitnesshelp.utils.UtilityAccess;
@@ -20,10 +21,7 @@ public class GraphicsControllerCliAccountPurchase {
     BeanUsername beanUsername = new BeanUsername(UtilityAccess.getUsername());
     List<Purchase> purchaseList = applicationControllerBuyWorkoutPlan.checkUserPurchase(beanUsername);
 
-    public GraphicsControllerCliAccountPurchase() throws IOException {
-    }
-
-    public void showPurchase() throws IOException, SQLException, TdeeRemoveException {
+    public void showPurchase() throws IOException, SQLException, TdeeRemoveException, PurchaseUserLoadException {
         boolean exit = true;
 
         while (exit) {

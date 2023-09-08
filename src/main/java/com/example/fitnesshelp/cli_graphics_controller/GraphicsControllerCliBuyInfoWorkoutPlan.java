@@ -1,6 +1,8 @@
 package com.example.fitnesshelp.cli_graphics_controller;
 import com.example.fitnesshelp.entities.State;
 import com.example.fitnesshelp.entities.WorkoutPlan;
+import com.example.fitnesshelp.exception.ExerciseLoadException;
+import com.example.fitnesshelp.exception.PurchaseUserLoadException;
 import com.example.fitnesshelp.exception.TdeeRemoveException;
 import com.example.fitnesshelp.utils.Printer;
 import com.example.fitnesshelp.utils.UtilityAccess;
@@ -11,7 +13,7 @@ import java.sql.SQLException;
 
 public class GraphicsControllerCliBuyInfoWorkoutPlan {
 
-    public void setIndex(WorkoutPlan currentWorkout) throws IOException, SQLException, TdeeRemoveException {
+    public void setIndex(WorkoutPlan currentWorkout) throws IOException, SQLException, TdeeRemoveException, ExerciseLoadException, PurchaseUserLoadException {
 
         boolean exit = true;
         while (exit) {
@@ -42,7 +44,7 @@ public class GraphicsControllerCliBuyInfoWorkoutPlan {
                 case "4" -> {
                     if (UtilityAccess.getState() == State.LOGGED_IN) {
                         GraphicsControllerCliBuyWorkoutPlan1 infoController = new GraphicsControllerCliBuyWorkoutPlan1();
-                        infoController.SaveWorkout(currentWorkout);
+                        infoController.saveWorkout(currentWorkout);
 
                     } else {
                         Printer.print("\nTo purchase a workout you must be logged in");
@@ -56,7 +58,7 @@ public class GraphicsControllerCliBuyInfoWorkoutPlan {
         }
     }
 
-    private void backToBuyWorkoutPlan() throws SQLException, IOException, TdeeRemoveException {
+    private void backToBuyWorkoutPlan() throws SQLException, IOException, TdeeRemoveException, ExerciseLoadException, PurchaseUserLoadException {
         GraphicsControllerCliBuyWorkoutPlan graphicsControllerCliBuyWorkoutPlan = new GraphicsControllerCliBuyWorkoutPlan();
         graphicsControllerCliBuyWorkoutPlan.showMenu();
     }

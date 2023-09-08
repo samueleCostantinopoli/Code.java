@@ -4,6 +4,7 @@ import com.example.fitnesshelp.application_controllers.ApplicationControllerBuyW
 import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.bean.BeanUsername;
 import com.example.fitnesshelp.entities.Purchase;
+import com.example.fitnesshelp.exception.PurchaseUserLoadException;
 import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -28,7 +29,7 @@ public class GraphicsControllerAccountPurchase extends GraphicsControllerHomePag
     BeanUsername beanUsername = new BeanUsername(UtilityAccess.getUsername());
     List<Purchase> purchaseList = applicationControllerBuyWorkoutPlan.checkUserPurchase(beanUsername);
 
-    public GraphicsControllerAccountPurchase() throws IOException {
+    public GraphicsControllerAccountPurchase() {
     }
 
     @Override
