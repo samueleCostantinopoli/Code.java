@@ -60,8 +60,6 @@ n
 fsrc/main/java/com/example/fitnesshelp/cli_graphics_controller/GraphicsControllerCliCalculateTdee0.java,9\3\938f98bb505e1b84cabc34e34f129ad44d79ffa0
 ç
 ]src/main/java/com/example/fitnesshelp/application_controllers/ApplicationControllerLogin.java,a\e\ae6d393bf55151118eecf6f81f089ade57ad54dc
-ê
-`src/main/java/com/example/fitnesshelp/graphics_controllers/GraphicsControllerCalculateTdee1.java,e\d\ed81e9ca07060c99ecdcf827250eca454a7bed07
 ñ
 fsrc/main/java/com/example/fitnesshelp/cli_graphics_controller/GraphicsControllerCliCalculateTdee2.java,a\b\ab4c8804e5c958f761b43d61beb6a20c15f5877a
 x

@@ -104,8 +104,12 @@ public class GraphicsControllerCalculateTdee2 extends GraphicsControllerHomePage
         }
     }
 
-    public void initialize() {
+    public void disableButton(){
         calculateButton.setDisable(true);
+    }
+
+    @FXML
+    public void initialize() {
         //choice box selection
         activityChoiceBox.getItems().addAll(
                 "Sedentary (office job)",

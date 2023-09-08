@@ -32,7 +32,7 @@ public class GraphicsControllerCalculateTdee1 extends GraphicsControllerHomePage
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/calculateTdee2.fxml"));
             Parent root = loader.load();
             GraphicsControllerCalculateTdee2 graphicsControllerCalculateTdee2 = loader.getController();
-            graphicsControllerCalculateTdee2.initialize();
+            graphicsControllerCalculateTdee2.disableButton();
             Scene scene = new Scene(root);
             Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             currentStage.setScene(scene);
