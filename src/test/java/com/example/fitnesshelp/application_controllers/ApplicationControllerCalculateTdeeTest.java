@@ -16,6 +16,6 @@ public class ApplicationControllerCalculateTdeeTest {
         double kcal;
         TdeeCalculator tdeeCalculator = new TdeeCalculator();
         kcal = tdeeCalculator.calculateTdee(questionnaire, "maintenance");
-        assertNotEquals(2222f, kcal);
+        assertNotEquals(2222.0, kcal, 0.001);
     }
 }
