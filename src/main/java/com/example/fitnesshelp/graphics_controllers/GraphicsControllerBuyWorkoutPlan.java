@@ -110,13 +110,13 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
 
     @FXML
     void clickedOnBuyWorkoutPlanHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "/com/example/fitnesshelp/buyWorkoutPlan";
+        setStageToSwitch("/com/example/fitnesshelp/buyWorkoutPlan");
         switchStage(event);
     }
 
     @FXML
     void clickedOnBuyWorkoutPlanHyperlink1(ActionEvent event) throws IOException {
-        stageToSwitch = "/com/example/fitnesshelp/buyWorkoutPlan";
+        setStageToSwitch("/com/example/fitnesshelp/buyWorkoutPlan");
         switchStage(event);
     }
 

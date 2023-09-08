@@ -185,7 +185,7 @@ public class GraphicsControllerBuyWorkoutPlanSetPayments extends GraphicsControl
     }
 
     public void clickedOnBuyWorkoutPlanHyperlink1(ActionEvent event) throws IOException {
-        stageToSwitch = "/com/example/fitnesshelp/buyWorkoutPlan";
+        setStageToSwitch("/com/example/fitnesshelp/buyWorkoutPlan");
         switchStage(event);
     }
 

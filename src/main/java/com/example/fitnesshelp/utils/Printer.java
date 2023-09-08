@@ -3,10 +3,10 @@ package com.example.fitnesshelp.utils;
 public class Printer {
     private Printer(){}
     public static void print(String messaggio){
-        Printer.print(messaggio);
+        System.out.println(messaggio);
     }
     public static void error(String errore){
-        Printer.print(errore);
+        System.out.println(errore);
     }
 }
 

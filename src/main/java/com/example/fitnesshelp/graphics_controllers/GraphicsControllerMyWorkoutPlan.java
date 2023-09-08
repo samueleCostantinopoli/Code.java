@@ -177,7 +177,4 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
 
         return anchorPaneInfo;
     }
-
-
-
 }

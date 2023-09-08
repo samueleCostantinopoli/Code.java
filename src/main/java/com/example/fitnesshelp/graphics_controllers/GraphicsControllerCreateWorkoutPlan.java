@@ -323,7 +323,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
     }
 
     private void navigateToHomePage(ActionEvent event) throws IOException {
-        stageToSwitch = "/com/example/fitnesshelp/homePage";
+        setStageToSwitch("/com/example/fitnesshelp/homePage");
         switchStage(event);
     }
 
@@ -337,7 +337,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
     }
     @FXML
     void clickedOnHyperlinkBack(ActionEvent event) throws IOException {
-        stageToSwitch = "createWorkout";
+        setStageToSwitch("createWorkout");
         switchStage(event);
     }
 }

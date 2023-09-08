@@ -12,7 +12,7 @@ import java.io.IOException;
 public class GraphicsControllerFindAGymNearMe1 extends GraphicsControllerHomePage {
     @FXML
     void clickedOnHyperlinkBack(ActionEvent event) throws IOException {
-        stageToSwitch = "findAGymNearMe";
+        setStageToSwitch("/com/example/fitnesshelp/findAGymNearMe");
         switchStage(event);
     }
 

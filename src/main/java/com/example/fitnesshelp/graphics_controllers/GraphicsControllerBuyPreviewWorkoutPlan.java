@@ -39,7 +39,12 @@ public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerH
     ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
     List<Exercise> exerciseList = applicationControllerBuyWorkoutPlan.checkExercise();
 
-    public WorkoutPlan currentWorkout;
+
+    private WorkoutPlan currentWorkout;
+
+    public WorkoutPlan getWorkoutPlan() {
+        return currentWorkout;
+    }
 
     public GraphicsControllerBuyPreviewWorkoutPlan() throws IOException {
         // Only for exception
@@ -48,7 +53,7 @@ public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerH
     public void setIndex(WorkoutPlan workoutPlan) {
         priceWorkoutPlan2Button.setText(workoutPlan.getPrize() + " €");
         nameWorkout.setText(workoutPlan.getName());
-        currentWorkout = workoutPlan;
+        this.currentWorkout = workoutPlan;
 
 
         List<String> exercise = new ArrayList<>();
@@ -67,7 +72,7 @@ public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerH
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyInfoWorkoutPlan.fxml"));
         Parent root = loader.load();
         GraphicsControllerBuyInfoWorkoutPlan controller = loader.getController();
-        controller.setIndex(currentWorkout);
+        controller.setIndex(this.currentWorkout);
         Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene primary = new Scene(root);
         home.setScene(primary);
@@ -77,7 +82,7 @@ public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerH
 
     @FXML
     void clickedOnButtonPageOneBuyWorkoutPlan(ActionEvent event) throws IOException {
-        stageToSwitch= "/com/example/fitnesshelp/buyWorkoutPlan";
+        setStageToSwitch("/com/example/fitnesshelp/buyWorkoutPlan");
         switchStage(event);
     }
 
@@ -88,7 +93,7 @@ public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerH
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyWorkoutPlanSetPayments.fxml"));
             Parent root = loader.load();
             GraphicsControllerBuyWorkoutPlanSetPayments infoController1 = loader.getController();
-            infoController1.saveWorkout(currentWorkout);
+            infoController1.saveWorkout(this.currentWorkout);
             Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene primary = new Scene(root);
             home.setScene(primary);

@@ -20,26 +20,13 @@ public class GraphicsControllerLogin extends GraphicsControllerHomePage {
     @FXML
     private Button buttonLogin;
 
-    @FXML
-    private Label usernameLabel;
 
     @FXML
     private TextField usernameField;
 
     @FXML
-    private Hyperlink homeHyperlink;
-
-    @FXML
-    private Label passwordLabel;
-
-    @FXML
     private PasswordField passwordField;
 
-    @FXML
-    private Label title;
-
-    @FXML
-    private Label statusLabel;
 
     @FXML
     private Label errorMessageLabel;
@@ -54,7 +41,7 @@ public class GraphicsControllerLogin extends GraphicsControllerHomePage {
 
     @FXML
     void clickedOnButtonCreateAccount(ActionEvent event) throws IOException {
-        stageToSwitch = "/com/example/fitnesshelp/createAccount";
+        setStageToSwitch("/com/example/fitnesshelp/createAccount");
         switchStage(event);
     }
 
@@ -86,7 +73,7 @@ public class GraphicsControllerLogin extends GraphicsControllerHomePage {
                     errorMessageLabel.setOpacity(0);
                     // switch to home page
                     setUsernameLabel();
-                    stageToSwitch = "/com/example/fitnesshelp/homePage";
+                    setStageToSwitch("/com/example/fitnesshelp/homePage");
                     switchStage(event);
                 }catch (NotExistsUsersException | SQLException | IOException e){
                     errorMessageLabel.setText(e.getMessage());

@@ -40,10 +40,14 @@ public class GraphicsControllerBuyInfoWorkoutPlan extends GraphicsControllerHome
 
     @FXML
     Button priceWorkoutPlan2Button;
-    public WorkoutPlan workoutPlan;
+    private WorkoutPlan workoutPlan;
+
+    public WorkoutPlan getWorkoutPlan() {
+        return workoutPlan;
+    }
 
     public void setIndex(WorkoutPlan currentWorkout) {
-        workoutPlan = currentWorkout;
+        this.workoutPlan = currentWorkout;
         priceWorkoutPlan2Button.setText(currentWorkout.getPrize() + " €");
         nameForm.setText(currentWorkout.getName());
         nameWorkout.setText(currentWorkout.getName());
@@ -82,7 +86,7 @@ public class GraphicsControllerBuyInfoWorkoutPlan extends GraphicsControllerHome
     }
 
     public void clickedOnButtonPageOneBuyWorkoutPlan(ActionEvent event) throws IOException {
-        stageToSwitch= "/com/example/fitnesshelp/buyWorkoutPlan";
+        setStageToSwitch("/com/example/fitnesshelp/buyWorkoutPlan");
         switchStage(event);
     }
 }

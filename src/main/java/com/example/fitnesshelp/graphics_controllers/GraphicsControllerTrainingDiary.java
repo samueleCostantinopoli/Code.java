@@ -17,7 +17,7 @@ public class GraphicsControllerTrainingDiary extends GraphicsControllerHomePage 
     }
 
     void clickedOnTdeeCalculatorHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "/com/example/fitnesshelp/calculateTdee1";
+        setStageToSwitch("/com/example/fitnesshelp/calculateTdee1");
         switchStage(event);
     }
 }

@@ -18,7 +18,7 @@ public class GraphicsControllerHomePage {
     private Label usernameLabel;
 
 
-    public String stageToSwitch;
+    private String stageToSwitch;
 
     static final String LOGIN = "/com/example/fitnesshelp/login";
 
@@ -26,6 +26,14 @@ public class GraphicsControllerHomePage {
     private Label errorLoginMessageLabel;
     @FXML
     private Button errorLoginMessageButton;
+
+    public String getStageToSwitch() {
+        return stageToSwitch;
+    }
+
+    public void setStageToSwitch(String stageToSwitch){
+        this.stageToSwitch = stageToSwitch;
+    }
 
     @FXML
     void clickedOnAccountHyperlink(ActionEvent event) throws IOException {
@@ -101,7 +109,7 @@ public class GraphicsControllerHomePage {
 
 
     void switchStage(ActionEvent event) throws IOException {
-        FXMLLoader root = new FXMLLoader(getClass().getResource(stageToSwitch + ".fxml"));
+        FXMLLoader root = new FXMLLoader(getClass().getResource(getStageToSwitch() + ".fxml"));
         Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene primary = new Scene(root.load());
         home.setScene(primary);

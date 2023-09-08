@@ -122,13 +122,13 @@ public class GraphicsControllerCreateAccount extends GraphicsControllerHomePage 
 
         UtilityAccess.setAccount(new Account(usernameField.getText(), passwordField.getText(), role, emailField.getText(), State.NOT_LOGGED_IN));
 
-        stageToSwitch = "/com/example/fitnesshelp/login";
+        setStageToSwitch("/com/example/fitnesshelp/login");
         switchStage(event);
     }
 
 
     public void clickedOnButtonHomeHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "/com/example/fitnesshelp/homePage";
+        setStageToSwitch("/com/example/fitnesshelp/homePage");
         switchStage(event);
     }
 }
