@@ -24,7 +24,7 @@ public class GraphicsControllerHomePage {
 
     public String stageToSwitch;
 
-    public final String LOGIN = "/com/example/fitnesshelp/login";
+    public static String LOGIN = "/com/example/fitnesshelp/login";
 
     @FXML
     private Label errorLoginMessageLabel;

@@ -140,10 +140,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
     private boolean remove = false;
     private boolean saveWorkout = false;
 
-    public GraphicsControllerCreateWorkoutPlan() {
-    }
-
-    public void OnClickStartButton() {
+    public void onClickStartButton() {
         startButton.setVisible(false);
         infoBar.setVisible(true);
         nameCustomExerciseTextField1.setVisible(true);

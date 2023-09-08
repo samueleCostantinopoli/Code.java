@@ -80,69 +80,71 @@ public class GraphicsControllerCreateAccount extends GraphicsControllerHomePage 
 
     @FXML
     void clickedOnButtonRegister(ActionEvent event) {
-        // check if the fields are empty
-        if (usernameField.getText().equals("") ||  passwordField.getText().equals("") || emailField.getText().equals("") || (!normalAccountRadioButton.isSelected() && !personalTrainerAccountRadioButton.isSelected())) {
-            registrationErrorMessageLabel.setText("some field are empty");
-            registrationErrorMessageLabel.setOpacity(1);
-        }else{
-            // check username length, password complexity and email syntax
-            beanEmail = new BeanEmail(emailField.getText());
-            beanPassword = new BeanPassword(passwordField.getText());
-            beanUsername = new BeanUsername(usernameField.getText());
+        if (!areFieldsValid()) {
+            return;
+        }
+
+        try {
+            BeanEmail beanEmail = new BeanEmail(emailField.getText());
+            BeanPassword beanPassword = new BeanPassword(passwordField.getText());
+            BeanUsername beanUsername = new BeanUsername(usernameField.getText());
+
             String emailSyntax = beanEmail.emailCehck(emailField.getText());
             String usernameLength = beanUsername.checkUsernameLength(usernameField.getText());
             String passwordComplexity = beanPassword.passwordCheck(passwordField.getText());
-            TypeOfUser role;
-            // strings are null if checks are ok
-            // check radio button value to set the type of account
-            if(normalAccountRadioButton.isSelected()){
-                role = TypeOfUser.NORMAL;
-                beanAccountType = new BeanAccountType("normal user");
+
+            if (emailSyntax != null || usernameLength != null || passwordComplexity != null) {
+                showRegistrationError(emailSyntax, usernameLength, passwordComplexity);
+            } else {
+                TypeOfUser role = normalAccountRadioButton.isSelected() ? TypeOfUser.NORMAL : TypeOfUser.PERSONAL_TRAINER;
+                BeanAccountType beanAccountType = new BeanAccountType(role.toString());
+
+                ApplicationControllerRegistration applicationControllerRegistration =
+                        new ApplicationControllerRegistration(beanUsername, beanEmail, beanPassword, beanAccountType);
+
+                applicationControllerRegistration.checkCredentials();
+
+                handleSuccessfulRegistration(event, role);
             }
-            else {
-                role = TypeOfUser.PERSONAL_TRAINER;
-                beanAccountType = new BeanAccountType("personal trainer");
-            }
-            if(usernameLength == null && passwordComplexity == null && emailSyntax == null){
-                // in this case I call the application controller
-                try{
-                    ApplicationControllerRegistration applicationControllerRegistration = new ApplicationControllerRegistration(beanUsername, beanEmail, beanPassword, beanAccountType);
-                    applicationControllerRegistration.checkCredentials();
-                    // successful registration
-                    usernameField.setDisable(true);
-                    emailField.setDisable(true);
-                    passwordField.setDisable(true);
-                    registrationErrorMessageLabel.setOpacity(0);
-                    // set new account
-                    UtilityAccess.setAccount(new Account(usernameField.getText(), passwordField.getText(), role, emailField.getText(), State.NOT_LOGGED_IN));
-                    // switch to login page
-                    stageToSwitch = "/com/example/fitnesshelp/login";
-                    switchStage(event);
-                }catch (EmailAlreadyExistException | UsernameAlreadyExistException | java.sql.SQLException | IOException e){
-                    registrationErrorMessageLabel.setText(e.getMessage());
-                    registrationErrorMessageLabel.setOpacity(1);
-                }
-            } else if (emailSyntax != null && usernameLength != null && passwordComplexity == null) {
-                registrationErrorMessageLabel.setText(emailSyntax + "\n" + usernameLength);
-                registrationErrorMessageLabel.setOpacity(1);
-            } else if (emailSyntax == null && usernameLength != null && passwordComplexity != null) {
-                registrationErrorMessageLabel.setText(passwordComplexity + "\n" + usernameLength);
-                registrationErrorMessageLabel.setOpacity(1);
-            } else if (emailSyntax != null && usernameLength == null && passwordComplexity == null) {
-                registrationErrorMessageLabel.setText(emailSyntax);
-                registrationErrorMessageLabel.setOpacity(1);
-            } else if (emailSyntax != null && usernameLength == null && passwordComplexity != null) {
-                registrationErrorMessageLabel.setText(emailSyntax + "\n" + passwordComplexity);
-                registrationErrorMessageLabel.setOpacity(1);
-            } else if (emailSyntax == null && usernameLength != null && passwordComplexity == null) {
-                registrationErrorMessageLabel.setText(usernameLength);
-                registrationErrorMessageLabel.setOpacity(1);
-            } else if (emailSyntax == null && usernameLength == null && passwordComplexity != null) {
-                registrationErrorMessageLabel.setText(passwordComplexity);
-                registrationErrorMessageLabel.setOpacity(1);
-            }
+        } catch (EmailAlreadyExistException | UsernameAlreadyExistException | SQLException | IOException e) {
+            registrationErrorMessageLabel.setText(e.getMessage());
+            registrationErrorMessageLabel.setOpacity(1);
         }
     }
+
+    private boolean areFieldsValid() {
+        return !usernameField.getText().isEmpty() && !passwordField.getText().isEmpty()
+                && !emailField.getText().isEmpty()
+                && (normalAccountRadioButton.isSelected() || personalTrainerAccountRadioButton.isSelected());
+    }
+
+    private void showRegistrationError(String emailSyntax, String usernameLength, String passwordComplexity) {
+        String errorMessage = "";
+        if (emailSyntax != null) {
+            errorMessage += emailSyntax + "\n";
+        }
+        if (usernameLength != null) {
+            errorMessage += usernameLength + "\n";
+        }
+        if (passwordComplexity != null) {
+            errorMessage += passwordComplexity + "\n";
+        }
+        registrationErrorMessageLabel.setText(errorMessage.trim());
+        registrationErrorMessageLabel.setOpacity(1);
+    }
+
+    private void handleSuccessfulRegistration(ActionEvent event, TypeOfUser role) throws IOException {
+        usernameField.setDisable(true);
+        emailField.setDisable(true);
+        passwordField.setDisable(true);
+        registrationErrorMessageLabel.setOpacity(0);
+
+        UtilityAccess.setAccount(new Account(usernameField.getText(), passwordField.getText(), role, emailField.getText(), State.NOT_LOGGED_IN));
+
+        stageToSwitch = "/com/example/fitnesshelp/login";
+        switchStage(event);
+    }
+
 
     public void clickedOnButtonHomeHyperlink(ActionEvent event) throws IOException {
         stageToSwitch = "/com/example/fitnesshelp/homePage";

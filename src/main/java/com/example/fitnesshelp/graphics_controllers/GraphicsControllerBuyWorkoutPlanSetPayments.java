@@ -74,7 +74,7 @@ public class GraphicsControllerBuyWorkoutPlanSetPayments extends GraphicsControl
     private WebView webView;
     private WebEngine webEngine;
 
-    public final String PAYPAL = "PayPal Log In";
+    public static String PAYPAL = "PayPal Log In";
 
     WorkoutPlan currentWorkout;
 
