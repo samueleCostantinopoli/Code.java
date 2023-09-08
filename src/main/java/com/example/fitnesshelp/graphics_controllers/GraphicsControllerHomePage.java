@@ -19,60 +19,12 @@ import java.io.IOException;
 public class GraphicsControllerHomePage {
 
     @FXML
-    private Hyperlink accountHyperlink;
-
-    @FXML
-    private Hyperlink buyWorkoutPlanHyperlink;
-
-    @FXML
-    private Button createNewButton;
-
-    @FXML
-    private Hyperlink findAGymNearMeHyperlink;
-
-    @FXML
-    private Hyperlink homeHyperlink;
-
-    @FXML
-    private ImageView homeImage;
-
-    @FXML
-    private Hyperlink logoutHyperlink;
-
-    @FXML
-    private ImageView logoutImage;
-
-    @FXML
-    private Hyperlink myTrainingDiaryHyperlink;
-
-    @FXML
-    private Hyperlink myWorkoutPlanHyperlink;
-
-    @FXML
     private Label usernameLabel;
 
-    @FXML
-    private Hyperlink personalTrainerHyperlink;
 
-    @FXML
-    private ImageView profileImage;
-
-    @FXML
-    private Hyperlink loginHyperlink;
-
-    @FXML
-    private Label simpleDescription;
-
-    @FXML
-    private Label simpleDescription2;
-
-    @FXML
-    private Label title;
-
-    private Stage home;
-    private Scene primary;
-    private FXMLLoader root;
     public String stageToSwitch;
+
+    public final String LOGIN = "/com/example/fitnesshelp/login";
 
     @FXML
     private Label errorLoginMessageLabel;
@@ -88,7 +40,7 @@ public class GraphicsControllerHomePage {
     @FXML
     void clickedOnLoginHyperlink(ActionEvent event) throws IOException {
         if(UtilityAccess.getState() == State.NOT_LOGGED_IN){
-            stageToSwitch = "/com/example/fitnesshelp/login";
+            stageToSwitch = LOGIN;
             switchStage(event);
         }
     }
@@ -122,7 +74,7 @@ public class GraphicsControllerHomePage {
     void clickedOnLogoutHyperlink(ActionEvent event) throws IOException {
         UtilityAccess.setUsername("admin");
         UtilityAccess.setState(State.NOT_LOGGED_IN);
-        stageToSwitch = "/com/example/fitnesshelp/login";
+        stageToSwitch = LOGIN;
         switchStage(event);
     }
     @FXML
@@ -142,16 +94,12 @@ public class GraphicsControllerHomePage {
     }
     @FXML
     void clickedOnTdeeCalculatorHyperlink(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/calculateTdee1.fxml"));
-        Parent root = loader.load();
-        GraphicsControllerCalculateTdee1 graphicsControllerCalculateTdee1 = loader.getController();
-        Scene scene = new Scene(root);
-        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        currentStage.setScene(scene);
+        stageToSwitch = "/com/example/fitnesshelp/calculateTdee1";
+        switchStage(event);
     }
 
     public void clickedOnButtonErrorLoginMessageButton(ActionEvent event) throws IOException {
-        stageToSwitch = "/com/example/fitnesshelp/login";
+        stageToSwitch = LOGIN;
         switchStage(event);
     }
 

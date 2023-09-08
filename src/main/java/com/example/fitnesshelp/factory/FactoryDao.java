@@ -29,7 +29,7 @@ public class FactoryDao {
                     return new DaoImplFileSystemPurchase();
                 }
                 case WORKOUT_PLAN -> {
-                    return new DaoImplFilSystemWorkoutPlan();
+                    return new DaoImplFileSystemWorkoutPlan();
                 }
             }
         }

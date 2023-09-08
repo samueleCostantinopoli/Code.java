@@ -2,15 +2,15 @@ package com.example.fitnesshelp.entities;
 
 public class Exercise {
 
-    private String exercise;
+    private String exerciseName;
     private Muscle muscle;
     private int sets;
     private int reps;
     private float rest;
     private WorkoutPlan workoutPlan;
 
-    public Exercise(String exercise, Muscle muscle, int sets, int reps, float rest, WorkoutPlan workoutPlan) {
-        this.exercise = exercise;
+    public Exercise(String exerciseName, Muscle muscle, int sets, int reps, float rest, WorkoutPlan workoutPlan) {
+        this.exerciseName = exerciseName;
         this.muscle = muscle;
         this.sets = sets;
         this.reps = reps;
@@ -18,12 +18,12 @@ public class Exercise {
         this.workoutPlan = workoutPlan;
     }
 
-    public String getExercise() {
-        return exercise;
+    public String getExerciseName() {
+        return exerciseName;
     }
 
-    public void setExercise(String exercise) {
-        this.exercise = exercise;
+    public void setExerciseName(String exerciseName) {
+        this.exerciseName = exerciseName;
     }
 
     public Muscle getMuscle() {

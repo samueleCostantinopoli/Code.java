@@ -18,9 +18,9 @@ public class DaoImplFileSystemExercise implements DaoEntity<Exercise>{
 
     @Override
     public void saveData(Exercise instance) throws SQLException, IOException {
-        Exercise exerciseToSave = new Exercise(instance.getExercise(), instance.getMuscle(), instance.getSets(), instance.getReps(), instance.getRest(), instance.getWorkoutPlan());
+        Exercise exerciseToSave = new Exercise(instance.getExerciseName(), instance.getMuscle(), instance.getSets(), instance.getReps(), instance.getRest(), instance.getWorkoutPlan());
         try (BufferedWriter fileWriter = new BufferedWriter(new FileWriter(FILE_NAME,true))){
-            fileWriter.write(exerciseToSave.getExercise());
+            fileWriter.write(exerciseToSave.getExerciseName());
             fileWriter.write("-");
             fileWriter.write(String.valueOf(exerciseToSave.getMuscle()));
             fileWriter.write("-");
@@ -39,7 +39,6 @@ public class DaoImplFileSystemExercise implements DaoEntity<Exercise>{
             fileWriter.write(String.valueOf(exerciseToSave.getWorkoutPlan().getPrize()));
 
             fileWriter.newLine();
-            fileWriter.close();
             statusSave =0;
         } catch (IOException e) {
             statusSave =1;

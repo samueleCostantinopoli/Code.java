@@ -14,7 +14,7 @@
 
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnesshelp.graphics_controllers.GraphicsControllerBuyWorkoutPlan1">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnesshelp.graphics_controllers.GraphicsControllerBuyWorkoutPlanSetPayments">
    <children>
       <AnchorPane prefHeight="100.0" prefWidth="800.0" style="-fx-background-color: #231717;">
          <children>
@@ -65,12 +65,12 @@
             <Font size="14.0" />
          </font>
       </Hyperlink>
-      <Button fx:id="BackPaymentMethodsButton" layoutX="380.0" layoutY="106.0" mnemonicParsing="false" onAction="#clickedOnBackPaymentMethodsButton" prefHeight="30.0" prefWidth="190.0" style="-fx-background-color: #231717;" text="Back to payment methods" textFill="WHITE" visible="false">
+      <Button fx:id="backPaymentMethodsButton" layoutX="380.0" layoutY="106.0" mnemonicParsing="false" onAction="#clickedOnBackPaymentMethodsButton" prefHeight="30.0" prefWidth="190.0" style="-fx-background-color: #231717;" text="Back to payment methods" textFill="WHITE" visible="false">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <AnchorPane fx:id="WorkoutPlan1" layoutX="159.0" layoutY="150.0" prefHeight="425.0" prefWidth="630.0" style="-fx-background-color: #dcdcdc;">
+      <AnchorPane fx:id="workoutPlan1" layoutX="159.0" layoutY="150.0" prefHeight="425.0" prefWidth="630.0" style="-fx-background-color: #dcdcdc;">
          <children>
             <Button fx:id="purchaseBuyWorkoutPlanButton" layoutX="484.0" layoutY="381.0" visible="false" mnemonicParsing="false" onAction="#clickedOnPurchaseBuyWorkoutPlanButton" prefHeight="30.0" prefWidth="132.0" style="-fx-background-color: #231717;" text="Proceed to order" textFill="WHITE">
                <font>
@@ -78,27 +78,27 @@
                </font>
             </Button>
             <Accordion layoutX="14.0" layoutY="49.0" />
-            <CheckBox fx:id="CheckCreditCard" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Credit Card" />
-            <CheckBox fx:id="CheckPayPal" layoutX="118.0" layoutY="14.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="61.0" text="PayPal" />
-            <CheckBox fx:id="CheckBitcoin" layoutX="200.0" layoutY="14.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="72.0" text="Bitcoin" />
-            <Button fx:id="HyperLinkButton" layoutX="272.0" layoutY="174.0" mnemonicParsing="false" onAction="#OnActionHyperLinkButton" text="" visible="false" />
-            <ImageView fx:id="BitcoinAddress" layoutX="200.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" visible="false">
+            <CheckBox fx:id="checkCreditCardBox" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Credit Card" />
+            <CheckBox fx:id="checkPayPal" layoutX="118.0" layoutY="14.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="61.0" text="PayPal" />
+            <CheckBox fx:id="checkBitcoin" layoutX="200.0" layoutY="14.0" mnemonicParsing="false" prefHeight="17.0" prefWidth="72.0" text="Bitcoin" />
+            <Button fx:id="hyperLinkButton" layoutX="272.0" layoutY="174.0" mnemonicParsing="false" onAction="#onActionHyperLinkButton" text="" visible="false" />
+            <ImageView fx:id="bitcoinAddress" layoutX="200.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true" visible="false">
                <image>
                   <Image url="@../../../com/example/fitnesshelp/BTCaddress.jpg" />
                </image>
             </ImageView>
-            <TextField fx:id="CardNumberTextField" layoutX="14.0" layoutY="49.0" visible="false" prefHeight="25.0" prefWidth="268.0" promptText="CardNumber" />
-            <TextField fx:id="ExpiresTextField" layoutX="14.0" layoutY="80.0" visible="false" prefHeight="25.0" prefWidth="131.0" promptText="Expires" />
-            <TextField fx:id="CVVTextField" layoutX="151.0" layoutY="80.0" visible="false" prefHeight="25.0" prefWidth="131.0" promptText="CVV" />
-            <TextField fx:id="FirstNameTextField" layoutX="14.0" layoutY="152.0" visible="false" prefHeight="25.0" prefWidth="131.0" promptText="First Name" />
-            <TextField fx:id="LastNameTextField" layoutX="151.0" layoutY="152.0" visible="false" prefHeight="25.0" prefWidth="131.0" promptText="Last Name" />
-            <TextField fx:id="StreetAddressTextField" layoutX="14.0" layoutY="187.0" visible="false" prefHeight="25.0" prefWidth="268.0" promptText="Street address" />
-            <TextField fx:id="ApartmentTextField" layoutX="14.0" layoutY="222.0" visible="false" prefHeight="25.0" prefWidth="268.0" promptText="Apartment , building, ..." />
-            <TextField fx:id="CityTextField" layoutX="14.0" layoutY="259.0" visible="false" prefHeight="25.0" prefWidth="268.0" promptText="City" />
-            <TextField fx:id="ZipCodeTextField" layoutX="315.0" layoutY="49.0" visible="false" prefHeight="25.0" prefWidth="268.0" promptText="ZIP code" />
-            <TextField fx:id="MobileTextField" layoutX="315.0" layoutY="90.0" visible="false" prefHeight="25.0" prefWidth="268.0" promptText="Mobile number" />
-            <TextField fx:id="EmailTextField" layoutX="315.0" layoutY="127.0" visible="false" prefHeight="25.0" prefWidth="268.0" promptText="Email" />
-            <ChoiceBox fx:id="StateChoiceBox" layoutX="14.0" layoutY="300.0" visible="false" prefHeight="25.0" prefWidth="268.0" >
+            <TextField fx:id="cardNumberTextField" layoutX="14.0" layoutY="49.0" visible="false" prefHeight="25.0" prefWidth="268.0" promptText="CardNumber" />
+            <TextField fx:id="expiresTextField" layoutX="14.0" layoutY="80.0" visible="false" prefHeight="25.0" prefWidth="131.0" promptText="Expires" />
+            <TextField fx:id="cvvTextField" layoutX="151.0" layoutY="80.0" visible="false" prefHeight="25.0" prefWidth="131.0" promptText="CVV" />
+            <TextField fx:id="firstNameTextField" layoutX="14.0" layoutY="152.0" visible="false" prefHeight="25.0" prefWidth="131.0" promptText="First Name" />
+            <TextField fx:id="lastNameTextField" layoutX="151.0" layoutY="152.0" visible="false" prefHeight="25.0" prefWidth="131.0" promptText="Last Name" />
+            <TextField fx:id="streetAddressTextField" layoutX="14.0" layoutY="187.0" visible="false" prefHeight="25.0" prefWidth="268.0" promptText="Street address" />
+            <TextField fx:id="apartmentTextField" layoutX="14.0" layoutY="222.0" visible="false" prefHeight="25.0" prefWidth="268.0" promptText="Apartment , building, ..." />
+            <TextField fx:id="cityTextField" layoutX="14.0" layoutY="259.0" visible="false" prefHeight="25.0" prefWidth="268.0" promptText="City" />
+            <TextField fx:id="zipCodeTextField" layoutX="315.0" layoutY="49.0" visible="false" prefHeight="25.0" prefWidth="268.0" promptText="ZIP code" />
+            <TextField fx:id="mobileTextField" layoutX="315.0" layoutY="90.0" visible="false" prefHeight="25.0" prefWidth="268.0" promptText="Mobile number" />
+            <TextField fx:id="emailTextField" layoutX="315.0" layoutY="127.0" visible="false" prefHeight="25.0" prefWidth="268.0" promptText="Email" />
+            <ChoiceBox fx:id="stateChoiceBox" layoutX="14.0" layoutY="300.0" visible="false" prefHeight="25.0" prefWidth="268.0" >
                <items>
                   <FXCollections fx:factory="observableArrayList">
                      <String fx:value="--Select State--" />

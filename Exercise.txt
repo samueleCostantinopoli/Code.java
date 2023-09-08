@@ -2,3 +2,5 @@ Curl-BICEPS-3-12-60.0-Arms-0-user-2.5
 Pull down-TRICEPS-4-10-90.0-Arms-0-user-2.5
 Chest Press-CHEST-3-10-90.0-Chest Workout Personal-0-user!--10.0
 chest press-CHEST-5-5-180.0-Chest Workout PowerLifting-0-user-2.5
+Rematore-BACK-3-10-60.0-Back Workout-1-user-3.99
+Trazioni-BACK-2-5-90.0-Back Workout-1-user-3.99

@@ -1,7 +1,7 @@
 package com.example.fitnesshelp.application_controllers;
 
 import com.example.fitnesshelp.bean.BeanCustomWorkoutData;
-import com.example.fitnesshelp.dao.DaoImplFilSystemWorkoutPlan;
+import com.example.fitnesshelp.dao.DaoImplFileSystemWorkoutPlan;
 import com.example.fitnesshelp.dao.DaoImplFileSystemExercise;
 import com.example.fitnesshelp.entities.Exercise;
 import java.io.IOException;
@@ -15,7 +15,7 @@ public class ApplicationControllerCreateWorkoutPlan {
             if (i < dataBean.getExerciseListSize()) {
                 Exercise exercise = dataBean.getExercise(i);
                 if (exercise != null) {
-                    String exerciseData = exercise.getExercise();
+                    String exerciseData = exercise.getExerciseName();
 
                     if (exerciseData != null && !exerciseData.isEmpty()) {
                         daoImplFileSystemExercise.saveData(exercise);
@@ -24,8 +24,8 @@ public class ApplicationControllerCreateWorkoutPlan {
             }
         }
 
-        DaoImplFilSystemWorkoutPlan daoImplFilSystemWorkoutPlan = new DaoImplFilSystemWorkoutPlan();
-        daoImplFilSystemWorkoutPlan.saveData(dataBean.getExercise(0).getWorkoutPlan());
+        DaoImplFileSystemWorkoutPlan daoImplFileSystemWorkoutPlan = new DaoImplFileSystemWorkoutPlan();
+        daoImplFileSystemWorkoutPlan.saveData(dataBean.getExercise(0).getWorkoutPlan());
     }
 }
 

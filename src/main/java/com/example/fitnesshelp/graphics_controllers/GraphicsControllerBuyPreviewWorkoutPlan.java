@@ -23,7 +23,7 @@ import java.util.List;
 
 public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerHomePage {
 
-    public Label NameWorkout;
+    public Label nameWorkout;
     @FXML
     Label insertPreview;
 
@@ -38,14 +38,15 @@ public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerH
     ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
     List<Exercise> exerciseList = applicationControllerBuyWorkoutPlan.checkExercise();
 
-    public GraphicsControllerBuyPreviewWorkoutPlan() throws IOException {
-    }
-
     public WorkoutPlan currentWorkout;
+
+    public GraphicsControllerBuyPreviewWorkoutPlan() throws IOException {
+        // Only for exception
+    }
 
     public void setIndex(WorkoutPlan workoutPlan) {
         priceWorkoutPlan2Button.setText(workoutPlan.getPrize() + " €");
-        NameWorkout.setText(workoutPlan.getName());
+        nameWorkout.setText(workoutPlan.getName());
         currentWorkout = workoutPlan;
 
 
@@ -53,7 +54,7 @@ public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerH
         if (!exerciseList.isEmpty()) {
             for (Exercise value : exerciseList) {
                 if (workoutPlan.getName().equals(value.getWorkoutPlan().getName()))
-                    exercise.add(value.getExercise().trim() + "\n");
+                    exercise.add(value.getExerciseName().trim() + "\n");
             }
             String exerciseText = String.join("\n", exercise);
             insertPreview.setText(exerciseText);
@@ -83,10 +84,10 @@ public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerH
     @FXML
     void clickedOnButtonPriceWorkoutPlan(ActionEvent event) throws IOException {
         if(UtilityAccess.getState() == State.LOGGED_IN) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyWorkoutPlan1.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyWorkoutPlanSetPayments.fxml"));
             Parent root = loader.load();
-            GraphicsControllerBuyWorkoutPlan1 infoController1 = loader.getController();
-            infoController1.SaveWorkout(currentWorkout);
+            GraphicsControllerBuyWorkoutPlanSetPayments infoController1 = loader.getController();
+            infoController1.saveWorkout(currentWorkout);
             Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene primary = new Scene(root);
             home.setScene(primary);

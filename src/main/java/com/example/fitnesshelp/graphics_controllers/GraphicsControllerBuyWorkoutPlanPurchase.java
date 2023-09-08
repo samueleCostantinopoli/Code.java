@@ -7,6 +7,7 @@ import com.example.fitnesshelp.entities.Purchase;
 import com.example.fitnesshelp.entities.WorkoutPlan;
 import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
@@ -15,37 +16,39 @@ import java.util.Date;
 import java.util.Random;
 
 
-public class GraphicsControllerBuyWorkoutPlan2 extends GraphicsControllerHomePage{
-    public Label IDPurchase;
-    public Label PrizePurchase;
-    public Label DatePurchase;
-    public Label UsernameCreatorPurchase;
-    public Label WorkoutNamePurchase;
+public class GraphicsControllerBuyWorkoutPlanPurchase extends GraphicsControllerHomePage{
+    @FXML
+    public Label idPurchase;
+    @FXML
+    public Label prizePurchase;
+    @FXML
+    public Label datePurchase;
+    @FXML
+    public Label usernameCreatorPurchase;
+    @FXML
+    public Label workoutNamePurchase;
 
     ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
 
     Random random = new Random();
 
-    public GraphicsControllerBuyWorkoutPlan2() {
-    }
-
     public Purchase newPurchase;
     public void savePurchase(WorkoutPlan thisWorkout) throws SQLException, IOException {
-        newPurchase = new Purchase(GenerateId(), thisWorkout.getPrize(), TakeDate(), UtilityAccess.getUsername(), thisWorkout);
-        IDPurchase.setText("ID: " + newPurchase.getIdPurchase());
-        PrizePurchase.setText("Prize: " + newPurchase.getWorkoutPlan().getPrize());
-        DatePurchase.setText("Date: " + newPurchase.getDate());
-        UsernameCreatorPurchase.setText("Username of creator: " + newPurchase.getWorkoutPlan().getUsername());
-        WorkoutNamePurchase.setText("Workout name: " + thisWorkout.getName());
+        newPurchase = new Purchase(generateId(), thisWorkout.getPrize(), takeDate(), UtilityAccess.getUsername(), thisWorkout);
+        idPurchase.setText("ID: " + newPurchase.getIdPurchase());
+        prizePurchase.setText("Prize: " + newPurchase.getWorkoutPlan().getPrize());
+        datePurchase.setText("Date: " + newPurchase.getDate());
+        usernameCreatorPurchase.setText("Username of creator: " + newPurchase.getWorkoutPlan().getUsername());
+        workoutNamePurchase.setText("Workout name: " + thisWorkout.getName());
 
         applicationControllerBuyWorkoutPlan.createPurchase(newPurchase);
     }
 
-    private Date TakeDate() {
+    private Date takeDate() {
         return new Date();
     }
 
-    private int GenerateId() {
+    private int generateId() {
         // Generate int random ID
         return random.nextInt(Integer.MAX_VALUE);
     }

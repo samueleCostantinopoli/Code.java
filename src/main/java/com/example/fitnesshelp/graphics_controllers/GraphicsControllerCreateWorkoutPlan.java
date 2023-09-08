@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Objects;
@@ -131,22 +132,19 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
     private Button saveCustomWorkout;
 
     @FXML
-    private Button StartButton;
+    private Button startButton;
     @FXML
     private TextField priceTextField;
-    @FXML
-    private Label customePriceNameLabel1;
 
     private int exerciseNumber = 1;
     private boolean remove = false;
     private boolean saveWorkout = false;
 
-    public GraphicsControllerCreateWorkoutPlan(Label customePriceNameLabel1) {
-        this.customePriceNameLabel1 = customePriceNameLabel1;
+    public GraphicsControllerCreateWorkoutPlan() {
     }
 
     public void OnClickStartButton() {
-        StartButton.setVisible(false);
+        startButton.setVisible(false);
         infoBar.setVisible(true);
         nameCustomExerciseTextField1.setVisible(true);
         muscleCustomTextField1.setVisible(true);
@@ -160,7 +158,6 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
         customeWorkoutNameLabel.setVisible(true);
         if(UtilityAccess.getTypeOfUser().equals(TypeOfUser.PERSONAL_TRAINER)){
             priceTextField.setVisible(true);
-            customePriceNameLabel1.setVisible(true);
         }
     }
 
@@ -204,6 +201,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
                 customRestTextField6.setOpacity(1);
                 muscleCustomTextField6.setOpacity(1);
             }
+            default -> nameCustomExerciseTextField1.setOpacity(0);
         }
         if(exerciseNumber < 6) exerciseNumber ++;
     }
@@ -249,6 +247,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
                     customRestTextField6.setOpacity(0);
                     muscleCustomTextField6.setOpacity(0);
                 }
+                default -> nameCustomExerciseTextField1.setOpacity(0);
             }
             exerciseNumber --;
         }
@@ -262,7 +261,23 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
     @FXML
     void clickedOnButtonSaveCustomWorkout(ActionEvent event) throws IOException, SQLException {
         customFieldEmpty.setOpacity(0);
-        //controllo che i textField di ogni esercizio non siano vuoti
+
+        if (validateFields()) {
+            BeanCustomWorkoutData dataBean = createCustomWorkoutData();
+
+            if (saveWorkout) {
+                ApplicationControllerCreateWorkoutPlan applicationControllerCreateWorkoutPlan = new ApplicationControllerCreateWorkoutPlan();
+                applicationControllerCreateWorkoutPlan.receiveCustomWorkoutData(dataBean);
+                navigateToHomePage(event);
+            }
+
+            if (customFieldEmpty.getOpacity() == 0) {
+                saveWorkout = true;
+            }
+        }
+    }
+
+    private boolean validateFields() {
         emptyTextFieldCheck(nameCustomExerciseTextField1, customSetTextfield1, customRepstextFields1, customRestTextField1, muscleCustomTextField1);
         emptyTextFieldCheck(nameCustomExerciseTextField2, customSetTextfield2, customRepstextFields2, customRestTextField2, muscleCustomTextField2);
         emptyTextFieldCheck(nameCustomExerciseTextField3, customSetTextfield3, customRepstextFields3, customRestTextField3, muscleCustomTextField3);
@@ -270,72 +285,51 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
         emptyTextFieldCheck(nameCustomExerciseTextField5, customSetTextfield5, customRepstextFields5, customRestTextField5, muscleCustomTextField5);
         emptyTextFieldCheck(nameCustomExerciseTextField6, customSetTextfield6, customRepstextFields6, customRestTextField6, muscleCustomTextField6);
 
+        return customFieldEmpty.getOpacity() == 0;
+    }
+
+    private BeanCustomWorkoutData createCustomWorkoutData() {
         BeanCustomWorkoutData dataBean = new BeanCustomWorkoutData();
-        if(UtilityAccess.getTypeOfUser().equals(TypeOfUser.PERSONAL_TRAINER)){
-            if(Objects.equals(priceTextField.getText(), "") ) customFieldEmpty.setOpacity(1);
-            WorkoutPlan workoutPlanPT = new WorkoutPlan(nameCustomWorkoutTextField.getText(), String.valueOf((exerciseNumber / 3) + 1), UtilityAccess.getUsername(), Double.parseDouble(priceTextField.getText()));
-            Exercise exercise1PT = new Exercise(nameCustomExerciseTextField1.getText(), Muscle.valueOf(muscleCustomTextField1.getText()), parseInt(customSetTextfield1.getText()),parseInt(customRepstextFields1.getText()), parseFloat(customRestTextField1.getText()), workoutPlanPT);
-            dataBean.setExercise(exercise1PT);
-            if(!nameCustomExerciseTextField2.getText().isEmpty() ){
-                Exercise exercise2PT = new Exercise(nameCustomExerciseTextField2.getText(), Muscle.valueOf(muscleCustomTextField2.getText()), parseInt(customSetTextfield2.getText()),parseInt(customRepstextFields2.getText()), parseFloat(customRestTextField2.getText()), workoutPlanPT);
-                dataBean.setExercise(exercise2PT);
-            }
-            if(!nameCustomExerciseTextField3.getText().isEmpty() ){
-                Exercise exercise3PT = new Exercise(nameCustomExerciseTextField3.getText(), Muscle.valueOf(muscleCustomTextField3.getText()), parseInt(customSetTextfield3.getText()),parseInt(customRepstextFields3.getText()), parseFloat(customRestTextField3.getText()), workoutPlanPT);
-                dataBean.setExercise(exercise3PT);
-            }
-            if(!nameCustomExerciseTextField4.getText().isEmpty() ){
-                Exercise exercise4PT = new Exercise(nameCustomExerciseTextField4.getText(), Muscle.valueOf(muscleCustomTextField4.getText()), parseInt(customSetTextfield4.getText()),parseInt(customRepstextFields4.getText()), parseFloat(customRestTextField4.getText()), workoutPlanPT);
-                dataBean.setExercise(exercise4PT);
-            }
-            if(!nameCustomExerciseTextField5.getText().isEmpty() ){
-                Exercise exercise5PT = new Exercise(nameCustomExerciseTextField5.getText(), Muscle.valueOf(muscleCustomTextField5.getText()), parseInt(customSetTextfield5.getText()),parseInt(customRepstextFields5.getText()), parseFloat(customRestTextField5.getText()), workoutPlanPT);
-                dataBean.setExercise(exercise5PT);
-            }
-            if(!nameCustomExerciseTextField6.getText().isEmpty() ) {
-                Exercise exercise6PT = new Exercise(nameCustomExerciseTextField6.getText(), Muscle.valueOf(muscleCustomTextField6.getText()), parseInt(customSetTextfield6.getText()), parseInt(customRepstextFields6.getText()), parseFloat(customRestTextField6.getText()), workoutPlanPT);
-                dataBean.setExercise(exercise6PT);
-            }
-        }
-        else {
-            WorkoutPlan workoutPlan = new WorkoutPlan(nameCustomWorkoutTextField.getText(), String.valueOf((exerciseNumber / 3) + 1), UtilityAccess.getUsername(), -10);
 
-            Exercise exercise1 = new Exercise(nameCustomExerciseTextField1.getText(), Muscle.valueOf(muscleCustomTextField1.getText()), parseInt(customSetTextfield1.getText()), parseInt(customRepstextFields1.getText()), parseFloat(customRestTextField1.getText()), workoutPlan);
-            dataBean.setExercise(exercise1);
-            if (!nameCustomExerciseTextField2.getText().isEmpty()) {
-                Exercise exercise2 = new Exercise(nameCustomExerciseTextField2.getText(), Muscle.valueOf(muscleCustomTextField2.getText()), parseInt(customSetTextfield2.getText()), parseInt(customRepstextFields2.getText()), parseFloat(customRestTextField2.getText()), workoutPlan);
-                dataBean.setExercise(exercise2);
-            }
-            if (!nameCustomExerciseTextField3.getText().isEmpty()) {
-                Exercise exercise3 = new Exercise(nameCustomExerciseTextField3.getText(), Muscle.valueOf(muscleCustomTextField3.getText()), parseInt(customSetTextfield3.getText()), parseInt(customRepstextFields3.getText()), parseFloat(customRestTextField3.getText()), workoutPlan);
-                dataBean.setExercise(exercise3);
-            }
-            if (!nameCustomExerciseTextField4.getText().isEmpty()) {
-                Exercise exercise4 = new Exercise(nameCustomExerciseTextField4.getText(), Muscle.valueOf(muscleCustomTextField4.getText()), parseInt(customSetTextfield4.getText()), parseInt(customRepstextFields4.getText()), parseFloat(customRestTextField4.getText()), workoutPlan);
-                dataBean.setExercise(exercise4);
-            }
-            if (!nameCustomExerciseTextField5.getText().isEmpty()) {
-                Exercise exercise5 = new Exercise(nameCustomExerciseTextField5.getText(), Muscle.valueOf(muscleCustomTextField5.getText()), parseInt(customSetTextfield5.getText()), parseInt(customRepstextFields5.getText()), parseFloat(customRestTextField5.getText()), workoutPlan);
-                dataBean.setExercise(exercise5);
-            }
-            if (!nameCustomExerciseTextField6.getText().isEmpty()) {
-                Exercise exercise6 = new Exercise(nameCustomExerciseTextField6.getText(), Muscle.valueOf(muscleCustomTextField6.getText()), parseInt(customSetTextfield6.getText()), parseInt(customRepstextFields6.getText()), parseFloat(customRestTextField6.getText()), workoutPlan);
-                dataBean.setExercise(exercise6);
+        WorkoutPlan workoutPlan = createWorkoutPlan();
+
+        addExercise(dataBean, workoutPlan, nameCustomExerciseTextField1, muscleCustomTextField1, customSetTextfield1, customRepstextFields1, customRestTextField1);
+        addExercise(dataBean, workoutPlan, nameCustomExerciseTextField2, muscleCustomTextField2, customSetTextfield2, customRepstextFields2, customRestTextField2);
+        addExercise(dataBean, workoutPlan, nameCustomExerciseTextField3, muscleCustomTextField3, customSetTextfield3, customRepstextFields3, customRestTextField3);
+        addExercise(dataBean, workoutPlan, nameCustomExerciseTextField4, muscleCustomTextField4, customSetTextfield4, customRepstextFields4, customRestTextField4);
+        addExercise(dataBean, workoutPlan, nameCustomExerciseTextField5, muscleCustomTextField5, customSetTextfield5, customRepstextFields5, customRestTextField5);
+        addExercise(dataBean, workoutPlan, nameCustomExerciseTextField6, muscleCustomTextField6, customSetTextfield6, customRepstextFields6, customRestTextField6);
+
+        return dataBean;
+    }
+
+    private WorkoutPlan createWorkoutPlan() {
+        String workoutName = nameCustomWorkoutTextField.getText();
+        String workoutCategory = String.valueOf((exerciseNumber / 3) + 1);
+        String workoutUsername = UtilityAccess.getUsername();
+
+        double workoutPrice = -10;
+        if (UtilityAccess.getTypeOfUser().equals(TypeOfUser.PERSONAL_TRAINER)) {
+            if (!priceTextField.getText().isEmpty()) {
+                workoutPrice = Double.parseDouble(priceTextField.getText());
             }
         }
 
+        return new WorkoutPlan(workoutName, workoutCategory, workoutUsername, workoutPrice);
+    }
 
-        if(saveWorkout){
-            // Richiama il controller applicativo e passa il bean
-            ApplicationControllerCreateWorkoutPlan applicationControllerCreateWorkoutPlan = new ApplicationControllerCreateWorkoutPlan();
-            applicationControllerCreateWorkoutPlan.receiveCustomWorkoutData(dataBean);
-
-            stageToSwitch = "/com/example/fitnesshelp/homePage";
-            switchStage(event);
+    private void addExercise(BeanCustomWorkoutData dataBean, WorkoutPlan workoutPlan, TextField nameTextField,
+                             TextField muscleTextField, TextField setTextField, TextField repsTextField, TextField restTextField) {
+        if (!nameTextField.getText().isEmpty()) {
+            Exercise exercise = new Exercise(nameTextField.getText(), Muscle.valueOf(muscleTextField.getText()),
+                    parseInt(setTextField.getText()), parseInt(repsTextField.getText()), parseFloat(restTextField.getText()), workoutPlan);
+            dataBean.setExercise(exercise);
         }
+    }
 
-        if(customFieldEmpty.getOpacity() == 0) saveWorkout = true;
-
+    private void navigateToHomePage(ActionEvent event) throws IOException {
+        stageToSwitch = "/com/example/fitnesshelp/homePage";
+        switchStage(event);
     }
 
 

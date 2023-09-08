@@ -2,21 +2,22 @@ package com.example.fitnesshelp.dao;
 
 import com.example.fitnesshelp.entities.Purchase;
 
-import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 public class DaoImplJDBCPurchase implements DaoEntity<Purchase>{
     @Override
-    public void saveData(Purchase purchase){}
+    public void saveData(Purchase purchase){
+        //Not implemented because I use the file system and it was not required to use the database for me as I am from the automation course
+    }
 
     @Override
     public List<Purchase> showData(String username){
+        //Not implemented because I use the file system and it was not required to use the database for me as I am from the automation course
         return null;
     }
 
     @Override
-    public void removeData(Purchase entity) throws SQLException, IOException {
-
+    public void removeData(Purchase entity) {
+        //Not implemented because I use the file system and it was not required to use the database for me as I am from the automation course
     }
 }

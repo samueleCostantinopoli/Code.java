@@ -21,7 +21,6 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -36,17 +35,16 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
     @FXML
     private VBox anchorPaneContainer;
 
+    public final String colorBox = "-fx-background-color: #231717;";
+
     public GraphicsControllerBuyWorkoutPlan() throws IOException {
+        // Only for exception
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int numberOfAnchorPanes;
-        try {
-            numberOfAnchorPanes = readValueFromFileSystem();
-        } catch (SQLException | IOException e) {
-            throw new RuntimeException(e);
-        }
+        numberOfAnchorPanes = readValueFromFileSystem();
 
         List<AnchorPane> anchorPanes = createAnchorPanes(numberOfAnchorPanes, listWorkoutsForSale);
         anchorPaneContainer.getChildren().addAll(anchorPanes);
@@ -55,7 +53,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
     ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(beanState);
     List<WorkoutPlan> listWorkouts = applicationControllerBuyWorkoutPlan.checkWorkoutPlan();
     List<WorkoutPlan> listWorkoutsForSale = new ArrayList<>();
-    private int readValueFromFileSystem() throws SQLException, IOException {
+    private int readValueFromFileSystem() {
         // Read value from the file system
         int sizeOfAnchorPane = 0;
         for (WorkoutPlan listWorkout : listWorkouts) {
@@ -67,11 +65,11 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
     }
 
     @FXML
-    void clickedOnButtonInfoWorkoutPlan(ActionEvent event, int CurrentWorkout) throws IOException {
+    void clickedOnButtonInfoWorkoutPlan(ActionEvent event, int currentWorkout) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyInfoWorkoutPlan.fxml"));
         Parent root = loader.load();
         GraphicsControllerBuyInfoWorkoutPlan infoController = loader.getController();
-        infoController.setIndex(listWorkouts.get(CurrentWorkout));
+        infoController.setIndex(listWorkouts.get(currentWorkout));
         Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene primary = new Scene(root);
         home.setScene(primary);
@@ -80,11 +78,11 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
 
 
     @FXML
-    void clickedOnButtonPreviewWorkoutPlan(ActionEvent event, int CurrentWorkout) throws IOException {
+    void clickedOnButtonPreviewWorkoutPlan(ActionEvent event, int currentWorkout) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyPreviewWorkoutPlan.fxml"));
         Parent root = loader.load();
         GraphicsControllerBuyPreviewWorkoutPlan previewWorkoutPlanController = loader.getController();
-        previewWorkoutPlanController.setIndex(listWorkouts.get(CurrentWorkout));
+        previewWorkoutPlanController.setIndex(listWorkouts.get(currentWorkout));
         Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene primary = new Scene(root);
         home.setScene(primary);
@@ -92,12 +90,12 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
     }
 
     @FXML
-    void clickedOnButtonPriceWorkoutPlan(ActionEvent event,int CurrentWorkout) throws IOException {
+    void clickedOnButtonPriceWorkoutPlan(ActionEvent event,int currentWorkout) throws IOException {
         if(UtilityAccess.getState() == State.LOGGED_IN) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyWorkoutPlan1.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyWorkoutPlanSetPayments.fxml"));
             Parent root = loader.load();
-            GraphicsControllerBuyWorkoutPlan1 infoController1 = loader.getController();
-            infoController1.SaveWorkout(listWorkouts.get(CurrentWorkout));
+            GraphicsControllerBuyWorkoutPlanSetPayments infoController1 = loader.getController();
+            infoController1.saveWorkout(listWorkouts.get(currentWorkout));
             Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene primary = new Scene(root);
             home.setScene(primary);
@@ -141,7 +139,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
                     throw new RuntimeException(e);
                 }
             });
-            priceButton.setStyle("-fx-background-color: #231717;");
+            priceButton.setStyle(colorBox);
             priceButton.setTextFill(Color.WHITE);
             priceButton.setFont(new Font(14.0));
 
@@ -155,7 +153,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
                     throw new RuntimeException(e);
                 }
             });
-            previewButton.setStyle("-fx-background-color: #231717;");
+            previewButton.setStyle(colorBox);
             previewButton.setTextFill(Color.WHITE);
             previewButton.setFont(new Font(14.0));
 
@@ -169,7 +167,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
                     throw new RuntimeException(e);
                 }
             });
-            infoButton.setStyle("-fx-background-color: #231717;");
+            infoButton.setStyle(colorBox);
             infoButton.setTextFill(Color.WHITE);
             infoButton.setFont(new Font(14.0));
 

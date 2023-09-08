@@ -26,9 +26,6 @@ public class GraphicsControllerFindAGymNearMe extends GraphicsControllerHomePage
     void clickedOnButtonViewInfoGym2(ActionEvent event) {
 
     }
-    // TODO
-    public void clickedOnHyperlinkBack(ActionEvent event) {
-    }
 
     public void clickedOnTdeeCalculatorHyperlink(ActionEvent event) throws IOException{
         stageToSwitch = "/com/example/fitnesshelp/calculateTdee1";

@@ -61,7 +61,7 @@
       </Hyperlink>
       <AnchorPane fx:id="dataWorkoutPlan1Pane" layoutX="159.0" layoutY="175.0" prefHeight="40.0" prefWidth="630.0" style="-fx-background-color: #464646;">
          <children>
-            <Label fx:id="NameWorkout" layoutX="6.0" layoutY="11.0" text=" " textFill="WHITE">
+            <Label fx:id="nameWorkout" layoutX="6.0" layoutY="11.0" text=" " textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>

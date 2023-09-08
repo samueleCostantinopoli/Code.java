@@ -3,14 +3,13 @@ package com.example.fitnesshelp.application_controllers;
 import com.example.fitnesshelp.bean.BeanBuyWorkoutPlan;
 import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.bean.BeanUsername;
-import com.example.fitnesshelp.dao.DaoImplFilSystemWorkoutPlan;
+import com.example.fitnesshelp.dao.DaoImplFileSystemWorkoutPlan;
 import com.example.fitnesshelp.dao.DaoImplFileSystemExercise;
 import com.example.fitnesshelp.dao.DaoImplFileSystemPurchase;
 import com.example.fitnesshelp.entities.Exercise;
 import com.example.fitnesshelp.entities.Purchase;
 import com.example.fitnesshelp.entities.WorkoutPlan;
 import com.example.fitnesshelp.exception.ExerciseLoadException;
-import com.example.fitnesshelp.exception.PurchaseUserLoadException;
 import com.example.fitnesshelp.exception.WorkoutPlanLoadException;
 import com.example.fitnesshelp.utils.UtilityAccess;
 
@@ -30,15 +29,15 @@ public class ApplicationControllerBuyWorkoutPlan {
     }
 
     public List<WorkoutPlan> checkWorkoutPlan() throws IOException {
-        DaoImplFilSystemWorkoutPlan daoImplFilSystemWorkoutPlan = new DaoImplFilSystemWorkoutPlan();
-        return daoImplFilSystemWorkoutPlan.showData(UtilityAccess.getUsername());
+        DaoImplFileSystemWorkoutPlan daoImplFileSystemWorkoutPlan = new DaoImplFileSystemWorkoutPlan();
+        return daoImplFileSystemWorkoutPlan.showData(UtilityAccess.getUsername());
     }
 
     public List<WorkoutPlan> checkUserWorkoutPlan(BeanUsername beanUsername) throws WorkoutPlanLoadException {
-        DaoImplFilSystemWorkoutPlan daoImplFilSystemWorkoutPlan = new DaoImplFilSystemWorkoutPlan();
+        DaoImplFileSystemWorkoutPlan daoImplFileSystemWorkoutPlan = new DaoImplFileSystemWorkoutPlan();
         List<WorkoutPlan> workoutUser = new ArrayList<>();
         try {
-            List<WorkoutPlan> workoutPlanList = daoImplFilSystemWorkoutPlan.showData(beanUsername.getUsername());
+            List<WorkoutPlan> workoutPlanList = daoImplFileSystemWorkoutPlan.showData(beanUsername.getUsername());
             for (WorkoutPlan workoutPlan : workoutPlanList) {
                 if (workoutPlan.getUsername().equals(beanUsername.getUsername())) {
                     workoutUser.add(workoutPlan);

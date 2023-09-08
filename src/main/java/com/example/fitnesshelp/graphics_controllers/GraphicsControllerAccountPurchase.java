@@ -4,17 +4,13 @@ import com.example.fitnesshelp.application_controllers.ApplicationControllerBuyW
 import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.bean.BeanUsername;
 import com.example.fitnesshelp.entities.Purchase;
-import com.example.fitnesshelp.exception.PurchaseUserLoadException;
 import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-
-import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -29,22 +25,15 @@ public class GraphicsControllerAccountPurchase extends GraphicsControllerHomePag
     BeanUsername beanUsername = new BeanUsername(UtilityAccess.getUsername());
     List<Purchase> purchaseList = applicationControllerBuyWorkoutPlan.checkUserPurchase(beanUsername);
 
-    public GraphicsControllerAccountPurchase() {
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int numberOfAnchorPanes;
-        try {
-            numberOfAnchorPanes = readValueFromFileSystem();
-        } catch (SQLException | IOException e) {
-            throw new RuntimeException(e);
-        }
+        numberOfAnchorPanes = readValueFromFileSystem();
         List<AnchorPane> anchorPanes = createAnchorPanes(numberOfAnchorPanes, purchaseList);
         anchorPaneContainer.getChildren().addAll(anchorPanes);
     }
 
-    private int readValueFromFileSystem() throws SQLException, IOException {
+    private int readValueFromFileSystem() {
         // Read value from the file system
         return purchaseList.size();
     }

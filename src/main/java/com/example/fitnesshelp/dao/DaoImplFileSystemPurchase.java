@@ -2,6 +2,7 @@ package com.example.fitnesshelp.dao;
 
 import com.example.fitnesshelp.entities.Purchase;
 import com.example.fitnesshelp.entities.WorkoutPlan;
+import com.example.fitnesshelp.utils.Printer;
 
 import java.io.*;
 import java.sql.SQLException;
@@ -52,20 +53,20 @@ public class DaoImplFileSystemPurchase implements DaoEntity<Purchase>{
             while (purchaseDate != null) {
                 String[] parts = purchaseDate.split("-");
                 if (parts.length == 8) {
-                    int ID = Integer.parseInt(parts[0]);
+                    int id = Integer.parseInt(parts[0]);
                     double price = Double.parseDouble(parts[1]);
                     Date date = dateFormat.parse(parts[2]);
                     String userBuyer = parts[3].trim();
                     WorkoutPlan workoutAssociated = new WorkoutPlan(parts[4], parts[5], parts[6], Double.parseDouble(parts[7]));
 
-                    Purchase purchase = new Purchase(ID, price, date, userBuyer, workoutAssociated);
+                    Purchase purchase = new Purchase(id, price, date, userBuyer, workoutAssociated);
                     purchaseArrayList.add(purchase);
                 }
                 purchaseDate = reader.readLine();
 
             }
         } catch (IOException | ParseException e) {
-            System.out.println("Problem with read file\n");
+            Printer.print("Problem with read file\n");
             e.printStackTrace(); // Stampa il messaggio di errore
         }
         return purchaseArrayList;

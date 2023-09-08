@@ -150,7 +150,7 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
 
         // Creazione delle label per le informazioni delle esercitazioni
         for (Exercise exercise : exerciseList) {
-            Label exerciseLabel = new Label("Exercise: " + exercise.getExercise());
+            Label exerciseLabel = new Label("Exercise: " + exercise.getExerciseName());
             Label muscleLabel = new Label("Muscle: " + exercise.getMuscle());
             Label setsLabel = new Label("Number of Sets: " + exercise.getSets());
             Label repsLabel = new Label("Number of Reps: " + exercise.getReps());

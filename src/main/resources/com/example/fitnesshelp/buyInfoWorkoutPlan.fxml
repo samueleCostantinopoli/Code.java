@@ -59,7 +59,7 @@
    </Hyperlink>
    <AnchorPane fx:id="dataWorkoutPlan1Pane" layoutX="159.0" layoutY="175.0" prefHeight="40.0" prefWidth="630.0" style="-fx-background-color: #464646;">
       <children>
-         <Label fx:id="NameForm" layoutX="55.0" layoutY="10.0" textFill="WHITE">
+         <Label fx:id="nameForm" layoutX="55.0" layoutY="10.0" textFill="WHITE">
             <font>
                <Font size="14.0" />
             </font>
@@ -98,7 +98,7 @@
                <Font size="14.0" />
             </font>
          </Label>
-         <Label fx:id="NamePT" layoutX="195.0" layoutY="10.0">
+         <Label fx:id="namePT" layoutX="195.0" layoutY="10.0">
             <font>
                <Font size="14.0" />
             </font>
@@ -113,17 +113,17 @@
                <Font size="14.0" />
             </font>
          </Label>
-         <Label fx:id="NameWorkout" layoutX="165.0" layoutY="40.0" >
+         <Label fx:id="nameWorkout" layoutX="165.0" layoutY="40.0" >
             <font>
                <Font size="14.0" />
             </font>
          </Label>
-         <Label fx:id="CommentExtra" layoutX="185.0" layoutY="100.0">
+         <Label fx:id="commentExtra" layoutX="185.0" layoutY="100.0">
             <font>
                <Font size="14.0" />
             </font>
          </Label>
-         <Label fx:id="InsertDate" layoutX="208.0" layoutY="70.0">
+         <Label fx:id="insertDate" layoutX="208.0" layoutY="70.0">
             <font>
                <Font size="14.0" />
             </font>

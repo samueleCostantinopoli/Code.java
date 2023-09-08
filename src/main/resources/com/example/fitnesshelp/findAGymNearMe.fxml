@@ -34,9 +34,9 @@
                         <Font size="14.0" />
                      </font>
                   </Hyperlink>
-                  <AnchorPane fx:id="GymPane" layoutX="157.0" layoutY="186.0" prefHeight="323.0" prefWidth="160.0" style="-fx-background-color: #dcdcdc;">
+                  <AnchorPane fx:id="gymPane" layoutX="157.0" layoutY="186.0" prefHeight="323.0" prefWidth="160.0" style="-fx-background-color: #dcdcdc;">
                      <children>
-                        <AnchorPane fx:id="Gym1Pane" layoutX="11.0" layoutY="14.0" prefHeight="50.0" prefWidth="136.0" style="-fx-background-color: #464646;">
+                        <AnchorPane fx:id="gym1Pane" layoutX="11.0" layoutY="14.0" prefHeight="50.0" prefWidth="136.0" style="-fx-background-color: #464646;">
                            <children>
                               <Label fx:id="nameGym1" layoutX="4.0" layoutY="4.0" text="FitExpress" textFill="WHITE">
                                  <font>
@@ -45,7 +45,7 @@
                               </Label>
                               <Label fx:id="addressGym1" layoutX="4.0" layoutY="27.0" prefHeight="17.0" prefWidth="130.0" text="Via Bernardino Alimena, 111" textFill="WHITE" />
                            </children></AnchorPane>
-                        <AnchorPane fx:id="Gym2Pane" layoutX="11.0" layoutY="110.0" prefHeight="50.0" prefWidth="136.0" style="-fx-background-color: #464646;">
+                        <AnchorPane fx:id="gym2Pane" layoutX="11.0" layoutY="110.0" prefHeight="50.0" prefWidth="136.0" style="-fx-background-color: #464646;">
                            <children>
                               <Label fx:id="nameGym2" layoutX="4.0" layoutY="4.0" prefHeight="20.0" prefWidth="130.0" text="Romanina Sporting Caenter" textFill="WHITE">
                                  <font>

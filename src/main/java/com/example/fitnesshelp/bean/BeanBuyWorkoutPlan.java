@@ -2,8 +2,8 @@ package com.example.fitnesshelp.bean;
 
 public class BeanBuyWorkoutPlan {
     private double prize;
-    public String name;
-    public String username;
+    private final String name;
+    private String username;
 
     public BeanBuyWorkoutPlan(String name, double prize, String username) {
         this.name = name;
@@ -23,15 +23,11 @@ public class BeanBuyWorkoutPlan {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String Username) {
-        this.username = Username;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

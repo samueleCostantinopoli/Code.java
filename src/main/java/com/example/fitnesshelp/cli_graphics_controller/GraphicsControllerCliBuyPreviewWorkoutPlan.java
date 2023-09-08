@@ -93,7 +93,7 @@ public class GraphicsControllerCliBuyPreviewWorkoutPlan {
         int index = 1;
         for (Exercise exercise : exerciseList) {
             Printer.print("_________");
-            Printer.print(index + " Exercise: " + exercise.getExercise());
+            Printer.print(index + " Exercise: " + exercise.getExerciseName());
             Printer.print("Muscle:" + exercise.getMuscle());
             Printer.print("Sets: " + exercise.getSets());
             Printer.print("Reps: " + exercise.getReps());
