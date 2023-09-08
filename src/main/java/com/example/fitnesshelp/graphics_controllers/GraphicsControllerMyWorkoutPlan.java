@@ -26,11 +26,6 @@ import java.util.ResourceBundle;
 
 public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage implements Initializable {
 
-    @FXML
-    private Hyperlink accountHyperlink;
-
-    @FXML
-    private Hyperlink buyWorkoutPlanHyperlink;
 
     @FXML
     Label simpleDescription;
@@ -41,8 +36,6 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
     @FXML
     private VBox anchorPaneContainer;
 
-    @FXML
-    private ScrollPane scrollPane;
 
     public GraphicsControllerMyWorkoutPlan() throws WorkoutPlanLoadException {
         // Only for exception
@@ -60,7 +53,7 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
             try {
                 anchorPanes = createAnchorPanes(numberOfAnchorPanes, listWorkouts);
             } catch (ExerciseLoadException e) {
-                throw new RuntimeException(e);
+                throw e;
             }
             anchorPaneContainer.getChildren().addAll(anchorPanes);
         }
@@ -74,7 +67,6 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
 
     BeanUsername beanUsername =new BeanUsername(UtilityAccess.getUsername());
     List<WorkoutPlan> listWorkouts = applicationControllerBuyWorkoutPlan.checkUserWorkoutPlan(beanUsername);
-
 
 
     private int readValueFromFileSystem(){
