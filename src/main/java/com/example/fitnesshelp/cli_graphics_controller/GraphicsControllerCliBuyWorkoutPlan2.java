@@ -26,6 +26,9 @@ public class GraphicsControllerCliBuyWorkoutPlan2 {
     ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
     List<WorkoutPlan> workoutPlanList = applicationControllerBuyWorkoutPlan.checkWorkoutPlan();
 
+    private Random random = new Random();
+
+
     public void savePurchase(WorkoutPlan thisWorkout) throws SQLException, IOException, TdeeRemoveException {
         newPurchase = new Purchase(GenerateId(), thisWorkout.getPrize(), TakeDate(), UtilityAccess.getUsername(), thisWorkout);
 
@@ -73,10 +76,8 @@ public class GraphicsControllerCliBuyWorkoutPlan2 {
     }
 
     private int GenerateId() {
-        Random random = new Random();
         // Generate int random ID
-        int id = random.nextInt(Integer.MAX_VALUE);
-        return id;
+        return random.nextInt(Integer.MAX_VALUE);
     }
 
     private String getUserInput() throws IOException {

@@ -19,8 +19,7 @@ public class DaoImplFileSystemExercise implements DaoEntity<Exercise>{
     @Override
     public void saveData(Exercise instance) throws SQLException, IOException {
         Exercise exerciseToSave = new Exercise(instance.getExercise(), instance.getMuscle(), instance.getSets(), instance.getReps(), instance.getRest(), instance.getWorkoutPlan());
-        try {
-            BufferedWriter fileWriter = new BufferedWriter(new FileWriter(FILE_NAME,true));
+        try (BufferedWriter fileWriter = new BufferedWriter(new FileWriter(FILE_NAME,true))){
             fileWriter.write(exerciseToSave.getExercise());
             fileWriter.write("-");
             fileWriter.write(String.valueOf(exerciseToSave.getMuscle()));
@@ -76,7 +75,7 @@ public class DaoImplFileSystemExercise implements DaoEntity<Exercise>{
 
 
     @Override
-    public void removeData(Exercise entity) throws SQLException, IOException {
-
+    public void removeData(Exercise entity) {
+        // questo metodo ho dovuto aggiungerlo per forza avendolo aggiunto nell'interfaccia
     }
 }

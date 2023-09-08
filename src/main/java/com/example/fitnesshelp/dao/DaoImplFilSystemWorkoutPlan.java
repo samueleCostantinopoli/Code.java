@@ -1,6 +1,6 @@
 package com.example.fitnesshelp.dao;
 
-import com.example.fitnesshelp.entities.Exercise;
+
 import com.example.fitnesshelp.entities.WorkoutPlan;
 
 import java.io.*;
@@ -8,20 +8,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.Double.parseDouble;
-import static java.lang.Integer.parseInt;
+
+
 
 public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
 
     private static final String FILE_NAME = "WorkoutPlan.txt";
-    List<String> lines = new ArrayList<>();
 
     @Override
     public void saveData(WorkoutPlan instance) throws SQLException, IOException {
         WorkoutPlan workoutPlan = new WorkoutPlan(instance.getName(), instance.getDay(), instance.getUsername(), instance.getPrize());
-        try {
-            BufferedWriter fileWriter = new BufferedWriter(new FileWriter(FILE_NAME,true));
-            convertWorkoutInTxt(workoutPlan);
+
+        try (BufferedWriter fileWriter = new BufferedWriter(new FileWriter(FILE_NAME, true))) {
             fileWriter.write(workoutPlan.getName());
             fileWriter.write("-");
             fileWriter.write(workoutPlan.getDay());
@@ -37,13 +35,14 @@ public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
             fileWriter.write(String.valueOf(workoutPlan.getPrize()));
 
             fileWriter.newLine();
-            fileWriter.close();
-            statusSave =0;
+
+            statusSave = 0;
         } catch (IOException e) {
-            statusSave =1;
+            statusSave = 1;
             throw new IOException("Problem with file writer\n");
         }
     }
+
 
     @Override
     public List<WorkoutPlan> showData(String username) throws IOException {
@@ -76,16 +75,13 @@ public class DaoImplFilSystemWorkoutPlan implements DaoEntity<WorkoutPlan>{
     }
 
     @Override
-    public void removeData(WorkoutPlan entity) throws SQLException, IOException {
+    public void removeData(WorkoutPlan entity) {
         // questo metodo ho dovuto aggiungerlo per forza avendolo aggiunto nell'interfaccia
     }
 
 
     private int statusSave;
 
-    private String convertWorkoutInTxt(WorkoutPlan workoutPlan){
-        return "Workout name: "+ workoutPlan.getName()+"\nNumber of day:"+ workoutPlan.getDay() +"\nCreator: "+workoutPlan.getUsername();
-    }
     public int getEsito(){
         return this.statusSave;
     }

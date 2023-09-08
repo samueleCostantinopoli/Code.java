@@ -75,14 +75,14 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
 
     WorkoutPlan CurrentWorkout;
 
-    public GraphicsControllerBuyWorkoutPlan1() throws IOException {
+    public GraphicsControllerBuyWorkoutPlan1() {
     }
 
     void SaveWorkout(WorkoutPlan thisWorkout) {
         CurrentWorkout = thisWorkout;
         CheckCreditCard.setOnAction(event -> {
             if (CheckCreditCard.isSelected()) {
-                // Se CheckCreditCard è selezionato, deseleziona gli altri
+                // If CheckCreditCard is checked, uncheck the others
                 HyperLinkButton.setVisible(false);
                 CheckPayPal.setSelected(false);
                 CheckBitcoin.setSelected(false);
@@ -93,7 +93,7 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
         CheckPayPal.setOnAction(event -> {
             if (CheckPayPal.isSelected()) {
                 SetCreditCard(false);
-                // Se CheckPayPal è selezionato, deseleziona gli altri
+                // If CheckPayPal is checked, uncheck the others
                 CheckCreditCard.setSelected(false);
                 CheckBitcoin.setSelected(false);
                 HyperLinkButton.setText("PayPal Log In");
@@ -144,24 +144,22 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
 
 
     @FXML
-    private void OnActionHyperLinkButton(ActionEvent event) {
+    private void OnActionHyperLinkButton() {
         if(HyperLinkButton.getText().equals("PayPal Log In")) {
-            // Carica la pagina web di PayPal nel WebView
+            // I load the PayPal web page into the WebView
             webView = new WebView();
             webEngine = webView.getEngine();
 
-            // Aggiungi il WebView al contenitore nell'interfaccia utente
+            // I add the WebView to the container in the UI
             WorkoutPlan1.getChildren().add(webView);
             webEngine.load("https://www.paypal.me/sCostantinopoli");
-            CheckCreditCard.setVisible(false);
-            CheckPayPal.setVisible(false);
-            CheckBitcoin.setVisible(false);
+
         } else {
             BitcoinAddress.setVisible(true);
-            CheckCreditCard.setVisible(false);
-            CheckPayPal.setVisible(false);
-            CheckBitcoin.setVisible(false);
         }
+        CheckCreditCard.setVisible(false);
+        CheckPayPal.setVisible(false);
+        CheckBitcoin.setVisible(false);
         purchaseBuyWorkoutPlanButton.setVisible(true);
         BackPaymentMethodsButton.setVisible(true);
         BackPaymentMethodsButton.setStyle("-fx-background-color: #FF0000; -fx-text-fill: white;");
@@ -191,7 +189,7 @@ public class GraphicsControllerBuyWorkoutPlan1 extends GraphicsControllerHomePag
         switchStage(event);
     }
 
-    public void clickedOnBackPaymentMethodsButton(ActionEvent event) {
+    public void clickedOnBackPaymentMethodsButton() {
         if(HyperLinkButton.getText().equals("PayPal Log In")) {
             // Remove WebView
             WorkoutPlan1.getChildren().remove(webView);

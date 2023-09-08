@@ -7,19 +7,11 @@ import com.example.fitnesshelp.utils.UtilityAccess;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
-
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
 import java.util.Objects;
-import java.util.ResourceBundle;
-
-import static java.lang.Double.parseDouble;
 import static java.lang.Float.parseFloat;
 import static java.lang.Integer.parseInt;
 
@@ -149,6 +141,10 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
     private boolean remove = false;
     private boolean saveWorkout = false;
 
+    public GraphicsControllerCreateWorkoutPlan(Label customePriceNameLabel1) {
+        this.customePriceNameLabel1 = customePriceNameLabel1;
+    }
+
     public void OnClickStartButton() {
         StartButton.setVisible(false);
         infoBar.setVisible(true);
@@ -169,7 +165,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
     }
 
     @FXML
-    void clickedOnButtonAddCustomExercise(ActionEvent event) {
+    void clickedOnButtonAddCustomExercise() {
         remove = true;
         removeCustomExercise.setOpacity(1);
         switch (exerciseNumber) {
@@ -213,7 +209,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
     }
 
     @FXML
-    void clickedOnButtonRemoveCustomExercise(ActionEvent event) {
+    void clickedOnButtonRemoveCustomExercise() {
         if(remove) {
             switch (exerciseNumber) {
                 case 2 -> {
@@ -259,7 +255,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
     }
 
     @FXML
-    void writeOnWorkoutName(KeyEvent event){
+    void writeOnWorkoutName(){
         customeWorkoutNameLabel.setOpacity(0);
     }
 

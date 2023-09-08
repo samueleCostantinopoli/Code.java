@@ -19,7 +19,7 @@ public class GraphicsControllerCliBuyWorkoutPlan1 {
     String Apartment;
     String City;
     String StateUser;
-    int ZIPcode;
+    int ZIPCode;
     String MobileNumber;
     String Email;
 
@@ -68,14 +68,18 @@ public class GraphicsControllerCliBuyWorkoutPlan1 {
 
     private void PaymentDone() throws SQLException, IOException, TdeeRemoveException {
         try {
-            Thread.sleep(5000); // Attendiamo per 5 secondi
+            Thread.sleep(5000); // Attend for 5 second
         } catch (InterruptedException e) {
+            // Restore the stopped state of the current thread
+            Thread.currentThread().interrupt();
             System.out.println("Problem with payments");
         }
         Printer.print("\nPayment done");
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
+            // Restore the stopped state of the current thread
+            Thread.currentThread().interrupt();
             System.out.println("Problem with payments");
         }
 
@@ -83,20 +87,21 @@ public class GraphicsControllerCliBuyWorkoutPlan1 {
         graphicsControllerCliBuyWorkoutPlan2.savePurchase(thisWorkout);
     }
 
+
     private void BitcoinInput() {
         Printer.print("\nNot yet implemented");
-        Printer.print("if you want you can make a donation ;). Bitcoin address:" +
-                "\n" +
-                "\"-------------------bc1qqu4l3sueuqxm9fdr9puqp4vl905lq57l4zzcz2-------------------" +
-                "\n");
+        Printer.print("""
+                if you want you can make a donation ;). Bitcoin address:
+                "-------------------bc1qqu4l3sueuqxm9fdr9puqp4vl905lq57l4zzcz2-------------------
+                """);
     }
 
     private void PayPalInput() {
         Printer.print("\nNot yet implemented");
-        Printer.print("if you want you can make a donation ;)" +
-                "\n" +
-                "\"-------------------https://www.paypal.me/sCostantinopoli" +
-                "\n");
+        Printer.print("""
+                if you want you can make a donation ;)
+                "-------------------https://www.paypal.me/sCostantinopoli
+                """);
 
     }
 
@@ -133,32 +138,41 @@ public class GraphicsControllerCliBuyWorkoutPlan1 {
                                     String userApartment = getUserInput();
                                     if (userApartment.length() > 2){
                                         Apartment = userApartment;
-                                        Printer.print("\nEnter Nation: ");
-                                        String userNation = getUserInput();
-                                        if(userNation.length() > 2){
-                                            StateUser = userNation;
-                                            Printer.print("\nEnter ZIP code: ");
-                                            int userZIPCode = Integer.parseInt(getUserInput());
-                                            if (String.valueOf(userZIPCode).length() == 5 ){
-                                                ZIPcode = userZIPCode;
-                                                Printer.print("\nEnter mobile number: ");
-                                                String userMobile = getUserInput();
-                                                if (userMobile.length() < 9){
-                                                    MobileNumber = userMobile;
-                                                    Printer.print("\nEnter email: ");
-                                                    String userEmail = getUserInput();
-                                                    if (userEmail.length() < 4){
-                                                        Email = userEmail;
-                                                        Printer.print("\nInsertion completed, continue with payment? Enter \"yes\" to continue and \"no\" to return to the home page: ");
-                                                        String userRespost = getUserInput();
-                                                        if (userRespost.equals("yes")){
-                                                            exit = true;
-                                                        }else if (userRespost.equals("no")) {
-                                                            backToHomePage();
-                                                        } else Printer.print("\nInsertion completed, continue with payment? Enter \"yes\" to continue and \"no\" to return to the home page: ");;
-                                                    } else Printer.print("Invalid value, check that you have entered email");
-                                                } else Printer.print("Invalid value, check that you have entered mobile number");
-                                            }else Printer.print("Invalid value, check that you have entered ZIP code, 5 number");
+                                        Printer.print("\nEnter city: ");
+                                        String userCity = getUserInput();
+                                        if(userCity.length() > 2) {
+                                            City = userCity;
+                                            Printer.print("\nEnter Nation: ");
+                                            String userNation = getUserInput();
+                                            if (userNation.length() > 2) {
+                                                StateUser = userNation;
+                                                Printer.print("\nEnter ZIP code: ");
+                                                int userZIPCode = Integer.parseInt(getUserInput());
+                                                if (String.valueOf(userZIPCode).length() == 5) {
+                                                    ZIPCode = userZIPCode;
+                                                    Printer.print("\nEnter mobile number: ");
+                                                    String userMobile = getUserInput();
+                                                    if (userMobile.length() < 9) {
+                                                        MobileNumber = userMobile;
+                                                        Printer.print("\nEnter email: ");
+                                                        String userEmail = getUserInput();
+                                                        if (userEmail.length() < 4) {
+                                                            Email = userEmail;
+                                                            Printer.print("\nInsertion completed, continue with payment? Enter \"yes\" to continue and \"no\" to return to the home page: ");
+                                                            String userAnswer = getUserInput();
+                                                            if (userAnswer.equals("yes")) {
+                                                                exit = false;
+                                                            } else if (userAnswer.equals("no")) {
+                                                                backToHomePage();
+                                                            } else
+                                                                Printer.print("\nInsertion completed, continue with payment? Enter \"yes\" to continue and \"no\" to return to the home page: ");
+                                                        } else
+                                                            Printer.print("Invalid value, check that you have entered email");
+                                                    } else
+                                                        Printer.print("Invalid value, check that you have entered mobile number");
+                                                } else
+                                                    Printer.print("Invalid value, check that you have entered ZIP code, 5 number");
+                                            } else Printer.print("Invalid value");
                                         }else Printer.print("Invalid value");
                                     } else Printer.print("Invalid value");
                                 } else Printer.print("Invalid value");

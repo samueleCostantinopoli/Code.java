@@ -4,12 +4,9 @@ import com.example.fitnesshelp.application_controllers.ApplicationControllerBuyW
 import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.bean.BeanUsername;
 import com.example.fitnesshelp.entities.Purchase;
-import com.example.fitnesshelp.entities.WorkoutPlan;
 import com.example.fitnesshelp.exception.TdeeRemoveException;
 import com.example.fitnesshelp.utils.Printer;
 import com.example.fitnesshelp.utils.UtilityAccess;
-import javafx.scene.control.Label;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

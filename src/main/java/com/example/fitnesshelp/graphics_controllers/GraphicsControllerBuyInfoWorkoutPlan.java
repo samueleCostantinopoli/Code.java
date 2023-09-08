@@ -41,7 +41,7 @@ public class GraphicsControllerBuyInfoWorkoutPlan extends GraphicsControllerHome
     @FXML
     Button priceWorkoutPlan2Button;
     public WorkoutPlan workoutPlan;
-    public GraphicsControllerBuyInfoWorkoutPlan() throws IOException {
+    public GraphicsControllerBuyInfoWorkoutPlan() {
     }
 
     public void setIndex(WorkoutPlan currentWorkout) {

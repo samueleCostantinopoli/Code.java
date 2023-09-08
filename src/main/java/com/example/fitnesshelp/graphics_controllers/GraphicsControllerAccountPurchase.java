@@ -53,19 +53,19 @@ public class GraphicsControllerAccountPurchase extends GraphicsControllerHomePag
         List<AnchorPane> anchorPanes = new ArrayList<>();
         for (int index = 0; index < numberOfAnchorPanes; index++) {
 
-            // Crea un nuovo AnchorPane
+            // I create a new AnchorPane
             AnchorPane anchorPane = new AnchorPane();
-            anchorPane.setPrefWidth(400); // Imposta la larghezza desiderata
-            anchorPane.setPrefHeight(100); // Imposta l'altezza desiderata
+            anchorPane.setPrefWidth(400);
+            anchorPane.setPrefHeight(100);
 
-            // Crea le label per visualizzare le informazioni di Purchase
+            // I create the labels to display the Purchase information
             Label idLabel = new Label("ID: " + purchaseList.get(index).getIdPurchase());
             Label priceLabel = new Label("Price: " + purchaseList.get(index).getPrice());
             Label dateLabel = new Label("Date: " + purchaseList.get(index).getDate().toString());
             Label usernameLabel = new Label("Username: " + purchaseList.get(index).getUsername());
             Label workoutPlanLabel = new Label("Workout Plan: " + purchaseList.get(index).getWorkoutPlan().getName());
 
-            // Posiziona le label all'interno dell'AnchorPane
+            // I place the labels inside the AnchorPane
             AnchorPane.setTopAnchor(idLabel, 10.0);
             AnchorPane.setLeftAnchor(idLabel, 10.0);
             AnchorPane.setTopAnchor(priceLabel, 30.0);
@@ -77,10 +77,10 @@ public class GraphicsControllerAccountPurchase extends GraphicsControllerHomePag
             AnchorPane.setTopAnchor(workoutPlanLabel, 90.0);
             AnchorPane.setLeftAnchor(workoutPlanLabel, 10.0);
 
-            // Aggiungi le label all'AnchorPane
+            // I add the labels to the AnchorPane
             anchorPane.getChildren().addAll(idLabel, priceLabel, dateLabel, usernameLabel, workoutPlanLabel);
 
-            // Aggiungi l'AnchorPane alla lista
+            // I add the AnchorPane to the list
             anchorPanes.add(anchorPane);
         }
         return anchorPanes;

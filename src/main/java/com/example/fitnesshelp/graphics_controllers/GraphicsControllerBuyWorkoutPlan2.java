@@ -12,7 +12,6 @@ import javafx.scene.control.Label;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Date;
-import java.util.List;
 import java.util.Random;
 
 
@@ -24,6 +23,9 @@ public class GraphicsControllerBuyWorkoutPlan2 extends GraphicsControllerHomePag
     public Label WorkoutNamePurchase;
 
     ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
+
+    Random random = new Random();
+
     public GraphicsControllerBuyWorkoutPlan2() {
     }
 
@@ -44,10 +46,8 @@ public class GraphicsControllerBuyWorkoutPlan2 extends GraphicsControllerHomePag
     }
 
     private int GenerateId() {
-        Random random = new Random();
         // Generate int random ID
-        int id = random.nextInt(Integer.MAX_VALUE);
-        return id;
+        return random.nextInt(Integer.MAX_VALUE);
     }
 
     public void clickedOnBuyWorkoutPlanHyperlink1(ActionEvent event) throws IOException {

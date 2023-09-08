@@ -2,8 +2,6 @@ package com.example.fitnesshelp.cli_graphics_controller;
 
 import com.example.fitnesshelp.application_controllers.ApplicationControllerBuyWorkoutPlan;
 import com.example.fitnesshelp.bean.BeanState;
-import com.example.fitnesshelp.bean.BeanUsername;
-import com.example.fitnesshelp.entities.Purchase;
 import com.example.fitnesshelp.entities.State;
 import com.example.fitnesshelp.entities.WorkoutPlan;
 import com.example.fitnesshelp.exception.TdeeRemoveException;
@@ -17,14 +15,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class GraphicsControllerCliBuyWorkoutPlan {
-
-    BeanState beanState = new BeanState(UtilityAccess.getState());
-    ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(beanState);
-    BeanUsername beanUsername = new BeanUsername(UtilityAccess.getUsername());
-    List<Purchase> purchaseList = applicationControllerBuyWorkoutPlan.checkUserPurchase(beanUsername);
-
-    public GraphicsControllerCliBuyWorkoutPlan() throws IOException {
-    }
 
     public void showMenu() throws IOException, SQLException, TdeeRemoveException {
         BeanState beanState = new BeanState(UtilityAccess.getState());

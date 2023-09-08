@@ -19,9 +19,7 @@ public class DaoImplFileSystemPurchase implements DaoEntity<Purchase>{
     @Override
     public void saveData(Purchase instance) throws SQLException, IOException {
         Purchase purchase = new Purchase(instance.getIdPurchase(), instance.getPrice(), instance.getDate(), instance.getUsername(), instance.getWorkoutPlan());
-        try {
-            BufferedWriter fileWriter = new BufferedWriter(new FileWriter(FILE_NAME, true));
-
+        try (BufferedWriter fileWriter = new BufferedWriter(new FileWriter(FILE_NAME, true))){
             fileWriter.write(String.valueOf(purchase.getIdPurchase()));
             fileWriter.write("-");
             fileWriter.write(String.valueOf(purchase.getPrice()));
@@ -39,7 +37,6 @@ public class DaoImplFileSystemPurchase implements DaoEntity<Purchase>{
             fileWriter.write(String.valueOf(purchase.getWorkoutPlan().getPrize()));
 
             fileWriter.newLine();
-            fileWriter.close();
         } catch (IOException e) {
             throw new IOException("Problem with file writer\n");
         }
@@ -75,8 +72,8 @@ public class DaoImplFileSystemPurchase implements DaoEntity<Purchase>{
     }
 
     @Override
-    public void removeData(Purchase entity) throws SQLException, IOException {
-
+    public void removeData(Purchase entity) {
+        // questo metodo ho dovuto aggiungerlo per forza avendolo aggiunto nell'interfaccia
     }
 
 }
