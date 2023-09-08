@@ -10,6 +10,10 @@ import java.io.InputStreamReader;
 import java.sql.SQLException;
 
 public class GraphicsControllerCliCommonOperations {
+    private GraphicsControllerCliCommonOperations() {
+        // Private constructor to hide the implicit public one
+    }
+
     public static void backToBuyWorkoutPlan() throws SQLException, IOException, TdeeRemoveException, ExerciseLoadException, PurchaseUserLoadException {
         GraphicsControllerCliBuyWorkoutPlan graphicsControllerCliBuyWorkoutPlan = new GraphicsControllerCliBuyWorkoutPlan();
         graphicsControllerCliBuyWorkoutPlan.showMenu();

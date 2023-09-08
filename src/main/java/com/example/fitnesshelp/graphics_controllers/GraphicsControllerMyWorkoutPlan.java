@@ -5,6 +5,7 @@ import com.example.fitnesshelp.bean.BeanBuyWorkoutPlan;
 import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.bean.BeanUsername;
 import com.example.fitnesshelp.entities.Exercise;
+import com.example.fitnesshelp.entities.Purchase;
 import com.example.fitnesshelp.entities.WorkoutPlan;
 import com.example.fitnesshelp.exception.ExerciseLoadException;
 import com.example.fitnesshelp.exception.WorkoutPlanLoadException;
@@ -63,10 +64,13 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
 
     BeanUsername beanUsername =new BeanUsername(UtilityAccess.getUsername());
     List<WorkoutPlan> listWorkouts = applicationControllerBuyWorkoutPlan.checkUserWorkoutPlan(beanUsername);
-
+    List<Purchase> listPurchaseUser = applicationControllerBuyWorkoutPlan.checkUserPurchase(beanUsername);
 
     private int readValueFromFileSystem(){
         // Read value from the file system
+        for (Purchase purchase : listPurchaseUser) {
+            listWorkouts.add(purchase.getWorkoutPlan());
+        }
         return listWorkouts.size();
     }
 
