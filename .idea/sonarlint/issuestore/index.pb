@@ -36,14 +36,10 @@ _
 /src/main/java/com/example/fitnesshelp/Main.java,8\7\87251c42cb33e2f3d8209a3fa674104f336bbb9a
 v
 Fsrc/main/java/com/example/fitnesshelp/system_actor/TdeeCalculator.java,0\a\0a549776990a009af912a2d9c75e890a4655bffe
-i
-9src/main/java/com/example/fitnesshelp/entities/Macro.java,a\7\a760957b684b1b7bfc75e04f3ea3c21b26b4b148
 –
 fsrc/main/java/com/example/fitnesshelp/cli_graphics_controller/GraphicsControllerCliCalculateTdee3.java,4\3\43c96acf0d874d5b9929e3e6812aa72554748bbd
 •
 esrc/main/java/com/example/fitnesshelp/cli_graphics_controller/GraphicsControllerCliCreateAccount.java,8\b\8b7652651d4e33befffb30609179bb70e028869f
-h
-8src/main/java/com/example/fitnesshelp/entities/Tdee.java,e\5\e5d688e9bbbdefe5eec8df44c42b3885285ad22f
 h
 8src/main/java/com/example/fitnesshelp/dao/DaoEntity.java,e\5\e5fa6a840eca9af9a635c7a3bf911905a397a22a
 –

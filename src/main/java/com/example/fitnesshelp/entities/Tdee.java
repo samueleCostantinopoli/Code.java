@@ -1,21 +1,15 @@
 package com.example.fitnesshelp.entities;
 
-public class Tdee {
-
+public class Tdee extends Macro {
     private int kcal;
     private String username;
-    private float pro;
-    private float fat;
-    private float carb;
     private String target;
     private String quantity;
 
-    public Tdee(int kcal, String username, float pro, float fat, float carb, String target, String quantity){
+    public Tdee(int kcal, String username, float pro, float fat, float carb, String target, String quantity) {
+        super(pro, fat, carb);
         this.kcal = kcal;
         this.username = username;
-        this.pro = pro;
-        this.fat = fat;
-        this.carb = carb;
         this.target = target;
         this.quantity = quantity;
     }
@@ -34,30 +28,6 @@ public class Tdee {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public float getPro() {
-        return pro;
-    }
-
-    public void setPro(float pro) {
-        this.pro = pro;
-    }
-
-    public float getFat() {
-        return fat;
-    }
-
-    public void setFat(float fat) {
-        this.fat = fat;
-    }
-
-    public float getCarb() {
-        return carb;
-    }
-
-    public void setCarb(float carb) {
-        this.carb = carb;
     }
 
     public String getTarget() {
