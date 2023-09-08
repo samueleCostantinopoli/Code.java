@@ -20,26 +20,12 @@ import java.sql.SQLException;
 
 public class GraphicsControllerCreateAccount extends GraphicsControllerHomePage {
 
-    @FXML
-    private Label email;
 
     @FXML
     private TextField emailField;
 
     @FXML
-    private Hyperlink homeHyperlink;
-
-    @FXML
-    private Label password;
-
-    @FXML
     private PasswordField passwordField;
-
-    @FXML
-    private Button registerButton;
-
-    @FXML
-    private Label username;
 
     @FXML
     private RadioButton normalAccountRadioButton;
@@ -53,11 +39,6 @@ public class GraphicsControllerCreateAccount extends GraphicsControllerHomePage 
     @FXML
     private TextField usernameField;
 
-    private BeanPassword beanPassword;
-    private BeanUsername beanUsername;
-    private BeanEmail beanEmail;
-    private BeanAccountType beanAccountType;
-
     @FXML
     void initialize() {
         passwordField.setPromptText("\u2022\u2022\u2022\u2022\u2022");
@@ -65,14 +46,14 @@ public class GraphicsControllerCreateAccount extends GraphicsControllerHomePage 
 
     // radio button switch
     @FXML
-    void clickedOnRadioButtonNormalAccount(ActionEvent event) {
+    void clickedOnRadioButtonNormalAccount() {
         if (normalAccountRadioButton.isSelected()) {
             personalTrainerAccountRadioButton.setSelected(false);
         }
     }
 
     @FXML
-    void clickedOnRadioButtonPersonalTrainerAccount(ActionEvent event) {
+    void clickedOnRadioButtonPersonalTrainerAccount() {
         if (personalTrainerAccountRadioButton.isSelected()) {
             normalAccountRadioButton.setSelected(false);
         }

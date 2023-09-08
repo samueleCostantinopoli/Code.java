@@ -35,7 +35,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
     @FXML
     private VBox anchorPaneContainer;
 
-    public static String COLORBOX = "-fx-background-color: #231717;";
+    static final String COLORBOX = "-fx-background-color: #231717;";
 
     public GraphicsControllerBuyWorkoutPlan() throws IOException {
         // Only for exception

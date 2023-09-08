@@ -306,10 +306,8 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
         String workoutUsername = UtilityAccess.getUsername();
 
         double workoutPrice = -10;
-        if (UtilityAccess.getTypeOfUser().equals(TypeOfUser.PERSONAL_TRAINER)) {
-            if (!priceTextField.getText().isEmpty()) {
-                workoutPrice = Double.parseDouble(priceTextField.getText());
-            }
+        if (UtilityAccess.getTypeOfUser().equals(TypeOfUser.PERSONAL_TRAINER) && !priceTextField.getText().isEmpty()) {
+            workoutPrice = Double.parseDouble(priceTextField.getText());
         }
 
         return new WorkoutPlan(workoutName, workoutCategory, workoutUsername, workoutPrice);

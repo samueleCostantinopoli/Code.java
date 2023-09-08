@@ -8,7 +8,7 @@ import java.io.IOException;
 import static com.example.fitnesshelp.entities.State.LOGGED_IN;
 
 public class GraphicsControllerAccount extends GraphicsControllerHomePage {
-    public static String ACCOUNT = "/com/example/fitnesshelp/account";
+    static final String ACCOUNT = "/com/example/fitnesshelp/account";
 
     @FXML
     void clickedOnAccountHyperlink(ActionEvent event) throws IOException{

@@ -23,6 +23,7 @@ import java.util.List;
 
 public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerHomePage {
 
+    @FXML
     public Label nameWorkout;
     @FXML
     Label insertPreview;
