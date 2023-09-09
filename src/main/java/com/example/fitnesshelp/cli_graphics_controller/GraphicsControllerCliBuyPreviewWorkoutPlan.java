@@ -35,16 +35,17 @@ public class GraphicsControllerCliBuyPreviewWorkoutPlan {
             Printer.print("3: Get info workout");
             Printer.print("4: Buy workout");
             Printer.print("");
-            String userInput = getUserInput();
-            switch (userInput) {
-                case "1" -> GraphicsControllerCliCommonOperations.backToHomePage();
-                case "2" -> GraphicsControllerCliCommonOperations.backToBuyWorkoutPlan();
-                case "3" -> {
+            String userChoice = getUserInput();
+            int choice = Integer.parseInt(userChoice);
+            switch (choice) {
+                case 1 -> GraphicsControllerCliCommonOperations.backToHomePage();
+                case 2 -> GraphicsControllerCliCommonOperations.backToBuyWorkoutPlan();
+                case 3 -> {
                     GraphicsControllerCliBuyInfoWorkoutPlan infoController = new GraphicsControllerCliBuyInfoWorkoutPlan();
                     infoController.setIndex(currentWorkout);
                     exit = false;
                 }
-                case "4" -> {
+                case 4 -> {
                     if (UtilityAccess.getState() == State.LOGGED_IN) {
                         GraphicsControllerCliBuyWorkoutPlan1 infoController = new GraphicsControllerCliBuyWorkoutPlan1();
                         infoController.saveWorkout(currentWorkout);
