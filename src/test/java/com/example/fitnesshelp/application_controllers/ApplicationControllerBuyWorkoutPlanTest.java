@@ -34,7 +34,7 @@ public class ApplicationControllerBuyWorkoutPlanTest {
      }
 
     @Test
-    public void checkUserExercise() {
+    public void checkUserExercise() throws SQLException, IOException {
         ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
 
         BeanBuyWorkoutPlan beanBuyWorkoutPlan = new BeanBuyWorkoutPlan("Arms", 2.5,"user");

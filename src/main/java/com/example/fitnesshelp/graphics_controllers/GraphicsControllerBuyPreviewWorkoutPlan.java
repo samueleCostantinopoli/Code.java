@@ -47,7 +47,7 @@ public class GraphicsControllerBuyPreviewWorkoutPlan extends GraphicsControllerH
         return currentWorkout;
     }
 
-    public GraphicsControllerBuyPreviewWorkoutPlan() throws IOException {
+    public GraphicsControllerBuyPreviewWorkoutPlan() throws IOException, SQLException {
         // Only for exception
     }
 

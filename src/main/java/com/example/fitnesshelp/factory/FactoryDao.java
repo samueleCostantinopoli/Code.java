@@ -19,6 +19,9 @@ public class FactoryDao {
                 case WORKOUT_PLAN -> {
                     return new DaoImplJDBCWorkoutPlan();
                 }
+                case EXERCISE -> {
+                    return new DaoImplJDBCExercise();
+                }
             }
         }else{
             switch (typeOfEntity){
@@ -30,6 +33,9 @@ public class FactoryDao {
                 }
                 case WORKOUT_PLAN -> {
                     return new DaoImplFileSystemWorkoutPlan();
+                }
+                case EXERCISE -> {
+                    return new DaoImplFileSystemExercise();
                 }
             }
         }

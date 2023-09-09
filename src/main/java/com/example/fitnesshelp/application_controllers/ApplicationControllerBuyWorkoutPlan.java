@@ -4,12 +4,8 @@ import com.example.fitnesshelp.bean.BeanBuyWorkoutPlan;
 import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.bean.BeanUsername;
 import com.example.fitnesshelp.dao.DaoEntity;
-
-import com.example.fitnesshelp.dao.DaoImplFileSystemExercise;
-
 import com.example.fitnesshelp.entities.Exercise;
 import com.example.fitnesshelp.entities.Purchase;
-
 import com.example.fitnesshelp.entities.WorkoutPlan;
 import com.example.fitnesshelp.exception.ExerciseLoadException;
 import com.example.fitnesshelp.exception.WorkoutPlanLoadException;
@@ -17,7 +13,6 @@ import com.example.fitnesshelp.factory.FactoryDao;
 import com.example.fitnesshelp.factory.TypeOfEntity;
 import com.example.fitnesshelp.factory.TypeOfPersistence;
 import com.example.fitnesshelp.utils.UtilityAccess;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -60,17 +55,19 @@ public class ApplicationControllerBuyWorkoutPlan {
 
 
     @SuppressWarnings("unchecked")
-    public List<Exercise> checkExercise() throws IOException {
-        DaoImplFileSystemExercise daoImplFileSystemExercise = new DaoImplFileSystemExercise();
-        return daoImplFileSystemExercise.showData(UtilityAccess.getUsername());
+    public List<Exercise> checkExercise() throws IOException, SQLException {
+        FactoryDao factoryDao = new FactoryDao();
+        return factoryDao.useDao(TypeOfPersistence.FILE_SYSTEM, TypeOfEntity.EXERCISE).showData(UtilityAccess.getUsername());
     }
 
     @SuppressWarnings("unchecked")
-    public List<Exercise> checkUserExercise(BeanBuyWorkoutPlan beanBuyWorkoutPlan) throws ExerciseLoadException {
-        DaoImplFileSystemExercise daoImplFileSystemExercise = new DaoImplFileSystemExercise();
+    public List<Exercise> checkUserExercise(BeanBuyWorkoutPlan beanBuyWorkoutPlan) throws ExerciseLoadException, SQLException, IOException {
+        FactoryDao factoryDao = new FactoryDao();
+        DaoEntity<Exercise> daoEntity = factoryDao.useDao(TypeOfPersistence.FILE_SYSTEM, TypeOfEntity.EXERCISE);
+
         List<Exercise> exerciseUser = new ArrayList<>();
         try {
-            List<Exercise> exerciseTotal = daoImplFileSystemExercise.showData(UtilityAccess.getUsername());
+            List<Exercise> exerciseTotal = daoEntity.showData(UtilityAccess.getUsername());
             for (Exercise exercise : exerciseTotal) {
                 if (exercise.getWorkoutPlan().getName().equals(beanBuyWorkoutPlan.getName())
                         && exercise.getWorkoutPlan().getUsername().equals(beanBuyWorkoutPlan.getUsername())

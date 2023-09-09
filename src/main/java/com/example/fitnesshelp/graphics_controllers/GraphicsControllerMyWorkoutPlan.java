@@ -53,7 +53,11 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
             simpleDescription.setVisible(false);
             simpleDescription2.setVisible(false);
             List<AnchorPane> anchorPanes;
-            anchorPanes = createAnchorPanes(numberOfAnchorPanes, listWorkouts);
+            try {
+                anchorPanes = createAnchorPanes(numberOfAnchorPanes, listWorkouts);
+            } catch (SQLException | IOException e) {
+                throw new RuntimeException(e);
+            }
             anchorPaneContainer.getChildren().addAll(anchorPanes);
         }
         else{
@@ -76,7 +80,7 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
         return listWorkouts.size();
     }
 
-    private List<AnchorPane> createAnchorPanes(int numberOfAnchorPanes, List<WorkoutPlan> workoutPlanList) throws ExerciseLoadException {
+    private List<AnchorPane> createAnchorPanes(int numberOfAnchorPanes, List<WorkoutPlan> workoutPlanList) throws ExerciseLoadException, SQLException, IOException {
         List<AnchorPane> anchorPanes = new ArrayList<>();
 
         for (int index = 0; index < numberOfAnchorPanes; index++) {
@@ -90,7 +94,7 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
         return anchorPanes;
     }
 
-    private AnchorPane createAnchorPane(WorkoutPlan workoutPlan) throws ExerciseLoadException {
+    private AnchorPane createAnchorPane(WorkoutPlan workoutPlan) throws ExerciseLoadException, SQLException, IOException {
         // Creazione dell'AnchorPane per il titolo del workout
         AnchorPane anchorPaneTitle = createTitleAnchorPane(workoutPlan.getName());
 
@@ -128,7 +132,7 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
         return anchorPaneTitle;
     }
 
-    private AnchorPane createInfoAnchorPane(WorkoutPlan workoutPlan) throws ExerciseLoadException {
+    private AnchorPane createInfoAnchorPane(WorkoutPlan workoutPlan) throws ExerciseLoadException, SQLException, IOException {
         AnchorPane anchorPaneInfo = new AnchorPane();
         anchorPaneInfo.setPrefWidth(585.0);
         anchorPaneInfo.setStyle("-fx-background-color: #FFFFFF; -fx-border-color: black; -fx-border-width: 1px;");
