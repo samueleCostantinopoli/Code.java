@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -37,8 +38,10 @@ public class GraphicsControllerHomePage {
 
     @FXML
     void clickedOnAccountHyperlink(ActionEvent event) throws IOException {
-        stageToSwitch = "/com/example/fitnesshelp/account";
-        switchStage(event);
+        if (UtilityAccess.getState() == State.LOGGED_IN) {
+            stageToSwitch = "/com/example/fitnesshelp/account";
+            switchStage(event);
+        }
     }
 
     @FXML

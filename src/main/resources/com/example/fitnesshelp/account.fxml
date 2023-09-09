@@ -56,7 +56,7 @@
                   <Image url="@../../../logout.png" />
                </image>
             </ImageView>
-            <Hyperlink fx:id="accountHyperlink1" layoutX="230.0" layoutY="106.0" onAction="#clickedOnAccountHyperlink" text="&gt; account">
+            <Hyperlink fx:id="accountHyperlink1" layoutX="230.0" layoutY="106.0" text="&gt; account">
                <font>
                   <Font size="14.0" />
                </font>
@@ -66,7 +66,7 @@
                   <Image url="@../../../man.png" />
                </image>
             </ImageView>
-            <Label fx:id="username" layoutX="334.0" layoutY="198.0" text="Mario Rossi">
+            <Label fx:id="username" layoutX="377.0" layoutY="200.0" text="Mario Rossi">
                <font>
                   <Font size="22.0" />
                </font>
@@ -76,12 +76,12 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Button fx:id="changeEmailButton" layoutX="206.0" layoutY="336.0" mnemonicParsing="false" onAction="#clickedOnButtonChangeEmail" style="-fx-background-color: #231717;" text="Change Email" textFill="WHITE">
+            <Button fx:id="changeEmailButton" layoutX="206.0" layoutY="336.0" mnemonicParsing="false" style="-fx-background-color: #231717;" text="Change Email" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <ImageView fx:id="changeNameImageView" fitHeight="32.0" fitWidth="31.0" layoutX="475.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="changeNameImageView" fitHeight="32.0" fitWidth="31.0" layoutX="335.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@edit.png" />
                </image>
@@ -91,7 +91,7 @@
                   <Image url="@edit.png" />
                </image>
             </ImageView>
-            <Button fx:id="changePasswordButton" layoutX="206.0" layoutY="380.0" mnemonicParsing="false" onAction="#clickedOnButtonChangePassword" style="-fx-background-color: #231717;" text="Change password" textFill="WHITE">
+            <Button fx:id="changePasswordButton" layoutX="206.0" layoutY="380.0" mnemonicParsing="false" style="-fx-background-color: #231717;" text="Change password" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -101,12 +101,12 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="password" layoutX="369.0" layoutY="381.0" text="*********">
+            <Label fx:id="password" layoutX="413.0" layoutY="381.0" text="*************">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <ImageView fx:id="showPassword" fitHeight="32.0" fitWidth="31.0" layoutX="459.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="showPassword" fitHeight="32.0" fitWidth="31.0" layoutX="369.0" layoutY="379.0" onMouseClicked="#clickedOnShowPassword" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@view.png" />
                </image>
@@ -155,6 +155,7 @@
                   </Hyperlink>
                </children>
             </AnchorPane>
+            <Label fx:id="realPasswordLabel" layoutX="416.0" layoutY="386.0" opacity="0.0" prefHeight="17.0" prefWidth="101.0" text="password" />
          </children>
       </AnchorPane>
    </children>

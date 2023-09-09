@@ -27,7 +27,6 @@ public class GraphicsControllerLogin extends GraphicsControllerHomePage {
     @FXML
     private PasswordField passwordField;
 
-
     @FXML
     private Label errorMessageLabel;
 
@@ -65,6 +64,7 @@ public class GraphicsControllerLogin extends GraphicsControllerHomePage {
                     applicationControllerLogin.checkUserAccount();
                     // successful login
                     UtilityAccess.setUsername(usernameField.getText());
+                    UtilityAccess.setPassword(passwordField.getText());
                     UtilityAccess.setState(State.LOGGED_IN);
                     usernameField.setDisable(true);
                     passwordField.setDisable(true);
