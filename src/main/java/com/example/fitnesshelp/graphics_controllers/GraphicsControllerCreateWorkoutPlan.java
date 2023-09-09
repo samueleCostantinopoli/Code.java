@@ -187,6 +187,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
         if(exerciseNumber < 6) exerciseNumber ++;
     }
 
+
     private void setOpacity2(int value){
         nameCustomExerciseTextField2.setOpacity(value);
         customSetTextfield2.setOpacity(value);
