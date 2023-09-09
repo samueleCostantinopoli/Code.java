@@ -10,19 +10,16 @@ public class DaoImplJDBCWorkoutPlan implements DaoEntity<WorkoutPlan>{
     @Override
     public void saveData(WorkoutPlan workoutPlan){
         //Not implemented because I use the file system and it was not required to use the database for me as I am from the automation course
-
     }
 
     @Override
     public List<WorkoutPlan> showData(String username){
-
         //Not implemented because I use the file system and it was not required to use the database for me as I am from the automation course
-        return null;
+        throw new UnsupportedOperationException("showData method is implemented in the dao of db by default");
     }
 
     @Override
     public void removeData(WorkoutPlan entity) {
         //Not implemented because I use the file system and it was not required to use the database for me as I am from the automation course
-
     }
 }
