@@ -13,7 +13,7 @@ public class DaoImplJDBCPurchase implements DaoEntity<Purchase>{
     @Override
     public List<Purchase> showData(String username){
         //Not implemented because I use the file system and it was not required to use the database for me as I am from the automation course
-        return null;
+        throw new UnsupportedOperationException("showData method is implemented in the dao of db by default");
     }
 
     @Override
