@@ -32,6 +32,7 @@ public class GraphicsControllerAccountPurchase extends GraphicsControllerHomePag
     List<Purchase> purchaseList = applicationControllerBuyWorkoutPlan.checkUserPurchase(beanUsername);
 
     public GraphicsControllerAccountPurchase() throws SQLException, IOException {
+        // Only for exception
     }
 
     @Override

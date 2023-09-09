@@ -170,18 +170,14 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
                 customRestTextField2.setOpacity(1);
                 muscleCustomTextField2.setOpacity(1);
             }
-            case 2 -> {
+            case 2 ->
                 setOpacity2(1);
-            }
-            case 3 -> {
+            case 3 ->
                 setOpacity3(1);
-            }
-            case 4 -> {
+            case 4 ->
                 setOpacity4(1);
-            }
-            case 5 -> {
+            case 5 ->
                 setOpacity5(1);
-            }
             default -> nameCustomExerciseTextField1.setOpacity(0);
         }
         if(exerciseNumber < 6) exerciseNumber ++;
@@ -225,24 +221,16 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
     void clickedOnButtonRemoveCustomExercise() {
         if(remove) {
             switch (exerciseNumber) {
-                case 2 -> {
-                    setOpacity2(0);
-                }
-                case 3 -> {
-                    setOpacity3(0);
-                }
-                case 4 -> {
-                    setOpacity4(0);
-                }
-                case 5 -> {
-                    setOpacity5(0);
-                }
+                case 2 -> setOpacity2(0);
+                case 3 -> setOpacity3(0);
+                case 4 -> setOpacity4(0);
+                case 5 -> setOpacity5(0);
                 case 6 -> {
-                    nameCustomExerciseTextField6.setOpacity(0);
-                    customSetTextfield6.setOpacity(0);
-                    customRepstextFields6.setOpacity(0);
-                    customRestTextField6.setOpacity(0);
-                    muscleCustomTextField6.setOpacity(0);
+                nameCustomExerciseTextField6.setOpacity(0);
+                customSetTextfield6.setOpacity(0);
+                customRepstextFields6.setOpacity(0);
+                customRestTextField6.setOpacity(0);
+                muscleCustomTextField6.setOpacity(0);
                 }
                 default -> nameCustomExerciseTextField1.setOpacity(0);
             }
