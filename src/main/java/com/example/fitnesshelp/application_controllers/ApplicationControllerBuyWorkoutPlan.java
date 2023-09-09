@@ -25,8 +25,8 @@ import java.util.List;
 
 
 
+
 public class ApplicationControllerBuyWorkoutPlan {
-    int prize;
     String state;
 
     public ApplicationControllerBuyWorkoutPlan(BeanState stateUser) {
