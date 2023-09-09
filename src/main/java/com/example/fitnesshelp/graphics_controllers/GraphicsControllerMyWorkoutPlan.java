@@ -19,8 +19,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 
+import java.io.IOException;
 import java.net.URL;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -38,7 +40,7 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
     private VBox anchorPaneContainer;
 
 
-    public GraphicsControllerMyWorkoutPlan() throws WorkoutPlanLoadException {
+    public GraphicsControllerMyWorkoutPlan() throws WorkoutPlanLoadException, SQLException, IOException {
         // Only for exception
     }
 

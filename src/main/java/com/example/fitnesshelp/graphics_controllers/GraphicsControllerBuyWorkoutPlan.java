@@ -21,6 +21,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -37,7 +38,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
 
     static final String COLORBOX = "-fx-background-color: #231717;";
 
-    public GraphicsControllerBuyWorkoutPlan() throws IOException {
+    public GraphicsControllerBuyWorkoutPlan() throws IOException, SQLException {
         // Only for exception
     }
 

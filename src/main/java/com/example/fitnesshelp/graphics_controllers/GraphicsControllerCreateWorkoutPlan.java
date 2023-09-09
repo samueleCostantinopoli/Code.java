@@ -170,79 +170,67 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
                 customRestTextField2.setOpacity(1);
                 muscleCustomTextField2.setOpacity(1);
             }
-            case 2 -> {
-                nameCustomExerciseTextField3.setOpacity(1);
-                customSetTextfield3.setOpacity(1);
-                customRepstextFields3.setOpacity(1);
-                customRestTextField3.setOpacity(1);
-                muscleCustomTextField3.setOpacity(1);
-            }
-            case 3 -> {
-                nameCustomExerciseTextField4.setOpacity(1);
-                customSetTextfield4.setOpacity(1);
-                customRepstextFields4.setOpacity(1);
-                customRestTextField4.setOpacity(1);
-                muscleCustomTextField4.setOpacity(1);
-            }
-            case 4 -> {
-                nameCustomExerciseTextField5.setOpacity(1);
-                customSetTextfield5.setOpacity(1);
-                customRepstextFields5.setOpacity(1);
-                customRestTextField5.setOpacity(1);
-                muscleCustomTextField5.setOpacity(1);
-            }
-            case 5 -> {
-                nameCustomExerciseTextField6.setOpacity(1);
-                customSetTextfield6.setOpacity(1);
-                customRepstextFields6.setOpacity(1);
-                customRestTextField6.setOpacity(1);
-                muscleCustomTextField6.setOpacity(1);
-            }
+            case 2 ->
+                setOpacity2(1);
+            case 3 ->
+                setOpacity3(1);
+            case 4 ->
+                setOpacity4(1);
+            case 5 ->
+                setOpacity5(1);
             default -> nameCustomExerciseTextField1.setOpacity(0);
         }
         if(exerciseNumber < 6) exerciseNumber ++;
     }
 
+
+    private void setOpacity2(int value){
+        nameCustomExerciseTextField2.setOpacity(value);
+        customSetTextfield2.setOpacity(value);
+        customRepstextFields2.setOpacity(value);
+        customRestTextField2.setOpacity(value);
+        muscleCustomTextField2.setOpacity(value);
+    }
+
+    private void setOpacity3(int value){
+        nameCustomExerciseTextField3.setOpacity(value);
+        customSetTextfield3.setOpacity(value);
+        customRepstextFields3.setOpacity(value);
+        customRestTextField3.setOpacity(value);
+        muscleCustomTextField3.setOpacity(value);
+    }
+
+    private void setOpacity4(int value){
+        nameCustomExerciseTextField4.setOpacity(value);
+        customSetTextfield4.setOpacity(value);
+        customRepstextFields4.setOpacity(value);
+        customRestTextField4.setOpacity(value);
+        muscleCustomTextField4.setOpacity(value);
+    }
+
+    private void setOpacity5(int value){
+        nameCustomExerciseTextField5.setOpacity(value);
+        customSetTextfield5.setOpacity(value);
+        customRepstextFields5.setOpacity(value);
+        customRestTextField5.setOpacity(value);
+        muscleCustomTextField5.setOpacity(value);
+    }
+
+
     @FXML
     void clickedOnButtonRemoveCustomExercise() {
         if(remove) {
             switch (exerciseNumber) {
-                case 2 -> {
-                    nameCustomExerciseTextField2.setOpacity(0);
-                    customSetTextfield2.setOpacity(0);
-                    customRepstextFields2.setOpacity(0);
-                    customRestTextField2.setOpacity(0);
-                    muscleCustomTextField2.setOpacity(0);
-                    removeCustomExercise.setOpacity(0);
-                    remove = false;
-                }
-                case 3 -> {
-                    nameCustomExerciseTextField3.setOpacity(0);
-                    customSetTextfield3.setOpacity(0);
-                    customRepstextFields3.setOpacity(0);
-                    customRestTextField3.setOpacity(0);
-                    muscleCustomTextField3.setOpacity(0);
-                }
-                case 4 -> {
-                    nameCustomExerciseTextField4.setOpacity(0);
-                    customSetTextfield4.setOpacity(0);
-                    customRepstextFields4.setOpacity(0);
-                    customRestTextField4.setOpacity(0);
-                    muscleCustomTextField4.setOpacity(0);
-                }
-                case 5 -> {
-                    nameCustomExerciseTextField5.setOpacity(0);
-                    customSetTextfield5.setOpacity(0);
-                    customRepstextFields5.setOpacity(0);
-                    customRestTextField5.setOpacity(0);
-                    muscleCustomTextField5.setOpacity(0);
-                }
+                case 2 -> setOpacity2(0);
+                case 3 -> setOpacity3(0);
+                case 4 -> setOpacity4(0);
+                case 5 -> setOpacity5(0);
                 case 6 -> {
-                    nameCustomExerciseTextField6.setOpacity(0);
-                    customSetTextfield6.setOpacity(0);
-                    customRepstextFields6.setOpacity(0);
-                    customRestTextField6.setOpacity(0);
-                    muscleCustomTextField6.setOpacity(0);
+                nameCustomExerciseTextField6.setOpacity(0);
+                customSetTextfield6.setOpacity(0);
+                customRepstextFields6.setOpacity(0);
+                customRestTextField6.setOpacity(0);
+                muscleCustomTextField6.setOpacity(0);
                 }
                 default -> nameCustomExerciseTextField1.setOpacity(0);
             }

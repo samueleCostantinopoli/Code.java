@@ -20,6 +20,10 @@ public class GraphicsControllerCliAccountPurchase {
     BeanUsername beanUsername = new BeanUsername(UtilityAccess.getUsername());
     List<Purchase> purchaseList = applicationControllerBuyWorkoutPlan.checkUserPurchase(beanUsername);
 
+    public GraphicsControllerCliAccountPurchase() throws SQLException, IOException {
+        // Only for exception
+    }
+
     public void showPurchase() throws IOException, SQLException, TdeeRemoveException, PurchaseUserLoadException {
         boolean exit = true;
 

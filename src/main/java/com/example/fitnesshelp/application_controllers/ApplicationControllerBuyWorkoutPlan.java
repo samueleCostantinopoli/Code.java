@@ -3,14 +3,19 @@ package com.example.fitnesshelp.application_controllers;
 import com.example.fitnesshelp.bean.BeanBuyWorkoutPlan;
 import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.bean.BeanUsername;
-import com.example.fitnesshelp.dao.DaoImplFileSystemWorkoutPlan;
+import com.example.fitnesshelp.dao.DaoEntity;
+
 import com.example.fitnesshelp.dao.DaoImplFileSystemExercise;
-import com.example.fitnesshelp.dao.DaoImplFileSystemPurchase;
+
 import com.example.fitnesshelp.entities.Exercise;
 import com.example.fitnesshelp.entities.Purchase;
+
 import com.example.fitnesshelp.entities.WorkoutPlan;
 import com.example.fitnesshelp.exception.ExerciseLoadException;
 import com.example.fitnesshelp.exception.WorkoutPlanLoadException;
+import com.example.fitnesshelp.factory.FactoryDao;
+import com.example.fitnesshelp.factory.TypeOfEntity;
+import com.example.fitnesshelp.factory.TypeOfPersistence;
 import com.example.fitnesshelp.utils.UtilityAccess;
 
 import java.io.IOException;
@@ -28,16 +33,20 @@ public class ApplicationControllerBuyWorkoutPlan {
         this.state = stateUser.toString();
     }
 
-    public List<WorkoutPlan> checkWorkoutPlan() throws IOException {
-        DaoImplFileSystemWorkoutPlan daoImplFileSystemWorkoutPlan = new DaoImplFileSystemWorkoutPlan();
-        return daoImplFileSystemWorkoutPlan.showData(UtilityAccess.getUsername());
+    @SuppressWarnings("unchecked")
+    public List<WorkoutPlan> checkWorkoutPlan() throws IOException, SQLException {
+        FactoryDao factoryDao = new FactoryDao();
+        return factoryDao.useDao(TypeOfPersistence.FILE_SYSTEM, TypeOfEntity.WORKOUT_PLAN).showData(UtilityAccess.getUsername());
     }
 
-    public List<WorkoutPlan> checkUserWorkoutPlan(BeanUsername beanUsername) throws WorkoutPlanLoadException {
-        DaoImplFileSystemWorkoutPlan daoImplFileSystemWorkoutPlan = new DaoImplFileSystemWorkoutPlan();
+    @SuppressWarnings("unchecked")
+    public List<WorkoutPlan> checkUserWorkoutPlan(BeanUsername beanUsername) throws WorkoutPlanLoadException, SQLException, IOException {
+        FactoryDao factoryDao = new FactoryDao();
+        DaoEntity<WorkoutPlan> daoEntity = factoryDao.useDao(TypeOfPersistence.FILE_SYSTEM, TypeOfEntity.WORKOUT_PLAN);
+
         List<WorkoutPlan> workoutUser = new ArrayList<>();
         try {
-            List<WorkoutPlan> workoutPlanList = daoImplFileSystemWorkoutPlan.showData(beanUsername.getUsername());
+            List<WorkoutPlan> workoutPlanList = daoEntity.showData(beanUsername.getUsername());
             for (WorkoutPlan workoutPlan : workoutPlanList) {
                 if (workoutPlan.getUsername().equals(beanUsername.getUsername())) {
                     workoutUser.add(workoutPlan);
@@ -50,11 +59,13 @@ public class ApplicationControllerBuyWorkoutPlan {
     }
 
 
+    @SuppressWarnings("unchecked")
     public List<Exercise> checkExercise() throws IOException {
         DaoImplFileSystemExercise daoImplFileSystemExercise = new DaoImplFileSystemExercise();
         return daoImplFileSystemExercise.showData(UtilityAccess.getUsername());
     }
 
+    @SuppressWarnings("unchecked")
     public List<Exercise> checkUserExercise(BeanBuyWorkoutPlan beanBuyWorkoutPlan) throws ExerciseLoadException {
         DaoImplFileSystemExercise daoImplFileSystemExercise = new DaoImplFileSystemExercise();
         List<Exercise> exerciseUser = new ArrayList<>();
@@ -73,20 +84,25 @@ public class ApplicationControllerBuyWorkoutPlan {
         return exerciseUser;
     }
 
+    @SuppressWarnings("unchecked")
     public void createPurchase(Purchase purchaseToSave) throws SQLException, IOException {
-        DaoImplFileSystemPurchase daoImplFileSystemPurchase = new DaoImplFileSystemPurchase();
-        daoImplFileSystemPurchase.saveData(purchaseToSave);
+        FactoryDao factoryDao = new FactoryDao();
+        factoryDao.useDao(TypeOfPersistence.FILE_SYSTEM, TypeOfEntity.PURCHASE).saveData(purchaseToSave);
     }
 
-    public List<Purchase> checkPurchase() {
-        DaoImplFileSystemPurchase daoImplFileSystemPurchase = new DaoImplFileSystemPurchase();
-        return daoImplFileSystemPurchase.showData(UtilityAccess.getUsername());
+    @SuppressWarnings("unchecked")
+    public List<Purchase> checkPurchase() throws SQLException, IOException {
+        FactoryDao factoryDao = new FactoryDao();
+        return factoryDao.useDao(TypeOfPersistence.FILE_SYSTEM, TypeOfEntity.PURCHASE).showData(UtilityAccess.getUsername());
     }
 
-    public List<Purchase> checkUserPurchase(BeanUsername beanUsername) {
-        DaoImplFileSystemPurchase daoImplFileSystemPurchase = new DaoImplFileSystemPurchase();
+    @SuppressWarnings("unchecked")
+    public List<Purchase> checkUserPurchase(BeanUsername beanUsername) throws SQLException, IOException {
+        FactoryDao factoryDao = new FactoryDao();
+        DaoEntity<Purchase> daoEntity = factoryDao.useDao(TypeOfPersistence.FILE_SYSTEM, TypeOfEntity.PURCHASE);
+
         List<Purchase> purchaseUser = new ArrayList<>();
-        List<Purchase> purchaseTotal = daoImplFileSystemPurchase.showData(UtilityAccess.getUsername());
+        List<Purchase> purchaseTotal = daoEntity.showData(UtilityAccess.getUsername());
         for (Purchase purchase : purchaseTotal) {
             if (purchase.getUsername().equals(beanUsername.getUsername())) {
                 purchaseUser.add(purchase);
