@@ -56,7 +56,7 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
             try {
                 anchorPanes = createAnchorPanes(numberOfAnchorPanes, listWorkouts);
             } catch (SQLException | IOException e) {
-                throw new RuntimeException(e);
+                throw new ExerciseLoadException("Exercise exception");
             }
             anchorPaneContainer.getChildren().addAll(anchorPanes);
         }
