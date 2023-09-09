@@ -11,7 +11,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -27,6 +30,9 @@ public class GraphicsControllerAccountPurchase extends GraphicsControllerHomePag
     ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(beanState);
     BeanUsername beanUsername = new BeanUsername(UtilityAccess.getUsername());
     List<Purchase> purchaseList = applicationControllerBuyWorkoutPlan.checkUserPurchase(beanUsername);
+
+    public GraphicsControllerAccountPurchase() throws SQLException, IOException {
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
