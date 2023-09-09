@@ -21,15 +21,13 @@ public class ApplicationControllerBuyWorkoutPlanTest {
          // Creiamo un'istanza di ApplicationControllerBuyWorkoutPlan
          ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
 
-
          // Eseguiamo il metodo da testare
          BeanUsername beanUsername = new BeanUsername("user");
          List<WorkoutPlan> result = applicationControllerBuyWorkoutPlan.checkUserWorkoutPlan(beanUsername);
 
-
          // Verifica che i workout plan nella lista abbiano username corrispondente
          for (WorkoutPlan workoutPlan : result) {
-             assertEquals(workoutPlan.getUsername(), "user");
+             assertEquals( "user", workoutPlan.getUsername());
          }
      }
 
