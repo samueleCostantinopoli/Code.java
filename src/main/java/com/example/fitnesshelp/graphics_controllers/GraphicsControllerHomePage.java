@@ -60,9 +60,10 @@ public class GraphicsControllerHomePage {
             Parent root = loader.load();
             GraphicsControllerCreateWorkoutPlan controller = loader.getController();
             controller.initialize();
-
-            // Continua con la restante logica per la visualizzazione della scena
-            switchStage(event);
+            Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene primary = new Scene(root);
+            home.setScene(primary);
+            home.show();
         } else {
             errorLoginMessageLabel.setOpacity(1);
             errorLoginMessageButton.setOpacity(1);
