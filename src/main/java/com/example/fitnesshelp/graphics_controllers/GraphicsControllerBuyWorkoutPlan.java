@@ -27,7 +27,6 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage implements Initializable {
-
     @FXML
     private Label errorLoginMessageLabel;
     @FXML
