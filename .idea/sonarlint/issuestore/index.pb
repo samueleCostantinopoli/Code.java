@@ -49,9 +49,6 @@ Ysrc/main/java/com/example/fitnesshelp/graphics_controllers/GraphicsControllerAc
 Wsrc/main/java/com/example/fitnesshelp/graphics_controllers/GraphicsControllerLogin.java,b\b\bb0942103e6e2d310ec821594a43279aa6842cde
 <
 Purchase.txt,3\2\3272c8f41a04a2cfb0139d84462e6d342031f637
-:
-
-myTdee.txt,9\d\9d81fa19185fc15965ed5c914e16dff32777173f
 Š
 Zsrc/main/java/com/example/fitnesshelp/graphics_controllers/GraphicsControllerHomePage.java,b\2\b21f98799c4b9dd8d35367d25a30d6303a861b3e
 n
