@@ -31,7 +31,6 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
     private Label errorLoginMessageLabel;
     @FXML
     private Button errorLoginMessageButton;
-
     @FXML
     private VBox anchorPaneContainer;
 
