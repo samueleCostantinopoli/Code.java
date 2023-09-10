@@ -71,7 +71,6 @@ public class GraphicsControllerCliCalculateTdee1 {
                 break;
             } catch (NumberFormatException e) {
                 Printer.error("Digit a number\n");
-                System.exit(-1);
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -60,6 +60,7 @@ public class GraphicsControllerCliLoginPage {
     }
 
     private boolean askUserIfAccountExists() throws IOException {
+        Printer.print("Do you have an account yet?\ntype 'yes' to login or 'no' to register\n");
         String accountChoice = "";
         while (!accountChoice.equals("yes")) {
             accountChoice = bufferedReader.readLine();

@@ -41,7 +41,6 @@ public class GraphicsControllerCliHomePage {
                 exitRequested = handleChoice(choiceNumber);
             } catch (NumberFormatException | ExerciseLoadException | PurchaseUserLoadException e) {
                 Printer.error("Digit a number\n");
-                System.exit(-1);
             }
         }
     }
@@ -50,7 +49,7 @@ public class GraphicsControllerCliHomePage {
         switch (choiceNumber) {
             case 1 -> {
                 handleCreateWorkout();
-                return false; // Il ciclo continua
+                return false;
             }
             case 2 -> {
                 handleViewWorkouts();
@@ -82,7 +81,7 @@ public class GraphicsControllerCliHomePage {
             }
             case 9 -> {
                 handleLogout();
-                return true; // Il ciclo termina
+                return true;
             }
             case 10 -> {
                 handleViewAccount();
@@ -90,11 +89,11 @@ public class GraphicsControllerCliHomePage {
             }
             case 11 -> {
                 handleCloseApplication();
-                return true; // Il ciclo termina
+                return true;
             }
             default -> {
                 Printer.print("Try again with one of the following numbers:\n1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11\n");
-                return false; // Il ciclo continua
+                return false;
             }
         }
     }
