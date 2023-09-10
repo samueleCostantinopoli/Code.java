@@ -78,12 +78,16 @@ public class GraphicsControllerCliCalculateTdee2 {
         while (age <= 0) {
             Printer.print("Enter your age: ");
             String ageInput = bufferedReader.readLine();
-            beanAge = new BeanAge(Integer.parseInt(ageInput));
-            String ageRange = beanAge.verifyAge(Integer.parseInt(ageInput));
-            if (isNumeric(ageInput) && ageRange == null) {
-                age = Integer.parseInt(ageInput);
+            if (!isNumeric(ageInput)){
+                Printer.print("Please, digit a number for age");
             } else {
-                Printer.print("Invalid input. Please enter a valid age.");
+                beanAge = new BeanAge(Integer.parseInt(ageInput));
+                String ageRange = beanAge.verifyAge(Integer.parseInt(ageInput));
+                if (isNumeric(ageInput) && ageRange == null) {
+                    age = Integer.parseInt(ageInput);
+                } else if (isNumeric(ageInput) && ageRange != null) {
+                    Printer.print("Invalid input. Please enter a valid age.");
+                }
             }
         }
     }
@@ -93,12 +97,16 @@ public class GraphicsControllerCliCalculateTdee2 {
         while (weight <= 0) {
             Printer.print("Enter your weight (in kg): ");
             String weightInput = bufferedReader.readLine();
-            beanWeight = new BeanWeight(Float.parseFloat(weightInput));
-            String weightRange = beanWeight.verifyWeight(Float.parseFloat(weightInput));
-            if (isNumeric(weightInput) && weightRange == null) {
-                weight = Float.parseFloat(weightInput);
+            if (!isNumeric(weightInput)){
+                Printer.print("Please, digit a number for weight");
             } else {
-                Printer.print("Invalid input. Please enter a valid weight.");
+                beanWeight = new BeanWeight(Float.parseFloat(weightInput));
+                String weightRange = beanWeight.verifyWeight(Float.parseFloat(weightInput));
+                if (isNumeric(weightInput) && weightRange == null) {
+                    weight = Float.parseFloat(weightInput);
+                } else {
+                    Printer.print("Invalid input. Please enter a valid weight.");
+                }
             }
         }
     }
@@ -108,12 +116,16 @@ public class GraphicsControllerCliCalculateTdee2 {
         while (height <= 0) {
             Printer.print("Enter your height (in cm): ");
             String heightInput = bufferedReader.readLine();
-            beanHeight = new BeanHeight(Float.parseFloat(heightInput));
-            String heightRange = beanHeight.verifyHeight(Float.parseFloat(heightInput));
-            if (isNumeric(heightInput) && heightRange == null) {
-                height = Float.parseFloat(heightInput);
+            if (!isNumeric(heightInput)){
+                Printer.print("Please, digit a number for height");
             } else {
-                Printer.print("Invalid input. Please enter a valid height.");
+                beanHeight = new BeanHeight(Float.parseFloat(heightInput));
+                String heightRange = beanHeight.verifyHeight(Float.parseFloat(heightInput));
+                if (isNumeric(heightInput) && heightRange == null) {
+                    height = Float.parseFloat(heightInput);
+                } else {
+                    Printer.print("Invalid input. Please enter a valid height.");
+                }
             }
         }
     }
@@ -173,14 +185,8 @@ public class GraphicsControllerCliCalculateTdee2 {
         }
     }
 
-
     private boolean isNumeric(String str) {
         // this method verify if the age, weight and height are numeric
-        try {
-            Float.parseFloat(str);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
+        return str.matches("-?\\d+(\\.\\d+)?");
     }
 }

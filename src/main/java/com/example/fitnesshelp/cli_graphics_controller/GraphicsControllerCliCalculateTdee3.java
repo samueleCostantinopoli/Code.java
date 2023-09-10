@@ -25,7 +25,6 @@ public class GraphicsControllerCliCalculateTdee3 {
         String modCarb = "moderate carb";
         String lowCarb = "lower carb";
         String highCarb = "higher carb";
-        Printer.print("\nFor select a quantity of carb, type:\n1 for moderate carb\n2 for lower carb\n3 for higher carb\n");
         // now I can request the partition of macro at tdee calculator via application controller
         List<Macro> macroList;
         ApplicationControllerCalculateTdee applicationControllerCalculateTdee = new ApplicationControllerCalculateTdee();
@@ -55,21 +54,25 @@ public class GraphicsControllerCliCalculateTdee3 {
         Macro macro = new Macro(0f, 0f, 0f);
         while (!quantity.equals("moderate carb") && !quantity.equals("lower carb") && !quantity.equals("higher carb")){
             String choice = bufferedReader.readLine();
-            switch (Integer.parseInt(choice)){
-                case 1 -> {
-                    macro = new Macro(macroList.get(0).getPro(), macroList.get(0).getFat(), macroList.get(0).getCarb());
-                    quantity = modCarb;
+            if (!isNumeric(choice)){
+                Printer.print("Please, digit a number\n");
+            } else {
+                switch (Integer.parseInt(choice)) {
+                    case 1 -> {
+                        macro = new Macro(macroList.get(0).getPro(), macroList.get(0).getFat(), macroList.get(0).getCarb());
+                        quantity = modCarb;
+                    }
+                    case 2 -> {
+                        macro = new Macro(macroList.get(1).getPro(), macroList.get(1).getFat(), macroList.get(1).getCarb());
+                        quantity = lowCarb;
+                    }
+                    case 3 -> {
+                        macro = new Macro(macroList.get(2).getPro(), macroList.get(2).getFat(), macroList.get(2).getCarb());
+                        quantity = highCarb;
+                    }
+                    case 4 -> backToHomePage();
+                    default -> Printer.print("Please, select a plan\n");
                 }
-                case 2 -> {
-                    macro = new Macro(macroList.get(1).getPro(), macroList.get(1).getFat(), macroList.get(1).getCarb());
-                    quantity = lowCarb;
-                }
-                case 3 -> {
-                    macro = new Macro(macroList.get(2).getPro(), macroList.get(2).getFat(), macroList.get(2).getCarb());
-                    quantity = highCarb;
-                }
-                case 4 -> backToHomePage();
-                default -> Printer.print("Please, select a plan\n");
             }
         }
 
@@ -81,18 +84,22 @@ public class GraphicsControllerCliCalculateTdee3 {
         Printer.print("where do you want to save the tdee?\n1 to save only in database\n2 to save in the file system\n ");
         while (typeOfPersistence != TypeOfPersistence.JDBC && typeOfPersistence != TypeOfPersistence.FILE_SYSTEM){
             String choicePersistance = bufferedReader.readLine();
-            if (Integer.parseInt(choicePersistance) == 2){
-                // save only in file system
-                applicationControllerCalculateTdee.saveTdee(TypeOfPersistence.FILE_SYSTEM, tdee);
-                // also save in the db by default
-                applicationControllerCalculateTdee.saveTdee(TypeOfPersistence.JDBC, tdee);
-                typeOfPersistence = TypeOfPersistence.FILE_SYSTEM;
+            if (!isNumeric(choicePersistance)){
+                Printer.print("Please, digit a number\n");
+            } else {
+                if (Integer.parseInt(choicePersistance) == 2) {
+                    // save only in file system
+                    applicationControllerCalculateTdee.saveTdee(TypeOfPersistence.FILE_SYSTEM, tdee);
+                    // also save in the db by default
+                    applicationControllerCalculateTdee.saveTdee(TypeOfPersistence.JDBC, tdee);
+                    typeOfPersistence = TypeOfPersistence.FILE_SYSTEM;
+                }
+                if (Integer.parseInt(choicePersistance) == 1) {
+                    applicationControllerCalculateTdee.saveTdee(TypeOfPersistence.JDBC, tdee);
+                    typeOfPersistence = TypeOfPersistence.JDBC;
+                }
+                Printer.print("Please, enter one of following number: 1, 2\n");
             }
-            if (Integer.parseInt(choicePersistance) == 1){
-                applicationControllerCalculateTdee.saveTdee(TypeOfPersistence.JDBC, tdee);
-                typeOfPersistence = TypeOfPersistence.JDBC;
-            }
-            Printer.print("Please, enter one of following number: 1, 2\n");
         }
 
         // tdee saved, switch on 'my tdee' page
@@ -105,5 +112,10 @@ public class GraphicsControllerCliCalculateTdee3 {
     public void backToHomePage() throws SQLException, IOException, TdeeRemoveException {
         GraphicsControllerCliHomePage graphicsControllerCliHomePage = new GraphicsControllerCliHomePage();
         graphicsControllerCliHomePage.displayHomepage();
+    }
+
+    private boolean isNumeric(String str) {
+        // this method verify if the age, weight and height are numeric
+        return str.matches("-?\\d+(\\.\\d+)?");
     }
 }
