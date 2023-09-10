@@ -6,7 +6,6 @@ module com.example.fitnesshelp {
     requires java.datatransfer;
     requires javafx.web;
 
-
     opens com.example.fitnesshelp to javafx.fxml;
     exports com.example.fitnesshelp;
     exports com.example.fitnesshelp.graphics_controllers;
