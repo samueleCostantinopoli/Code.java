@@ -78,6 +78,8 @@ public class GraphicsControllerBuyWorkoutPlanSetPayments extends GraphicsControl
 
     WorkoutPlan currentWorkout;
 
+
+
     void checkInformation(WorkoutPlan thisWorkout) {
         currentWorkout = thisWorkout;
         checkCreditCardBox.setOnAction(event -> {

@@ -85,7 +85,7 @@ public class ApplicationControllerBuyWorkoutPlan {
     @SuppressWarnings("unchecked")
     public void createPurchase(BeanPurchase purchaseToSave) throws SQLException, IOException {
         FactoryDao factoryDao = new FactoryDao();
-        factoryDao.useDao(TypeOfPersistence.FILE_SYSTEM, TypeOfEntity.PURCHASE).saveData(purchaseToSave);
+        factoryDao.useDao(TypeOfPersistence.FILE_SYSTEM, TypeOfEntity.PURCHASE).saveData(purchaseToSave.getPurchase());
     }
 
     @SuppressWarnings("unchecked")

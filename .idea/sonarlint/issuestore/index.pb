@@ -59,3 +59,7 @@ m
 =src/main/java/com/example/fitnesshelp/factory/FactoryDao.java,5\a\5a8f01ac493fba9306c4b506f5e1f8d686df30c0
 ˜
 hsrc/main/java/com/example/fitnesshelp/cli_graphics_controller/GraphicsControllerCliCommonOperations.java,c\c\cce88956ea82f02d761573c7b2377ccb8c6a4f2d
+”
+dsrc/main/java/com/example/fitnesshelp/application_controllers/ApplicationControllerRegistration.java,4\6\462aadf2b7841ca433546274c06de7e6bc530421
+j
+:src/main/java/com/example/fitnesshelp/entities/Muscle.java,5\6\56df482bf7a81e80bf75e7e27caf3bf93ba96f9d
