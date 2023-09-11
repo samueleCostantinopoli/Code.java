@@ -15,7 +15,8 @@ import org.junit.Test;
 
 
 public class ApplicationControllerBuyWorkoutPlanTest {
-
+    // Samuele Costantinopoli test
+    // 1
      @Test
      public void checkUserWorkoutPlan() throws Exception {
          // Creiamo un'istanza di ApplicationControllerBuyWorkoutPlan
@@ -31,6 +32,7 @@ public class ApplicationControllerBuyWorkoutPlanTest {
          }
      }
 
+    // 2
     @Test
     public void checkUserExercise() throws SQLException, IOException {
         ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
@@ -49,6 +51,7 @@ public class ApplicationControllerBuyWorkoutPlanTest {
         // assertEquals(2, result.size());
     }
 
+    // 3
     @Test
     public void checkUserPurchase() throws SQLException, IOException {
         ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
