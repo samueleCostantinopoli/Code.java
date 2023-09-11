@@ -84,8 +84,8 @@ public class GraphicsControllerCliBuyWorkoutPlan1 {
             Thread.currentThread().interrupt();
         }
 
-        GraphicsControllerCliBuyWorkoutPlan2 graphicsControllerCliBuyWorkoutPlan2 = new GraphicsControllerCliBuyWorkoutPlan2();
-        graphicsControllerCliBuyWorkoutPlan2.savePurchase(thisWorkout);
+        GraphicsControllerCliBuyWorkoutPlanPurchase graphicsControllerCliBuyWorkoutPlanPurchase = new GraphicsControllerCliBuyWorkoutPlanPurchase();
+        graphicsControllerCliBuyWorkoutPlanPurchase.savePurchase(thisWorkout);
     }
 
 

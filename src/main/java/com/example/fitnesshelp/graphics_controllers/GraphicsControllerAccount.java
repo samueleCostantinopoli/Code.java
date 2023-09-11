@@ -31,8 +31,6 @@ public class GraphicsControllerAccount extends GraphicsControllerHomePage {
     @FXML
     private ImageView showPassword;
 
-    static final String ACCOUNT = "/com/example/fitnesshelp/account";
-
 
     @FXML
     public void initialize(){

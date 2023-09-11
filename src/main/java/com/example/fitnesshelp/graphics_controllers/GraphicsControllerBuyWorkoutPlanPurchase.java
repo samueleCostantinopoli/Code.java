@@ -1,6 +1,7 @@
 package com.example.fitnesshelp.graphics_controllers;
 
 import com.example.fitnesshelp.application_controllers.ApplicationControllerBuyWorkoutPlan;
+import com.example.fitnesshelp.bean.BeanPurchase;
 import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.entities.Purchase;
 import com.example.fitnesshelp.entities.WorkoutPlan;
@@ -33,7 +34,7 @@ public class GraphicsControllerBuyWorkoutPlanPurchase extends GraphicsController
     private Purchase newPurchase;
 
 
-    public Purchase getWorkoutPlan() {
+    public Purchase getPurchase() {
         return newPurchase;
     }
 
@@ -44,8 +45,8 @@ public class GraphicsControllerBuyWorkoutPlanPurchase extends GraphicsController
         datePurchase.setText("Date: " + this.newPurchase.getDate());
         usernameCreatorPurchase.setText("Username of creator: " + this.newPurchase.getWorkoutPlan().getUsername());
         workoutNamePurchase.setText("Workout name: " + thisWorkout.getName());
-
-        applicationControllerBuyWorkoutPlan.createPurchase(this.newPurchase);
+        BeanPurchase beanPurchase = new BeanPurchase(this.newPurchase);
+        applicationControllerBuyWorkoutPlan.createPurchase(beanPurchase);
     }
 
     private Date takeDate() {

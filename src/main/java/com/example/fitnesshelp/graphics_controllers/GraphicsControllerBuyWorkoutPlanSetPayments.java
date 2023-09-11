@@ -78,7 +78,7 @@ public class GraphicsControllerBuyWorkoutPlanSetPayments extends GraphicsControl
 
     WorkoutPlan currentWorkout;
 
-    void saveWorkout(WorkoutPlan thisWorkout) {
+    void checkInformation(WorkoutPlan thisWorkout) {
         currentWorkout = thisWorkout;
         checkCreditCardBox.setOnAction(event -> {
             if (checkCreditCardBox.isSelected()) {
@@ -165,6 +165,7 @@ public class GraphicsControllerBuyWorkoutPlanSetPayments extends GraphicsControl
         backPaymentMethodsButton.setStyle("-fx-background-color: #FF0000; -fx-text-fill: white;");
     }
 
+    @FXML
     public void clickedOnPurchaseBuyWorkoutPlanButton(ActionEvent event) throws IOException, SQLException {
         if(!checkPayPal.isVisible() && !checkBitcoin.isVisible()){
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyWorkoutPlanPurchase.fxml"));
@@ -184,11 +185,14 @@ public class GraphicsControllerBuyWorkoutPlanSetPayments extends GraphicsControl
         }
     }
 
+    @FXML
     public void clickedOnBuyWorkoutPlanHyperlink1(ActionEvent event) throws IOException {
         setStageToSwitch("/com/example/fitnesshelp/buyWorkoutPlan");
         switchStage(event);
     }
 
+
+    @FXML
     public void clickedOnBackPaymentMethodsButton() {
         if(hyperLinkButton.getText().equals(PAYPAL)) {
             // Remove WebView
