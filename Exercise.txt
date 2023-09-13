@@ -4,3 +4,9 @@ Chest Press-CHEST-3-10-90.0-Chest Workout Personal-0-user!--10.0
 chest press-CHEST-5-5-180.0-Chest Workout PowerLifting-0-user-2.5
 Rematore-BACK-3-10-60.0-Back Workout-1-user-3.99
 Trazioni-BACK-2-5-90.0-Back Workout-1-user-3.99
+Squat-LEGS-3-12-180.0-Leg day PowerLifting-1-Leonardo--10.0
+Squat-LEGS-5-4-90.0-Leg day PowerLifting-2-Leonardo-7.99
+Stacchi-LEGS-3-12-180.0-Leg day PowerLifting-2-Leonardo-7.99
+Affondi-LEGS-3-10-90.0-Leg day PowerLifting-2-Leonardo-7.99
+Push down-TRICEPS-3-12-60.0-Triceps workout-1-Leonardo-4.99
+Dips-TRICEPS-3-10-90.0-Triceps workout-1-Leonardo-4.99

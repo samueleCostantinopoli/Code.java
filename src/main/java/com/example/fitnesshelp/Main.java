@@ -50,7 +50,8 @@ public class Main extends Application {
                 System.exit(0);
             }else if(numberChoice==2) {
                 GraphicsControllerCliHomePage cliHomePage = new GraphicsControllerCliHomePage();
-                cliHomePage.displayHomepage();
+                cliHomePage.
+                        displayHomepage();
                 System.exit(0);
             }
             Printer.print("Sorry, try typing 1 or 2\n");

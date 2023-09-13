@@ -1,6 +1,7 @@
 package com.example.fitnesshelp.cli_graphics_controller;
 
 import com.example.fitnesshelp.application_controllers.ApplicationControllerBuyWorkoutPlan;
+import com.example.fitnesshelp.bean.BeanPurchase;
 import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.entities.Purchase;
 import com.example.fitnesshelp.entities.WorkoutPlan;
@@ -16,9 +17,10 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.Random;
 
-public class GraphicsControllerCliBuyWorkoutPlan2 {
+public class GraphicsControllerCliBuyWorkoutPlanPurchase {
     Purchase newPurchase;
     ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
+
     private Random random = new Random();
 
     public void savePurchase(WorkoutPlan thisWorkout) throws SQLException, IOException, TdeeRemoveException, ExerciseLoadException, PurchaseUserLoadException {
@@ -30,8 +32,8 @@ public class GraphicsControllerCliBuyWorkoutPlan2 {
         Printer.print("Date: " + newPurchase.getDate());
         Printer.print("Username of creator: " + newPurchase.getWorkoutPlan().getUsername());
         Printer.print("Workout name: " + thisWorkout.getName());
-
-        applicationControllerBuyWorkoutPlan.createPurchase(newPurchase);
+        BeanPurchase beanPurchase = new BeanPurchase(newPurchase);
+        applicationControllerBuyWorkoutPlan.createPurchase(beanPurchase);
 
         boolean exit = true;
         while (exit) {

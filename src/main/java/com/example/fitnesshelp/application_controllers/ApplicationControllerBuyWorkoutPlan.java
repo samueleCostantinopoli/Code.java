@@ -1,6 +1,7 @@
 package com.example.fitnesshelp.application_controllers;
 
 import com.example.fitnesshelp.bean.BeanBuyWorkoutPlan;
+import com.example.fitnesshelp.bean.BeanPurchase;
 import com.example.fitnesshelp.bean.BeanState;
 import com.example.fitnesshelp.bean.BeanUsername;
 import com.example.fitnesshelp.dao.DaoEntity;
@@ -82,9 +83,9 @@ public class ApplicationControllerBuyWorkoutPlan {
     }
 
     @SuppressWarnings("unchecked")
-    public void createPurchase(Purchase purchaseToSave) throws SQLException, IOException {
+    public void createPurchase(BeanPurchase purchaseToSave) throws SQLException, IOException {
         FactoryDao factoryDao = new FactoryDao();
-        factoryDao.useDao(TypeOfPersistence.FILE_SYSTEM, TypeOfEntity.PURCHASE).saveData(purchaseToSave);
+        factoryDao.useDao(TypeOfPersistence.FILE_SYSTEM, TypeOfEntity.PURCHASE).saveData(purchaseToSave.getPurchase());
     }
 
     @SuppressWarnings("unchecked")

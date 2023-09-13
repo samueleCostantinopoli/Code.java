@@ -27,12 +27,10 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage implements Initializable {
-
     @FXML
     private Label errorLoginMessageLabel;
     @FXML
     private Button errorLoginMessageButton;
-
     @FXML
     private VBox anchorPaneContainer;
 
@@ -45,7 +43,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int numberOfAnchorPanes;
-        numberOfAnchorPanes = readValueFromFileSystem();
+        numberOfAnchorPanes = viewWorkoutPlan();
 
         List<AnchorPane> anchorPanes = createAnchorPanes(numberOfAnchorPanes, listWorkoutsForSale);
         anchorPaneContainer.getChildren().addAll(anchorPanes);
@@ -54,7 +52,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
     ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(beanState);
     List<WorkoutPlan> listWorkouts = applicationControllerBuyWorkoutPlan.checkWorkoutPlan();
     List<WorkoutPlan> listWorkoutsForSale = new ArrayList<>();
-    private int readValueFromFileSystem() {
+    private int viewWorkoutPlan() {
         // Read value from the file system
         int sizeOfAnchorPane = 0;
         for (WorkoutPlan listWorkout : listWorkouts) {
@@ -70,7 +68,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyInfoWorkoutPlan.fxml"));
         Parent root = loader.load();
         GraphicsControllerBuyInfoWorkoutPlan infoController = loader.getController();
-        infoController.setIndex(listWorkouts.get(currentWorkout));
+        infoController.getIndexWorkout(listWorkouts.get(currentWorkout));
         Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene primary = new Scene(root);
         home.setScene(primary);
@@ -83,7 +81,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyPreviewWorkoutPlan.fxml"));
         Parent root = loader.load();
         GraphicsControllerBuyPreviewWorkoutPlan previewWorkoutPlanController = loader.getController();
-        previewWorkoutPlanController.setIndex(listWorkouts.get(currentWorkout));
+        previewWorkoutPlanController.getIndexWorkout(listWorkouts.get(currentWorkout));
         Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene primary = new Scene(root);
         home.setScene(primary);
@@ -96,7 +94,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyWorkoutPlanSetPayments.fxml"));
             Parent root = loader.load();
             GraphicsControllerBuyWorkoutPlanSetPayments infoController1 = loader.getController();
-            infoController1.saveWorkout(listWorkouts.get(currentWorkout));
+            infoController1.checkInformation(listWorkouts.get(currentWorkout));
             Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene primary = new Scene(root);
             home.setScene(primary);
@@ -122,6 +120,7 @@ public class GraphicsControllerBuyWorkoutPlan extends GraphicsControllerHomePage
     }
 
 
+    @FXML
     private List<AnchorPane> createAnchorPanes(int numberOfAnchorPanes, List<WorkoutPlan> workoutPlanList) {
         List<AnchorPane> anchorPanes = new ArrayList<>();
         for (int index = 0; index < numberOfAnchorPanes; index++) {

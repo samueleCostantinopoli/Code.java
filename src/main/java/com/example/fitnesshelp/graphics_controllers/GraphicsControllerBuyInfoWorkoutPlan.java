@@ -40,14 +40,12 @@ public class GraphicsControllerBuyInfoWorkoutPlan extends GraphicsControllerHome
 
     @FXML
     Button priceWorkoutPlan2Button;
-    private WorkoutPlan workoutPlan;
+    private WorkoutPlan currentWorkout;
 
-    public WorkoutPlan getWorkoutPlan() {
-        return workoutPlan;
-    }
+    public WorkoutPlan getWorkoutPlan() { return currentWorkout;}
 
-    public void setIndex(WorkoutPlan currentWorkout) {
-        this.workoutPlan = currentWorkout;
+    public void getIndexWorkout(WorkoutPlan currentWorkout) {
+        this.currentWorkout = currentWorkout;
         priceWorkoutPlan2Button.setText(currentWorkout.getPrize() + " €");
         nameForm.setText(currentWorkout.getName());
         nameWorkout.setText(currentWorkout.getName());
@@ -61,7 +59,7 @@ public class GraphicsControllerBuyInfoWorkoutPlan extends GraphicsControllerHome
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyPreviewWorkoutPlan.fxml"));
         Parent root = loader.load();
         GraphicsControllerBuyPreviewWorkoutPlan previewWorkoutPlanController = loader.getController();
-        previewWorkoutPlanController.setIndex(workoutPlan);
+        previewWorkoutPlanController.getIndexWorkout(currentWorkout);
         Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene primary = new Scene(root);
         home.setScene(primary);
@@ -74,7 +72,7 @@ public class GraphicsControllerBuyInfoWorkoutPlan extends GraphicsControllerHome
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/buyWorkoutPlanSetPayments.fxml"));
             Parent root = loader.load();
             GraphicsControllerBuyWorkoutPlanSetPayments infoController1 = loader.getController();
-            infoController1.saveWorkout(workoutPlan);
+            infoController1.checkInformation(currentWorkout);
             Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene primary = new Scene(root);
             home.setScene(primary);
@@ -85,6 +83,7 @@ public class GraphicsControllerBuyInfoWorkoutPlan extends GraphicsControllerHome
         }
     }
 
+    @FXML
     public void clickedOnButtonPageOneBuyWorkoutPlan(ActionEvent event) throws IOException {
         setStageToSwitch("/com/example/fitnesshelp/buyWorkoutPlan");
         switchStage(event);

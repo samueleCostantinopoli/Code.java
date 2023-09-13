@@ -9,6 +9,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.cell.ChoiceBoxListCell?>
+<?import javafx.scene.control.ChoiceBox?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fitnesshelp.graphics_controllers.GraphicsControllerCreateWorkoutPlan">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="600.0">
@@ -86,7 +91,7 @@
                            </children>
                         </AnchorPane>
                         <TextField fx:id="nameCustomExerciseTextField1" layoutX="14.0" layoutY="80.0" prefHeight="20.0" prefWidth="130.0" visible="false" />
-                        <TextField fx:id="muscleCustomTextField1" layoutX="345.0" layoutY="80.0" prefHeight="25.0" prefWidth="150.0" visible="false" />
+                        <ChoiceBox fx:id="muscleCustomChoiceBox1" layoutX="345.0" layoutY="80.0" prefHeight="25.0" prefWidth="150.0" visible="false" />
                         <TextField fx:id="customSetTextfield1" layoutX="159.0" layoutY="80.0" prefHeight="25.0" prefWidth="33.0" visible="false" />
                         <TextField fx:id="customRepstextFields1" layoutX="208.0" layoutY="80.0" prefHeight="25.0" prefWidth="47.0" visible="false" />
                         <TextField fx:id="customRestTextField1" layoutX="271.0" layoutY="80.0" prefHeight="25.0" prefWidth="61.0" visible="false" />
@@ -101,27 +106,27 @@
                            </font>
                         </Button>
                         <TextField fx:id="nameCustomExerciseTextField2" layoutX="14.0" layoutY="115.0" opacity="0.0" prefHeight="20.0" prefWidth="130.0" />
-                        <TextField fx:id="muscleCustomTextField2" layoutX="345.0" layoutY="115.0" opacity="0.0" prefHeight="25.0" prefWidth="150.0" />
+                        <ChoiceBox fx:id="muscleCustomChoiceBox2" layoutX="345.0" layoutY="115.0" prefHeight="25.0" prefWidth="150.0" opacity="0.0" />
                         <TextField fx:id="customSetTextfield2" layoutX="159.0" layoutY="115.0" opacity="0.0" prefHeight="25.0" prefWidth="33.0" />
                         <TextField fx:id="customRepstextFields2" layoutX="208.0" layoutY="115.0" opacity="0.0" prefHeight="25.0" prefWidth="47.0" />
                         <TextField fx:id="customRestTextField2" layoutX="271.0" layoutY="115.0" opacity="0.0" prefHeight="25.0" prefWidth="61.0" />
                         <TextField fx:id="nameCustomExerciseTextField3" layoutX="14.0" layoutY="150.0" opacity="0.0" prefHeight="20.0" prefWidth="130.0" />
-                        <TextField fx:id="muscleCustomTextField3" layoutX="345.0" layoutY="150.0" opacity="0.0" prefHeight="25.0" prefWidth="150.0" />
+                        <ChoiceBox fx:id="muscleCustomChoiceBox3" layoutX="345.0" layoutY="150.0" prefHeight="25.0" prefWidth="150.0" opacity="0.0" />
                         <TextField fx:id="customSetTextfield3" layoutX="159.0" layoutY="150.0" opacity="0.0" prefHeight="25.0" prefWidth="33.0" />
                         <TextField fx:id="customRepstextFields3" layoutX="208.0" layoutY="150.0" opacity="0.0" prefHeight="25.0" prefWidth="47.0" />
                         <TextField fx:id="customRestTextField3" layoutX="271.0" layoutY="150.0" opacity="0.0" prefHeight="25.0" prefWidth="61.0" />
                         <TextField fx:id="nameCustomExerciseTextField4" layoutX="14.0" layoutY="185.0" opacity="0.0" prefHeight="20.0" prefWidth="130.0" />
-                        <TextField fx:id="muscleCustomTextField4" layoutX="345.0" layoutY="185.0" opacity="0.0" prefHeight="25.0" prefWidth="150.0" />
+                        <ChoiceBox fx:id="muscleCustomChoiceBox4" layoutX="345.0" layoutY="185.0" prefHeight="25.0" prefWidth="150.0" opacity="0.0" />
                         <TextField fx:id="customSetTextfield4" layoutX="159.0" layoutY="185.0" opacity="0.0" prefHeight="25.0" prefWidth="33.0" />
                         <TextField fx:id="customRepstextFields4" layoutX="208.0" layoutY="185.0" opacity="0.0" prefHeight="25.0" prefWidth="47.0" />
                         <TextField fx:id="customRestTextField4" layoutX="271.0" layoutY="185.0" opacity="0.0" prefHeight="25.0" prefWidth="61.0" />
                         <TextField fx:id="nameCustomExerciseTextField5" layoutX="15.0" layoutY="220.0" opacity="0.0" prefHeight="20.0" prefWidth="130.0" />
-                        <TextField fx:id="muscleCustomTextField5" layoutX="346.0" layoutY="220.0" opacity="0.0" prefHeight="25.0" prefWidth="150.0" />
+                        <ChoiceBox fx:id="muscleCustomChoiceBox5" layoutX="346.0" layoutY="220.0" prefHeight="25.0" prefWidth="150.0" opacity="0.0" />
                         <TextField fx:id="customSetTextfield5" layoutX="160.0" layoutY="220.0" opacity="0.0" prefHeight="25.0" prefWidth="33.0" />
                         <TextField fx:id="customRepstextFields5" layoutX="209.0" layoutY="220.0" opacity="0.0" prefHeight="25.0" prefWidth="47.0" />
                         <TextField fx:id="customRestTextField5" layoutX="272.0" layoutY="220.0" opacity="0.0" prefHeight="25.0" prefWidth="61.0" />
                         <TextField fx:id="nameCustomExerciseTextField6" layoutX="15.0" layoutY="254.0" opacity="0.0" prefHeight="20.0" prefWidth="130.0" />
-                        <TextField fx:id="muscleCustomTextField6" layoutX="346.0" layoutY="254.0" opacity="0.0" prefHeight="25.0" prefWidth="150.0" />
+                        <ChoiceBox fx:id="muscleCustomChoiceBox6" layoutX="346.0" layoutY="254.0" opacity="0.0" prefHeight="25.0" prefWidth="150.0" />
                         <TextField fx:id="customSetTextfield6" layoutX="160.0" layoutY="254.0" opacity="0.0" prefHeight="25.0" prefWidth="33.0" />
                         <TextField fx:id="customRepstextFields6" layoutX="209.0" layoutY="254.0" opacity="0.0" prefHeight="25.0" prefWidth="47.0" />
                         <TextField fx:id="customRestTextField6" layoutX="272.0" layoutY="254.0" opacity="0.0" prefHeight="25.0" prefWidth="61.0" />
@@ -183,6 +188,7 @@
                         </Hyperlink>
                      </children>
                   </AnchorPane>
+                  <Label fx:id="priceText" layoutX="307.0" layoutY="548.0" visible="false" text="Set a price if you want to sell a workout" />
                   <TextField fx:id="priceTextField" layoutX="524.0" layoutY="542.0" prefHeight="25.0" prefWidth="204.0" promptText="Set price" visible="false" />
                </children>
             </AnchorPane>

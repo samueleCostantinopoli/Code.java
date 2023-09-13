@@ -4,9 +4,11 @@ import com.example.fitnesshelp.application_controllers.ApplicationControllerCrea
 import com.example.fitnesshelp.bean.BeanCustomWorkoutData;
 import com.example.fitnesshelp.entities.*;
 import com.example.fitnesshelp.utils.UtilityAccess;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -15,9 +17,26 @@ import java.sql.SQLException;
 import java.util.Objects;
 import static java.lang.Float.parseFloat;
 import static java.lang.Integer.parseInt;
+import com.example.fitnesshelp.entities.Muscle;
+
 
 public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomePage {
 
+    @FXML
+    public Label priceText;
+
+    @FXML
+    public ChoiceBox<Muscle> muscleCustomChoiceBox1;
+    @FXML
+    public ChoiceBox<Muscle> muscleCustomChoiceBox2;
+    @FXML
+    public ChoiceBox<Muscle> muscleCustomChoiceBox3;
+    @FXML
+    public ChoiceBox<Muscle> muscleCustomChoiceBox4;
+    @FXML
+    public ChoiceBox<Muscle> muscleCustomChoiceBox5;
+    @FXML
+    public ChoiceBox<Muscle> muscleCustomChoiceBox6;
     @FXML
     private Button addCustomExercise;
 
@@ -26,24 +45,6 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
 
     @FXML
     private Label customFieldEmpty;
-
-    @FXML
-    private TextField muscleCustomTextField1;
-
-    @FXML
-    private TextField muscleCustomTextField2;
-
-    @FXML
-    private TextField muscleCustomTextField3;
-
-    @FXML
-    private TextField muscleCustomTextField4;
-
-    @FXML
-    private TextField muscleCustomTextField5;
-
-    @FXML
-    private TextField muscleCustomTextField6;
 
     @FXML
     private TextField customRepstextFields1;
@@ -140,11 +141,22 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
     private boolean remove = false;
     private boolean saveWorkout = false;
 
+    public void initialize() {
+        // Inizializza i ChoiceBox con i valori dell'enum Muscle
+        muscleCustomChoiceBox1.setItems(FXCollections.observableArrayList(Muscle.values()));
+        muscleCustomChoiceBox2.setItems(FXCollections.observableArrayList(Muscle.values()));
+        muscleCustomChoiceBox3.setItems(FXCollections.observableArrayList(Muscle.values()));
+        muscleCustomChoiceBox4.setItems(FXCollections.observableArrayList(Muscle.values()));
+        muscleCustomChoiceBox5.setItems(FXCollections.observableArrayList(Muscle.values()));
+        muscleCustomChoiceBox6.setItems(FXCollections.observableArrayList(Muscle.values()));
+    }
+
     public void onClickStartButton() {
+        priceText.setVisible(true);
         startButton.setVisible(false);
         infoBar.setVisible(true);
         nameCustomExerciseTextField1.setVisible(true);
-        muscleCustomTextField1.setVisible(true);
+        muscleCustomChoiceBox1.setVisible(true);
         customSetTextfield1.setVisible(true);
         customRepstextFields1.setVisible(true);
         customRestTextField1.setVisible(true);
@@ -168,7 +180,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
                 customSetTextfield2.setOpacity(1);
                 customRepstextFields2.setOpacity(1);
                 customRestTextField2.setOpacity(1);
-                muscleCustomTextField2.setOpacity(1);
+                muscleCustomChoiceBox2.setOpacity(1);
             }
             case 2 ->
                 setOpacity2(1);
@@ -189,7 +201,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
         customSetTextfield2.setOpacity(value);
         customRepstextFields2.setOpacity(value);
         customRestTextField2.setOpacity(value);
-        muscleCustomTextField2.setOpacity(value);
+        muscleCustomChoiceBox2.setOpacity(value);
     }
 
     private void setOpacity3(int value){
@@ -197,7 +209,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
         customSetTextfield3.setOpacity(value);
         customRepstextFields3.setOpacity(value);
         customRestTextField3.setOpacity(value);
-        muscleCustomTextField3.setOpacity(value);
+        muscleCustomChoiceBox3.setOpacity(value);
     }
 
     private void setOpacity4(int value){
@@ -205,7 +217,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
         customSetTextfield4.setOpacity(value);
         customRepstextFields4.setOpacity(value);
         customRestTextField4.setOpacity(value);
-        muscleCustomTextField4.setOpacity(value);
+        muscleCustomChoiceBox4.setOpacity(value);
     }
 
     private void setOpacity5(int value){
@@ -213,7 +225,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
         customSetTextfield5.setOpacity(value);
         customRepstextFields5.setOpacity(value);
         customRestTextField5.setOpacity(value);
-        muscleCustomTextField5.setOpacity(value);
+        muscleCustomChoiceBox5.setOpacity(value);
     }
 
 
@@ -230,7 +242,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
                 customSetTextfield6.setOpacity(0);
                 customRepstextFields6.setOpacity(0);
                 customRestTextField6.setOpacity(0);
-                muscleCustomTextField6.setOpacity(0);
+                muscleCustomChoiceBox6.setOpacity(0);
                 }
                 default -> nameCustomExerciseTextField1.setOpacity(0);
             }
@@ -263,12 +275,12 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
     }
 
     private boolean validateFields() {
-        emptyTextFieldCheck(nameCustomExerciseTextField1, customSetTextfield1, customRepstextFields1, customRestTextField1, muscleCustomTextField1);
-        emptyTextFieldCheck(nameCustomExerciseTextField2, customSetTextfield2, customRepstextFields2, customRestTextField2, muscleCustomTextField2);
-        emptyTextFieldCheck(nameCustomExerciseTextField3, customSetTextfield3, customRepstextFields3, customRestTextField3, muscleCustomTextField3);
-        emptyTextFieldCheck(nameCustomExerciseTextField4, customSetTextfield4, customRepstextFields4, customRestTextField4, muscleCustomTextField4);
-        emptyTextFieldCheck(nameCustomExerciseTextField5, customSetTextfield5, customRepstextFields5, customRestTextField5, muscleCustomTextField5);
-        emptyTextFieldCheck(nameCustomExerciseTextField6, customSetTextfield6, customRepstextFields6, customRestTextField6, muscleCustomTextField6);
+        emptyTextFieldCheck(nameCustomExerciseTextField1, customSetTextfield1, customRepstextFields1, customRestTextField1, muscleCustomChoiceBox1);
+        emptyTextFieldCheck(nameCustomExerciseTextField2, customSetTextfield2, customRepstextFields2, customRestTextField2, muscleCustomChoiceBox2);
+        emptyTextFieldCheck(nameCustomExerciseTextField3, customSetTextfield3, customRepstextFields3, customRestTextField3, muscleCustomChoiceBox3);
+        emptyTextFieldCheck(nameCustomExerciseTextField4, customSetTextfield4, customRepstextFields4, customRestTextField4, muscleCustomChoiceBox4);
+        emptyTextFieldCheck(nameCustomExerciseTextField5, customSetTextfield5, customRepstextFields5, customRestTextField5, muscleCustomChoiceBox5);
+        emptyTextFieldCheck(nameCustomExerciseTextField6, customSetTextfield6, customRepstextFields6, customRestTextField6, muscleCustomChoiceBox6);
 
         return customFieldEmpty.getOpacity() == 0;
     }
@@ -278,12 +290,12 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
 
         WorkoutPlan workoutPlan = createWorkoutPlan();
 
-        addExercise(dataBean, workoutPlan, nameCustomExerciseTextField1, muscleCustomTextField1, customSetTextfield1, customRepstextFields1, customRestTextField1);
-        addExercise(dataBean, workoutPlan, nameCustomExerciseTextField2, muscleCustomTextField2, customSetTextfield2, customRepstextFields2, customRestTextField2);
-        addExercise(dataBean, workoutPlan, nameCustomExerciseTextField3, muscleCustomTextField3, customSetTextfield3, customRepstextFields3, customRestTextField3);
-        addExercise(dataBean, workoutPlan, nameCustomExerciseTextField4, muscleCustomTextField4, customSetTextfield4, customRepstextFields4, customRestTextField4);
-        addExercise(dataBean, workoutPlan, nameCustomExerciseTextField5, muscleCustomTextField5, customSetTextfield5, customRepstextFields5, customRestTextField5);
-        addExercise(dataBean, workoutPlan, nameCustomExerciseTextField6, muscleCustomTextField6, customSetTextfield6, customRepstextFields6, customRestTextField6);
+        addExercise(dataBean, workoutPlan, nameCustomExerciseTextField1, muscleCustomChoiceBox1, customSetTextfield1, customRepstextFields1, customRestTextField1);
+        addExercise(dataBean, workoutPlan, nameCustomExerciseTextField2, muscleCustomChoiceBox2, customSetTextfield2, customRepstextFields2, customRestTextField2);
+        addExercise(dataBean, workoutPlan, nameCustomExerciseTextField3, muscleCustomChoiceBox3, customSetTextfield3, customRepstextFields3, customRestTextField3);
+        addExercise(dataBean, workoutPlan, nameCustomExerciseTextField4, muscleCustomChoiceBox4, customSetTextfield4, customRepstextFields4, customRestTextField4);
+        addExercise(dataBean, workoutPlan, nameCustomExerciseTextField5, muscleCustomChoiceBox5, customSetTextfield5, customRepstextFields5, customRestTextField5);
+        addExercise(dataBean, workoutPlan, nameCustomExerciseTextField6, muscleCustomChoiceBox6, customSetTextfield6, customRepstextFields6, customRestTextField6);
 
         return dataBean;
     }
@@ -293,7 +305,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
         String workoutCategory = String.valueOf((exerciseNumber / 3) + 1);
         String workoutUsername = UtilityAccess.getUsername();
 
-        double workoutPrice = -10;
+        double workoutPrice = 0;
         if (UtilityAccess.getTypeOfUser().equals(TypeOfUser.PERSONAL_TRAINER) && !priceTextField.getText().isEmpty()) {
             workoutPrice = Double.parseDouble(priceTextField.getText());
         }
@@ -302,9 +314,9 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
     }
 
     private void addExercise(BeanCustomWorkoutData dataBean, WorkoutPlan workoutPlan, TextField nameTextField,
-                             TextField muscleTextField, TextField setTextField, TextField repsTextField, TextField restTextField) {
+                             ChoiceBox muscleTextField, TextField setTextField, TextField repsTextField, TextField restTextField) {
         if (!nameTextField.getText().isEmpty()) {
-            Exercise exercise = new Exercise(nameTextField.getText(), Muscle.valueOf(muscleTextField.getText()),
+            Exercise exercise = new Exercise(nameTextField.getText(), Muscle.valueOf(String.valueOf(muscleTextField.getValue())),
                     parseInt(setTextField.getText()), parseInt(repsTextField.getText()), parseFloat(restTextField.getText()), workoutPlan);
             dataBean.setExercise(exercise);
         }
@@ -316,12 +328,12 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
     }
 
 
-    void emptyTextFieldCheck(TextField textField1, TextField textField2, TextField textField3, TextField textField4, TextField textField5){
+    void emptyTextFieldCheck(TextField textField1, TextField textField2, TextField textField3, TextField textField4, ChoiceBox choiceBoxMuscle){
         if(Objects.equals(textField1.getText(), "") && textField2.getOpacity() == 1) customFieldEmpty.setOpacity(1);
         if(Objects.equals(textField2.getText(), "") && textField2.getOpacity() == 1) customFieldEmpty.setOpacity(1);
         if(Objects.equals(textField3.getText(), "") && textField3.getOpacity() == 1) customFieldEmpty.setOpacity(1);
         if(Objects.equals(textField4.getText(), "") && textField4.getOpacity() == 1) customFieldEmpty.setOpacity(1);
-        if(Objects.equals(textField5.getText(), "") && textField5.getOpacity() == 1) customFieldEmpty.setOpacity(1);
+        if(Objects.equals(choiceBoxMuscle.getValue(), "") && choiceBoxMuscle.getOpacity() == 1) customFieldEmpty.setOpacity(1);
     }
     @FXML
     void clickedOnHyperlinkBack(ActionEvent event) throws IOException {

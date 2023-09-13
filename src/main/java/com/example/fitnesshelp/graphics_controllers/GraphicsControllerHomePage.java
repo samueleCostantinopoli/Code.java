@@ -56,12 +56,20 @@ public class GraphicsControllerHomePage {
     void clickedOnButtonCreateNew(ActionEvent event) throws IOException {
         if(UtilityAccess.getState() == State.LOGGED_IN) {
             stageToSwitch = "/com/example/fitnesshelp/customWorkout";
-            switchStage(event);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/fitnesshelp/customWorkout.fxml"));
+            Parent root = loader.load();
+            GraphicsControllerCreateWorkoutPlan controller = loader.getController();
+            controller.initialize();
+            Stage home = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene primary = new Scene(root);
+            home.setScene(primary);
+            home.show();
         } else {
             errorLoginMessageLabel.setOpacity(1);
             errorLoginMessageButton.setOpacity(1);
         }
     }
+
     @FXML
     void clickedOnBuyWorkoutPlanHyperlink(ActionEvent event) throws IOException {
         stageToSwitch = "/com/example/fitnesshelp/buyWorkoutPlan";
