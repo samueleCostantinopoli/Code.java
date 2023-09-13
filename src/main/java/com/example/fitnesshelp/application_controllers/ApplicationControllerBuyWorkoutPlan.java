@@ -31,12 +31,14 @@ public class ApplicationControllerBuyWorkoutPlan {
 
     @SuppressWarnings("unchecked")
     public List<WorkoutPlan> checkWorkoutPlan() throws IOException, SQLException {
+        // to see all save workout
         FactoryDao factoryDao = new FactoryDao();
         return factoryDao.useDao(TypeOfPersistence.FILE_SYSTEM, TypeOfEntity.WORKOUT_PLAN).showData(UtilityAccess.getUsername());
     }
 
     @SuppressWarnings("unchecked")
     public List<WorkoutPlan> checkUserWorkoutPlan(BeanUsername beanUsername) throws WorkoutPlanLoadException, SQLException, IOException {
+        // method to view user workout plan to specific user
         FactoryDao factoryDao = new FactoryDao();
         DaoEntity<WorkoutPlan> daoEntity = factoryDao.useDao(TypeOfPersistence.FILE_SYSTEM, TypeOfEntity.WORKOUT_PLAN);
 
@@ -63,9 +65,10 @@ public class ApplicationControllerBuyWorkoutPlan {
 
     @SuppressWarnings("unchecked")
     public List<Exercise> checkUserExercise(BeanBuyWorkoutPlan beanBuyWorkoutPlan) throws ExerciseLoadException, SQLException, IOException {
+        // method to view exercise of specific user
         FactoryDao factoryDao = new FactoryDao();
         DaoEntity<Exercise> daoEntity = factoryDao.useDao(TypeOfPersistence.FILE_SYSTEM, TypeOfEntity.EXERCISE);
-
+        // I use a FactoryDao to create DaoEntity for Purchase
         List<Exercise> exerciseUser = new ArrayList<>();
         try {
             List<Exercise> exerciseTotal = daoEntity.showData(UtilityAccess.getUsername());
@@ -84,6 +87,7 @@ public class ApplicationControllerBuyWorkoutPlan {
 
     @SuppressWarnings("unchecked")
     public void createPurchase(BeanPurchase purchaseToSave) throws SQLException, IOException {
+        // I use a FactoryDao to create DaoEntity for Purchase
         FactoryDao factoryDao = new FactoryDao();
         factoryDao.useDao(TypeOfPersistence.FILE_SYSTEM, TypeOfEntity.PURCHASE).saveData(purchaseToSave.getPurchase());
     }
@@ -96,9 +100,10 @@ public class ApplicationControllerBuyWorkoutPlan {
 
     @SuppressWarnings("unchecked")
     public List<Purchase> checkUserPurchase(BeanUsername beanUsername) throws SQLException, IOException {
+        // method to view user purchase
         FactoryDao factoryDao = new FactoryDao();
         DaoEntity<Purchase> daoEntity = factoryDao.useDao(TypeOfPersistence.FILE_SYSTEM, TypeOfEntity.PURCHASE);
-
+        // I use a FactoryDao to create DaoEntity for Purchase
         List<Purchase> purchaseUser = new ArrayList<>();
         List<Purchase> purchaseTotal = daoEntity.showData(UtilityAccess.getUsername());
         for (Purchase purchase : purchaseTotal) {

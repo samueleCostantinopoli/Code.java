@@ -16,7 +16,7 @@ import org.junit.Test;
 
 public class ApplicationControllerBuyWorkoutPlanTest {
     // Samuele Costantinopoli test
-    // 1
+    // 1 test
      @Test
      public void checkUserWorkoutPlan() throws Exception {
          // Creiamo un'istanza di ApplicationControllerBuyWorkoutPlan
@@ -32,16 +32,16 @@ public class ApplicationControllerBuyWorkoutPlanTest {
          }
      }
 
-    // 2
+    // 2 test
     @Test
     public void checkUserExercise() throws SQLException, IOException {
-        ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
+         // I check exercise of user
+         ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
 
         BeanBuyWorkoutPlan beanBuyWorkoutPlan = new BeanBuyWorkoutPlan("Arms", 2.5,"user");
         List<Exercise> result = applicationControllerBuyWorkoutPlan.checkUserExercise(beanBuyWorkoutPlan);
 
-
-
+        // Check result and confront with string of requested exercise name
         for (Exercise exercise : result) {
             assertEquals("Arms", exercise.getWorkoutPlan().getName());
             assertEquals("user", exercise.getWorkoutPlan().getUsername());
@@ -51,13 +51,15 @@ public class ApplicationControllerBuyWorkoutPlanTest {
         // assertEquals(2, result.size());
     }
 
-    // 3
+    // 3 test
     @Test
     public void checkUserPurchase() throws SQLException, IOException {
-        ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
-
+        // I check all purchase of specific user (with Username)
+         ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
+        // I use method checkUserPurchase to have specific purchase
         List<Purchase> result = applicationControllerBuyWorkoutPlan.checkUserPurchase(new BeanUsername("samuele"));
 
+        // Check result and confront with string (Username) of user
         for (Purchase purchase : result) {
             assertEquals("samuele", purchase.getUsername());
         }
