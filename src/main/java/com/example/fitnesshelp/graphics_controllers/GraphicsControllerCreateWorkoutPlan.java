@@ -152,7 +152,6 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
     }
 
     public void onClickStartButton() {
-        priceText.setVisible(true);
         startButton.setVisible(false);
         infoBar.setVisible(true);
         nameCustomExerciseTextField1.setVisible(true);
@@ -167,6 +166,7 @@ public class GraphicsControllerCreateWorkoutPlan extends GraphicsControllerHomeP
         customeWorkoutNameLabel.setVisible(true);
         if(UtilityAccess.getTypeOfUser().equals(TypeOfUser.PERSONAL_TRAINER)){
             priceTextField.setVisible(true);
+            priceText.setVisible(true);
         }
     }
 
