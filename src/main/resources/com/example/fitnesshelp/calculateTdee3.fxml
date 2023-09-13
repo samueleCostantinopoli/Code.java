@@ -23,12 +23,12 @@
                   <Image url="@../../../man.png" />
                </image>
             </ImageView>
-            <Label fx:id="welcome" layoutX="646.0" layoutY="31.0" text="Welcome," textFill="WHITE">
+            <Label fx:id="welcome" layoutX="634.0" layoutY="31.0" text="Welcome on" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="nameSurname" layoutX="646.0" layoutY="50.0" text="Mario Rossi" textFill="WHITE">
+            <Label fx:id="nameSurname" layoutX="635.0" layoutY="50.0" text="Fitness Helper" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
@@ -163,7 +163,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="stateNameLabel" layoutX="438.0" layoutY="257.0" text="Mainteinance" AnchorPane.leftAnchor="438.0">
+      <Label fx:id="stateNameLabel" layoutX="218.0" layoutY="160.0" text="Mainteinance" AnchorPane.leftAnchor="218.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -181,17 +181,17 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="showMacroButton" layoutX="403.0" layoutY="286.0" mnemonicParsing="false" onAction="#clickedOnButtonMacro" prefHeight="29.0" prefWidth="101.0" style="-fx-background-color: #231717;" text="View macros" textFill="WHITE">
+      <Button fx:id="showMacroButton" layoutX="401.0" layoutY="264.0" mnemonicParsing="false" onAction="#clickedOnButtonMacro" prefHeight="29.0" prefWidth="101.0" style="-fx-background-color: #231717;" text="View macros" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Label fx:id="caloriesLabel" layoutX="428.0" layoutY="193.0" text="2000">
+      <Label fx:id="caloriesLabel" layoutX="426.0" layoutY="193.0" text="2000">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="393.0" layoutY="257.0" text="Target:">
+      <Label layoutX="173.0" layoutY="160.0" text="Target:">
          <font>
             <Font size="14.0" />
          </font>

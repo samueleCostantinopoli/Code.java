@@ -52,3 +52,9 @@ Fat: 84.3
 Carb: 189.6
 Target: bulking
 Quantity: moderate carb
+Kcal: 2985
+Protein: 298.5
+Fat: 132.6
+Carb: 149.2
+Target: maintenance
+Quantity: lower carb
