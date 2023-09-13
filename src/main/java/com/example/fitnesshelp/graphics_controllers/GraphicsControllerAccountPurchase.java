@@ -35,6 +35,7 @@ public class GraphicsControllerAccountPurchase extends GraphicsControllerHomePag
         // Only for exception
     }
 
+    // Method for set the visualization of user purchase
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         int numberOfAnchorPanes;
@@ -43,6 +44,7 @@ public class GraphicsControllerAccountPurchase extends GraphicsControllerHomePag
         anchorPaneContainer.getChildren().addAll(anchorPanes);
     }
 
+    // Use application controller operation for user purchase and save the size of array
     private int readValueFromFileSystem() {
         // Read value from the file system
         return purchaseList.size();
