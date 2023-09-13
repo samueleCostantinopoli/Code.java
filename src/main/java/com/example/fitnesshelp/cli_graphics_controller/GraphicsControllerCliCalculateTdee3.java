@@ -23,7 +23,7 @@ public class GraphicsControllerCliCalculateTdee3 {
         Printer.print(target + " - calories per day: " + Integer.parseInt(formattedNumber));
 
         List<Macro> macroList = requestMacroList(formattedNumber);
-
+        // now user selects the quantity of carbs
         selectQuantityOfCarb(macroList, Integer.parseInt(formattedNumber), target);
 
     }
@@ -32,7 +32,7 @@ public class GraphicsControllerCliCalculateTdee3 {
         String modCarb = "moderate carb";
         String lowCarb = "lower carb";
         String highCarb = "higher carb";
-
+        // call the system actor to request the partition of macros
         ApplicationControllerCalculateTdee applicationControllerCalculateTdee = new ApplicationControllerCalculateTdee();
         List<Macro> macroList = applicationControllerCalculateTdee.requestMacroList(Integer.parseInt(formattedNumber));
 

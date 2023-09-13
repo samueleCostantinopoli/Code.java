@@ -31,10 +31,10 @@ public class ApplicationControllerCalculateTdee {
     }
 
     public ApplicationControllerCalculateTdee() {
-        // this second costructor is used to call requestTdeeList without passing bean
     }
 
     public double calculateTdee(){
+        // call system actor and request tdee
         Questionnaire questionnaire = new Questionnaire(gender, age, weight, height, activity);
         double kcal;
         TdeeCalculator tdeeCalculator = new TdeeCalculator();

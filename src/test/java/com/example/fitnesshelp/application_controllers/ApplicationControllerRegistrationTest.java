@@ -9,7 +9,8 @@ import java.sql.SQLException;
 import static org.junit.Assert.*;
 
 public class ApplicationControllerRegistrationTest {
-
+    // Leonardo Pompili
+    // this test verify the username of aan existing account is present on db
     @Test
     public void checkCredentials() throws SQLException, IOException {
         DaoImplRegistration daoImplRegistration = new DaoImplRegistration();

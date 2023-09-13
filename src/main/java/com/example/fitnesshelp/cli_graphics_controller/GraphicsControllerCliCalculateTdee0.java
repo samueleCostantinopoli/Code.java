@@ -12,6 +12,7 @@ import java.util.List;
 
 public class GraphicsControllerCliCalculateTdee0 {
     public void showTdee() throws SQLException, IOException, TdeeRemoveException {
+        // request the list of tdee of the user from db
         ApplicationControllerCalculateTdee applicationControllerCalculateTdee = new ApplicationControllerCalculateTdee();
         List<Tdee> tdeeList = applicationControllerCalculateTdee.requestTdeeList();
 

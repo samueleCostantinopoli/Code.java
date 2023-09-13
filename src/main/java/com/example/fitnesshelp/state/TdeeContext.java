@@ -3,7 +3,7 @@ package com.example.fitnesshelp.state;
 import com.example.fitnesshelp.entities.Questionnaire;
 
 public class TdeeContext implements TdeeState{
-
+    // this method call 'calculateTdee' based on the state that is currently setted
     private TdeeState state;
 
     public void setState(TdeeState state){

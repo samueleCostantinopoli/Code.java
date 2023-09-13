@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import java.sql.SQLException;
 
 public class GraphicsControllerCliCalculateTdee1 {
-
+    // menu options are divided to many methods for reducing complexity of class
     public void showMenu() throws IOException, SQLException, TdeeRemoveException {
         if (UtilityAccess.getState() == State.LOGGED_IN) {
             printLoggedInMenu();
@@ -84,11 +84,13 @@ public class GraphicsControllerCliCalculateTdee1 {
     }
 
     private void handleViewTdee() throws SQLException, IOException, TdeeRemoveException {
+        // show my tdee
         GraphicsControllerCliCalculateTdee0 graphicsControllerCliCalculateTdee0 = new GraphicsControllerCliCalculateTdee0();
         graphicsControllerCliCalculateTdee0.showTdee();
     }
 
     private void handleCalculateTdee() throws SQLException, IOException, TdeeRemoveException {
+        // calculate a new tdee
         GraphicsControllerCliCalculateTdee2 graphicsControllerCliCalculateTdee2 = new GraphicsControllerCliCalculateTdee2();
         graphicsControllerCliCalculateTdee2.showQuestionnaire();
     }

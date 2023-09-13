@@ -99,7 +99,7 @@ public class GraphicsControllerCliHomePage {
     }
 
 
-    // Implementa i metodi handleXxx per ciascuna opzione
+    // these methods are divided for reducing the complexity of class
     private void handleCreateWorkout() {
         Printer.print("'Create workout' has not been implemented, it will be available soon\nSelect another function\n");
     }
@@ -109,6 +109,7 @@ public class GraphicsControllerCliHomePage {
     }
 
     private void handleCalculateTdee() throws IOException, SQLException, TdeeRemoveException {
+        // calculate tdee
         GraphicsControllerCliCalculateTdee1 graphicsControllerCliCalculateTdee1 = new GraphicsControllerCliCalculateTdee1();
         graphicsControllerCliCalculateTdee1.showMenu();
     }

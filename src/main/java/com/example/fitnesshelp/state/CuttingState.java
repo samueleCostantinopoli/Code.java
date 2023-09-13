@@ -4,7 +4,7 @@ import com.example.fitnesshelp.entities.Gender;
 import com.example.fitnesshelp.entities.Questionnaire;
 
 public class CuttingState implements TdeeState{
-
+    // state cutting
     private double kcalCut;
     private double mbCut;
     private double actCut;

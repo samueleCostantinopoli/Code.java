@@ -4,7 +4,7 @@ import com.example.fitnesshelp.entities.Gender;
 import com.example.fitnesshelp.entities.Questionnaire;
 
 public class MaintenanceState implements TdeeState{
-
+    // state maintenance
     private double kcalMain;
     private double mbMain;
     private double actMain;

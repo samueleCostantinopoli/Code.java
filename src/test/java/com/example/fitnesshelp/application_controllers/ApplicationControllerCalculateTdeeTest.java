@@ -9,7 +9,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class ApplicationControllerCalculateTdeeTest {
-
+    // Leonardo Pompili
+    // this test verify that the TDEE for this data are different from 2222 kcal
     @Test
     public void calculateTdee() {
         Questionnaire questionnaire = new Questionnaire(Gender.MALE, 30, 80, 180, Activity.SEDENTARY);

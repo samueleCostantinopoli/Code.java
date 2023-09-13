@@ -4,7 +4,7 @@ import com.example.fitnesshelp.entities.Gender;
 import com.example.fitnesshelp.entities.Questionnaire;
 
 public class BulkingState implements TdeeState{
-
+    // state bulking
     private double kcalBulk;
     private double mbBulk;
     private double actBulk;

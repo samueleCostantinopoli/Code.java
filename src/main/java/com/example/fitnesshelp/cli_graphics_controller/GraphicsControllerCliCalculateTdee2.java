@@ -28,6 +28,7 @@ public class GraphicsControllerCliCalculateTdee2 {
         String cutTarget = "cutting";
         String bulkTarget = "bulking";
 
+        // these methods take the answer of the user
         selectGender(bufferedReader);
 
         selectAge(bufferedReader);
