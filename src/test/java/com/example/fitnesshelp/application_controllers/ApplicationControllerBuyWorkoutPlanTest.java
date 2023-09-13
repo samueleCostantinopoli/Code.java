@@ -19,14 +19,12 @@ public class ApplicationControllerBuyWorkoutPlanTest {
     // 1 test
      @Test
      public void checkUserWorkoutPlan() throws Exception {
-         // Creiamo un'istanza di ApplicationControllerBuyWorkoutPlan
+         // Create an instance of ApplicationControllerBuyWorkoutPlan
          ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(new BeanState(UtilityAccess.getState()));
-
-         // Eseguiamo il metodo da testare
          BeanUsername beanUsername = new BeanUsername("user");
          List<WorkoutPlan> result = applicationControllerBuyWorkoutPlan.checkUserWorkoutPlan(beanUsername);
 
-         // Verifica che i workout plan nella lista abbiano username corrispondente
+         // Check the workout plan on list have this specific Username
          for (WorkoutPlan workoutPlan : result) {
              assertEquals( "user", workoutPlan.getUsername());
          }
@@ -47,7 +45,7 @@ public class ApplicationControllerBuyWorkoutPlanTest {
             assertEquals("user", exercise.getWorkoutPlan().getUsername());
 
         }
-        // Sapendo che gli exercise di questo Workout sono 2:
+        // I know the exercise of this Workout, is 2
         // assertEquals(2, result.size());
     }
 
@@ -63,7 +61,7 @@ public class ApplicationControllerBuyWorkoutPlanTest {
         for (Purchase purchase : result) {
             assertEquals("samuele", purchase.getUsername());
         }
-        // Sapendo che i purchase di questo utente sono 4:
+        // I know the i purchase of this user is 4
         //assertEquals(4, result.size());
     }
 }
