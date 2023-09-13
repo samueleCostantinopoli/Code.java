@@ -12,3 +12,9 @@
 774143953-2.5-Sun Sep 10 16:55:36 CEST 2023-Samuele-Chest Workout PowerLifting-0-user-2.5
 1769508766-3.99-Sun Sep 10 17:35:32 CEST 2023-Leonardo-Back Workout-1-user-3.99
 420183933-4.99-Mon Sep 11 19:05:10 CEST 2023-Samuele-Triceps workout-1-Leonardo-4.99
+438124446-2.5-Wed Sep 13 14:40:34 CEST 2023-Samuele-Arms-0-user-2.5
+1413526495-7.99-Wed Sep 13 14:52:41 CEST 2023-Leonardo-Leg day PowerLifting-2-Leonardo-7.99
+1408322546-7.99-Wed Sep 13 14:58:55 CEST 2023-Samuele-Leg day PowerLifting-2-Leonardo-7.99
+1187591914-4.99-Wed Sep 13 15:04:21 CEST 2023-Samuele-Triceps workout-1-Leonardo-4.99
+442371531-2.5-Wed Sep 13 15:22:55 CEST 2023-Samuele-Chest Workout PowerLifting-0-user-2.5
+160475066-7.99-Wed Sep 13 15:27:39 CEST 2023-Samuele-Leg day PowerLifting-2-Leonardo-7.99

@@ -67,7 +67,6 @@ public class GraphicsControllerMyWorkoutPlan extends GraphicsControllerHomePage 
     }
     BeanState beanState = new BeanState(UtilityAccess.getState());
     ApplicationControllerBuyWorkoutPlan applicationControllerBuyWorkoutPlan = new ApplicationControllerBuyWorkoutPlan(beanState);
-
     BeanUsername beanUsername =new BeanUsername(UtilityAccess.getUsername());
     List<WorkoutPlan> listWorkouts = applicationControllerBuyWorkoutPlan.checkUserWorkoutPlan(beanUsername);
     List<Purchase> listPurchaseUser = applicationControllerBuyWorkoutPlan.checkUserPurchase(beanUsername);
