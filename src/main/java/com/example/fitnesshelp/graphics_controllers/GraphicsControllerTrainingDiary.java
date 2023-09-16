@@ -13,7 +13,7 @@ public class GraphicsControllerTrainingDiary extends GraphicsControllerHomePage 
 
     @FXML
     void clickedOnButtonAddNote(ActionEvent event) {
-
+        // Not implemented
     }
 
     void clickedOnTdeeCalculatorHyperlink(ActionEvent event) throws IOException {

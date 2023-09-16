@@ -14,16 +14,16 @@ public class GraphicsControllerFindAGymNearMe extends GraphicsControllerHomePage
 
     @FXML
     void clickedOnButtonShowAllGym(ActionEvent event) {
-
+        // Not implemented
     }
 
     @FXML
     void clickedOnButtonViewInfoGym1(ActionEvent event) {
-
+        // Not implemented
     }
 
     @FXML
     void clickedOnButtonViewInfoGym2(ActionEvent event) {
-
+        // Not implemented
     }
 }
