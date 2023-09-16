@@ -85,7 +85,7 @@ public class GraphicsControllerCliBuyWorkoutPlan {
                 Printer.print("\nWrite the number of the workout you want to buy about:");
                 int numberInput = Integer.parseInt(getUserInput());
                 if (numberInput >= 1 && numberInput <= workoutPlanList.size()) {
-                    GraphicsControllerCliBuyWorkoutPlan1 infoController = new GraphicsControllerCliBuyWorkoutPlan1();
+                    GraphicsControllerCliBuyWorkoutPlanSetPayments infoController = new GraphicsControllerCliBuyWorkoutPlanSetPayments();
                     infoController.saveWorkout(workoutPlanList.get(numberInput - 1));
                     break;
                 } else {

@@ -35,7 +35,7 @@ public class GraphicsControllerCliBuyInfoWorkoutPlan {
                 }
                 case "4" -> {
                     if (UtilityAccess.getState() == State.LOGGED_IN) {
-                        GraphicsControllerCliBuyWorkoutPlan1 infoController = new GraphicsControllerCliBuyWorkoutPlan1();
+                        GraphicsControllerCliBuyWorkoutPlanSetPayments infoController = new GraphicsControllerCliBuyWorkoutPlanSetPayments();
                         infoController.saveWorkout(currentWorkout);
 
                     } else {

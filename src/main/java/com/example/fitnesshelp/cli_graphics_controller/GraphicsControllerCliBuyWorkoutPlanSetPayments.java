@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
 
-public class GraphicsControllerCliBuyWorkoutPlan1 {
+public class GraphicsControllerCliBuyWorkoutPlanSetPayments {
 
     String cardNumber;
     String expiresCard;
