@@ -187,6 +187,7 @@ public class GraphicsControllerCalculateTdee2 extends GraphicsControllerHomePage
             calculateButton.setDisable(true);
             calculateButton.setOpacity(0);
             nextButton.setDisable(false);
+            ageTextField.setDisable(false);
         } else if (heightRange != null) {
             // height is out of the range
             emptyAllertLabel.setText(heightRange);
@@ -194,6 +195,7 @@ public class GraphicsControllerCalculateTdee2 extends GraphicsControllerHomePage
             calculateButton.setDisable(true);
             calculateButton.setOpacity(0);
             nextButton.setDisable(false);
+            heightTextField.setDisable(false);
         } else {
             // weight is out of the range
             emptyAllertLabel.setText(weightRange);
@@ -201,7 +203,9 @@ public class GraphicsControllerCalculateTdee2 extends GraphicsControllerHomePage
             calculateButton.setDisable(true);
             calculateButton.setOpacity(0);
             nextButton.setDisable(false);
+            weightTextField.setDisable(false);
         }
     }
+
 
 }
